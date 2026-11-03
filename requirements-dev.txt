@@ -1,0 +1,2 @@
+# Repository validation only; the vendored search tool uses the standard library.
+PyYAML==6.0.3
