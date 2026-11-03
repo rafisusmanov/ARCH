@@ -1,0 +1,1266 @@
+{
+  "stage": "01",
+  "status": "owner_approved_ia_pending_content",
+  "source_repo": "rafisusmanov/architektonica-creative",
+  "source_path": "references/project/services_catalogue.json",
+  "source_note": "snapshot, not live Notion verification",
+  "id_policy": "IDs frozen by owner approval of IA on 2026-11-01; do not rederive from row order. proposed_* fields describe planned destinations, not live routes. Content publication requires separate approval.",
+  "groups": [
+    {
+      "id": "brand-and-communications",
+      "title": "Бренд и коммуникации",
+      "direction_names": [
+        "Брендинг",
+        "Маркетинг и продвижение",
+        "PR, Events & Brand Experience"
+      ],
+      "intent": "Сформировать позицию бренда и обеспечить присутствие на рынке"
+    },
+    {
+      "id": "digital-products",
+      "title": "Сайты и цифровые продукты",
+      "direction_names": [
+        "Сайты и цифровые продукты",
+        "Электронная коммерция и маркетплейсы"
+      ],
+      "intent": "Создать интерфейс, платформу или цифровой канал взаимодействия"
+    },
+    {
+      "id": "immersive-media",
+      "title": "Иммерсивные проекты и медиа",
+      "direction_names": [
+        "Спецпроекты и интерактив",
+        "3D, анимация и видео",
+        "Музыка и звук"
+      ],
+      "intent": "Объяснить сложный объект или сделать опыт запоминающимся"
+    },
+    {
+      "id": "ai-and-infrastructure",
+      "title": "ИИ, инженерия и инфраструктура",
+      "direction_names": [
+        "AI-системы: проектирование и разработка",
+        "AI-системы: предметные задачи",
+        "ИТ-аутсорсинг и кибербезопасность"
+      ],
+      "intent": "Встроить вычислительные решения, автоматизацию и безопасность в процессы"
+    },
+    {
+      "id": "sales-and-cx",
+      "title": "Продажи и клиентский опыт",
+      "direction_names": [
+        "Продажи",
+        "Клиентский сервис и BPO"
+      ],
+      "intent": "Построить путь от обращения до устойчивого клиентского процесса"
+    },
+    {
+      "id": "data-finance-operations",
+      "title": "Данные, финансы и операции",
+      "direction_names": [
+        "Бухгалтерия и аудит",
+        "Подбор персонала и HR-аутсорсинг",
+        "Бизнес-аналитика",
+        "Комплексный B2B-аутсорсинг"
+      ],
+      "intent": "Сделать управленческий, финансовый и операционный контур прозрачным"
+    }
+  ],
+  "directions": [
+    {
+      "id": "dir-01",
+      "name": "Брендинг",
+      "slug": "branding",
+      "group_id": "brand-and-communications",
+      "count": 3,
+      "proposed_url": "/services/branding"
+    },
+    {
+      "id": "dir-02",
+      "name": "Маркетинг и продвижение",
+      "slug": "marketing-and-promotion",
+      "group_id": "brand-and-communications",
+      "count": 10,
+      "proposed_url": "/services/marketing-and-promotion"
+    },
+    {
+      "id": "dir-03",
+      "name": "PR, Events & Brand Experience",
+      "slug": "pr-events-and-brand-experience",
+      "group_id": "brand-and-communications",
+      "count": 2,
+      "proposed_url": "/services/pr-events-and-brand-experience"
+    },
+    {
+      "id": "dir-04",
+      "name": "Сайты и цифровые продукты",
+      "slug": "websites-and-digital-products",
+      "group_id": "digital-products",
+      "count": 6,
+      "proposed_url": "/services/websites-and-digital-products"
+    },
+    {
+      "id": "dir-05",
+      "name": "ИТ-аутсорсинг и кибербезопасность",
+      "slug": "managed-it-and-cybersecurity",
+      "group_id": "ai-and-infrastructure",
+      "count": 4,
+      "proposed_url": "/services/managed-it-and-cybersecurity"
+    },
+    {
+      "id": "dir-06",
+      "name": "Спецпроекты и интерактив",
+      "slug": "special-projects-and-interactive",
+      "group_id": "immersive-media",
+      "count": 4,
+      "proposed_url": "/services/special-projects-and-interactive"
+    },
+    {
+      "id": "dir-07",
+      "name": "3D, анимация и видео",
+      "slug": "3d-animation-and-video",
+      "group_id": "immersive-media",
+      "count": 7,
+      "proposed_url": "/services/3d-animation-and-video"
+    },
+    {
+      "id": "dir-08",
+      "name": "Музыка и звук",
+      "slug": "music-and-sound",
+      "group_id": "immersive-media",
+      "count": 2,
+      "proposed_url": "/services/music-and-sound"
+    },
+    {
+      "id": "dir-09",
+      "name": "AI-системы: проектирование и разработка",
+      "slug": "ai-systems-and-development",
+      "group_id": "ai-and-infrastructure",
+      "count": 9,
+      "proposed_url": "/services/ai-systems-and-development"
+    },
+    {
+      "id": "dir-10",
+      "name": "AI-системы: предметные задачи",
+      "slug": "applied-ai",
+      "group_id": "ai-and-infrastructure",
+      "count": 8,
+      "proposed_url": "/services/applied-ai"
+    },
+    {
+      "id": "dir-11",
+      "name": "Продажи",
+      "slug": "sales",
+      "group_id": "sales-and-cx",
+      "count": 6,
+      "proposed_url": "/services/sales"
+    },
+    {
+      "id": "dir-12",
+      "name": "Клиентский сервис и BPO",
+      "slug": "customer-service-and-bpo",
+      "group_id": "sales-and-cx",
+      "count": 1,
+      "proposed_url": "/services/customer-service-and-bpo"
+    },
+    {
+      "id": "dir-13",
+      "name": "Бухгалтерия и аудит",
+      "slug": "accounting-and-audit",
+      "group_id": "data-finance-operations",
+      "count": 7,
+      "proposed_url": "/services/accounting-and-audit"
+    },
+    {
+      "id": "dir-14",
+      "name": "Подбор персонала и HR-аутсорсинг",
+      "slug": "hr-and-recruitment",
+      "group_id": "data-finance-operations",
+      "count": 3,
+      "proposed_url": "/services/hr-and-recruitment"
+    },
+    {
+      "id": "dir-15",
+      "name": "Бизнес-аналитика",
+      "slug": "business-analytics",
+      "group_id": "data-finance-operations",
+      "count": 7,
+      "proposed_url": "/services/business-analytics"
+    },
+    {
+      "id": "dir-16",
+      "name": "Электронная коммерция и маркетплейсы",
+      "slug": "ecommerce-and-marketplaces",
+      "group_id": "digital-products",
+      "count": 1,
+      "proposed_url": "/services/ecommerce-and-marketplaces"
+    },
+    {
+      "id": "dir-17",
+      "name": "Комплексный B2B-аутсорсинг",
+      "slug": "b2b-business-operations",
+      "group_id": "data-finance-operations",
+      "count": 1,
+      "proposed_url": "/services/b2b-business-operations"
+    }
+  ],
+  "services": [
+    {
+      "id": "svc-001",
+      "name": "Брендинг",
+      "direction_id": "dir-01",
+      "proposed_detail_slug": "branding",
+      "proposed_surface": "detail_candidate",
+      "proposed_destination": "/services/branding/branding",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-002",
+      "name": "Разработка логотипов",
+      "direction_id": "dir-01",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/branding#svc-002",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-003",
+      "name": "Айдентика и фирменный стиль",
+      "direction_id": "dir-01",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/branding#svc-003",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-004",
+      "name": "Маркетинг",
+      "direction_id": "dir-02",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/marketing-and-promotion#svc-004",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-005",
+      "name": "SEO",
+      "direction_id": "dir-02",
+      "proposed_detail_slug": "seo",
+      "proposed_surface": "detail_candidate",
+      "proposed_destination": "/services/marketing-and-promotion/seo",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-006",
+      "name": "GEO",
+      "direction_id": "dir-02",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/marketing-and-promotion#svc-006",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-007",
+      "name": "SEO и мультиязычное продвижение",
+      "direction_id": "dir-02",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/marketing-and-promotion#svc-007",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-008",
+      "name": "GEO — оптимизация для генеративного поиска",
+      "direction_id": "dir-02",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/marketing-and-promotion#svc-008",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-009",
+      "name": "Контекстная реклама",
+      "direction_id": "dir-02",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/marketing-and-promotion#svc-009",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-010",
+      "name": "Таргетированная реклама и SMM",
+      "direction_id": "dir-02",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/marketing-and-promotion#svc-010",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-011",
+      "name": "Управление репутацией — SERM/ORM",
+      "direction_id": "dir-02",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/marketing-and-promotion#svc-011",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-012",
+      "name": "Контент-маркетинг и PR",
+      "direction_id": "dir-02",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/marketing-and-promotion#svc-012",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-013",
+      "name": "Организация B2B-мероприятий",
+      "direction_id": "dir-02",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/marketing-and-promotion#svc-013",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-014",
+      "name": "Организация мероприятий (Event Management)",
+      "direction_id": "dir-03",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/pr-events-and-brand-experience#svc-014",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-015",
+      "name": "PR и коммуникационные кампании (PR & Communications)",
+      "direction_id": "dir-03",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/pr-events-and-brand-experience#svc-015",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-016",
+      "name": "Разработка сайтов и лендингов",
+      "direction_id": "dir-04",
+      "proposed_detail_slug": "websites-and-landing-pages",
+      "proposed_surface": "detail_candidate",
+      "proposed_destination": "/services/websites-and-digital-products/websites-and-landing-pages",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-017",
+      "name": "Разработка цифровых платформ",
+      "direction_id": "dir-04",
+      "proposed_detail_slug": "digital-platforms",
+      "proposed_surface": "detail_candidate",
+      "proposed_destination": "/services/websites-and-digital-products/digital-platforms",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-018",
+      "name": "UX/UI-дизайн",
+      "direction_id": "dir-04",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/websites-and-digital-products#svc-018",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-019",
+      "name": "Личные кабинеты",
+      "direction_id": "dir-04",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/websites-and-digital-products#svc-019",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-020",
+      "name": "Интерактивные инструменты",
+      "direction_id": "dir-04",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/websites-and-digital-products#svc-020",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-021",
+      "name": "Поддержка и развитие",
+      "direction_id": "dir-04",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/websites-and-digital-products#svc-021",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-022",
+      "name": "ИТ-аутсорсинг и Managed IT",
+      "direction_id": "dir-05",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/managed-it-and-cybersecurity#svc-022",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-023",
+      "name": "Кибербезопасность (Cybersecurity as a Service)",
+      "direction_id": "dir-05",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/managed-it-and-cybersecurity#svc-023",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-024",
+      "name": "Автоматизация корпоративных систем (ERP/BPM)",
+      "direction_id": "dir-05",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/managed-it-and-cybersecurity#svc-024",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-025",
+      "name": "Managed Cybersecurity & AI Security",
+      "direction_id": "dir-05",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/managed-it-and-cybersecurity#svc-025",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-026",
+      "name": "Интерактивные спецпроекты",
+      "direction_id": "dir-06",
+      "proposed_detail_slug": "interactive-special-projects",
+      "proposed_surface": "detail_candidate",
+      "proposed_destination": "/services/special-projects-and-interactive/interactive-special-projects",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-027",
+      "name": "Иммерсивные онлайн-опыты",
+      "direction_id": "dir-06",
+      "proposed_detail_slug": "immersive-online-experiences",
+      "proposed_surface": "detail_candidate",
+      "proposed_destination": "/services/special-projects-and-interactive/immersive-online-experiences",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-028",
+      "name": "Интерактивные карты и 3D-туры",
+      "direction_id": "dir-06",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/special-projects-and-interactive#svc-028",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-029",
+      "name": "AR-механики",
+      "direction_id": "dir-06",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/special-projects-and-interactive#svc-029",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-030",
+      "name": "3D-графика и визуализация",
+      "direction_id": "dir-07",
+      "proposed_detail_slug": "3d-visualization",
+      "proposed_surface": "detail_candidate",
+      "proposed_destination": "/services/3d-animation-and-video/3d-visualization",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-031",
+      "name": "Научная и инженерная визуализация",
+      "direction_id": "dir-07",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/3d-animation-and-video#svc-031",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-032",
+      "name": "Motion-дизайн и анимация",
+      "direction_id": "dir-07",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/3d-animation-and-video#svc-032",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-033",
+      "name": "AI-анимация",
+      "direction_id": "dir-07",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/3d-animation-and-video#svc-033",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-034",
+      "name": "Real-time графика",
+      "direction_id": "dir-07",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/3d-animation-and-video#svc-034",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-035",
+      "name": "Синематики",
+      "direction_id": "dir-07",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/3d-animation-and-video#svc-035",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-036",
+      "name": "Virtual production",
+      "direction_id": "dir-07",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/3d-animation-and-video#svc-036",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-037",
+      "name": "Создание музыки",
+      "direction_id": "dir-08",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/music-and-sound#svc-037",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-038",
+      "name": "Саунд-дизайн",
+      "direction_id": "dir-08",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/music-and-sound#svc-038",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-039",
+      "name": "Анализ задачи, процессов и данных",
+      "direction_id": "dir-09",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/ai-systems-and-development#svc-039",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-040",
+      "name": "Архитектура AI-решения",
+      "direction_id": "dir-09",
+      "proposed_detail_slug": "ai-solution-architecture",
+      "proposed_surface": "detail_candidate",
+      "proposed_destination": "/services/ai-systems-and-development/ai-solution-architecture",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-041",
+      "name": "Прототипирование",
+      "direction_id": "dir-09",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/ai-systems-and-development#svc-041",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-042",
+      "name": "Пилот на исторических данных",
+      "direction_id": "dir-09",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/ai-systems-and-development#svc-042",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-043",
+      "name": "Разработка, интеграция и внедрение",
+      "direction_id": "dir-09",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/ai-systems-and-development#svc-043",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-044",
+      "name": "MLOps и сопровождение моделей",
+      "direction_id": "dir-09",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/ai-systems-and-development#svc-044",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-045",
+      "name": "AI-автоматизация бизнеса",
+      "direction_id": "dir-09",
+      "proposed_detail_slug": "ai-business-automation",
+      "proposed_surface": "detail_candidate",
+      "proposed_destination": "/services/ai-systems-and-development/ai-business-automation",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-046",
+      "name": "AI Agents as a Service",
+      "direction_id": "dir-09",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/ai-systems-and-development#svc-046",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-047",
+      "name": "AI Governance & Compliance",
+      "direction_id": "dir-09",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/ai-systems-and-development#svc-047",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-048",
+      "name": "Молекулярный R&D",
+      "direction_id": "dir-10",
+      "proposed_detail_slug": "molecular-r-and-d",
+      "proposed_surface": "detail_candidate",
+      "proposed_destination": "/services/applied-ai/molecular-r-and-d",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-049",
+      "name": "Биопрепараты и антитела",
+      "direction_id": "dir-10",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/applied-ai#svc-049",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-050",
+      "name": "Дженерики и формуляции",
+      "direction_id": "dir-10",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/applied-ai#svc-050",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-051",
+      "name": "Цифровые двойники процессов",
+      "direction_id": "dir-10",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/applied-ai#svc-051",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-052",
+      "name": "RAG-системы и работа со знаниями",
+      "direction_id": "dir-10",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/applied-ai#svc-052",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-053",
+      "name": "Документные AI-агенты",
+      "direction_id": "dir-10",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/applied-ai#svc-053",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-054",
+      "name": "Компьютерное зрение",
+      "direction_id": "dir-10",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/applied-ai#svc-054",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-055",
+      "name": "Инженерное моделирование и проектирование",
+      "direction_id": "dir-10",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/applied-ai#svc-055",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-056",
+      "name": "Отдел продаж под ключ",
+      "direction_id": "dir-11",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/sales#svc-056",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-057",
+      "name": "Внедрение и кастомизация CRM",
+      "direction_id": "dir-11",
+      "proposed_detail_slug": "crm-implementation",
+      "proposed_surface": "detail_candidate",
+      "proposed_destination": "/services/sales/crm-implementation",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-058",
+      "name": "Омниканальные коммуникации",
+      "direction_id": "dir-11",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/sales#svc-058",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-059",
+      "name": "Скрипты продаж и регламенты",
+      "direction_id": "dir-11",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/sales#svc-059",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-060",
+      "name": "AI-автоматизация лидогенерации и обработки заявок",
+      "direction_id": "dir-11",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/sales#svc-060",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-061",
+      "name": "RevOps и коммерческие операции",
+      "direction_id": "dir-11",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/sales#svc-061",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-062",
+      "name": "Клиентский сервис на аутсорсе (CX/BPO)",
+      "direction_id": "dir-12",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/customer-service-and-bpo#svc-062",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-063",
+      "name": "Регистрация бизнеса",
+      "direction_id": "dir-13",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/accounting-and-audit#svc-063",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-064",
+      "name": "Аутсорсинг бухгалтерии",
+      "direction_id": "dir-13",
+      "proposed_detail_slug": "accounting-outsourcing",
+      "proposed_surface": "detail_candidate",
+      "proposed_destination": "/services/accounting-and-audit/accounting-outsourcing",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-065",
+      "name": "Кадровый учёт и расчёт зарплаты",
+      "direction_id": "dir-13",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/accounting-and-audit#svc-065",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-066",
+      "name": "Финансовый аудит, due diligence и восстановление учёта",
+      "direction_id": "dir-13",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/accounting-and-audit#svc-066",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-067",
+      "name": "Законная оптимизация налогообложения",
+      "direction_id": "dir-13",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/accounting-and-audit#svc-067",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-068",
+      "name": "Международный учёт и консалтинг",
+      "direction_id": "dir-13",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/accounting-and-audit#svc-068",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-069",
+      "name": "Финансовый директор на аутсорсе (CFO as a Service)",
+      "direction_id": "dir-13",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/accounting-and-audit#svc-069",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-070",
+      "name": "Подбор персонала",
+      "direction_id": "dir-14",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/hr-and-recruitment#svc-070",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-071",
+      "name": "HR Business Partner / RPO",
+      "direction_id": "dir-14",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/hr-and-recruitment#svc-071",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-072",
+      "name": "Корпоративное обучение и внедрение ИИ",
+      "direction_id": "dir-14",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/hr-and-recruitment#svc-072",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-073",
+      "name": "Сквозная аналитика",
+      "direction_id": "dir-15",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/business-analytics#svc-073",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-074",
+      "name": "BI и бизнес-дашборды",
+      "direction_id": "dir-15",
+      "proposed_detail_slug": "bi-and-dashboards",
+      "proposed_surface": "detail_candidate",
+      "proposed_destination": "/services/business-analytics/bi-and-dashboards",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-075",
+      "name": "Корпоративные хранилища данных — DWH",
+      "direction_id": "dir-15",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/business-analytics#svc-075",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-076",
+      "name": "Веб-аналитика и серверное отслеживание",
+      "direction_id": "dir-15",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/business-analytics#svc-076",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-077",
+      "name": "Предиктивная аналитика и Machine Learning",
+      "direction_id": "dir-15",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/business-analytics#svc-077",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-078",
+      "name": "Автоматизация управленческого учёта",
+      "direction_id": "dir-15",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/business-analytics#svc-078",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-079",
+      "name": "Управление корпоративными данными (Data Governance)",
+      "direction_id": "dir-15",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/business-analytics#svc-079",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-080",
+      "name": "Управление маркетплейсами и e-commerce",
+      "direction_id": "dir-16",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/ecommerce-and-marketplaces#svc-080",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-081",
+      "name": "Business Operations as a Service",
+      "direction_id": "dir-17",
+      "proposed_detail_slug": null,
+      "proposed_surface": "direction_section",
+      "proposed_destination": "/services/b2b-business-operations#svc-081",
+      "publication_status": "not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    }
+  ],
+  "owner_approval": "Owner confirmed Stage 01 IA 2026-11-01. Careers is first-level navigation; SEO naming policy added. Approval of structure does not approve any service copy, vacancy or public URL deployment.",
+  "seo_naming_policy": "planning/stage-01/SEO_NAMING_POLICY.md",
+  "careers_route": "/careers",
+  "career_detail_pattern": "/careers/<vacancy-slug>"
+}

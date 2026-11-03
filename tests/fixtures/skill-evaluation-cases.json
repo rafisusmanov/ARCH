@@ -1,0 +1,77 @@
+[
+  {
+    "id": "home",
+    "task": "Спроектируй структуру и публикационные тексты главной страницы ARCHITEKTONICA на основании проверенного позиционирования, без демонстрационных данных Engine.",
+    "skills": [
+      "architektonica-creative-director",
+      "architektonica-reader-insight",
+      "architektonica-narrative-design"
+    ],
+    "must_check": [
+      "company-not-studio",
+      "three-pillars",
+      "real-facts-only",
+      "engine-adaptive"
+    ]
+  },
+  {
+    "id": "service",
+    "task": "Создай содержательную структуру страницы реальной услуги из каталога 17 направлений и 81 услуги, предложи связи с кейсами и статьями, не придумывая ссылок.",
+    "skills": [
+      "architektonica-ui-ux-expert",
+      "architektonica-search-visibility"
+    ],
+    "must_check": [
+      "catalogue-17-81",
+      "stable-id",
+      "relations-publication-status",
+      "source-facts"
+    ]
+  },
+  {
+    "id": "case-uncertain",
+    "task": "Оформи кейс по неполным исходным данным: известна архитектура и прототип, но не подтверждено внедрение или бизнес-результат.",
+    "skills": [
+      "architektonica-portfolio-case-writer",
+      "architektonica-critical-editor"
+    ],
+    "must_check": [
+      "no-fabrication",
+      "stage-correct",
+      "ask-only-missing-facts",
+      "portfolio-integrity"
+    ]
+  },
+  {
+    "id": "microcopy",
+    "task": "Предложи микротекст CTA и ошибки формы связи, которая на preview пока отключена; не обещай отправку до внедрения backend.",
+    "skills": [
+      "architektonica-psycholinguistic-editor",
+      "architektonica-critical-editor"
+    ],
+    "must_check": [
+      "truthful-contact-status",
+      "clear-error",
+      "no-false-success",
+      "brand-voice"
+    ]
+  },
+  {
+    "id": "immersive-scene",
+    "task": "Создай решение пространственно глубокого блока с GSAP/ScrollTrigger, Lenis и опциональным WebGL, сохрани смысл текста и сниженную анимацию.",
+    "skills": [
+      "architektonica-ui-ux-expert",
+      "emil-design-eng",
+      "animation-performance",
+      "mobile-native"
+    ],
+    "must_check": [
+      "depth-without-motion",
+      "measurable-performance",
+      "cleanup",
+      "keyboard",
+      "mobile-fallback",
+      "no-fabricated-fps"
+    ]
+  }
+]
