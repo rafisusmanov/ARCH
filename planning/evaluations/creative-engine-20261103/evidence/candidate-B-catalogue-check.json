@@ -1,0 +1,15 @@
+{
+  "version": "candidate",
+  "correct_services": 81,
+  "total": 81,
+  "errors": [],
+  "groups_present": {
+    "Бренд и коммуникации": true,
+    "Сайты и цифровые продукты": true,
+    "Иммерсивные проекты и медиа": true,
+    "ИИ, инженерия и инфраструктура": true,
+    "Продажи и клиентский опыт": true,
+    "Данные, финансы и операции": true
+  },
+  "all_17_direction_links_present": true
+}

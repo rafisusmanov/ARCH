@@ -1,0 +1,8 @@
+{
+  "task_name": "/root/editor_bdfg",
+  "fork_turns": "none",
+  "requested_model_alias": "gpt-6-astra",
+  "build_version": null,
+  "reasoning_effort_override": null,
+  "spawn_message": "Выполни независимую редакционную оценку. Полностью прочитай /workspace/work/creative-evaluation/reviews/editor_bdfg/launch.txt и следуй ему. Не читай материалы других ролей, версии или незамаскированные исходные прогоны. Оригиналы не исправляй."
+}
