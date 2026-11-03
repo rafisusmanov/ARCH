@@ -1,0 +1,18 @@
+{
+  "review_sha256": {
+    "editor_ace": "4dd27b8f8b47633b5d3e135c550732597a148b882a207e30c7fc7b6d2329746d",
+    "editor_bdfg": "2301cedf3be5c3a37ee054495c575e8f5d21d1b577b34ab03701ade1059e8408"
+  },
+  "reviews": 2,
+  "texts": 20,
+  "criteria_checked": 180,
+  "issues": [
+    {
+      "run": "baseline-A-2",
+      "issue": "quote not verbatim",
+      "criterion": "Фактологическая точность",
+      "quote": "В каталоге доступны 17 направлений и 81 услуга"
+    }
+  ],
+  "pass": false
+}

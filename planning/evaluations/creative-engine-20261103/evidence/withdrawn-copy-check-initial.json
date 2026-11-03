@@ -1,0 +1,163 @@
+{
+  "method": "Exact normalized 12-word sequences against 10 revoked documents immediately before reset 0701bc6; exclude sequences also present in current canonical references/methods/IA. Auditor-only in-memory git show. No restoration or writer access.",
+  "archived_sources": [
+    {
+      "path": "planning/stage-02/home-page.md",
+      "source_commit": "c8828f6e66c49177327b9bb17f7564831533f069",
+      "sha256": "d12340a5571b4c223ddaa203cb15738ed79ef494e887d10e0e42e3177fc57e12",
+      "bytes": 27499
+    },
+    {
+      "path": "planning/stage-02/services-page.md",
+      "source_commit": "c8828f6e66c49177327b9bb17f7564831533f069",
+      "sha256": "b4292c71262d3124b019acf91842d0565710f40a9a9cc7be907771e9bb3398e0",
+      "bytes": 53526
+    },
+    {
+      "path": "planning/stage-02/about-page.md",
+      "source_commit": "c8828f6e66c49177327b9bb17f7564831533f069",
+      "sha256": "22239bca1d0e3d345a23e42cdb296d6fa519c62aed5deb7f3fcb507d90a138d3",
+      "bytes": 28961
+    },
+    {
+      "path": "planning/stage-02/process-page.md",
+      "source_commit": "c8828f6e66c49177327b9bb17f7564831533f069",
+      "sha256": "0a650f9c5dee64f49c2fb42ad1b6f4723e8bf0f2bc248b75feefb4f0d3b995f1",
+      "bytes": 23024
+    },
+    {
+      "path": "planning/stage-02/contact-page.md",
+      "source_commit": "c8828f6e66c49177327b9bb17f7564831533f069",
+      "sha256": "2b63792423c1b412b0769a6d686bce4fc7ef17e748a6f014fdcd5029a2159f34",
+      "bytes": 16067
+    },
+    {
+      "path": "planning/stage-02/client-workspace-page.md",
+      "source_commit": "c8828f6e66c49177327b9bb17f7564831533f069",
+      "sha256": "838e6b73a4479e5993c7c775620fdf12f4e9e761295c7ed80caec7f3ca79cc74",
+      "bytes": 24503
+    },
+    {
+      "path": "references/project/06_Architektonica_Reference_Texts.md",
+      "source_commit": "c8828f6e66c49177327b9bb17f7564831533f069",
+      "sha256": "bdc2605e6b73a590d38fad92f971136a77d747b2a8285d84e1b84819a882a699",
+      "bytes": 6728
+    },
+    {
+      "path": "references/project/07_Architektonica_Copy_Registry.md",
+      "source_commit": "c8828f6e66c49177327b9bb17f7564831533f069",
+      "sha256": "5ce5c9311533c1a9809ec2740fa0742c5f202662813fb729bd53d884437ad244",
+      "bytes": 4259
+    },
+    {
+      "path": "references/project/08_Architektonica_Site_Content_Plan.md",
+      "source_commit": "c8828f6e66c49177327b9bb17f7564831533f069",
+      "sha256": "89ddbcd3cd71b92e00682c31d3e63a7553e5aadba656a54bb8be88a6de8c3f76",
+      "bytes": 10903
+    },
+    {
+      "path": "references/project/09_Engine_Home_Copy.md",
+      "source_commit": "c8828f6e66c49177327b9bb17f7564831533f069",
+      "sha256": "9faabe92128050daa7ead48647db951b3f1d931be6cf16505fff8eac753cbed9",
+      "bytes": 7609
+    }
+  ],
+  "results": [
+    {
+      "run_id": "baseline-A-1",
+      "legacy_only_exact_matches": []
+    },
+    {
+      "run_id": "candidate-A-1",
+      "legacy_only_exact_matches": []
+    },
+    {
+      "run_id": "baseline-B-1",
+      "legacy_only_exact_matches": []
+    },
+    {
+      "run_id": "candidate-B-1",
+      "legacy_only_exact_matches": [
+        {
+          "archive_path": "planning/stage-02/home-page.md",
+          "unique_12_word_matches": [
+            "and digital products электронная коммерция и маркетплейсы services ecommerce and marketplaces иммерсивные",
+            "digital products электронная коммерция и маркетплейсы services ecommerce and marketplaces иммерсивные проекты",
+            "products электронная коммерция и маркетплейсы services ecommerce and marketplaces иммерсивные проекты и",
+            "services websites and digital products электронная коммерция и маркетплейсы services ecommerce and",
+            "websites and digital products электронная коммерция и маркетплейсы services ecommerce and marketplaces",
+            "и цифровые продукты services websites and digital products электронная коммерция и маркетплейсы",
+            "продукты services websites and digital products электронная коммерция и маркетплейсы services ecommerce",
+            "сайты и цифровые продукты services websites and digital products электронная коммерция и",
+            "цифровые продукты services websites and digital products электронная коммерция и маркетплейсы services",
+            "электронная коммерция и маркетплейсы services ecommerce and marketplaces иммерсивные проекты и медиа"
+          ]
+        }
+      ]
+    },
+    {
+      "run_id": "baseline-C-1",
+      "legacy_only_exact_matches": []
+    },
+    {
+      "run_id": "candidate-C-1",
+      "legacy_only_exact_matches": []
+    },
+    {
+      "run_id": "baseline-D-1",
+      "legacy_only_exact_matches": []
+    },
+    {
+      "run_id": "candidate-D-1",
+      "legacy_only_exact_matches": []
+    },
+    {
+      "run_id": "baseline-E-1",
+      "legacy_only_exact_matches": []
+    },
+    {
+      "run_id": "candidate-E-1",
+      "legacy_only_exact_matches": []
+    },
+    {
+      "run_id": "baseline-F-1",
+      "legacy_only_exact_matches": []
+    },
+    {
+      "run_id": "candidate-F-1",
+      "legacy_only_exact_matches": []
+    },
+    {
+      "run_id": "baseline-G-1",
+      "legacy_only_exact_matches": []
+    },
+    {
+      "run_id": "candidate-G-1",
+      "legacy_only_exact_matches": []
+    },
+    {
+      "run_id": "baseline-A-2",
+      "legacy_only_exact_matches": []
+    },
+    {
+      "run_id": "candidate-A-2",
+      "legacy_only_exact_matches": []
+    },
+    {
+      "run_id": "baseline-C-2",
+      "legacy_only_exact_matches": []
+    },
+    {
+      "run_id": "candidate-C-2",
+      "legacy_only_exact_matches": []
+    },
+    {
+      "run_id": "candidate-E-2",
+      "legacy_only_exact_matches": []
+    }
+  ],
+  "limitations": [
+    "Does not detect paraphrase, semantic reuse, or unavailable revisions.",
+    "Shared factual names, service lists and current canonical descriptions are excluded; they are not evidence of restoring revoked copy."
+  ]
+}

@@ -1,0 +1,200 @@
+[
+  {
+    "run_id": "baseline-A-1",
+    "response_sha256_matches_seal": true,
+    "all_assigned_source_chunks_read": true,
+    "write_attempts": [],
+    "known_project_names_found": [],
+    "characters": 3419,
+    "words_rough": 446
+  },
+  {
+    "run_id": "candidate-A-1",
+    "response_sha256_matches_seal": true,
+    "all_assigned_source_chunks_read": true,
+    "write_attempts": [],
+    "known_project_names_found": [],
+    "characters": 5890,
+    "words_rough": 767
+  },
+  {
+    "run_id": "baseline-B-1",
+    "response_sha256_matches_seal": true,
+    "all_assigned_source_chunks_read": true,
+    "write_attempts": [],
+    "known_project_names_found": [],
+    "characters": 23630,
+    "words_rough": 2376,
+    "catalogue": {
+      "correct_services": 81,
+      "total_services": 81,
+      "errors": [],
+      "directions_correct": 17,
+      "groups_present": 6
+    }
+  },
+  {
+    "run_id": "candidate-B-1",
+    "response_sha256_matches_seal": true,
+    "all_assigned_source_chunks_read": true,
+    "write_attempts": [],
+    "known_project_names_found": [],
+    "characters": 23226,
+    "words_rough": 2319,
+    "catalogue": {
+      "correct_services": 81,
+      "total_services": 81,
+      "errors": [],
+      "directions_correct": 17,
+      "groups_present": 6
+    }
+  },
+  {
+    "run_id": "baseline-C-1",
+    "response_sha256_matches_seal": true,
+    "all_assigned_source_chunks_read": true,
+    "write_attempts": [],
+    "known_project_names_found": [],
+    "characters": 7623,
+    "words_rough": 967
+  },
+  {
+    "run_id": "candidate-C-1",
+    "response_sha256_matches_seal": true,
+    "all_assigned_source_chunks_read": true,
+    "write_attempts": [],
+    "known_project_names_found": [],
+    "characters": 9192,
+    "words_rough": 1165
+  },
+  {
+    "run_id": "baseline-D-1",
+    "response_sha256_matches_seal": true,
+    "all_assigned_source_chunks_read": true,
+    "write_attempts": [],
+    "known_project_names_found": [
+      "Synapto"
+    ],
+    "characters": 5310,
+    "words_rough": 660
+  },
+  {
+    "run_id": "candidate-D-1",
+    "response_sha256_matches_seal": true,
+    "all_assigned_source_chunks_read": true,
+    "write_attempts": [],
+    "known_project_names_found": [
+      "Synapto"
+    ],
+    "characters": 5208,
+    "words_rough": 641
+  },
+  {
+    "run_id": "baseline-E-1",
+    "response_sha256_matches_seal": true,
+    "all_assigned_source_chunks_read": true,
+    "write_attempts": [],
+    "known_project_names_found": [],
+    "characters": 6051,
+    "words_rough": 784
+  },
+  {
+    "run_id": "candidate-E-1",
+    "response_sha256_matches_seal": true,
+    "all_assigned_source_chunks_read": true,
+    "write_attempts": [],
+    "known_project_names_found": [],
+    "characters": 5296,
+    "words_rough": 687
+  },
+  {
+    "run_id": "baseline-F-1",
+    "response_sha256_matches_seal": true,
+    "all_assigned_source_chunks_read": true,
+    "write_attempts": [],
+    "known_project_names_found": [],
+    "characters": 4890,
+    "words_rough": 621
+  },
+  {
+    "run_id": "candidate-F-1",
+    "response_sha256_matches_seal": true,
+    "all_assigned_source_chunks_read": true,
+    "write_attempts": [],
+    "known_project_names_found": [],
+    "characters": 4647,
+    "words_rough": 613
+  },
+  {
+    "run_id": "baseline-G-1",
+    "response_sha256_matches_seal": true,
+    "all_assigned_source_chunks_read": true,
+    "write_attempts": [],
+    "known_project_names_found": [],
+    "characters": 1289,
+    "words_rough": 165
+  },
+  {
+    "run_id": "candidate-G-1",
+    "response_sha256_matches_seal": true,
+    "all_assigned_source_chunks_read": true,
+    "write_attempts": [],
+    "known_project_names_found": [],
+    "characters": 1492,
+    "words_rough": 185
+  },
+  {
+    "run_id": "baseline-A-2",
+    "response_sha256_matches_seal": true,
+    "all_assigned_source_chunks_read": true,
+    "write_attempts": [],
+    "known_project_names_found": [],
+    "characters": 5015,
+    "words_rough": 658
+  },
+  {
+    "run_id": "candidate-A-2",
+    "response_sha256_matches_seal": true,
+    "all_assigned_source_chunks_read": true,
+    "write_attempts": [],
+    "known_project_names_found": [],
+    "characters": 4193,
+    "words_rough": 564
+  },
+  {
+    "run_id": "baseline-C-2",
+    "response_sha256_matches_seal": true,
+    "all_assigned_source_chunks_read": true,
+    "write_attempts": [],
+    "known_project_names_found": [],
+    "characters": 8049,
+    "words_rough": 1018
+  },
+  {
+    "run_id": "candidate-C-2",
+    "response_sha256_matches_seal": true,
+    "all_assigned_source_chunks_read": true,
+    "write_attempts": [],
+    "known_project_names_found": [],
+    "characters": 6615,
+    "words_rough": 846
+  },
+  {
+    "run_id": "baseline-E-2",
+    "response_sha256_matches_seal": true,
+    "all_assigned_source_chunks_read": true,
+    "write_attempts": [],
+    "known_project_names_found": [],
+    "characters": 5491,
+    "words_rough": 715
+  },
+  {
+    "run_id": "candidate-E-2",
+    "response_sha256_matches_seal": true,
+    "all_assigned_source_chunks_read": true,
+    "write_attempts": [],
+    "known_project_names_found": [],
+    "characters": 6342,
+    "words_rough": 811
+  }
+]

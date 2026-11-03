@@ -1,0 +1,8 @@
+{
+  "task_name": "/root/editor_ace",
+  "fork_turns": "none",
+  "requested_model_alias": "gpt-6.1-sol",
+  "build_version": null,
+  "reasoning_effort_override": null,
+  "spawn_message": "Выполни независимую редакционную оценку. Полностью прочитай /workspace/work/creative-evaluation/reviews/editor_ace/launch.txt и следуй ему. Не читай материалы других ролей, версии или незамаскированные исходные прогоны. Оригиналы не исправляй."
+}

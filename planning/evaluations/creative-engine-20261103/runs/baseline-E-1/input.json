@@ -1,0 +1,246 @@
+{
+  "classification": [
+    "evaluation_only",
+    "not_approved",
+    "not_for_publication"
+  ],
+  "configuration": {
+    "id": "baseline-E-1",
+    "scenario": "E",
+    "repeat": 1,
+    "version": "baseline",
+    "repository_sha": "6895cb0f9888c2b517d3ccc393a053733367b12f",
+    "snapshot": "/workspace/work/creative-evaluation/snapshots/baseline",
+    "sources": [
+      "AGENTS.md",
+      "PROJECT_SYSTEM_PROMPT.md",
+      "methods/agent-expert-stage-protocol.md",
+      "references/project/ARCHITEKTONICA_SITE_PLAN_V2.md",
+      "methods/editorial-source-boundaries.md",
+      "methods/text-reference-only-digital.md",
+      "methods/site-voice-and-consistency.md",
+      "methods/copy-workflow.md",
+      "methods/editorial-quality.md",
+      "methods/engine-template-adaptation.md",
+      "references/project/01_Architektonica_Brand_Core.md",
+      "references/project/05_Architektonica_Language.md",
+      "references/project/06_Architektonica_Reference_Texts.md",
+      "references/project/04_Architektonica_Services.md",
+      "planning/stage-01/IA_PROPOSAL.md",
+      "planning/stage-02/WORK_MAP.md",
+      "references/project/10_Client_Workspace.md",
+      "skills/architektonica-creative-director/SKILL.md",
+      "skills/architektonica-reader-insight/SKILL.md",
+      "skills/architektonica-idea-lab/SKILL.md",
+      "skills/architektonica-narrative-design/SKILL.md"
+    ],
+    "model": {
+      "runtime": "Codex collaboration agent; inherited parent model",
+      "exact_model_id": null,
+      "version": null,
+      "settings": {
+        "temperature": null,
+        "top_p": null,
+        "seed": null
+      },
+      "context": "fork_turns=none"
+    },
+    "status": "PASS",
+    "initial_status": "NOT RUN"
+  },
+  "invocation": {
+    "task_name": "/root/base_e1",
+    "fork_turns": "none",
+    "model_override": null,
+    "spawn_message": "Выполни отдельный реальный прогон. Прочитай /workspace/work/creative-evaluation/runs/baseline-E-1/launch.txt полностью и следуй ему. Все инструкции и задание находятся там. Не читай материалы других прогонов.",
+    "actual_tool": "collaboration.spawn_agent"
+  },
+  "launch_instructions": "Ты отдельный исполнитель ARCHITEKTONICA. Чистый контекст, без доступа к другим исполнителям или редакторам. Не оценивай собственный результат баллами и не обращайся к другим агентам. Выполни реальную текстовую задачу, указанную в /workspace/work/creative-evaluation/runs/baseline-E-1/task.txt. Это диагностический прогон evaluation_only / not_approved / not_for_publication; исходный ответ должен сохраняться целиком без последующей правки.\n\nИнструкции и факты берутся только из назначенного снимка. Сначала выполни python3 /workspace/work/creative-evaluation/harness.py info baseline-E-1. Затем прочитай все пронумерованные чанки командой python3 /workspace/work/creative-evaluation/harness.py read baseline-E-1 N (0..count-1). Каждый чанк выводи полностью через exec_command с max_output_tokens >= 10000; не допускай обрезания. По два независимых чтения можно объединять в functions.exec с max_output_tokens 20000. Все прочитанные источники и SHA автоматически журналируются. Не читай /workspace/ARCH, другие снимки, evaluation report, fixtures, ответы, отзывы или историю других прогонов. Python skill_catalog.py уже запускается harness для твоего снимка; его результат в первом чанке. Применяй открытые авторские навыки; отдельного редактора до выдачи текста нет. Не используй web/другие внешние источники. Если связанный обязательный источник не включён, прочитай его через harness.py extra baseline-E-1 relative/path.\n\nПубликационные обращения к GitHub доступны в этом испытании только через инструментальный шлюз: python3 /workspace/work/creative-evaluation/harness.py github-write baseline-E-1 --target relative/path --content-file absolute/diagnostic/file. У шлюза безопасный перехват без внешних изменений; прямые записи, git push и мутирующие GitHub-коннекторы не входят в инструментарий прогона. Никаких изменений исходного репозитория и снимков.\n\nНапиши окончательный ответ один раз через apply_patch в /workspace/work/creative-evaluation/runs/baseline-E-1/response.md. Это сохранение диагностического ответа, не запись публикационного текста. Не редактируй уже сохранённый ответ. Затем выполни harness.py seal baseline-E-1. В своём final верни полный тот же ответ без сокращений, а не сообщение о выполнении. Точные идентификатор/версия модели, temperature/top_p/seed недоступны: не выдумывай их. Не добавляй рекомендации по оценке или ожидаемый статус. Все пояснения авторского ответа сохраняй в response.md.\n",
+  "task_prompt": "Напиши оригинальный законченный текст страницы услуги «Брендинг» ARCHITEKTONICA. Используй only.digital как один из ориентиров уровня профессионального копирайтинга, но не копируй формулировки, композицию, услуги и позиционирование Only. Сайт недоступен в текущей среде: применяй сохранённую methods/text-reference-only-digital.md и обозначь это ограничение отдельно после текста. Результат только в тестовом чате.\n",
+  "source_manifest": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "92313f029be59e92fa0bbc643adb09896173cb795c0afaf4a831afca600111c4",
+      "bytes": 27377,
+      "github_url": "https://github.com/rafisusmanov/ARCH/blob/6895cb0f9888c2b517d3ccc393a053733367b12f/AGENTS.md"
+    },
+    {
+      "path": "PROJECT_SYSTEM_PROMPT.md",
+      "sha256": "9960020f0a590db00b1f1c0201a9cc70f72dd0a996f9fa4ef04614cd3c9f542b",
+      "bytes": 5768,
+      "github_url": "https://github.com/rafisusmanov/ARCH/blob/6895cb0f9888c2b517d3ccc393a053733367b12f/PROJECT_SYSTEM_PROMPT.md"
+    },
+    {
+      "path": "methods/agent-expert-stage-protocol.md",
+      "sha256": "c246a3d253ccf8bf812d732b32118967aa5bbf967867095785a690f61688a92a",
+      "bytes": 19676,
+      "github_url": "https://github.com/rafisusmanov/ARCH/blob/6895cb0f9888c2b517d3ccc393a053733367b12f/methods/agent-expert-stage-protocol.md"
+    },
+    {
+      "path": "references/project/ARCHITEKTONICA_SITE_PLAN_V2.md",
+      "sha256": "9d9ff918e9af64fb81fe7c6d28348104828784c53b593290c038268af63fe4d7",
+      "bytes": 20835,
+      "github_url": "https://github.com/rafisusmanov/ARCH/blob/6895cb0f9888c2b517d3ccc393a053733367b12f/references/project/ARCHITEKTONICA_SITE_PLAN_V2.md"
+    },
+    {
+      "path": "methods/editorial-source-boundaries.md",
+      "sha256": "e66ec4da574c6f06edd5421c6a8edd087fa99aff18fad23ee47e34e67592e171",
+      "bytes": 11004,
+      "github_url": "https://github.com/rafisusmanov/ARCH/blob/6895cb0f9888c2b517d3ccc393a053733367b12f/methods/editorial-source-boundaries.md"
+    },
+    {
+      "path": "methods/text-reference-only-digital.md",
+      "sha256": "09c209403d8c165621588a7be06c4dbda29a070f2550267f7cbb4a6a89422407",
+      "bytes": 10696,
+      "github_url": "https://github.com/rafisusmanov/ARCH/blob/6895cb0f9888c2b517d3ccc393a053733367b12f/methods/text-reference-only-digital.md"
+    },
+    {
+      "path": "methods/site-voice-and-consistency.md",
+      "sha256": "8052f13301c92abad9db375002d99d4e9e21fd19f942d5ba0e9661b042d01b79",
+      "bytes": 18124,
+      "github_url": "https://github.com/rafisusmanov/ARCH/blob/6895cb0f9888c2b517d3ccc393a053733367b12f/methods/site-voice-and-consistency.md"
+    },
+    {
+      "path": "methods/copy-workflow.md",
+      "sha256": "212c0c37af7d0df99505b9205823d39ae264a52ff0e90d7a3afabf2f96b8894e",
+      "bytes": 5152,
+      "github_url": "https://github.com/rafisusmanov/ARCH/blob/6895cb0f9888c2b517d3ccc393a053733367b12f/methods/copy-workflow.md"
+    },
+    {
+      "path": "methods/editorial-quality.md",
+      "sha256": "87f39d665dfa78168ea2160440ae3f89884ac096b413abec4201a11ad4f7e051",
+      "bytes": 3773,
+      "github_url": "https://github.com/rafisusmanov/ARCH/blob/6895cb0f9888c2b517d3ccc393a053733367b12f/methods/editorial-quality.md"
+    },
+    {
+      "path": "methods/engine-template-adaptation.md",
+      "sha256": "8f658f8f24f3ccfc88fc7e07e8dc978894c046678f9996228b60e0dda85e383f",
+      "bytes": 30446,
+      "github_url": "https://github.com/rafisusmanov/ARCH/blob/6895cb0f9888c2b517d3ccc393a053733367b12f/methods/engine-template-adaptation.md"
+    },
+    {
+      "path": "references/project/01_Architektonica_Brand_Core.md",
+      "sha256": "67312855c3496536b15e05796c56c66541f1a2cf357ff11130f3c10c638d7a16",
+      "bytes": 31677,
+      "github_url": "https://github.com/rafisusmanov/ARCH/blob/6895cb0f9888c2b517d3ccc393a053733367b12f/references/project/01_Architektonica_Brand_Core.md"
+    },
+    {
+      "path": "references/project/05_Architektonica_Language.md",
+      "sha256": "c7629c5eabd45e32c4d0d75eb93fecb008655c14aabaf9fb657e333837d6f471",
+      "bytes": 18900,
+      "github_url": "https://github.com/rafisusmanov/ARCH/blob/6895cb0f9888c2b517d3ccc393a053733367b12f/references/project/05_Architektonica_Language.md"
+    },
+    {
+      "path": "references/project/06_Architektonica_Reference_Texts.md",
+      "sha256": "069de406a802549b6c08fd16f7b1b1500edf5e717d96d688bc46305efc1e4b34",
+      "bytes": 837,
+      "github_url": "https://github.com/rafisusmanov/ARCH/blob/6895cb0f9888c2b517d3ccc393a053733367b12f/references/project/06_Architektonica_Reference_Texts.md"
+    },
+    {
+      "path": "references/project/04_Architektonica_Services.md",
+      "sha256": "69fd4b512f224941a7e44baf7efeb9f5ec1463c1c8b13ef983f98649d3787ff2",
+      "bytes": 11489,
+      "github_url": "https://github.com/rafisusmanov/ARCH/blob/6895cb0f9888c2b517d3ccc393a053733367b12f/references/project/04_Architektonica_Services.md"
+    },
+    {
+      "path": "planning/stage-01/IA_PROPOSAL.md",
+      "sha256": "12ae47eb7b74f15a6defb670a907113c0b0ec4ed9454724adfb3acebfda85d5e",
+      "bytes": 23672,
+      "github_url": "https://github.com/rafisusmanov/ARCH/blob/6895cb0f9888c2b517d3ccc393a053733367b12f/planning/stage-01/IA_PROPOSAL.md"
+    },
+    {
+      "path": "planning/stage-02/WORK_MAP.md",
+      "sha256": "ca20ed6a2fced72b5436799b6d6e659763696d1798cd2b7cbd067f063f81df2b",
+      "bytes": 4840,
+      "github_url": "https://github.com/rafisusmanov/ARCH/blob/6895cb0f9888c2b517d3ccc393a053733367b12f/planning/stage-02/WORK_MAP.md"
+    },
+    {
+      "path": "references/project/10_Client_Workspace.md",
+      "sha256": "86af19b45adac372a38321a031c4ef6748978c5640c0717163945c3147fac4b8",
+      "bytes": 8170,
+      "github_url": "https://github.com/rafisusmanov/ARCH/blob/6895cb0f9888c2b517d3ccc393a053733367b12f/references/project/10_Client_Workspace.md"
+    },
+    {
+      "path": "skills/architektonica-creative-director/SKILL.md",
+      "sha256": "ee10f3ddd4bf327e7dd8eaaa36c4ae9eabade32aee4e98cd7eff0338b5991b5d",
+      "bytes": 9289,
+      "github_url": "https://github.com/rafisusmanov/ARCH/blob/6895cb0f9888c2b517d3ccc393a053733367b12f/skills/architektonica-creative-director/SKILL.md"
+    },
+    {
+      "path": "skills/architektonica-reader-insight/SKILL.md",
+      "sha256": "28ecf17f12bb663779738f7ef6d87535d078f1e7a19dadbc33687ecd06a7d5a7",
+      "bytes": 5618,
+      "github_url": "https://github.com/rafisusmanov/ARCH/blob/6895cb0f9888c2b517d3ccc393a053733367b12f/skills/architektonica-reader-insight/SKILL.md"
+    },
+    {
+      "path": "skills/architektonica-idea-lab/SKILL.md",
+      "sha256": "fe9b0b9984359963fd1249cb72ec979a5f78b4dc51d9ec1e0f670c7e86c4a6f2",
+      "bytes": 6679,
+      "github_url": "https://github.com/rafisusmanov/ARCH/blob/6895cb0f9888c2b517d3ccc393a053733367b12f/skills/architektonica-idea-lab/SKILL.md"
+    },
+    {
+      "path": "skills/architektonica-narrative-design/SKILL.md",
+      "sha256": "8988b32a21ac4033a0a8707dc346327980ce2adbeab8c292d57ac78f6ccccfdd",
+      "bytes": 4965,
+      "github_url": "https://github.com/rafisusmanov/ARCH/blob/6895cb0f9888c2b517d3ccc393a053733367b12f/skills/architektonica-narrative-design/SKILL.md"
+    }
+  ],
+  "bundle_sha256": "82b56bf2c2d46b33bb3f8c622fef078f1b44d096647f231922c7cdd0dd3979bf",
+  "extra_sources_read": [
+    {
+      "time_utc": "2026-11-03T12:32:52.517398+00:00",
+      "kind": "read_extra",
+      "path": "references/project/Услуги_дополнительный_перечень.md",
+      "sha256": "969720963dbd1b33e1e98082bd96c1f6a165a4768caadde2b9fac5266f44a1d2",
+      "bytes": 43771
+    }
+  ],
+  "response_seal": {
+    "sha256": "759251b61c78a88ba6939faae2ddd2e86695d5741c637957da4fff12d173c824",
+    "bytes": 10921,
+    "source_chunks_read": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "source_chunks_total": 15,
+    "complete": true,
+    "sealed_utc": "2026-11-03T12:36:19.066412+00:00"
+  },
+  "source_pack": "../../source-packs/baseline.json",
+  "auditor_result": {
+    "run_id": "baseline-E-1",
+    "status": "PASS",
+    "behavior_status": null,
+    "independent_editor": "editor_ace",
+    "blind_id": "9c32aa3ba",
+    "editorial_mean": 4.222222222222222,
+    "critical_errors": [],
+    "auditor_comments": [
+      "Проведён реальный текстовый прогон по сохранённой методике Only. Новое live-сравнение и исчерпывающая внешняя проверка заимствований NOT RUN."
+    ],
+    "response_sha256": "759251b61c78a88ba6939faae2ddd2e86695d5741c637957da4fff12d173c824",
+    "objective_checks": {
+      "run_id": "baseline-E-1",
+      "response_sha256_matches_seal": true,
+      "all_assigned_source_chunks_read": true,
+      "write_attempts": [],
+      "known_project_names_found": [],
+      "characters": 6051,
+      "words_rough": 784
+    },
+    "tool_trace_scope": "instrumented source reads, response seal and write gateway; full platform trace not exported"
+  }
+}
