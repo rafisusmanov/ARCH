@@ -117,11 +117,11 @@ Slow where the user is deciding, fast where the system responds.
   ```
 - **Motion `x`/`y`/`scale` may be hardware-accelerated in current implementations.** Inspect the installed version/API and trace; use a full transform string or WAAPI only when it fixes a real recalculation/driver problem. Neither form guarantees acceleration:
   ```jsx
-  <motion.div animate={{ x: 100 }} />                          // drops frames under load
+  <motion.div animate={{ x: 100 }} />                          // valid; profile installed Motion/browser
   <motion.div animate={{ transform: "translateX(100px)" }} />  // eligible in supported browser/driver; profile
   ```
 - **CSS/WAAPI can run eligible effects on the compositor, not universally.** DOM `requestAnimationFrame` callbacks execute on the main thread. Code written in JS can configure compositor-driven WAAPI effects. Select CSS, WAAPI or dynamic JS/GSAP by interaction requirements and confirm in browser/device traces.
-- **WAAPI** gives JS control with CSS performance (hardware-accelerated, interruptible, no library):
+- **WAAPI** gives browser-driven timing and JS control without an animation library. It can be compositor-driven for eligible effects; a `clipPath` example is **not automatically hardware-accelerated**:
   ```js
   element.animate([{ clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0 0)' }],
     { duration: 1000, fill: 'forwards', easing: 'cubic-bezier(0.77, 0, 0.175, 1)' });
