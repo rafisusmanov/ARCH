@@ -40,7 +40,7 @@ Every animation in the diff is measured against these. A violation is a finding.
 
 6. **Interruptibility.** Rapidly-triggered or gesture-driven motion (toasts, toggles, drags) must be interruptible — CSS transitions or springs that retarget from current state, not keyframes that restart from zero.
 
-7. **GPU-only properties.** Animate `transform` and `opacity` only. Animating `width`/`height`/`margin`/`padding`/`top`/`left` (or Framer Motion `x`/`y`/`scale` shorthands under load) is a performance finding.
+7. **Property cost with justified exceptions.** Prefer `transform` and `opacity` for routine UI motion; **do not claim guaranteed GPU acceleration**. `clip-path`, `filter`, color/background transitions, and measured layout animation (such as an accordion height change) are permitted if their visual purpose is clear and target-browser performance is checked. Flag unnecessary layout work, expensive paints or demonstrated frame loss. Motion `x`/`y`/`scale` is **not automatically defective**; inspect the actual Motion version, driver and trace.
 
 8. **Accessibility.** `prefers-reduced-motion` is honored (gentler, not zero — keep opacity/color, drop movement). Hover animations are gated behind `@media (hover: hover) and (pointer: fine)`.
 
@@ -59,8 +59,8 @@ Flag these on sight, hard:
 - UI duration > 300ms with no stated reason
 - `transform-origin: center` on a trigger-anchored popover/dropdown/tooltip
 - Keyframes on toasts, toggles, or anything added/triggered rapidly
-- Animating layout properties (`width`/`height`/`margin`/`padding`/`top`/`left`)
-- Framer Motion `x`/`y`/`scale` props on motion that runs while the page is busy
+- Unnecessary layout-property animation or justified layout motion with measured frame loss
+- Motion transform shorthand **with confirmed** style recalculation, per-frame JS cost, or dropped frames in the installed version
 - Updating a CSS variable on a parent to drive a child transform (style recalc storm)
 - Missing `prefers-reduced-motion` handling on movement
 - Ungated `:hover` motion
@@ -76,7 +76,7 @@ When proposing fixes, prefer earlier moves over later ones:
 3. **Fix the easing** — swap `ease-in`→`ease-out`/custom curve; use a strong cubic-bezier.
 4. **Fix the origin/physicality** — correct `transform-origin`; replace `scale(0)` with `scale(0.95)`+opacity.
 5. **Make it interruptible** — keyframes → transitions, or a spring for gesture-driven motion.
-6. **Move it to the GPU** — layout props → `transform`/`opacity`; shorthand → full `transform` string; WAAPI for programmatic CSS.
+6. **Prefer compositor-friendly rendering where correct** — simplify costly layout/paint work, compare direct transforms or WAAPI when traces justify it; never promise GPU acceleration or require rewriting working Motion shorthands.
 7. **Asymmetric timing** — slow the deliberate phase, snap the response.
 8. **Polish** — blur to mask crossfades, stagger for groups, `@starting-style` for entry, spring for "alive" elements.
 9. **Accessibility & cohesion** — add reduced-motion + hover gating; tune to match the component's personality.
@@ -102,14 +102,14 @@ Group remaining commentary by impact tier, highest first. Omit empty tiers.
 
 1. **Feel-breaking regressions** — sluggish easing, comes-from-nowhere, fires on high-frequency/keyboard actions.
 2. **Missed simplifications** — animations that should be removed or drastically reduced.
-3. **Performance** — non-GPU properties, dropped-frame risks, recalc storms.
+3. **Performance** — unnecessary layout/paint work, compositor eligibility and measured dropped-frame risks; permitted exceptions are not automatic defects.
 4. **Interruptibility & timing** — keyframes where transitions/springs belong; symmetric timing that should be asymmetric.
 5. **Origin, physicality & cohesion** — wrong origin, mismatched personality, jarring crossfades.
 6. **Accessibility** — reduced-motion and pointer/hover gating.
 
 Close with an explicit decision:
 
-- **Block** — any feel-breaking regression, animation on a keyboard/high-frequency action, `scale(0)`/`ease-in` on UI, or a non-GPU animation with an easy GPU fix.
+- **Block** — a feel-breaking regression, unjustified high-frequency motion, `scale(0)`/`ease-in` on routine UI, or significant avoidable frame loss with a verified cheaper alternative. Do **not** block solely because an allowed `clip-path`/`filter`/layout exception appears in code.
 - **Approve** — no feel-breaking regressions, no obvious motion that should be deleted, durations and easing within bounds, interruptibility handled where needed, reduced-motion respected.
 
 Be specific and cite `file:line`. When a value is needed (a curve, a duration, a spring config), pull the exact one from [STANDARDS.md](STANDARDS.md) rather than approximating.
