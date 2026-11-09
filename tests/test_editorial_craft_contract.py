@@ -67,7 +67,7 @@ class EditorialCraftContractTests(unittest.TestCase):
         # Snapshot of the owner-approved copy, not a model quality metric.
         # Update only following explicit owner approval of a new full text.
         raw = home.encode("utf-8")
-        git_blob_sha = hashlib.sha1(f"blob {len(raw)}\\0".encode() + raw).hexdigest()
+        git_blob_sha = hashlib.sha1(f"blob {len(raw)}\0".encode() + raw).hexdigest()
         self.assertEqual(git_blob_sha, "b178d4bea04f6ea7c8a65d4a8bb623b019ea2c2d")
         for rel in (
             "AGENTS.md",
