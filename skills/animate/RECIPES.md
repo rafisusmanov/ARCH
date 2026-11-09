@@ -314,7 +314,7 @@ Without blur the eye reads two distinct objects swapping. Blur blends them into 
 
 ## Programmatic, without a library
 
-When the motion needs JS control but not a dependency, WAAPI gives you CSS-grade performance:
+When motion needs JS control without an additional library, WAAPI can provide browser-driven timing and may use the compositor for eligible properties/effects:
 
 ```js
 element.animate(
@@ -323,4 +323,4 @@ element.animate(
 );
 ```
 
-Hardware-accelerated, interruptible, no bundle cost.
+Interruptible, no additional animation library; **hardware acceleration is conditional**, especially for this `clipPath` example. Verify the actual rendering path and frame pacing.
