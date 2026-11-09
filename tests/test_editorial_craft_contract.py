@@ -94,7 +94,7 @@ class EditorialCraftContractTests(unittest.TestCase):
         self.assertIn("одну лучшую цельную редакцию", agents)
         self.assertIn("Единственная каноническая последовательность", workflow)
         self.assertIn("Итоговая сверка голоса и Only", contract)
-        self.assertIn("Утверждена новая главная от 08.11.2026", voice)
+        self.assertIn("Утверждены главная и «О компании» от 09.11.2026", voice)
         self.assertNotIn("После сброса Stage 02 прежних действующих текстов нет", voice)
         self.assertNotIn("**Новая главная:**", read("QUICK_START.md"))
         for rel in (
