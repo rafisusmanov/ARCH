@@ -109,19 +109,19 @@ Slow where the user is deciding, fast where the system responds.
 
 ## Performance
 
-- **Only animate `transform` and `opacity`** — they skip layout/paint and run on the GPU. `padding`/`margin`/`height`/`width`/`top`/`left` trigger all three rendering steps.
+- **Prefer `transform` and `opacity` for routine UI motion**, not as an absolute rule or GPU guarantee. `clip-path` reveals, restrained `filter` crossfades, and color/background changes may be appropriate but require browser/device paint/compositor checks. Layout animation is acceptable when surrounding content must reflow (for example accordion `height`) and a measured trace supports it. Flag unjustified layout animation, not every non-transform property.
 - **Don't drive child transforms via a CSS variable on the parent** — it recalcs styles for all children. Set `transform` directly on the element.
   ```js
   element.style.setProperty('--swipe-amount', `${d}px`); // bad: recalc on all children
   element.style.transform = `translateY(${d}px)`;        // good: only this element
   ```
-- **Framer Motion shorthands are NOT hardware-accelerated.** `x`/`y`/`scale` run on the main thread via rAF and drop frames under load. Use the full transform string:
+- **Motion `x`/`y`/`scale` may be hardware-accelerated in current implementations.** Inspect the installed version/API and trace; use a full transform string or WAAPI only when it fixes a real recalculation/driver problem. Neither form guarantees acceleration:
   ```jsx
-  <motion.div animate={{ x: 100 }} />                          // drops frames under load
-  <motion.div animate={{ transform: "translateX(100px)" }} />  // hardware accelerated
+  <motion.div animate={{ x: 100 }} />                          // valid; profile installed Motion/browser
+  <motion.div animate={{ transform: "translateX(100px)" }} />  // eligible in supported browser/driver; profile
   ```
-- **CSS animations beat JS under load** — they run off the main thread; rAF-based animations stutter while the browser loads/scripts/paints. Use CSS for predetermined motion, JS for dynamic/interruptible.
-- **WAAPI** gives JS control with CSS performance (hardware-accelerated, interruptible, no library):
+- **CSS/WAAPI can run eligible effects on the compositor, not universally.** DOM `requestAnimationFrame` callbacks execute on the main thread. Code written in JS can configure compositor-driven WAAPI effects. Select CSS, WAAPI or dynamic JS/GSAP by interaction requirements and confirm in browser/device traces.
+- **WAAPI** gives browser-driven timing and JS control without an animation library. It can be compositor-driven for eligible effects; a `clipPath` example is **not automatically hardware-accelerated**:
   ```js
   element.animate([{ clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0 0)' }],
     { duration: 1000, fill: 'forwards', easing: 'cubic-bezier(0.77, 0, 0.175, 1)' });
