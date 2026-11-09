@@ -57,6 +57,53 @@ class EditorialCraftContractTests(unittest.TestCase):
             with self.subTest(path=path):
                 self.assertIn(fragment, read(path))
 
+    def test_approved_homepage_remains_the_voice_reference(self):
+        home = read("planning/stage-02/home-page.md")
+        self.assertIn("# Создаём то, что видят люди. И то, на что опирается бизнес.", home)
+        self.assertTrue(home.startswith("ARCHITEKTONICA – Архитектура решений."))
+        self.assertNotIn("\u2014", home)
+        self.assertGreater(len(home), 6000)
+        for rel in (
+            "AGENTS.md",
+            "PROJECT_SYSTEM_PROMPT.md",
+            "methods/editorial-source-boundaries.md",
+            "methods/copy-workflow.md",
+            "methods/editorial-quality.md",
+            "methods/site-voice-and-consistency.md",
+            "QUICK_START.md",
+            "prompts/ONE_LINE_TASKS.md",
+            "prompts/PERPLEXITY_SPACE.md",
+            "README.md",
+        ):
+            with self.subTest(path=rel):
+                self.assertIn("planning/stage-02/home-page.md" if not rel.startswith(("methods/", "prompts/")) else "../planning/stage-02/home-page.md", read(rel))
+        work_map = read("planning/stage-02/WORK_MAP.md")
+        self.assertIn("owner_approved", work_map)
+
+    def test_editorial_rules_do_not_restore_preapproval_drafts_or_conflict(self):
+        agents = read("AGENTS.md")
+        workflow = read("methods/copy-workflow.md")
+        contract = read("methods/editorial-source-boundaries.md")
+        voice = read("methods/site-voice-and-consistency.md")
+        self.assertIn("одну лучшую цельную редакцию", agents)
+        self.assertIn("Единственная каноническая последовательность", workflow)
+        self.assertIn("Итоговая сверка голоса и Only", contract)
+        self.assertIn("Утверждена новая главная от 08.11.2026", voice)
+        self.assertNotIn("После сброса Stage 02 прежних действующих текстов нет", voice)
+        self.assertNotIn("**Новая главная:**", read("QUICK_START.md"))
+        for rel in (
+            "PROJECT_SYSTEM_PROMPT.md",
+            "methods/copy-workflow.md",
+            "methods/editorial-source-boundaries.md",
+            "methods/editorial-quality.md",
+            "skills/architektonica-creative-director/SKILL.md",
+            "skills/architektonica-idea-lab/SKILL.md",
+            "skills/architektonica-narrative-design/SKILL.md",
+            "skills/architektonica-critical-editor/SKILL.md",
+        ):
+            with self.subTest(path=rel):
+                self.assertNotIn(r"\n\n", read(rel))
+
     def test_skill_mirrors_match_rebased_source(self):
         for name in (
             "architektonica-idea-lab",
