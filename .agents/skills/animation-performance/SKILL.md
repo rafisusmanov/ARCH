@@ -75,11 +75,12 @@ Every property enters this pipeline at one of three points, and the cost differs
 
 | Tier | Properties | Cost |
 | --- | --- | --- |
-| Composite only | `transform`, `opacity`, and in current Chrome/Firefox also `filter`, `clip-path`, `background-color` | Cheapest. Browsers promote these to their own layer. |
+| Strong compositor candidates | `transform`, `opacity` | Often avoids layout and paint per frame; actual compositor eligibility must be verified. |
+| Conditional/compositor-or-paint | `filter`, `clip-path`, `background-color`, other visual properties | May be composited in supported browsers and circumstances, or may repaint; never label universally composite-only. |
 | Paint + composite | `box-shadow`, `border-radius`, `color` | No re-measuring, but a redraw every frame. |
 | Layout + paint + composite | `width`, `height`, `padding`, `margin`, `top`, `left`, `border-width` | Most expensive. One growing element can move everything around it. |
 
-`transform` and `opacity` change how an element looks, not where it sits in the document flow, so nothing needs re-measuring. Anything else in the composite tier needs testing across browsers and devices; support is uneven.
+`transform` and `opacity` generally do not change document flow and are preferred for movement/fades. Even they are **not a hardware-acceleration guarantee** when effects, containment, browsers, or layer budgets differ. `filter`, `clip-path`, and `background-color` have conditional rendering paths: check the actual frame pipeline (layout, paint, composite) on the target browser/device before making performance claims. Semantic height changes (for example, an accordion that must reflow content) may justify measured layout animation.
 
 **Swapping down a tier:**
 
@@ -88,39 +89,39 @@ Every property enters this pipeline at one of three points, and the cost differs
 | `width` / `height` / `padding` to grow or shrink | `scale()` |
 | `top` / `left` / `margin` to move | `translate()` (percentages are relative to the element's own size) |
 | `display` / `visibility` swaps | `opacity` |
-| `box-shadow` | `filter: drop-shadow(…)` |
+| `box-shadow` | Consider `filter: drop-shadow(…)` if visually equivalent; validate paint cost and rendering in target browsers |
 
-The last one is the one people miss. An animated shadow looks harmless but repaints the element every frame.
+An animated shadow can repaint every frame. `drop-shadow()` is **not guaranteed cheaper**; it may require offscreen rendering and can change visual appearance. Compare both alternatives in a real trace.
 
 Two things follow:
 
-- **Layout animations don't always drop frames.** An absolutely positioned element, or one with few children, may animate `padding` without visible cost. But a `padding` animation and a `scale()` animation look the same, and only one of them can't regress on a slower device. Pick the one with no downside.
+- **Layout animations do not always drop frames.** On small or isolated subtrees, animating layout may be acceptable; it also differs semantically from `scale()` because surrounding content may need to move. Prefer compositor-friendly motion when it preserves the intended layout; where real reflow is required, justify and measure it on representative devices.
 - **Layout properties also move the wrong things.** Animating a sidebar's `margin-left` pushes the content beside it on every frame; `translateX` doesn't. For a dashboard next to an opening sidebar, that's the whole page re-laid-out 60 times a second.
 
 ## Where It Runs
 
-**JavaScript always runs on the main thread.** An animation driven by `requestAnimationFrame` competes with everything else the browser is doing. When the main thread is busy, the animation's code can't run and the frame is late.
+**A DOM-driven JavaScript `requestAnimationFrame` callback executes on the main thread**, competing with rendering and other work. This does **not** mean that every animation configured through JavaScript runs per frame on the main thread: an eligible Web Animations API animation can be compositor-driven after a JS call. CSS animations also require eligibility; neither CSS nor WAAPI guarantees compositor execution.
 
 | Driver | Thread |
 | --- | --- |
-| JS + `requestAnimationFrame` (GSAP, `motion/react` components) | Main thread, always |
-| Web Animations API (`element.animate()`, Motion's `animate()`) | Can be hardware-accelerated |
-| CSS transitions and keyframes | Can be hardware-accelerated |
+| DOM `requestAnimationFrame` / GSAP-driven per-frame DOM updates | Main-thread callback; compositor-only effects may still limit rendering cost |
+| Web Animations API (`element.animate()`, eligible Motion paths) | Can be compositor-driven when property, effect and browser allow |
+| CSS transitions and keyframes | Can be compositor-driven when eligible; not automatically off-main-thread |
 
-Hardware acceleration means the animation runs off the main thread, so it stays smooth no matter what JavaScript is doing. "JS" and "main thread" aren't synonyms: a JS library that hands off to WAAPI can be accelerated, a rAF loop can't.
+Compositor-driven animation can continue when the main thread is busy, **but smoothness is not guaranteed**: GPU load, rasterization, memory pressure, effects and device capability still matter. "Written in JS" and "requires per-frame JS" are different: WAAPI may hand off eligible effects, while DOM `requestAnimationFrame` updates run on the main thread.
 
-Reliably accelerated: `transform` and `opacity`. Gaining support: `filter`, `clip-path`, `background-color`.
+Preferred acceleration candidates: `transform` and `opacity`. Conditional and browser-dependent candidates: `filter`, `clip-path`, `background-color`. Verify with profiling rather than interpreting the CSS property alone as proof.
 
 **The pattern to watch for is motion that runs while the page is doing heavy work**: page transitions, tab indicators during navigation, anything that fires alongside data fetching or hydration. Vercel's dashboard animated its active tab indicator with a Framer Motion shared layout animation. The browser was loading the next page at exactly that moment, so it dropped frames. Moving it to a CSS animation fixed it.
 
-Framer Motion can be accelerated, but only when the transform is a string:
+Modern Motion supports independent `x`, `y`, `scale`, and `rotate` transforms with hardware acceleration **when the particular API, version and browser make the animation eligible**. Do not assert that all shorthands run on the main thread. Some older implementations, inherited CSS-variable paths or composition choices can still cause recalculation. Choose on evidence:
 
 ```jsx
-<motion.div animate={{ x: 100 }} />                          // main thread, can jank
-<motion.div animate={{ transform: "translateX(100px)" }} />  // hardware-accelerated
+<motion.div animate={{ x: 100 }} />                         // valid; profile in the installed Motion version
+<motion.div animate={{ transform: "translateX(100px)" }} /> // alternative; profile the actual effect
 ```
 
-The `x`, `y`, `scale`, `rotate` shorthands are implemented with CSS variables, and animated CSS variables aren't accelerated. The shorthands read better, so keep them by default and switch to the string form when the animation has to survive a busy main thread.
+Keep the existing project's chosen framework. If the page actually stutters, inspect long tasks, per-frame JS, variable inheritance and paint cost; compare direct `transform` or WAAPI where appropriate. ARCHITEKTONICA uses PHP/GSAP rather than requiring Motion.
 
 **Acceleration is progressive enhancement.** Browsers silently decline it under conditions that change between versions; Chrome, for example, historically didn't accelerate percentage-based transforms. That's not a reason to stop using `translateY(100%)`. Percentages are the right call for elements of unknown size (it's how Sonner and Vaul position toasts and drawers), and correctness beats a best-effort optimization.
 
@@ -201,7 +202,7 @@ Work down this list. It's ordered by how often each one is the cause:
 2. **Does the jank coincide with the page being busy?** Navigation, fetching, hydration, a long task. Move the animation to CSS or WAAPI.
 3. **Is React re-rendering per frame?** State updates in rAF, pointer, or scroll handlers.
 4. **Does it get worse as content grows?** An inherited CSS variable, or too many nodes animating at once.
-5. **Is a CSS variable animated at all?** Directly, or through Motion's `x`/`y`/`scale`.
+5. **Is an inherited CSS variable or JS-driven transform triggering style recalculation?** Confirm from the installed library/browser and trace; Motion's independent `x`/`y`/`scale` are not automatically defects.
 6. **Any animated `blur()` above 20px?**
 7. **Still shifting or stuttering?** Now add `will-change: transform` to the animating element.
 
