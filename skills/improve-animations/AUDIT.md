@@ -70,14 +70,14 @@ Hunt for: `@keyframes` on toasts/toggles/rapidly-triggered UI, gesture handlers 
 
 ## 5. Performance
 
-- **Animate `transform` and `opacity` only.** `width`/`height`/`margin`/`padding`/`top`/`left` trigger layout + paint + composite.
+- **Prefer `transform` and `opacity` for routine motion**, without treating compositor/GPU acceleration as guaranteed. `clip-path`/`filter`/color may need paint or conditional compositing. Necessary layout animation (e.g. accordion height) is allowed with justification and representative profiling; flag expensive or avoidable layout and paint work.
 - **`transition: all`** animates unintended properties off-GPU — always a finding.
-- **Framer Motion `x`/`y`/`scale` shorthands are not hardware-accelerated** — they run on the main thread and drop frames under load. Target: the full transform string, `animate={{ transform: "translateX(100px)" }}`.
+- **Motion independent transforms may be hardware-accelerated** in current versions. Confirm actual driver and performance; use a full `transform` string or WAAPI when profiling establishes a benefit, not as an unconditional rewrite.
 - **Don't drive child transforms via a CSS variable on the parent** — it recalcs styles for all children. Set `transform` directly on the element.
 - CSS (and WAAPI) beat rAF-based JS under load — use CSS for predetermined motion, JS/springs for dynamic and gesture-driven motion.
 - Keep transition-time `filter: blur()` under 20px — heavy blur is expensive, especially in Safari.
 
-Hunt for: `transition: all`, animated layout properties, Framer Motion shorthand props on busy pages, `setProperty('--x', …)` driving child transforms, rAF loops doing what CSS could.
+Hunt for: `transition: all`, avoidable layout/paint work, **measured** Motion shorthand bottlenecks, inherited CSS variables recalculating children, and rAF loops competing with busy main-thread tasks. Distinguish compositor-eligible CSS/WAAPI from guaranteed off-thread execution.
 
 ## 6. Accessibility
 
