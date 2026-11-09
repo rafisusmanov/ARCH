@@ -30,6 +30,10 @@ PLAN_PATH = 'references/project/ARCHITEKTONICA_SITE_PLAN_V2.md'
 # Full owner-approved v2 baseline, including the final clarification on 2026-10-31.
 # Update this digest only alongside an explicitly approved plan revision.
 PLAN_SHA256 = '9d9ff918e9af64fb81fe7c6d28348104828784c53b593290c038268af63fe4d7'
+PUBLIC_SHORT_POSITIONING_DOCS = {
+    'AGENTS.md', 'PROJECT_SYSTEM_PROMPT.md',
+    'references/project/05_Architektonica_Language.md',
+}
 POSITIONING_DOCS = [
     'AGENTS.md', 'PROJECT_SYSTEM_PROMPT.md', 'references/project/MASTER_INSTRUCTION.md',
     'references/project/01_Architektonica_Brand_Core.md',
@@ -109,7 +113,11 @@ def check_catalogue(root, errors):
             errors.append('Missing service in Services: ' + item['name'])
     for rel in POSITIONING_DOCS:
         text = (root / rel).read_text()
-        if 'ARCHITEKTONICA — Архитектура решений.' not in text or 'Технологии · Дизайн · Бизнес' not in text:
+        # Current public typography uses U+2013; historical source documents
+        # retain the original U+2014 record for archival traceability.
+        separator = '–' if rel in PUBLIC_SHORT_POSITIONING_DOCS else '—'
+        approved = f'ARCHITEKTONICA {separator} Архитектура решений.'
+        if approved not in text or 'Технологии · Дизайн · Бизнес' not in text:
             errors.append('Missing approved positioning: ' + rel)
 
 # The package verifier checks machine-verifiable integrity only. Editorial
