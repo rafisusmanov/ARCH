@@ -72,26 +72,21 @@ Walk down; stop at the first that fits.
 | --- | --- |
 | Hover, press, color, a state toggle you control with a class or attribute | **CSS transition** |
 | Entry animation on mount, no JS state | **CSS `@starting-style`** |
-| Predetermined motion that must stay smooth while the page is busy loading | **CSS animation** (runs off the main thread) |
+| Predetermined motion while the page is busy | **CSS animation**, with compositor eligibility verified on the target browser/device |
 | Programmatic control with CSS performance, no library | **WAAPI** (`element.animate()`) |
 | Springs, layout animations, exit animations, gesture-driven values | **Motion** (`motion.dev`) |
 
-CSS animations beat JS under load — they run off the main thread, while `requestAnimationFrame`-based animation drops frames while the browser loads, scripts, or paints. Use CSS for predetermined motion, JS for dynamic and interruptible motion.
+Choose the driver by interaction requirements, target stack, and observed frame cost. CSS transitions/keyframes and WAAPI can run eligible effects on the compositor, but **CSS does not guarantee off-main-thread execution**. DOM-driven JavaScript `requestAnimationFrame` callbacks use the main thread; JavaScript can also configure browser-driven WAAPI animations. Use CSS for simple declarative transitions, WAAPI for browser-driven programmatic control, and GSAP/Motion/JS where the scene requires it. Profile busy-page scenarios rather than assuming any driver always wins.
 
 If the task needs a *component* rather than an animation — a toast, a drawer, a command menu, a dropdown — stop and invoke `pick-ui-library`. Hand-rolling those is how you end up with a `<div>` dropdown and no focus management.
 
 ### 4. Pick the properties
 
-- **`transform` and `opacity` only.** They skip layout and paint and run on the GPU. `width`/`height`/`margin`/`padding`/`top`/`left` trigger all three. (`clip-path` is the sanctioned fourth — see RECIPES.md. `height` is tolerated only for accordions, where there's no transform equivalent.)
+- **`transform` and `opacity` by default, not exclusively.** They usually avoid layout/paint work and are strong compositor candidates, **not guaranteed GPU execution**. Justified exceptions include `clip-path` for reveals/holds, a restrained `filter` for crossfades, and color/background transitions when they serve the interaction; browser support and paint cost vary. Animate real `height` for an accordion only when layout must change and a transform cannot preserve content flow. Avoid `width`/`height`/`margin`/`padding`/`top`/`left` for routine decorative motion; if layout animation is necessary, document why and profile on target browsers/devices. See [RECIPES.md](RECIPES.md) and the project [integration policy](../../methods/engine-template-adaptation.md).
 - **Never `scale(0)`.** Start from `scale(0.9–0.97)` + `opacity: 0`. Nothing in the real world appears from nothing.
 - **`transform-origin` at the trigger** for popovers, dropdowns, menus, tooltips — `var(--transform-origin)` in Base UI. **Modals are exempt**; they're not anchored to a trigger, so they stay centered.
 - **Percentages in `translate()`** are relative to the element's own size — `translateY(100%)` moves by its own height whatever the content. Prefer over hardcoded pixels.
-- **In Motion, use the full transform string.** `x`/`y`/`scale` shorthands are not hardware-accelerated and drop frames under load:
-
-```jsx
-<motion.div animate={{ x: 100 }} />                          // drops frames under load
-<motion.div animate={{ transform: "translateX(100px)" }} />  // hardware accelerated
-```
+- **Motion independent transforms are not categorically slow.** Current Motion supports hardware acceleration for independent `x`/`y`/`scale` animations where eligible; implementation depends on API, version, browser, and animation configuration. Both `animate={{ x: 100 }}` and `animate={{ transform: "translateX(100px)" }}` can be valid. If the actual project/version drives inherited CSS variables or profiling shows style-recalculation/jank, switch to a direct `transform`, CSS, or WAAPI path. **Do not force a Motion migration** into ARCHITEKTONICA's PHP/GSAP stack.
 
 - **Never drive a child's transform from a CSS variable on the parent** — it recalculates styles for every child. Set `transform` on the element directly.
 
@@ -186,8 +181,8 @@ Self-check before you finish. Each of these is an automatic block in `review-ani
 | UI duration over 300ms with no reason | 150–250ms |
 | `transform-origin: center` on a trigger-anchored popover | `var(--transform-origin)` (modals exempt) |
 | Keyframes on toasts, toggles, rapidly-triggered elements | CSS transitions |
-| Animating `width`/`height`/`margin`/`padding`/`top`/`left` | `transform` / `opacity` |
-| Motion `x`/`y`/`scale` props under load | Full `transform` string |
+| Unnecessary layout-property animation or measured frame loss | Prefer `transform` / `opacity`; justify/profile semantic exceptions (e.g., accordion height) |
+| Motion independent transform with demonstrated style-recalc/jank | Check library version/driver; compare direct `transform` / WAAPI using a trace |
 | Ungated `:hover` motion | `@media (hover: hover) and (pointer: fine)` |
 | Missing `prefers-reduced-motion` | Gentler variant, not zero |
 | Everything entering at once | 30–80ms stagger |

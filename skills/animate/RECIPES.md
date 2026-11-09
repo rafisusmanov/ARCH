@@ -2,6 +2,8 @@
 
 Ready-to-build implementations for the cases that come up most. Start from the recipe, then adapt — don't rebuild from scratch.
 
+**Performance scope:** prefer `transform`/`opacity` for routine motion, but the `clip-path`, `filter`, and accordion `height` recipes below are intentional exceptions, **not evidence of compositor/GPU acceleration**. For each production use, verify actual layout/paint/composite work and frame pacing on the target browser/device. CSS, WAAPI and GSAP/JS paths are chosen by the interaction and measured behavior, not by blanket off-main-thread claims.
+
 Curves are the `--ease-out`, `--ease-in-out`, and `--ease-drawer` tokens defined in SKILL.md.
 
 ---
@@ -312,7 +314,7 @@ Without blur the eye reads two distinct objects swapping. Blur blends them into 
 
 ## Programmatic, without a library
 
-When the motion needs JS control but not a dependency, WAAPI gives you CSS-grade performance:
+When motion needs JS control without an additional library, WAAPI can provide browser-driven timing and may use the compositor for eligible properties/effects:
 
 ```js
 element.animate(
@@ -321,4 +323,4 @@ element.animate(
 );
 ```
 
-Hardware-accelerated, interruptible, no bundle cost.
+Interruptible, no additional animation library; **hardware acceleration is conditional**, especially for this `clipPath` example. Verify the actual rendering path and frame pacing.
