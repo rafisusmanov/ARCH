@@ -390,7 +390,7 @@ CI настроен на Python 3.11/3.13 и запускается для PR, m
 
 - `references/project/02_Architektonica_Fact_Bank.md` — источник статусов, названий, доступной атрибуции, подтверждений, публичных URL и оговорок.
 - `references/project/03_Architektonica_Case_Studies.md` — развернутые описания известных работ; интерпретации задачи и напряжения **не являются прямыми цитатами клиента**.
-- `references/project/01_Architektonica_Brand_Core.md`, `../references/project/00_Creative_Platform.md`, `../references/project/05_Architektonica_Language.md`, `../references/project/06_Architektonica_Reference_Texts.md` — смысл, редакционный голос и примеры, но не приговор в отношении формата каждого нового кейса.
+- `references/project/01_Architektonica_Brand_Core.md`, `../references/project/00_Creative_Platform.md`, `../references/project/05_Architektonica_Language.md` — смысл и редакционный голос, но не готовая форма каждого нового кейса. Устаревший пустой Reference Texts удалён из активного дерева после сброса Stage 02; исторический вариант доступен в Git.
 - `../references/project/04_Architektonica_Services.md` + `../references/project/Услуги_дополнительный_перечень.md` — предлагаемые услуги; наличие в каталоге не доказывает выполненный проект.
 - `references/research/*.xlsx`, `methods/research-evidence-map.md` — подсказки по восприятию текста, а не источники выдуманной конверсии.
 - `references/template/*.xlsx` — карта полей существующего шаблона, не ограничение на длину или форму кейса.
