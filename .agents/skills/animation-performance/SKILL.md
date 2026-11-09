@@ -43,9 +43,9 @@ Start here. Match what the user is seeing, then read the matching section.
 | Problem | Solution |
 | --- | --- |
 | Animation stutters | Animate `transform`/`opacity`, not `width`/`height`/`top`/`margin` |
-| Shadow animation is choppy | `filter: drop-shadow()` |
-| Jank only during navigation or loading | Move the animation to CSS or WAAPI so it runs off the main thread |
-| Framer Motion `x`/`y` drops frames | Animate the full `transform` string |
+| Shadow animation is choppy | Compare `filter: drop-shadow()` against the current shadow; profile both |
+| Jank during navigation/loading | Consider compositor-eligible CSS/WAAPI; verify off-main-thread execution in a trace |
+| Motion `x`/`y` drops frames | Profile driver/version; compare full `transform` string or WAAPI if warranted |
 | Hand-rolled animation drops frames in React | Write to `ref.current.style`, not state |
 | Drag gets laggier as the list grows | Stop animating an inherited CSS variable; set `transform` directly |
 | Blur transition lags (especially Safari) | Keep animated `blur()` under 20px |
@@ -178,7 +178,7 @@ No. Main-thread animation only suffers when the page is busy during it, which is
 
 Framer Motion gives you things CSS can't: real springs, shared layout animations, exit animations for unmounted components, momentum gestures. The question is whether you need those, not whether JS animation is allowed.
 
-**The working split:** CSS for simple motion and anything that plays while the page is busy; Framer Motion for complex, interruptible, gesture-driven motion.
+**Working choice:** CSS for simple declarative motion; eligible CSS or WAAPI when compositor execution matters during busy work; GSAP/Motion/JS for complex, interruptible or gesture-driven effects. Profile instead of assuming CSS or any library always runs off-thread.
 
 ## Workflow
 
