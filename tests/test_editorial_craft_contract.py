@@ -60,15 +60,15 @@ class EditorialCraftContractTests(unittest.TestCase):
 
     def test_approved_homepage_remains_the_voice_reference(self):
         home = read("planning/stage-02/home-page.md")
-        self.assertIn("# Создаём то, что видят люди. И то, на что опирается бизнес.", home)
+        self.assertIn("# Комплексные решения для развития компаний", home)
         self.assertTrue(home.startswith("ARCHITEKTONICA – Архитектура решений."))
         self.assertNotIn("\u2014", home)
-        self.assertGreater(len(home), 6000)
+        self.assertGreater(len(home), 4000)
         # Snapshot of the owner-approved copy, not a model quality metric.
-        # Update only following explicit owner approval of a new full text.
+        # Updated after owner approved the revised full homepage on 09.11.2026.
         raw = home.encode("utf-8")
         git_blob_sha = hashlib.sha1(f"blob {len(raw)}\0".encode() + raw).hexdigest()
-        self.assertEqual(git_blob_sha, "b178d4bea04f6ea7c8a65d4a8bb623b019ea2c2d")
+        self.assertEqual(git_blob_sha, "9d462ccbf5f77203d5d011104869fe3770dd0019")
         for rel in (
             "AGENTS.md",
             "PROJECT_SYSTEM_PROMPT.md",
