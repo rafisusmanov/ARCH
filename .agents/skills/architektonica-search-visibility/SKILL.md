@@ -26,7 +26,7 @@ description: Дорабатывает страницы Architektonica для о�
 
 ## Специализированные методики (читать по задаче)
 
-**Этап 02 / семантика 81 услуги:** [keyword-serp-research](references/keyword-serp-research.md) — подтверждённый спрос, RU/Google/Яндекс, SERP, intent, кластеры и сохранение catalogue_name/ID; не придумывать цифры.
+**Этап 02 / семантика 87 публичных услуг (81 исторический ID сохранён):** [keyword-serp-research](references/keyword-serp-research.md) — подтверждённый спрос, RU/Google/Яндекс, SERP, intent, кластеры, сохранение catalogue_name/ID и [действующий публичный каталог](../../../planning/stage-02/public-service-catalogue.json); не придумывать цифры.
 
 **IA / связи / конкурирующие страницы:** [site-structure-linking](references/site-structure-linking.md) — каноническое намерение, `Direction → Service ↔ Case ↔ Article`, выявление сирот, статусы и RU/EN. Утверждённый sitemap не пересматривать без решения владельца.
 
