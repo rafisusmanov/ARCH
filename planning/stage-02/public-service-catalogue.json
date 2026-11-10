@@ -4,27 +4,32 @@
   "approval": {
     "date": "2026-11-10",
     "status": "owner_approved_taxonomy",
-    "scope": "6 navigation groups, 17 directions, 77 distinct public service offerings; preserve all 81 historical IDs; separate publication approval required",
-    "web_write_authorized": false
+    "scope": "6 groups, 17 directions, 87 public services including 11 new explicit categories, 81 historical IDs retained; svc-007 retired from public offer; cybersecurity and cross-industry AI made explicit as scopes; no publication copy or WEB authorization.",
+    "web_write_authorized": false,
+    "revision": "2026-11-10-explicit-categories"
   },
   "source": {
     "stage01_immutable_manifest": "planning/stage-01/catalogue-map.json",
     "historical_source": "references/project/services_catalogue.json",
     "review": "planning/stage-02/service-taxonomy-review.md",
     "proposals": "planning/stage-02/service-taxonomy-proposal.json",
-    "notion_snapshot_date": "2026-10-30"
+    "notion_snapshot_date": "2026-10-30",
+    "extension_decision": "planning/stage-02/catalogue-extension-decision-2026-11-10.md"
   },
   "counts": {
     "groups": 6,
     "directions": 17,
-    "public_services": 77,
+    "public_services": 87,
     "legacy_service_ids": 81,
     "merged_aliases": 1,
-    "case_references": 3
+    "case_references": 3,
+    "retired_by_owner": 1,
+    "new_service_ids": 11,
+    "explicit_scope_groups": 2
   },
   "publication_gate": {
     "status": "full_page_copy_not_approved",
-    "note": "Owner approved classification and editorial nomenclature for catalogue, not final marketing copy, individual page designs, public URL deployment, or WEB changes."
+    "note": "Owner-approved category presence and inclusion; individual scope text is editorial working material, not separately confirmed technical delivery or published copy; future URLs, redirects and WEB remain unimplemented."
   },
   "groups": [
     {
@@ -94,7 +99,7 @@
       "legacy_name": "Брендинг",
       "slug": "branding",
       "group_id": "brand-and-communications",
-      "count": 3,
+      "count": 4,
       "proposed_url": "/services/branding",
       "publication_status": "content_not_approved"
     },
@@ -124,7 +129,7 @@
       "legacy_name": "Сайты и цифровые продукты",
       "slug": "websites-and-digital-products",
       "group_id": "digital-products",
-      "count": 6,
+      "count": 11,
       "proposed_url": "/services/websites-and-digital-products",
       "publication_status": "content_not_approved"
     },
@@ -144,7 +149,7 @@
       "legacy_name": "Спецпроекты и интерактив",
       "slug": "special-projects-and-interactive",
       "group_id": "immersive-media",
-      "count": 4,
+      "count": 6,
       "proposed_url": "/services/special-projects-and-interactive",
       "publication_status": "content_not_approved"
     },
@@ -154,7 +159,7 @@
       "legacy_name": "3D, анимация и видео",
       "slug": "3d-animation-and-video",
       "group_id": "immersive-media",
-      "count": 7,
+      "count": 8,
       "proposed_url": "/services/3d-animation-and-video",
       "publication_status": "content_not_approved"
     },
@@ -244,7 +249,7 @@
       "legacy_name": "Электронная коммерция и маркетплейсы",
       "slug": "ecommerce-and-marketplaces",
       "group_id": "digital-products",
-      "count": 1,
+      "count": 2,
       "proposed_url": "/services/ecommerce-and-marketplaces",
       "publication_status": "content_not_approved"
     },
@@ -312,6 +317,25 @@
       }
     },
     {
+      "id": "svc-082",
+      "direction_id": "dir-01",
+      "group_id": "brand-and-communications",
+      "title": "Нейминг и бренд-платформа",
+      "legacy_title": null,
+      "scope": "Разработка названия бренда и принципов его использования; формулирование позиционирования, ценностей, архитектуры бренда, ключевых сообщений и коммуникационных правил. При самостоятельном заказе отделять от комплексного брендинга svc-001.",
+      "editorial_note": "Подлинная автономная работа – имя и стратегическая основа бренда, а не отдельный повтор разработки логотипа.",
+      "scope_source": "owner_approved_new_category__editorial_scope_not_publication_copy",
+      "proposed_destination": "/services/branding#svc-082",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      },
+      "approval": "owner_requested_catalogue_expansion_2026-11-10"
+    },
+    {
       "id": "svc-004",
       "direction_id": "dir-02",
       "group_id": "brand-and-communications",
@@ -364,23 +388,6 @@
       "merged_legacy_ids": [
         "svc-008"
       ]
-    },
-    {
-      "id": "svc-007",
-      "direction_id": "dir-02",
-      "group_id": "brand-and-communications",
-      "title": "Международное и мультиязычное SEO",
-      "legacy_title": "SEO и мультиязычное продвижение",
-      "scope": "Аудит поискового спроса на целевых рынках, разработка международной SEO-структуры, локализация семантики и контента, настройка языковых версий и hreflang. Техническая оптимизация и оценка органического трафика по странам.",
-      "editorial_note": "Самостоятельный объём: международная семантика, локализация, hreflang, страна и язык.",
-      "proposed_destination": "/services/marketing-and-promotion#svc-007",
-      "proposed_surface": "direction_section",
-      "detail_page_candidate": false,
-      "publication_status": "copy_not_approved",
-      "locale_status": {
-        "ru": "needs_stage_02_copy",
-        "en": "not_translated"
-      }
     },
     {
       "id": "svc-009",
@@ -468,6 +475,25 @@
       }
     },
     {
+      "id": "svc-083",
+      "direction_id": "dir-02",
+      "group_id": "brand-and-communications",
+      "title": "Email-маркетинг и CRM-маркетинг",
+      "legacy_title": null,
+      "scope": "Стратегия клиентских рассылок, сегментация базы, сценарии коммуникации и автоматические цепочки сообщений; интеграция с CRM, согласия и отказ от рассылок, измерение эффективности.",
+      "editorial_note": "Коммуникации с существующей клиентской базой; не дублировать платное привлечение svc-009/010 или техническое внедрение CRM svc-057.",
+      "scope_source": "owner_approved_new_category__editorial_scope_not_publication_copy",
+      "proposed_destination": "/services/marketing-and-promotion#svc-083",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      },
+      "approval": "owner_requested_catalogue_expansion_2026-11-10"
+    },
+    {
       "id": "svc-014",
       "direction_id": "dir-03",
       "group_id": "brand-and-communications",
@@ -533,7 +559,8 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "scope_boundary": "Многопользовательские и многосторонние B2B/B2C-платформы, агрегаторы и комплексные цифровые экосистемы; конкретные примеры: партнёрский портал, площадка с ролями организаций и пользователей, сервис координации участников. Отдельно от веб-приложений и SaaS svc-086, заказного корпоративного ПО svc-087."
     },
     {
       "id": "svc-018",
@@ -604,6 +631,101 @@
       }
     },
     {
+      "id": "svc-084",
+      "direction_id": "dir-04",
+      "group_id": "digital-products",
+      "title": "Разработка мобильных приложений",
+      "legacy_title": null,
+      "scope": "Проектирование и разработка приложений для iOS и Android: интерфейс, мобильные сценарии, клиентская и серверная части, интеграции, тестирование и подготовка к выпуску. Нативный или кроссплатформенный стек выбирается под задачу.",
+      "editorial_note": "Приложение на мобильном устройстве – самостоятельный продукт, не просто адаптивный сайт. Конкретные ОС/стеки и команды подтвердить перед коммерческим обещанием.",
+      "scope_source": "owner_approved_new_category__editorial_scope_not_publication_copy",
+      "proposed_destination": "/services/websites-and-digital-products#svc-084",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      },
+      "approval": "owner_requested_catalogue_expansion_2026-11-10"
+    },
+    {
+      "id": "svc-085",
+      "direction_id": "dir-04",
+      "group_id": "digital-products",
+      "title": "Разработка десктопных приложений и ПО",
+      "legacy_title": null,
+      "scope": "Разработка устанавливаемых программ для компьютеров, рабочих станций и специализированных задач: пользовательский интерфейс, локальные данные, вычисления, синхронизация, интеграции и поставка. Windows/macOS/Linux – возможные целевые платформы, выбор зависит от проекта.",
+      "editorial_note": "Десктопное ПО – отдельная категория; не смешивать с SaaS, браузерным приложением или внедрением ERP.",
+      "scope_source": "owner_approved_new_category__editorial_scope_not_publication_copy",
+      "proposed_destination": "/services/websites-and-digital-products#svc-085",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      },
+      "approval": "owner_requested_catalogue_expansion_2026-11-10"
+    },
+    {
+      "id": "svc-086",
+      "direction_id": "dir-04",
+      "group_id": "digital-products",
+      "title": "Разработка веб-приложений и SaaS",
+      "legacy_title": null,
+      "scope": "Разработка браузерных приложений, онлайн-сервисов и SaaS-продуктов: аккаунты, бизнес-логика, подписки при необходимости, серверная часть, API, база данных, безопасность, запуск и развитие.",
+      "editorial_note": "Веб-приложение и SaaS – конкретный тип программного продукта. Отделить от обычного сайта svc-016 и многосистемной платформы svc-017.",
+      "scope_source": "owner_approved_new_category__editorial_scope_not_publication_copy",
+      "proposed_destination": "/services/websites-and-digital-products#svc-086",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      },
+      "approval": "owner_requested_catalogue_expansion_2026-11-10"
+    },
+    {
+      "id": "svc-087",
+      "direction_id": "dir-04",
+      "group_id": "digital-products",
+      "title": "Разработка заказного корпоративного ПО",
+      "legacy_title": null,
+      "scope": "Создание программных инструментов под бизнес-процессы организации: внутренние приложения, рабочие панели, учётные инструменты, обработка документов, доступы и интеграции с существующей ИТ-средой.",
+      "editorial_note": "Разработка собственного продукта на заказ; svc-024 относится к автоматизации/внедрению ERP/BPM, а не обязана означать написание нового ПО.",
+      "scope_source": "owner_approved_new_category__editorial_scope_not_publication_copy",
+      "proposed_destination": "/services/websites-and-digital-products#svc-087",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      },
+      "approval": "owner_requested_catalogue_expansion_2026-11-10"
+    },
+    {
+      "id": "svc-088",
+      "direction_id": "dir-04",
+      "group_id": "digital-products",
+      "title": "API и системные интеграции",
+      "legacy_title": null,
+      "scope": "Проектирование и разработка API, связующих модулей и обмена данными между сайтами, приложениями, CRM, ERP, платёжными системами и внешними сервисами; управление доступом, обработка ошибок, тестирование и документация.",
+      "editorial_note": "Интеграция как самостоятельный заказ между уже существующими продуктами; может также входить в комплексную разработку без двойного счета.",
+      "scope_source": "owner_approved_new_category__editorial_scope_not_publication_copy",
+      "proposed_destination": "/services/websites-and-digital-products#svc-088",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      },
+      "approval": "owner_requested_catalogue_expansion_2026-11-10"
+    },
+    {
       "id": "svc-022",
       "direction_id": "dir-05",
       "group_id": "ai-and-infrastructure",
@@ -635,7 +757,15 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "explicit_capabilities": [
+        "Пентест и аудит защищённости сайтов, веб-приложений, API и инфраструктуры",
+        "DevSecOps: безопасность разработки, проверка зависимостей, SAST/DAST и контроль секретов",
+        "Защита API, веб-приложений, ботов и мобильных приложений",
+        "Защита серверов, корпоративных сетей, облачной инфраструктуры и конечных устройств",
+        "Защита данных, управление доступом, конфиденциальность и оценка соответствия требованиям"
+      ],
+      "capabilities_note": "Описаны направления работ, но наличие конкретного режима SOC/SLA/24×7, сертификаций, юридических гарантий и компетенций команды должно быть подтверждено до публикации."
     },
     {
       "id": "svc-024",
@@ -669,7 +799,14 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "explicit_capabilities": [
+        "Мониторинг угроз и анализ событий безопасности",
+        "Реагирование на инциденты и восстановление после них",
+        "Резервное копирование, восстановление и устойчивость систем",
+        "Безопасность AI-агентов, LLM-приложений, API и корпоративных AI-сервисов"
+      ],
+      "capabilities_note": "Регулярная поддержка, реагирование и часы предоставления могут рекламироваться только после подтверждения операционной модели и договора."
     },
     {
       "id": "svc-026",
@@ -738,6 +875,44 @@
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
       }
+    },
+    {
+      "id": "svc-090",
+      "direction_id": "dir-06",
+      "group_id": "immersive-media",
+      "title": "Разработка VR-приложений",
+      "legacy_title": null,
+      "scope": "Проектирование и разработка интерактивных приложений для виртуальной реальности: 3D-пространства, навигация, сценарии взаимодействия, оптимизация под целевые устройства и тестирование пользовательского опыта.",
+      "editorial_note": "VR – отдельный технический класс от AR-механик svc-029 и браузерных immersive-сцен svc-027. Конкретные гарнитуры подтверждать под проект.",
+      "scope_source": "owner_approved_new_category__editorial_scope_not_publication_copy",
+      "proposed_destination": "/services/special-projects-and-interactive#svc-090",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      },
+      "approval": "owner_requested_catalogue_expansion_2026-11-10"
+    },
+    {
+      "id": "svc-091",
+      "direction_id": "dir-06",
+      "group_id": "immersive-media",
+      "title": "Цифровые инсталляции и виртуальные выставки",
+      "legacy_title": null,
+      "scope": "Проектирование интерактивных мультимедийных инсталляций, виртуальных экспозиций и цифровых пространств для мероприятий, музеев и брендов; сценарии, медиаконтент, интерфейсы и оборудование в согласованном составе.",
+      "editorial_note": "Многоэкранные, экспозиционные и пространственные сценарии, не только 3D-тур svc-028 или AR-механика.",
+      "scope_source": "owner_approved_new_category__editorial_scope_not_publication_copy",
+      "proposed_destination": "/services/special-projects-and-interactive#svc-091",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      },
+      "approval": "owner_requested_catalogue_expansion_2026-11-10"
     },
     {
       "id": "svc-030",
@@ -857,6 +1032,25 @@
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
       }
+    },
+    {
+      "id": "svc-092",
+      "direction_id": "dir-07",
+      "group_id": "immersive-media",
+      "title": "Видеопроизводство, монтаж и постпродакшен",
+      "legacy_title": null,
+      "scope": "Создание видеоматериалов: разработка сценария и визуальной концепции, производство по формату проекта, монтаж, цветокоррекция, графика, звук и финальная подготовка материалов к публикации.",
+      "editorial_note": "Отдельная линейка видео, не сводить к motion-графике svc-032, AI-анимации svc-033 или виртуальному продакшену svc-036.",
+      "scope_source": "owner_approved_new_category__editorial_scope_not_publication_copy",
+      "proposed_destination": "/services/3d-animation-and-video#svc-092",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      },
+      "approval": "owner_requested_catalogue_expansion_2026-11-10"
     },
     {
       "id": "svc-037",
@@ -1553,7 +1747,27 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "scope_boundary": "Коммерческое управление ассортиментом, продажами и маркетплейсами; не путать с технической разработкой торговой платформы svc-089."
+    },
+    {
+      "id": "svc-089",
+      "direction_id": "dir-16",
+      "group_id": "digital-products",
+      "title": "Разработка интернет-магазинов и торговых платформ",
+      "legacy_title": null,
+      "scope": "Создание интернет-магазинов и торговых цифровых платформ: каталог товаров, поиск и фильтры, корзина, оформление заказов, интеграция оплаты и доставки, личные кабинеты продавцов и покупателей по задаче.",
+      "editorial_note": "Техническое создание и развитие торгового продукта; svc-080 – последующие торговые операции и управление маркетплейсами.",
+      "scope_source": "owner_approved_new_category__editorial_scope_not_publication_copy",
+      "proposed_destination": "/services/ecommerce-and-marketplaces#svc-089",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      },
+      "approval": "owner_requested_catalogue_expansion_2026-11-10"
     },
     {
       "id": "svc-081",
@@ -1639,10 +1853,11 @@
       "legacy_name": "SEO и мультиязычное продвижение",
       "legacy_direction_id": "dir-02",
       "legacy_proposed_destination": "/services/marketing-and-promotion#svc-007",
-      "role": "public",
-      "public_service_id": "svc-007",
+      "role": "retired_by_owner",
+      "public_service_id": null,
       "case_refs": [],
-      "redirect_implemented": false
+      "redirect_implemented": false,
+      "migration_note": "Удалено из публичного каталога по прямому решению владельца 10.11.2026; сохранить ID, прежнее название и proposed_destination только в истории. Никакие редиректы WEB не реализованы."
     },
     {
       "id": "svc-008",
@@ -2392,6 +2607,50 @@
       "public_service_id": "svc-081",
       "case_refs": [],
       "redirect_implemented": false
+    }
+  ],
+  "direction_capabilities": [
+    {
+      "direction_id": "dir-05",
+      "title": "Кибербезопасность: явный состав направления",
+      "kind": "explicit_included_service_scopes_not_extra_skus",
+      "parent_service_ids": [
+        "svc-023",
+        "svc-025"
+      ],
+      "items": [
+        "Пентест и аудит защищённости сайтов, веб-приложений, API и инфраструктуры",
+        "DevSecOps: безопасность разработки, проверка зависимостей, SAST/DAST и контроль секретов",
+        "Защита API, веб-приложений, ботов и мобильных приложений",
+        "Защита серверов, корпоративных сетей, облачной инфраструктуры и конечных устройств",
+        "Защита данных, управление доступом, конфиденциальность и оценка соответствия требованиям",
+        "Мониторинг угроз и анализ событий безопасности",
+        "Реагирование на инциденты и восстановление после них",
+        "Резервное копирование, восстановление и устойчивость систем",
+        "Безопасность AI-агентов, LLM-приложений, API и корпоративных AI-сервисов"
+      ],
+      "proof_gate": "Проверить техническую спецификацию специалиста, реальные компетенции, режим сопровождения, юридические полномочия; 24/7, SOC и SLA не обещать без подтверждения."
+    },
+    {
+      "direction_id": "dir-10",
+      "title": "Интеллектуальные продукты по отраслям",
+      "kind": "cross_industry_applications_not_separate_skus",
+      "parent_service_ids": [
+        "svc-051",
+        "svc-052",
+        "svc-053",
+        "svc-054",
+        "svc-055"
+      ],
+      "items": [
+        "Производство, инженерия и технологические процессы",
+        "Торговля и электронная коммерция",
+        "Финансовая и управленческая аналитика",
+        "Недвижимость и цифровая инфраструктура",
+        "Образовательные и корпоративные процессы",
+        "Медицина, биотехнологии и научные исследования – предметные кейсы отдельно от коммерческих услуг"
+      ],
+      "proof_gate": "Перечень сфер применимости, не список завершённых отраслевых проектов. Synapto подтверждается отдельно по Case Studies; svc-048/049/050 остаются кейсовыми ID."
     }
   ]
 }
