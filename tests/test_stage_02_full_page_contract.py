@@ -34,7 +34,7 @@ class Stage02FullPageContractTest(unittest.TestCase):
     def test_only_is_text_and_ux_reference(self):
         guide = read("methods/text-reference-only-digital.md")
         self.assertIn("обязательный разбор целой страницы и UX", guide)
-        self.assertIn("не копировать тексты", guide)
+        self.assertIn("Не копировать тексты", guide)
         self.assertIn("UX", read("PROJECT_SYSTEM_PROMPT.md"))
         self.assertNotIn("Референс относится к **текстам, не структуре сайта**", read("PROJECT_SYSTEM_PROMPT.md"))
 
