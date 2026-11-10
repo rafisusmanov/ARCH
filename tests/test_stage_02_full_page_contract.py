@@ -27,7 +27,7 @@ class Stage02FullPageContractTest(unittest.TestCase):
         self.assertIn("77 JPG", guide)
         self.assertIn("5 MP4", guide)
         self.assertIn("воспроизведение, реальные траектории, тайминги и звук не проверены", guide)
-        self.assertIn("дорабатывать", guide)
+        self.assertIn("Дорабатывать дизайн", guide)
         self.assertIn("Z0 / Дальний план", guide)
         self.assertIn("На каждый внешний материал проверять права", guide)
         self.assertIn("WEB/reference", read("AGENTS.md"))
@@ -75,7 +75,7 @@ class Stage02FullPageContractTest(unittest.TestCase):
         self.assertFalse((ROOT / "skills/copy-studio").exists())
         self.assertFalse((ROOT / ".agents/skills/copy-studio").exists())
         self.assertIn("Copy Studio не существует как актуальный навык", read("AGENTS.md"))
-        self.assertIn("classification_review_pending", read("planning/stage-02/service-taxonomy-review.md"))
+        self.assertIn("audited_proposal_pending_owner_approval", read("planning/stage-02/service-taxonomy-review.md"))
         self.assertIn("81 услугу", read("references/project/ARCHITEKTONICA_SITE_PLAN_V2.md"))
         self.assertIn("77 JPG", read("methods/web-reference-style-and-depth.md"))
 
