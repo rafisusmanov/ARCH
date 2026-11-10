@@ -76,21 +76,24 @@ class Stage02FullPageContractTest(unittest.TestCase):
         manifest = json.loads(read("planning/stage-01/catalogue-map.json"))
         self.assertEqual("owner_approved_taxonomy", public["approval"]["status"])
         self.assertFalse(public["approval"]["web_write_authorized"])
-        self.assertEqual((6, 17, 77, 81),
+        self.assertEqual((6, 17, 87, 81),
             (len(public["groups"]), len(public["directions"]),
              len(public["services"]), len(public["legacy_id_map"])))
         ids = {s["id"] for s in public["services"]}
         legacy = {s["id"]: s for s in public["legacy_id_map"]}
-        self.assertEqual(len(ids), 77)
+        self.assertEqual(len(ids), 87)
         self.assertEqual(set(legacy), {s["id"] for s in manifest["services"]})
-        self.assertEqual(ids, set(legacy) -
-            {"svc-008", "svc-048", "svc-049", "svc-050"})
+        self.assertEqual(ids, (set(legacy) -
+            {"svc-007", "svc-008", "svc-048", "svc-049", "svc-050"}) |
+            {f"svc-{i:03d}" for i in range(82, 93)})
         self.assertEqual({d["id"] for d in public["directions"]},
                          {d["id"] for d in manifest["directions"]})
-        self.assertEqual(77, sum(d["count"] for d in public["directions"]))
+        self.assertEqual(87, sum(d["count"] for d in public["directions"]))
         self.assertEqual(
             "Прикладные AI-системы и инженерные решения",
             next(d["name"] for d in public["directions"] if d["id"] == "dir-10"))
+        self.assertEqual("retired_by_owner", legacy["svc-007"]["role"])
+        self.assertIsNone(legacy["svc-007"]["public_service_id"])
         self.assertEqual("svc-006", legacy["svc-008"]["public_service_id"])
         self.assertEqual("merged_alias", legacy["svc-008"]["role"])
         for old in ("svc-048", "svc-049", "svc-050"):
@@ -101,6 +104,16 @@ class Stage02FullPageContractTest(unittest.TestCase):
                             for s in public["services"]))
         self.assertEqual("full_page_copy_not_approved",
                          public["publication_gate"]["status"])
+        self.assertEqual(11, public["counts"]["new_service_ids"])
+        self.assertEqual(1, public["counts"]["retired_by_owner"])
+        self.assertEqual(2, public["counts"]["explicit_scope_groups"])
+        self.assertEqual({r["direction_id"] for r in public["direction_capabilities"]},
+                         {"dir-05", "dir-10"})
+        self.assertTrue(all(len(r["items"]) >= 5 for r in public["direction_capabilities"]))
+        self.assertEqual([f"svc-{i:03d}" for i in range(82, 93)],
+                         sorted(x["id"] for x in public["services"] if int(x["id"][4:]) >= 82))
+        self.assertIn("6/17/87", read("planning/stage-02/catalogue-extension-decision-2026-11-10.md"))
+
         self.assertIn("svc-008",
             next(s["merged_legacy_ids"] for s in public["services"]
                  if s["id"] == "svc-006"))
