@@ -24,7 +24,7 @@
   },
   "publication_gate": {
     "status": "full_page_copy_not_approved",
-    "note": "Approved taxonomy does not approve Stage 02 publication copy, implement routes, actual redirects, or WEB changes."
+    "note": "Owner approved classification and editorial nomenclature for catalogue, not final marketing copy, individual page designs, public URL deployment, or WEB changes."
   },
   "groups": [
     {
@@ -351,7 +351,7 @@
       "group_id": "brand-and-communications",
       "title": "GEO – оптимизация для AI-поиска",
       "legacy_title": "GEO",
-      "scope": "Анализ представленности бренда в генеративном поиске, подготовка структурированного и проверяемого экспертного контента, оптимизация страниц и данных для машинного извлечения. Мониторинг упоминаний и корректности ответов ИИ-сервисов.",
+      "scope": "Анализ представленности бренда в генеративном поиске, подготовка структурированного и проверяемого экспертного контента, оптимизация страниц и данных для машинного извлечения. Мониторинг упоминаний и корректности ответов ИИ-сервисов. Дополнительно: проверка присутствия в релевантных AI-поисковых системах, работа с разметкой, цитируемыми источниками и точностью ответов. Эти работы объединяют прежние GEO-позиции svc-006 и svc-008; не представляют вторую отдельную услугу.",
       "editorial_note": "Сделать единственным каноническим GEO-предложением; объединить содержание svc-008.",
       "proposed_destination": "/services/marketing-and-promotion#svc-006",
       "proposed_surface": "direction_section",
@@ -360,7 +360,10 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "merged_legacy_ids": [
+        "svc-008"
+      ]
     },
     {
       "id": "svc-007",
@@ -1649,7 +1652,8 @@
       "role": "merged_alias",
       "public_service_id": "svc-006",
       "case_refs": [],
-      "redirect_implemented": false
+      "redirect_implemented": false,
+      "migration_note": "Сохранить исторический якорь svc-008, связать с публичным GEO svc-006; технический redirect/anchor еще не реализован."
     },
     {
       "id": "svc-009",
