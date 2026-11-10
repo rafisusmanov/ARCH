@@ -15,27 +15,19 @@ from verify_package import check_references
 
 
 class HistoricalReferenceTests(unittest.TestCase):
-    def test_only_exact_audit_reference_is_exempt(self):
+    def test_removed_audit_has_no_missing_link_exceptions(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp).resolve()
             audit = root / 'methods/source-audit-and-portfolio-rules.md'
             audit.parent.mkdir()
-            ref = '../skills/architektonica-copy-studio/SKILL.md'
-            audit.write_text(f'[historical]({ref})\n')
-            errors = []
-            check_references(root, audit, errors)
-            self.assertEqual(errors, [])
-            for document, target in (
-                (audit, '../skills/architektonica-copy-studio/OTHER.md'),
-                (audit, '../skills/missing/SKILL.md'),
-                (audit.with_name('other-audit.md'), ref),
-            ):
-                with self.subTest(document=document.name, target=target):
-                    document.write_text(f'[missing]({target})\n')
-                    errors = []
-                    check_references(root, document, errors)
-                    self.assertEqual(len(errors), 1)
-                    self.assertIn('Broken local reference:', errors[0])
+            for target in ('../skills/architektonica-copy-studio/SKILL.md',
+                           '../skills/architektonica-copy-studio/OTHER.md',
+                           '../skills/missing/SKILL.md'):
+                audit.write_text(f'[historical]({target})\n')
+                errors = []
+                check_references(root, audit, errors)
+                self.assertEqual(len(errors), 1)
+                self.assertIn('Broken local reference:', errors[0])
 
 
 class RepositoryFixture(unittest.TestCase):
