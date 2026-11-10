@@ -108,8 +108,11 @@ class Stage02FullPageContractTest(unittest.TestCase):
         urls = read("planning/stage-01/JOURNEYS_AND_URLS.md")
         seo = read("planning/stage-01/SEO_NAMING_POLICY.md")
         self.assertEqual(work.count("**active_task:**"), 1)
-        self.assertIn("ARCH-CLEANUP-2026-11-10", work)
+        self.assertIn("**active_task:** `ARCH-STAGE02-SERVICES`", work)
+        self.assertNotIn("ARCH-CLEANUP-2026-11-10", work)
         self.assertIn("Единственная активная задача", work)
+        self.assertIn("full_page_copy_not_approved", json.loads(read(
+            "planning/stage-02/public-service-catalogue.json"))["publication_gate"]["status"])
         self.assertIn("одна активная задача", agents.lower())
         self.assertIn("87 публичных услуг", ia)
         self.assertIn("87 публичных услуг", urls)
@@ -127,6 +130,33 @@ class Stage02FullPageContractTest(unittest.TestCase):
             "planning/stage-02/service-taxonomy-review.md",
         ):
             self.assertFalse((ROOT / rel).exists(), rel)
+
+    def test_current_guidance_uses_public_canon_and_cancelled_route(self):
+        current_docs = (
+            "README.md",
+            "planning/stage-02/WORK_MAP.md",
+            "planning/stage-02/client-workspace-publication-gate.md",
+            "planning/stage-02/research-page.md",
+            "methods/engine-field-guide.md",
+            "methods/research-evidence-map.md",
+            "methods/text-reference-only-digital.md",
+            "skills/architektonica-search-visibility/references/site-structure-linking.md",
+            "skills/architektonica-ui-ux-expert/references/content-model.md",
+        )
+        for rel in current_docs:
+            with self.subTest(path=rel):
+                text = read(rel)
+                self.assertNotIn("17 направлений / 81 услугу", text)
+                self.assertNotIn("17 направлений / 81 услуга", text)
+                self.assertNotIn("блок на `/process`", text)
+                self.assertNotIn("ARCH-CLEANUP-2026-11-10", text)
+        work = read("planning/stage-02/WORK_MAP.md")
+        self.assertIn("`08_Site_Content_Plan` и `09_Engine_Home_Copy` удалены", work)
+        self.assertNotIn("08_Site_Content_Plan` сохранён", work)
+        self.assertIn("87 публичных услуг", read(
+            "skills/architektonica-search-visibility/references/site-structure-linking.md"))
+        self.assertIn("svc-008`: одна публичная услуга", read(
+            "skills/architektonica-search-visibility/references/site-structure-linking.md"))
 
     def test_deleted_copy_studio_stays_deleted_and_baseline_intact(self):
         self.assertFalse((ROOT / "skills/copy-studio").exists())
