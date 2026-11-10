@@ -39,35 +39,18 @@ class Stage02FullPageContractTest(unittest.TestCase):
         self.assertIn("UX", read("PROJECT_SYSTEM_PROMPT.md"))
         self.assertNotIn("Референс относится к **текстам, не структуре сайта**", read("PROJECT_SYSTEM_PROMPT.md"))
 
-    def test_services_taxonomy_audits_every_legacy_id_without_changing_source(self):
-        proposal = json.loads(read("planning/stage-02/service-taxonomy-proposal.json"))
+    def test_legacy_catalogue_is_history_not_public_source(self):
+        manifest = json.loads(read("planning/stage-01/catalogue-map.json"))
         source = json.loads(read("references/project/services_catalogue.json"))["services"]
-        manifest = json.loads(read("planning/stage-01/catalogue-map.json"))["services"]
-        self.assertEqual(81, len(proposal["services"]))
+        self.assertEqual(81, len(manifest["services"]))
         self.assertEqual(81, len(source))
-        self.assertEqual(81, len(manifest))
+        public = json.loads(read("planning/stage-02/public-service-catalogue.json"))
+        self.assertNotIn("review", public["source"])
+        self.assertNotIn("proposals", public["source"])
         self.assertEqual(
-            [x["id"] for x in manifest],
-            [x["id"] for x in proposal["services"]],
+            "planning/stage-02/catalogue-extension-decision-2026-11-10.md",
+            public["source"]["current_decision"],
         )
-        self.assertEqual(
-            [x["name"] for x in source],
-            [x["legacy_name"] for x in proposal["services"]],
-        )
-        self.assertEqual(
-            {"retain": 27, "clarify": 50, "merge_candidate": 1, "case_candidate": 3},
-            proposal["count_by_action"],
-        )
-        self.assertEqual(
-            [f"svc-{i:03d}" for i in (48, 49, 50)],
-            [x["id"] for x in proposal["services"] if x["action"] == "case_candidate"],
-        )
-        self.assertEqual(
-            ["svc-008"],
-            [x["id"] for x in proposal["services"] if x["action"] == "merge_candidate"],
-        )
-        self.assertEqual("owner_approved_taxonomy_2026-11-10", proposal["status"])
-        self.assertIn("77", read("planning/stage-02/service-taxonomy-review.md"))
         self.assertIn("взаимодействий", read("methods/text-reference-only-digital.md"))
         self.assertIn("дизайн, композицию и пространство", read("AGENTS.md"))
 
@@ -118,11 +101,38 @@ class Stage02FullPageContractTest(unittest.TestCase):
             next(s["merged_legacy_ids"] for s in public["services"]
                  if s["id"] == "svc-006"))
 
+    def test_single_active_task_and_clean_sources(self):
+        work = read("planning/stage-02/WORK_MAP.md")
+        agents = read("AGENTS.md")
+        ia = read("planning/stage-01/IA_PROPOSAL.md")
+        urls = read("planning/stage-01/JOURNEYS_AND_URLS.md")
+        seo = read("planning/stage-01/SEO_NAMING_POLICY.md")
+        self.assertEqual(work.count("**active_task:**"), 1)
+        self.assertIn("ARCH-CLEANUP-2026-11-10", work)
+        self.assertIn("Единственная активная задача", work)
+        self.assertIn("одна активная задача", agents.lower())
+        self.assertIn("87 публичных услуг", ia)
+        self.assertIn("87 публичных услуг", urls)
+        self.assertIn("87 публичных услуг", seo)
+        self.assertIn("public-service-catalogue.json", ia)
+        self.assertIn("public-service-catalogue.json", urls)
+        self.assertNotIn("SEO и мультиязычное продвижение", seo)
+        for rel in (
+            "planning/agent-guardrail-evaluation-20261102.md",
+            "planning/editorial-system-audit-20261103.md",
+            "planning/stage-02/repository-audit-2026-11-09.md",
+            "methods/source-audit-and-portfolio-rules.md",
+            "references/project/08_Architektonica_Site_Content_Plan.md",
+            "planning/stage-02/service-taxonomy-proposal.json",
+            "planning/stage-02/service-taxonomy-review.md",
+        ):
+            self.assertFalse((ROOT / rel).exists(), rel)
+
     def test_deleted_copy_studio_stays_deleted_and_baseline_intact(self):
         self.assertFalse((ROOT / "skills/copy-studio").exists())
         self.assertFalse((ROOT / ".agents/skills/copy-studio").exists())
         self.assertIn("Copy Studio не существует как актуальный навык", read("AGENTS.md"))
-        self.assertIn("owner_approved_taxonomy_2026-11-10", read("planning/stage-02/service-taxonomy-review.md"))
+        self.assertIn("6/17/87", read("planning/stage-02/catalogue-extension-decision-2026-11-10.md"))
         self.assertIn("81 услугу", read("references/project/ARCHITEKTONICA_SITE_PLAN_V2.md"))
         self.assertIn("77 JPG", read("methods/web-reference-style-and-depth.md"))
 
