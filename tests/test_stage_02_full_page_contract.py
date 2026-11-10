@@ -101,6 +101,33 @@ class Stage02FullPageContractTest(unittest.TestCase):
             next(s["merged_legacy_ids"] for s in public["services"]
                  if s["id"] == "svc-006"))
 
+    def test_single_active_task_and_clean_sources(self):
+        work = read("planning/stage-02/WORK_MAP.md")
+        agents = read("AGENTS.md")
+        ia = read("planning/stage-01/IA_PROPOSAL.md")
+        urls = read("planning/stage-01/JOURNEYS_AND_URLS.md")
+        seo = read("planning/stage-01/SEO_NAMING_POLICY.md")
+        self.assertEqual(work.count("**active_task:**"), 1)
+        self.assertIn("ARCH-CLEANUP-2026-11-10", work)
+        self.assertIn("Единственная активная задача", work)
+        self.assertIn("одна активная задача", agents.lower())
+        self.assertIn("87 публичных услуг", ia)
+        self.assertIn("87 публичных услуг", urls)
+        self.assertIn("87 публичных услуг", seo)
+        self.assertIn("public-service-catalogue.json", ia)
+        self.assertIn("public-service-catalogue.json", urls)
+        self.assertNotIn("SEO и мультиязычное продвижение", seo)
+        for rel in (
+            "planning/agent-guardrail-evaluation-20261102.md",
+            "planning/editorial-system-audit-20261103.md",
+            "planning/stage-02/repository-audit-2026-11-09.md",
+            "methods/source-audit-and-portfolio-rules.md",
+            "references/project/08_Architektonica_Site_Content_Plan.md",
+            "planning/stage-02/service-taxonomy-proposal.json",
+            "planning/stage-02/service-taxonomy-review.md",
+        ):
+            self.assertFalse((ROOT / rel).exists(), rel)
+
     def test_deleted_copy_studio_stays_deleted_and_baseline_intact(self):
         self.assertFalse((ROOT / "skills/copy-studio").exists())
         self.assertFalse((ROOT / ".agents/skills/copy-studio").exists())
