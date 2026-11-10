@@ -1,7 +1,7 @@
 {
   "kind": "non_canonical_taxonomy_review",
   "date": "2026-11-10",
-  "status": "proposal_unapproved",
+  "status": "owner_approved_taxonomy_2026-11-10",
   "approved_legacy": {
     "groups": 6,
     "directions": 17,
@@ -14,17 +14,17 @@
     "references/project/03_Architektonica_Case_Studies.md",
     "https://architektonica.notion.site/3bc3e8de7fec80bd9239de806d5eb3a6"
   ],
-  "interpretation": "Actions are editorial recommendations only; 81 IDs and original commercial source remain unchanged. 17 directions preserved pending decision. case_candidate and merge_candidate are not executed or deactivated.",
+  "interpretation": "Owner approved 77 distinct public service entries / 17 directions / 6 groups on 2026-11-10. All 81 legacy IDs remain in Stage 01 manifests and compatibility mapping; four removed from public offering (one merged GEO alias, three Synapto case subject entries). Publication copy and WEB edits not authorized.",
   "direction_proposal": {
     "id": "dir-10",
     "legacy": "AI-системы: предметные задачи",
     "proposed": "Прикладные AI-системы и инженерные решения",
-    "approval": "pending_owner_review"
+    "approval": "owner_approved_taxonomy"
   },
   "commercial_scenario": {
-    "if_all_case_and_merge_accepted": 77,
-    "calculation": "81 legacy - 3 case_candidate - 1 merge_candidate = 77 unique commercial entries; 17 directions remain subject to approval",
-    "note": "Not an approved or published count."
+    "approved_public_services": 77,
+    "calculation": "81 - 3 case-reference-only - 1 GEO merged alias = 77",
+    "publication_copy_approved": false
   },
   "count_by_action": {
     "retain": 27,
@@ -42,7 +42,11 @@
       "proposed_public_title": "Брендинг",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-001"
+      }
     },
     {
       "id": "svc-002",
@@ -53,7 +57,11 @@
       "proposed_public_title": "Разработка логотипов",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-002"
+      }
     },
     {
       "id": "svc-003",
@@ -64,7 +72,11 @@
       "proposed_public_title": "Айдентика и фирменный стиль",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-003"
+      }
     },
     {
       "id": "svc-004",
@@ -75,7 +87,11 @@
       "proposed_public_title": "Маркетинговая стратегия",
       "related_id": null,
       "rationale": "Отделить стратегию и планирование от SEO, рекламы, SMM и PR как каналов.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-004"
+      }
     },
     {
       "id": "svc-005",
@@ -86,7 +102,11 @@
       "proposed_public_title": "SEO",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-005"
+      }
     },
     {
       "id": "svc-006",
@@ -97,7 +117,11 @@
       "proposed_public_title": "GEO – оптимизация для AI-поиска",
       "related_id": null,
       "rationale": "Сделать единственным каноническим GEO-предложением; объединить содержание svc-008.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-006"
+      }
     },
     {
       "id": "svc-007",
@@ -108,7 +132,11 @@
       "proposed_public_title": "Международное и мультиязычное SEO",
       "related_id": null,
       "rationale": "Самостоятельный объём: международная семантика, локализация, hreflang, страна и язык.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-007"
+      }
     },
     {
       "id": "svc-008",
@@ -119,7 +147,11 @@
       "proposed_public_title": "GEO — оптимизация для генеративного поиска",
       "related_id": "svc-006",
       "rationale": "То же поисковое намерение и почти тот же состав работ, что у svc-006; предложено перенести уникальные детали к svc-006.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "merged_alias",
+        "canonical_public_id": "svc-006"
+      }
     },
     {
       "id": "svc-009",
@@ -130,7 +162,11 @@
       "proposed_public_title": "Контекстная реклама",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-009"
+      }
     },
     {
       "id": "svc-010",
@@ -141,7 +177,11 @@
       "proposed_public_title": "Таргетированная реклама и продвижение в соцсетях",
       "related_id": null,
       "rationale": "Разграничить платную рекламу и регулярное управление контентом/SMM.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-010"
+      }
     },
     {
       "id": "svc-011",
@@ -152,7 +192,11 @@
       "proposed_public_title": "Управление репутацией — SERM/ORM",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-011"
+      }
     },
     {
       "id": "svc-012",
@@ -163,7 +207,11 @@
       "proposed_public_title": "Контент-маркетинг и редакционные коммуникации",
       "related_id": null,
       "rationale": "Статьи, кейсы, экспертный контент и редакционный процесс; PR и СМИ перенести в смысл svc-015.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-012"
+      }
     },
     {
       "id": "svc-013",
@@ -174,7 +222,11 @@
       "proposed_public_title": "Деловые мероприятия B2B",
       "related_id": null,
       "rationale": "Форумы, конференции, отраслевые встречи, деловые аудитории, лидогенерация; развести с brand events svc-014.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-013"
+      }
     },
     {
       "id": "svc-014",
@@ -185,7 +237,11 @@
       "proposed_public_title": "Брендовые мероприятия и event production",
       "related_id": null,
       "rationale": "События и активации бренда, презентации и запуски; не дублировать деловой B2B-фокус svc-013.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-014"
+      }
     },
     {
       "id": "svc-015",
@@ -196,7 +252,11 @@
       "proposed_public_title": "PR-стратегия и медиакоммуникации",
       "related_id": null,
       "rationale": "СМИ, инфоповоды, медиаотношения, PR-кампании; не дублировать контент-производство svc-012.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-015"
+      }
     },
     {
       "id": "svc-016",
@@ -207,7 +267,11 @@
       "proposed_public_title": "Разработка сайтов и лендингов",
       "related_id": null,
       "rationale": "Разработка и запуск продукта; UX/UI как отдельная услуга svc-018 только при отдельной задаче.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-016"
+      }
     },
     {
       "id": "svc-017",
@@ -218,7 +282,11 @@
       "proposed_public_title": "Разработка цифровых платформ",
       "related_id": null,
       "rationale": "Системная архитектура и продуктовая логика, а кабинеты svc-019 – самостоятельный прикладной сценарий.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-017"
+      }
     },
     {
       "id": "svc-018",
@@ -229,7 +297,11 @@
       "proposed_public_title": "UX/UI-дизайн",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-018"
+      }
     },
     {
       "id": "svc-019",
@@ -240,7 +312,11 @@
       "proposed_public_title": "Личные кабинеты",
       "related_id": null,
       "rationale": "Конкретная предметная задача внутри платформ: роли, доступы, документы, состояние и сценарии пользователя.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-019"
+      }
     },
     {
       "id": "svc-020",
@@ -251,7 +327,11 @@
       "proposed_public_title": "Интерактивные инструменты",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-020"
+      }
     },
     {
       "id": "svc-021",
@@ -262,7 +342,11 @@
       "proposed_public_title": "Поддержка и развитие",
       "related_id": null,
       "rationale": "Поддержка уже разработанного продукта, а не широкий managed IT из svc-022.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-021"
+      }
     },
     {
       "id": "svc-022",
@@ -273,7 +357,11 @@
       "proposed_public_title": "ИТ-аутсорсинг и Managed IT",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-022"
+      }
     },
     {
       "id": "svc-023",
@@ -284,7 +372,11 @@
       "proposed_public_title": "Аудит защищённости и усиление защиты систем",
       "related_id": null,
       "rationale": "Проектный аудит рисков и укрепление защиты; не обещать пентест, SOC или сертификаты без конкретного технического источника и исполнителя.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-023"
+      }
     },
     {
       "id": "svc-024",
@@ -295,7 +387,11 @@
       "proposed_public_title": "Автоматизация корпоративных систем (ERP/BPM)",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-024"
+      }
     },
     {
       "id": "svc-025",
@@ -306,7 +402,11 @@
       "proposed_public_title": "Управляемая кибербезопасность и защита AI-систем",
       "related_id": null,
       "rationale": "Отдельная сервисная модель мониторинга/управления; подтвердить реальную операционную ёмкость, часы, SLA, эскалации и AI Security до продаж.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-025"
+      }
     },
     {
       "id": "svc-026",
@@ -317,7 +417,11 @@
       "proposed_public_title": "Интерактивные спецпроекты",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-026"
+      }
     },
     {
       "id": "svc-027",
@@ -328,7 +432,11 @@
       "proposed_public_title": "Иммерсивные онлайн-опыты",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-027"
+      }
     },
     {
       "id": "svc-028",
@@ -339,7 +447,11 @@
       "proposed_public_title": "Интерактивные карты и 3D-туры",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-028"
+      }
     },
     {
       "id": "svc-029",
@@ -350,7 +462,11 @@
       "proposed_public_title": "AR-механики",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-029"
+      }
     },
     {
       "id": "svc-030",
@@ -361,7 +477,11 @@
       "proposed_public_title": "3D-графика и визуализация",
       "related_id": null,
       "rationale": "Системы 3D-моделирования и визуализация, отличать от научной точности svc-031 и real-time svc-034.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-030"
+      }
     },
     {
       "id": "svc-031",
@@ -372,7 +492,11 @@
       "proposed_public_title": "Научная и инженерная визуализация",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-031"
+      }
     },
     {
       "id": "svc-032",
@@ -383,7 +507,11 @@
       "proposed_public_title": "Motion-дизайн и анимация",
       "related_id": null,
       "rationale": "Общее motion-производство; граница с AI-анимацией svc-033 должна объяснять способ производства и артефакты.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-032"
+      }
     },
     {
       "id": "svc-033",
@@ -394,7 +522,11 @@
       "proposed_public_title": "Анимация с применением AI",
       "related_id": null,
       "rationale": "Производственный способ может быть самостоятельным продуктом при реальном отдельном процессе; если покупательский запрос совпадает с svc-032 – оформить как метод.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-033"
+      }
     },
     {
       "id": "svc-034",
@@ -405,7 +537,11 @@
       "proposed_public_title": "Real-time графика",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-034"
+      }
     },
     {
       "id": "svc-035",
@@ -416,7 +552,11 @@
       "proposed_public_title": "Синематики",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-035"
+      }
     },
     {
       "id": "svc-036",
@@ -427,7 +567,11 @@
       "proposed_public_title": "Virtual production",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-036"
+      }
     },
     {
       "id": "svc-037",
@@ -438,7 +582,11 @@
       "proposed_public_title": "Создание музыки",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-037"
+      }
     },
     {
       "id": "svc-038",
@@ -449,7 +597,11 @@
       "proposed_public_title": "Саунд-дизайн",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-038"
+      }
     },
     {
       "id": "svc-039",
@@ -460,7 +612,11 @@
       "proposed_public_title": "Анализ задачи, процессов и данных",
       "related_id": null,
       "rationale": "Отдельный коммерческий этап AI-проекта: диагностика процессов и данных с конкретным результатом.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-039"
+      }
     },
     {
       "id": "svc-040",
@@ -471,7 +627,11 @@
       "proposed_public_title": "Архитектура AI-решения",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-040"
+      }
     },
     {
       "id": "svc-041",
@@ -482,7 +642,11 @@
       "proposed_public_title": "Прототипирование",
       "related_id": null,
       "rationale": "Прототипирование проверяет реализуемость решения; не путать с пилотом на данных svc-042.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-041"
+      }
     },
     {
       "id": "svc-042",
@@ -493,7 +657,11 @@
       "proposed_public_title": "Пилот на исторических данных",
       "related_id": null,
       "rationale": "Пилот и проверка на репрезентативных данных с согласованными критериями; не обещать доказанные KPI.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-042"
+      }
     },
     {
       "id": "svc-043",
@@ -504,7 +672,11 @@
       "proposed_public_title": "Разработка, интеграция и внедрение",
       "related_id": null,
       "rationale": "Разработку и эксплуатационное внедрение отделять от архитектуры, прототипа и пилота.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-043"
+      }
     },
     {
       "id": "svc-044",
@@ -515,7 +687,11 @@
       "proposed_public_title": "MLOps и сопровождение моделей",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-044"
+      }
     },
     {
       "id": "svc-045",
@@ -526,7 +702,11 @@
       "proposed_public_title": "Автоматизация бизнес-процессов с AI",
       "related_id": null,
       "rationale": "Результат – автоматизация операций; от агентной сервисной модели svc-046 отличает предмет внедрения.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-045"
+      }
     },
     {
       "id": "svc-046",
@@ -537,7 +717,11 @@
       "proposed_public_title": "Разработка и сопровождение AI-агентов",
       "related_id": null,
       "rationale": "Отдельный агентный продукт с поддержкой, не синоним любой AI-автоматизации svc-045.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-046"
+      }
     },
     {
       "id": "svc-047",
@@ -548,7 +732,11 @@
       "proposed_public_title": "Управление рисками и контроль применения AI",
       "related_id": null,
       "rationale": "Методология и организационные процедуры; правовое соответствие и сертификацию не гарантировать без проверки.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-047"
+      }
     },
     {
       "id": "svc-048",
@@ -559,7 +747,11 @@
       "proposed_public_title": "Молекулярный R&D",
       "related_id": "case:Synapto",
       "rationale": "Фармацевтический предмет Synapto W1-A1/W1-A2. Предложение владельца – раскрывать как кейсовую экспертизу, не самостоятельную универсальную продаваемую услугу.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "case_reference_only",
+        "canonical_public_id": null
+      }
     },
     {
       "id": "svc-049",
@@ -570,7 +762,11 @@
       "proposed_public_title": "Биопрепараты и антитела",
       "related_id": "case:Synapto",
       "rationale": "Фармацевтический предмет Synapto W1-A1/W1-A2, относящийся к биопрепаратам/антителам. Не превращать отдельные сценарии архитектуры в коммерческие модули без подтверждения.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "case_reference_only",
+        "canonical_public_id": null
+      }
     },
     {
       "id": "svc-050",
@@ -581,7 +777,11 @@
       "proposed_public_title": "Дженерики и формуляции",
       "related_id": "case:Synapto",
       "rationale": "Фармацевтический предмет Synapto W1-A2 по дженерикам и формуляциям; в предложении показывать как отраслевое применение AI.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "case_reference_only",
+        "canonical_public_id": null
+      }
     },
     {
       "id": "svc-051",
@@ -592,7 +792,11 @@
       "proposed_public_title": "Цифровые двойники технологических процессов",
       "related_id": null,
       "rationale": "Обобщить отраслевой язык; не ограничивать цифровые двойники фармацевтикой.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-051"
+      }
     },
     {
       "id": "svc-052",
@@ -603,7 +807,11 @@
       "proposed_public_title": "RAG-системы и работа со знаниями",
       "related_id": null,
       "rationale": "RAG: управляемый поиск, доступ и ссылки на источники; отличать от исполняющих действия агентов svc-053.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-052"
+      }
     },
     {
       "id": "svc-053",
@@ -614,7 +822,11 @@
       "proposed_public_title": "Документные AI-агенты",
       "related_id": null,
       "rationale": "Документный workflow и действия; отличать от поиска по знаниям svc-052 и агентной сервисной модели svc-046.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-053"
+      }
     },
     {
       "id": "svc-054",
@@ -625,7 +837,11 @@
       "proposed_public_title": "Компьютерное зрение",
       "related_id": null,
       "rationale": "Отдельная прикладная AI-задача: визуальные данные/модели, вне фармацевтического кейса.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-054"
+      }
     },
     {
       "id": "svc-055",
@@ -636,7 +852,11 @@
       "proposed_public_title": "Инженерное моделирование и проектирование",
       "related_id": null,
       "rationale": "Инженерные алгоритмы/проектирование; не смешивать с научной 3D-визуализацией svc-031.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-055"
+      }
     },
     {
       "id": "svc-056",
@@ -647,7 +867,11 @@
       "proposed_public_title": "Отдел продаж под ключ",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-056"
+      }
     },
     {
       "id": "svc-057",
@@ -658,7 +882,11 @@
       "proposed_public_title": "Внедрение и кастомизация CRM",
       "related_id": null,
       "rationale": "Внедрение CRM как системы; RevOps svc-061 управляет сквозным коммерческим процессом.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-057"
+      }
     },
     {
       "id": "svc-058",
@@ -669,7 +897,11 @@
       "proposed_public_title": "Омниканальные коммуникации",
       "related_id": null,
       "rationale": "Объединение каналов связи; отдельно от BPO svc-062, отвечающего за фактическую обработку обращений.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-058"
+      }
     },
     {
       "id": "svc-059",
@@ -680,7 +912,11 @@
       "proposed_public_title": "Скрипты продаж и регламенты",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-059"
+      }
     },
     {
       "id": "svc-060",
@@ -691,7 +927,11 @@
       "proposed_public_title": "AI-автоматизация продаж и обработки заявок",
       "related_id": null,
       "rationale": "Торговый/коммерческий сценарий, самостоятельный от общей AI-автоматизации svc-045.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-060"
+      }
     },
     {
       "id": "svc-061",
@@ -702,7 +942,11 @@
       "proposed_public_title": "RevOps и коммерческие операции",
       "related_id": null,
       "rationale": "RevOps – процессная операционная модель, не просто CRM или BI-дашборд.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-061"
+      }
     },
     {
       "id": "svc-062",
@@ -713,7 +957,11 @@
       "proposed_public_title": "Клиентский сервис на аутсорсе (CX/BPO)",
       "related_id": null,
       "rationale": "Аутсорсинг фактического клиентского сервиса, а не технология коммуникаций svc-058. SLA только по договору.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-062"
+      }
     },
     {
       "id": "svc-063",
@@ -724,7 +972,11 @@
       "proposed_public_title": "Регистрация бизнеса",
       "related_id": null,
       "rationale": "Подтвердить географию, профессиональную ответственность, полномочия и юридическую модель перед публикацией.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-063"
+      }
     },
     {
       "id": "svc-064",
@@ -735,7 +987,11 @@
       "proposed_public_title": "Аутсорсинг бухгалтерии",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-064"
+      }
     },
     {
       "id": "svc-065",
@@ -746,7 +1002,11 @@
       "proposed_public_title": "Кадровый учёт и расчёт зарплаты",
       "related_id": null,
       "rationale": "Кадровые документы и расчёт заработной платы, не дублировать HR-подбор svc-070/071.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-065"
+      }
     },
     {
       "id": "svc-066",
@@ -757,7 +1017,11 @@
       "proposed_public_title": "Финансовая диагностика, due diligence и восстановление учёта",
       "related_id": null,
       "rationale": "Не обещать официальный аудит/аудиторское заключение без подтверждённых прав и квалификации.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-066"
+      }
     },
     {
       "id": "svc-067",
@@ -768,7 +1032,11 @@
       "proposed_public_title": "Налоговое планирование и сопровождение",
       "related_id": null,
       "rationale": "Только законные модели с подтверждением юрисдикций, квалификации и границ ответственности.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-067"
+      }
     },
     {
       "id": "svc-068",
@@ -779,7 +1047,11 @@
       "proposed_public_title": "Международный учёт и консультационное сопровождение",
       "related_id": null,
       "rationale": "Требует подтверждения конкретных юрисдикций и договорной модели оказания услуги.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-068"
+      }
     },
     {
       "id": "svc-069",
@@ -790,7 +1062,11 @@
       "proposed_public_title": "Финансовый директор на аутсорсе (CFO as a Service)",
       "related_id": null,
       "rationale": "CFO – управленческая функция и стратегическое финансовое сопровождение, не автоматизация учёта svc-078.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-069"
+      }
     },
     {
       "id": "svc-070",
@@ -801,7 +1077,11 @@
       "proposed_public_title": "Подбор персонала",
       "related_id": null,
       "rationale": "Разовые/проектные подборы, в отличие от долгосрочного RPO svc-071.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-070"
+      }
     },
     {
       "id": "svc-071",
@@ -812,7 +1092,11 @@
       "proposed_public_title": "HR Business Partner / RPO",
       "related_id": null,
       "rationale": "RPO и HRBP – модель регулярного сопровождения, не только рекрутинг svc-070.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-071"
+      }
     },
     {
       "id": "svc-072",
@@ -823,7 +1107,11 @@
       "proposed_public_title": "Корпоративное обучение и внедрение ИИ",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-072"
+      }
     },
     {
       "id": "svc-073",
@@ -834,7 +1122,11 @@
       "proposed_public_title": "Сквозная аналитика",
       "related_id": null,
       "rationale": "Сквозная маркетинговая атрибуция и экономики клиентов; не измерение событий сайта svc-076.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-073"
+      }
     },
     {
       "id": "svc-074",
@@ -845,7 +1137,11 @@
       "proposed_public_title": "BI и бизнес-дашборды",
       "related_id": null,
       "rationale": "Отдельная услуга без выявленного критического дублирования на уровне источника.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-074"
+      }
     },
     {
       "id": "svc-075",
@@ -856,7 +1152,11 @@
       "proposed_public_title": "Корпоративные хранилища данных — DWH",
       "related_id": null,
       "rationale": "Строительство/ведение хранилища данных; governance svc-079 – правила владения и качества.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-075"
+      }
     },
     {
       "id": "svc-076",
@@ -867,7 +1167,11 @@
       "proposed_public_title": "Веб-аналитика и серверное отслеживание",
       "related_id": null,
       "rationale": "События/серверный трекинг, не вся система сквозной аналитики svc-073.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-076"
+      }
     },
     {
       "id": "svc-077",
@@ -878,7 +1182,11 @@
       "proposed_public_title": "Предиктивная аналитика и Machine Learning",
       "related_id": null,
       "rationale": "ML под управленческий прогноз спроса/оттока, не вся прикладная AI-инженерия.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-077"
+      }
     },
     {
       "id": "svc-078",
@@ -889,7 +1197,11 @@
       "proposed_public_title": "Автоматизация управленческого учёта и отчётности",
       "related_id": null,
       "rationale": "Техническая постановка потоков и отчётов; CFO svc-069 – управленческая функция.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-078"
+      }
     },
     {
       "id": "svc-079",
@@ -900,7 +1212,11 @@
       "proposed_public_title": "Управление корпоративными данными (Data Governance)",
       "related_id": null,
       "rationale": "Процедуры качества, владения и каталогизации данных; отличие от инфраструктуры DWH svc-075.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-079"
+      }
     },
     {
       "id": "svc-080",
@@ -911,7 +1227,11 @@
       "proposed_public_title": "Управление маркетплейсами и e-commerce",
       "related_id": null,
       "rationale": "Объединённый коммерческий продукт: управление e-commerce, не дублировать отдельное создание сайта svc-016.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-080"
+      }
     },
     {
       "id": "svc-081",
@@ -922,7 +1242,11 @@
       "proposed_public_title": "Business Operations as a Service",
       "related_id": null,
       "rationale": "Системный операционный аутсорсинг – зонтичный комплекс; его состав зависит от договора и не означает постоянное наличие всех подуслуг.",
-      "approval": "pending_owner_review"
+      "approval": "owner_approved_taxonomy",
+      "resolution": {
+        "public_status": "public",
+        "canonical_public_id": "svc-081"
+      }
     }
   ]
 }
