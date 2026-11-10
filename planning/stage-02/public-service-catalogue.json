@@ -1,0 +1,2393 @@
+{
+  "schema_version": "2.0",
+  "model": "ARCHITEKTONICA approved public service taxonomy",
+  "approval": {
+    "date": "2026-11-10",
+    "status": "owner_approved_taxonomy",
+    "scope": "6 navigation groups, 17 directions, 77 distinct public service offerings; preserve all 81 historical IDs; separate publication approval required",
+    "web_write_authorized": false
+  },
+  "source": {
+    "stage01_immutable_manifest": "planning/stage-01/catalogue-map.json",
+    "historical_source": "references/project/services_catalogue.json",
+    "review": "planning/stage-02/service-taxonomy-review.md",
+    "proposals": "planning/stage-02/service-taxonomy-proposal.json",
+    "notion_snapshot_date": "2026-10-30"
+  },
+  "counts": {
+    "groups": 6,
+    "directions": 17,
+    "public_services": 77,
+    "legacy_service_ids": 81,
+    "merged_aliases": 1,
+    "case_references": 3
+  },
+  "publication_gate": {
+    "status": "full_page_copy_not_approved",
+    "note": "Approved taxonomy does not approve Stage 02 publication copy, implement routes, actual redirects, or WEB changes."
+  },
+  "groups": [
+    {
+      "id": "brand-and-communications",
+      "title": "Бренд и коммуникации",
+      "intent": "Сформировать позицию бренда и обеспечить присутствие на рынке",
+      "direction_ids": [
+        "dir-01",
+        "dir-02",
+        "dir-03"
+      ]
+    },
+    {
+      "id": "digital-products",
+      "title": "Сайты и цифровые продукты",
+      "intent": "Создать интерфейс, платформу или цифровой канал взаимодействия",
+      "direction_ids": [
+        "dir-04",
+        "dir-16"
+      ]
+    },
+    {
+      "id": "immersive-media",
+      "title": "Иммерсивные проекты и медиа",
+      "intent": "Объяснить сложный объект или сделать опыт запоминающимся",
+      "direction_ids": [
+        "dir-06",
+        "dir-07",
+        "dir-08"
+      ]
+    },
+    {
+      "id": "ai-and-infrastructure",
+      "title": "ИИ, инженерия и инфраструктура",
+      "intent": "Встроить вычислительные решения, автоматизацию и безопасность в процессы",
+      "direction_ids": [
+        "dir-05",
+        "dir-09",
+        "dir-10"
+      ]
+    },
+    {
+      "id": "sales-and-cx",
+      "title": "Продажи и клиентский опыт",
+      "intent": "Построить путь от обращения до устойчивого клиентского процесса",
+      "direction_ids": [
+        "dir-11",
+        "dir-12"
+      ]
+    },
+    {
+      "id": "data-finance-operations",
+      "title": "Данные, финансы и операции",
+      "intent": "Сделать управленческий, финансовый и операционный контур прозрачным",
+      "direction_ids": [
+        "dir-13",
+        "dir-14",
+        "dir-15",
+        "dir-17"
+      ]
+    }
+  ],
+  "directions": [
+    {
+      "id": "dir-01",
+      "name": "Брендинг",
+      "legacy_name": "Брендинг",
+      "slug": "branding",
+      "group_id": "brand-and-communications",
+      "count": 3,
+      "proposed_url": "/services/branding",
+      "publication_status": "content_not_approved"
+    },
+    {
+      "id": "dir-02",
+      "name": "Маркетинг и продвижение",
+      "legacy_name": "Маркетинг и продвижение",
+      "slug": "marketing-and-promotion",
+      "group_id": "brand-and-communications",
+      "count": 9,
+      "proposed_url": "/services/marketing-and-promotion",
+      "publication_status": "content_not_approved"
+    },
+    {
+      "id": "dir-03",
+      "name": "PR, Events & Brand Experience",
+      "legacy_name": "PR, Events & Brand Experience",
+      "slug": "pr-events-and-brand-experience",
+      "group_id": "brand-and-communications",
+      "count": 2,
+      "proposed_url": "/services/pr-events-and-brand-experience",
+      "publication_status": "content_not_approved"
+    },
+    {
+      "id": "dir-04",
+      "name": "Сайты и цифровые продукты",
+      "legacy_name": "Сайты и цифровые продукты",
+      "slug": "websites-and-digital-products",
+      "group_id": "digital-products",
+      "count": 6,
+      "proposed_url": "/services/websites-and-digital-products",
+      "publication_status": "content_not_approved"
+    },
+    {
+      "id": "dir-05",
+      "name": "ИТ-аутсорсинг и кибербезопасность",
+      "legacy_name": "ИТ-аутсорсинг и кибербезопасность",
+      "slug": "managed-it-and-cybersecurity",
+      "group_id": "ai-and-infrastructure",
+      "count": 4,
+      "proposed_url": "/services/managed-it-and-cybersecurity",
+      "publication_status": "content_not_approved"
+    },
+    {
+      "id": "dir-06",
+      "name": "Спецпроекты и интерактив",
+      "legacy_name": "Спецпроекты и интерактив",
+      "slug": "special-projects-and-interactive",
+      "group_id": "immersive-media",
+      "count": 4,
+      "proposed_url": "/services/special-projects-and-interactive",
+      "publication_status": "content_not_approved"
+    },
+    {
+      "id": "dir-07",
+      "name": "3D, анимация и видео",
+      "legacy_name": "3D, анимация и видео",
+      "slug": "3d-animation-and-video",
+      "group_id": "immersive-media",
+      "count": 7,
+      "proposed_url": "/services/3d-animation-and-video",
+      "publication_status": "content_not_approved"
+    },
+    {
+      "id": "dir-08",
+      "name": "Музыка и звук",
+      "legacy_name": "Музыка и звук",
+      "slug": "music-and-sound",
+      "group_id": "immersive-media",
+      "count": 2,
+      "proposed_url": "/services/music-and-sound",
+      "publication_status": "content_not_approved"
+    },
+    {
+      "id": "dir-09",
+      "name": "AI-системы: проектирование и разработка",
+      "legacy_name": "AI-системы: проектирование и разработка",
+      "slug": "ai-systems-and-development",
+      "group_id": "ai-and-infrastructure",
+      "count": 9,
+      "proposed_url": "/services/ai-systems-and-development",
+      "publication_status": "content_not_approved"
+    },
+    {
+      "id": "dir-10",
+      "name": "Прикладные AI-системы и инженерные решения",
+      "legacy_name": "AI-системы: предметные задачи",
+      "slug": "applied-ai",
+      "group_id": "ai-and-infrastructure",
+      "count": 5,
+      "proposed_url": "/services/applied-ai",
+      "publication_status": "content_not_approved"
+    },
+    {
+      "id": "dir-11",
+      "name": "Продажи",
+      "legacy_name": "Продажи",
+      "slug": "sales",
+      "group_id": "sales-and-cx",
+      "count": 6,
+      "proposed_url": "/services/sales",
+      "publication_status": "content_not_approved"
+    },
+    {
+      "id": "dir-12",
+      "name": "Клиентский сервис и BPO",
+      "legacy_name": "Клиентский сервис и BPO",
+      "slug": "customer-service-and-bpo",
+      "group_id": "sales-and-cx",
+      "count": 1,
+      "proposed_url": "/services/customer-service-and-bpo",
+      "publication_status": "content_not_approved"
+    },
+    {
+      "id": "dir-13",
+      "name": "Бухгалтерия и аудит",
+      "legacy_name": "Бухгалтерия и аудит",
+      "slug": "accounting-and-audit",
+      "group_id": "data-finance-operations",
+      "count": 7,
+      "proposed_url": "/services/accounting-and-audit",
+      "publication_status": "content_not_approved"
+    },
+    {
+      "id": "dir-14",
+      "name": "Подбор персонала и HR-аутсорсинг",
+      "legacy_name": "Подбор персонала и HR-аутсорсинг",
+      "slug": "hr-and-recruitment",
+      "group_id": "data-finance-operations",
+      "count": 3,
+      "proposed_url": "/services/hr-and-recruitment",
+      "publication_status": "content_not_approved"
+    },
+    {
+      "id": "dir-15",
+      "name": "Бизнес-аналитика",
+      "legacy_name": "Бизнес-аналитика",
+      "slug": "business-analytics",
+      "group_id": "data-finance-operations",
+      "count": 7,
+      "proposed_url": "/services/business-analytics",
+      "publication_status": "content_not_approved"
+    },
+    {
+      "id": "dir-16",
+      "name": "Электронная коммерция и маркетплейсы",
+      "legacy_name": "Электронная коммерция и маркетплейсы",
+      "slug": "ecommerce-and-marketplaces",
+      "group_id": "digital-products",
+      "count": 1,
+      "proposed_url": "/services/ecommerce-and-marketplaces",
+      "publication_status": "content_not_approved"
+    },
+    {
+      "id": "dir-17",
+      "name": "Комплексный B2B-аутсорсинг",
+      "legacy_name": "Комплексный B2B-аутсорсинг",
+      "slug": "b2b-business-operations",
+      "group_id": "data-finance-operations",
+      "count": 1,
+      "proposed_url": "/services/b2b-business-operations",
+      "publication_status": "content_not_approved"
+    }
+  ],
+  "services": [
+    {
+      "id": "svc-001",
+      "direction_id": "dir-01",
+      "group_id": "brand-and-communications",
+      "title": "Брендинг",
+      "legacy_title": "Брендинг",
+      "scope": "Анализ бизнеса и аудитории, исследование конкурентов, разработка позиционирования, платформы бренда, ключевых сообщений и принципов коммуникации.",
+      "editorial_note": null,
+      "proposed_destination": "/services/branding/branding",
+      "proposed_surface": "detail_candidate",
+      "detail_page_candidate": true,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-002",
+      "direction_id": "dir-01",
+      "group_id": "brand-and-communications",
+      "title": "Разработка логотипов",
+      "legacy_title": "Разработка логотипов",
+      "scope": "Анализ задач бренда и визуального контекста, разработка концепций логотипа, проработка выбранного варианта, подготовка основных компоновок, цветовых версий и файлов для цифровых и печатных носителей.",
+      "editorial_note": null,
+      "proposed_destination": "/services/branding#svc-002",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-003",
+      "direction_id": "dir-01",
+      "group_id": "brand-and-communications",
+      "title": "Айдентика и фирменный стиль",
+      "legacy_title": "Айдентика и фирменный стиль",
+      "scope": "Разработка визуальной системы бренда: цветовая палитра, типографика, графические элементы, композиционные принципы и шаблоны носителей. Подготовка руководства по применению фирменного стиля.",
+      "editorial_note": null,
+      "proposed_destination": "/services/branding#svc-003",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-004",
+      "direction_id": "dir-02",
+      "group_id": "brand-and-communications",
+      "title": "Маркетинговая стратегия",
+      "legacy_title": "Маркетинг",
+      "scope": "Аудит рынка, продукта, аудитории и действующих каналов продвижения; разработка маркетинговой стратегии, коммуникационных сообщений и медиаплана. Планирование бюджета, KPI и системы оценки эффективности.",
+      "editorial_note": "Отделить стратегию и планирование от SEO, рекламы, SMM и PR как каналов.",
+      "proposed_destination": "/services/marketing-and-promotion#svc-004",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-005",
+      "direction_id": "dir-02",
+      "group_id": "brand-and-communications",
+      "title": "SEO",
+      "legacy_title": "SEO",
+      "scope": "Технический и контентный аудит сайта, семантическое исследование, оптимизация структуры и страниц, устранение ошибок индексации, работа с внутренними ссылками и внешними факторами. Мониторинг позиций, трафика и конверсий.",
+      "editorial_note": null,
+      "proposed_destination": "/services/marketing-and-promotion/seo",
+      "proposed_surface": "detail_candidate",
+      "detail_page_candidate": true,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-006",
+      "direction_id": "dir-02",
+      "group_id": "brand-and-communications",
+      "title": "GEO – оптимизация для AI-поиска",
+      "legacy_title": "GEO",
+      "scope": "Анализ представленности бренда в генеративном поиске, подготовка структурированного и проверяемого экспертного контента, оптимизация страниц и данных для машинного извлечения. Мониторинг упоминаний и корректности ответов ИИ-сервисов.",
+      "editorial_note": "Сделать единственным каноническим GEO-предложением; объединить содержание svc-008.",
+      "proposed_destination": "/services/marketing-and-promotion#svc-006",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-007",
+      "direction_id": "dir-02",
+      "group_id": "brand-and-communications",
+      "title": "Международное и мультиязычное SEO",
+      "legacy_title": "SEO и мультиязычное продвижение",
+      "scope": "Аудит поискового спроса на целевых рынках, разработка международной SEO-структуры, локализация семантики и контента, настройка языковых версий и hreflang. Техническая оптимизация и оценка органического трафика по странам.",
+      "editorial_note": "Самостоятельный объём: международная семантика, локализация, hreflang, страна и язык.",
+      "proposed_destination": "/services/marketing-and-promotion#svc-007",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-009",
+      "direction_id": "dir-02",
+      "group_id": "brand-and-communications",
+      "title": "Контекстная реклама",
+      "legacy_title": "Контекстная реклама",
+      "scope": "Анализ спроса и конкурентов, разработка структуры рекламных кампаний, подбор запросов и объявлений, настройка аналитики и целей. Запуск и оптимизация рекламы в доступных рекламных системах, контроль бюджета, стоимости обращения и конверсий.",
+      "editorial_note": null,
+      "proposed_destination": "/services/marketing-and-promotion#svc-009",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-010",
+      "direction_id": "dir-02",
+      "group_id": "brand-and-communications",
+      "title": "Таргетированная реклама и продвижение в соцсетях",
+      "legacy_title": "Таргетированная реклама и SMM",
+      "scope": "Разработка стратегии присутствия в социальных сетях, контент-плана и креативов; настройка и ведение таргетированной рекламы на доступных площадках. Работа с аудиториями, тестирование гипотез, модерация и анализ вовлечённости и заявок.",
+      "editorial_note": "Разграничить платную рекламу и регулярное управление контентом/SMM.",
+      "proposed_destination": "/services/marketing-and-promotion#svc-010",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-011",
+      "direction_id": "dir-02",
+      "group_id": "brand-and-communications",
+      "title": "Управление репутацией — SERM/ORM",
+      "legacy_title": "Управление репутацией — SERM/ORM",
+      "scope": "Аудит поисковой выдачи и публичных упоминаний, мониторинг отзывов и публикаций, разработка регламентов реагирования и работа с обратной связью. Подготовка репутационного контента и корректная обработка недостоверной информации.",
+      "editorial_note": null,
+      "proposed_destination": "/services/marketing-and-promotion#svc-011",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-012",
+      "direction_id": "dir-02",
+      "group_id": "brand-and-communications",
+      "title": "Контент-маркетинг и редакционные коммуникации",
+      "legacy_title": "Контент-маркетинг и PR",
+      "scope": "Разработка редакционной и PR-стратегии, контент-плана и ключевых тем; подготовка экспертных материалов, статей, кейсов, пресс-релизов и презентаций. Взаимодействие с медиа, отраслевыми площадками и профильными авторами.",
+      "editorial_note": "Статьи, кейсы, экспертный контент и редакционный процесс; PR и СМИ перенести в смысл svc-015.",
+      "proposed_destination": "/services/marketing-and-promotion#svc-012",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-013",
+      "direction_id": "dir-02",
+      "group_id": "brand-and-communications",
+      "title": "Деловые мероприятия B2B",
+      "legacy_title": "Организация B2B-мероприятий",
+      "scope": "Разработка концепции, программы и сценария делового мероприятия; подбор площадки, спикеров и подрядчиков, регистрация и коммуникация с участниками. Брендинг, техническое обеспечение, координация события и анализ результатов.",
+      "editorial_note": "Форумы, конференции, отраслевые встречи, деловые аудитории, лидогенерация; развести с brand events svc-014.",
+      "proposed_destination": "/services/marketing-and-promotion#svc-013",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-014",
+      "direction_id": "dir-03",
+      "group_id": "brand-and-communications",
+      "title": "Брендовые мероприятия и event production",
+      "legacy_title": "Организация мероприятий (Event Management)",
+      "scope": "Разработка концепции и организация мероприятий под ключ для брендов и компаний.; • Разработка идеи, концепции и сценария мероприятия; • Организация презентаций, открытий, запусков брендов и продуктов; • Проведение пресс-завтраков, закрытых ужинов, вечеринок и деловых встреч; • Подбор площадок, подрядчиков и техническое обеспечение; • Разработка визуального оформления и брендинга мероприятия; • Приглашение гостей, СМИ, блогеров и лидеров мнений; • Координация мероприятия и контроль всех этапов реализации",
+      "editorial_note": "События и активации бренда, презентации и запуски; не дублировать деловой B2B-фокус svc-013.",
+      "proposed_destination": "/services/pr-events-and-brand-experience#svc-014",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-015",
+      "direction_id": "dir-03",
+      "group_id": "brand-and-communications",
+      "title": "PR-стратегия и медиакоммуникации",
+      "legacy_title": "PR и коммуникационные кампании (PR & Communications)",
+      "scope": "Формирование имиджа бренда, повышение узнаваемости и развитие его присутствия в медиапространстве.; • Разработка PR-стратегии и коммуникационного плана; • Позиционирование бренда и формирование ключевых сообщений; • Взаимодействие со СМИ, редакциями и журналистами; • Организация публикаций, интервью и специальных проектов; • Разработка и распространение пресс-релизов и медиаматериалов; • Работа с блогерами, инфлюенсерами и лидерами мнений; • Организация PR-активаций, коллабораций и информационных поводов; • Мониторинг публикаций и анализ эффективности PR-кампаний",
+      "editorial_note": "СМИ, инфоповоды, медиаотношения, PR-кампании; не дублировать контент-производство svc-012.",
+      "proposed_destination": "/services/pr-events-and-brand-experience#svc-015",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-016",
+      "direction_id": "dir-04",
+      "group_id": "digital-products",
+      "title": "Разработка сайтов и лендингов",
+      "legacy_title": "Разработка сайтов и лендингов",
+      "scope": "Анализ задач и аудитории, проектирование структуры и прототипов, UX/UI-дизайн, адаптивная разработка, интеграция форм, CMS и аналитики. Тестирование, базовая техническая SEO-подготовка, запуск и передача инструкций по управлению сайтом.",
+      "editorial_note": "Разработка и запуск продукта; UX/UI как отдельная услуга svc-018 только при отдельной задаче.",
+      "proposed_destination": "/services/websites-and-digital-products/websites-and-landing-pages",
+      "proposed_surface": "detail_candidate",
+      "detail_page_candidate": true,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-017",
+      "direction_id": "dir-04",
+      "group_id": "digital-products",
+      "title": "Разработка цифровых платформ",
+      "legacy_title": "Разработка цифровых платформ",
+      "scope": "Сбор требований, проектирование архитектуры, пользовательских ролей и бизнес-логики; разработка интерфейсов, серверной части, API и интеграций. Тестирование, настройка безопасности и производительности, развёртывание и сопровождение запуска.",
+      "editorial_note": "Системная архитектура и продуктовая логика, а кабинеты svc-019 – самостоятельный прикладной сценарий.",
+      "proposed_destination": "/services/websites-and-digital-products/digital-platforms",
+      "proposed_surface": "detail_candidate",
+      "detail_page_candidate": true,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-018",
+      "direction_id": "dir-04",
+      "group_id": "digital-products",
+      "title": "UX/UI-дизайн",
+      "legacy_title": "UX/UI-дизайн",
+      "scope": "Исследование аудитории и пользовательских задач, построение сценариев и информационной архитектуры, прототипирование экранов и разработка интерфейсов. Создание дизайн-системы, адаптивных состояний и спецификаций для разработки.",
+      "editorial_note": null,
+      "proposed_destination": "/services/websites-and-digital-products#svc-018",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-019",
+      "direction_id": "dir-04",
+      "group_id": "digital-products",
+      "title": "Личные кабинеты",
+      "legacy_title": "Личные кабинеты",
+      "scope": "Проектирование ролей, авторизации, профилей и персональных сценариев; разработка интерфейсов для работы с заявками, документами, заказами или данными. Интеграция с внутренними системами, настройка прав доступа и уведомлений.",
+      "editorial_note": "Конкретная предметная задача внутри платформ: роли, доступы, документы, состояние и сценарии пользователя.",
+      "proposed_destination": "/services/websites-and-digital-products#svc-019",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-020",
+      "direction_id": "dir-04",
+      "group_id": "digital-products",
+      "title": "Интерактивные инструменты",
+      "legacy_title": "Интерактивные инструменты",
+      "scope": "Проектирование логики и интерфейсов калькуляторов, конфигураторов, фильтров, квизов и форм; реализация расчётов, проверок и интерактивных сценариев. Интеграция с сайтом, CRM и аналитикой, тестирование пользовательского опыта.",
+      "editorial_note": null,
+      "proposed_destination": "/services/websites-and-digital-products#svc-020",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-021",
+      "direction_id": "dir-04",
+      "group_id": "digital-products",
+      "title": "Поддержка и развитие",
+      "legacy_title": "Поддержка и развитие",
+      "scope": "Техническая диагностика, исправление ошибок, обновление компонентов, мониторинг доступности и безопасности. Развитие функциональности, улучшение скорости и удобства, интеграции и плановые доработки по согласованному приоритету.",
+      "editorial_note": "Поддержка уже разработанного продукта, а не широкий managed IT из svc-022.",
+      "proposed_destination": "/services/websites-and-digital-products#svc-021",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-022",
+      "direction_id": "dir-05",
+      "group_id": "ai-and-infrastructure",
+      "title": "ИТ-аутсорсинг и Managed IT",
+      "legacy_title": "ИТ-аутсорсинг и Managed IT",
+      "scope": "Аудит ИТ-инфраструктуры, администрирование серверов, облачных сервисов, сетей и рабочих мест; поддержка пользователей и управление доступами. Мониторинг, резервное копирование, устранение инцидентов и планирование обновлений.",
+      "editorial_note": null,
+      "proposed_destination": "/services/managed-it-and-cybersecurity#svc-022",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-023",
+      "direction_id": "dir-05",
+      "group_id": "ai-and-infrastructure",
+      "title": "Аудит защищённости и усиление защиты систем",
+      "legacy_title": "Кибербезопасность (Cybersecurity as a Service)",
+      "scope": "Оценка рисков и уязвимостей, настройка защитных мер и контроля доступа, мониторинг событий безопасности, резервного копирования и восстановления. Разработка политик ИБ, рекомендации по устранению рисков и сопровождение инцидентов.",
+      "editorial_note": "Проектный аудит рисков и укрепление защиты; не обещать пентест, SOC или сертификаты без конкретного технического источника и исполнителя.",
+      "proposed_destination": "/services/managed-it-and-cybersecurity#svc-023",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-024",
+      "direction_id": "dir-05",
+      "group_id": "ai-and-infrastructure",
+      "title": "Автоматизация корпоративных систем (ERP/BPM)",
+      "legacy_title": "Автоматизация корпоративных систем (ERP/BPM)",
+      "scope": "Анализ и моделирование бизнес-процессов, настройка и доработка ERP, 1С, электронного документооборота и маршрутов согласования. Интеграция с действующими сервисами, перенос данных, обучение пользователей и поддержка внедрения.",
+      "editorial_note": null,
+      "proposed_destination": "/services/managed-it-and-cybersecurity#svc-024",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-025",
+      "direction_id": "dir-05",
+      "group_id": "ai-and-infrastructure",
+      "title": "Управляемая кибербезопасность и защита AI-систем",
+      "legacy_title": "Managed Cybersecurity & AI Security",
+      "scope": "Постоянный мониторинг защищённости ИТ- и ИИ-инфраструктуры, управление доступом к данным и моделям, проверка конфигураций и журналов событий. Контроль безопасного использования ИИ, реагирование на инциденты и регулярная оценка рисков.",
+      "editorial_note": "Отдельная сервисная модель мониторинга/управления; подтвердить реальную операционную ёмкость, часы, SLA, эскалации и AI Security до продаж.",
+      "proposed_destination": "/services/managed-it-and-cybersecurity#svc-025",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-026",
+      "direction_id": "dir-06",
+      "group_id": "immersive-media",
+      "title": "Интерактивные спецпроекты",
+      "legacy_title": "Интерактивные спецпроекты",
+      "scope": "Разработка концепции, сюжета и пользовательского сценария; арт-дирекшн, дизайн и производство интерактивного веб-опыта. Реализация анимации, переходов и пользовательских механик, тестирование и запуск проекта.",
+      "editorial_note": null,
+      "proposed_destination": "/services/special-projects-and-interactive/interactive-special-projects",
+      "proposed_surface": "detail_candidate",
+      "detail_page_candidate": true,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-027",
+      "direction_id": "dir-06",
+      "group_id": "immersive-media",
+      "title": "Иммерсивные онлайн-опыты",
+      "legacy_title": "Иммерсивные онлайн-опыты",
+      "scope": "Проектирование цифрового пространства, маршрутов пользователя и логики взаимодействий; создание визуальных сцен, звукового оформления и анимации. Разработка навигации, интерактивных объектов и адаптация под целевые устройства.",
+      "editorial_note": null,
+      "proposed_destination": "/services/special-projects-and-interactive/immersive-online-experiences",
+      "proposed_surface": "detail_candidate",
+      "detail_page_candidate": true,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-028",
+      "direction_id": "dir-06",
+      "group_id": "immersive-media",
+      "title": "Интерактивные карты и 3D-туры",
+      "legacy_title": "Интерактивные карты и 3D-туры",
+      "scope": "Подготовка карты или трёхмерной модели пространства, разработка навигации, точек интереса и информационных слоёв. Реализация панорам, интерактивных переходов и сценариев просмотра, оптимизация загрузки и интеграция на сайт.",
+      "editorial_note": null,
+      "proposed_destination": "/services/special-projects-and-interactive#svc-028",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-029",
+      "direction_id": "dir-06",
+      "group_id": "immersive-media",
+      "title": "AR-механики",
+      "legacy_title": "AR-механики",
+      "scope": "Разработка сценариев дополненной реальности, подготовка 2D/3D-контента, реализация распознавания маркеров или поверхностей и интерактивных действий. Тестирование на целевых устройствах и интеграция AR-опыта в продукт или кампанию.",
+      "editorial_note": null,
+      "proposed_destination": "/services/special-projects-and-interactive#svc-029",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-030",
+      "direction_id": "dir-07",
+      "group_id": "immersive-media",
+      "title": "3D-графика и визуализация",
+      "legacy_title": "3D-графика и визуализация",
+      "scope": "3D-моделирование объектов и окружения, работа с материалами, освещением и композициями, подготовка статичных изображений и сцен. Оптимизация моделей и экспорт ассетов для веба, презентаций, анимации или интерактивных проектов.",
+      "editorial_note": "Системы 3D-моделирования и визуализация, отличать от научной точности svc-031 и real-time svc-034.",
+      "proposed_destination": "/services/3d-animation-and-video/3d-visualization",
+      "proposed_surface": "detail_candidate",
+      "detail_page_candidate": true,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-031",
+      "direction_id": "dir-07",
+      "group_id": "immersive-media",
+      "title": "Научная и инженерная визуализация",
+      "legacy_title": "Научная и инженерная визуализация",
+      "scope": "Анализ исходных данных, чертежей и научных материалов; построение достоверных 2D/3D-моделей, схем и анимаций процессов. Визуальная адаптация сложной информации для исследований, обучения, презентаций и технической коммуникации.",
+      "editorial_note": null,
+      "proposed_destination": "/services/3d-animation-and-video#svc-031",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-032",
+      "direction_id": "dir-07",
+      "group_id": "immersive-media",
+      "title": "Motion-дизайн и анимация",
+      "legacy_title": "Motion-дизайн и анимация",
+      "scope": "Разработка раскадровки и визуальной концепции, анимация графики, текста, интерфейсов и 2D/3D-элементов. Композитинг, монтаж и подготовка роликов или анимационных компонентов для выбранных каналов и устройств.",
+      "editorial_note": "Общее motion-производство; граница с AI-анимацией svc-033 должна объяснять способ производства и артефакты.",
+      "proposed_destination": "/services/3d-animation-and-video#svc-032",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-033",
+      "direction_id": "dir-07",
+      "group_id": "immersive-media",
+      "title": "Анимация с применением AI",
+      "legacy_title": "AI-анимация",
+      "scope": "Разработка визуальной концепции и сценария, генерация и доработка кадров с применением ИИ-инструментов, анимация и согласование стилистики. Монтаж, композитинг, коррекция артефактов и подготовка итоговых материалов.",
+      "editorial_note": "Производственный способ может быть самостоятельным продуктом при реальном отдельном процессе; если покупательский запрос совпадает с svc-032 – оформить как метод.",
+      "proposed_destination": "/services/3d-animation-and-video#svc-033",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-034",
+      "direction_id": "dir-07",
+      "group_id": "immersive-media",
+      "title": "Real-time графика",
+      "legacy_title": "Real-time графика",
+      "scope": "Разработка и оптимизация 3D-сцен для движков реального времени, настройка материалов, освещения, эффектов и интерактивной логики. Подготовка моделей, интеграция и тестирование производительности на целевом оборудовании.",
+      "editorial_note": null,
+      "proposed_destination": "/services/3d-animation-and-video#svc-034",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-035",
+      "direction_id": "dir-07",
+      "group_id": "immersive-media",
+      "title": "Синематики",
+      "legacy_title": "Синематики",
+      "scope": "Разработка сценария и режиссёрской концепции, раскадровка, постановка виртуальных камер, анимация персонажей и сцен. Освещение, визуальные эффекты, монтаж, цветокоррекция и финальная подготовка видео.",
+      "editorial_note": null,
+      "proposed_destination": "/services/3d-animation-and-video#svc-035",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-036",
+      "direction_id": "dir-07",
+      "group_id": "immersive-media",
+      "title": "Virtual production",
+      "legacy_title": "Virtual production",
+      "scope": "Проектирование производственного процесса с виртуальными сценами, подготовка окружений и графики в реальном времени, настройка камер, трекинга и синхронизации. Техническое сопровождение съёмки и постпродакшн цифровых элементов.",
+      "editorial_note": null,
+      "proposed_destination": "/services/3d-animation-and-video#svc-036",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-037",
+      "direction_id": "dir-08",
+      "group_id": "immersive-media",
+      "title": "Создание музыки",
+      "legacy_title": "Создание музыки",
+      "scope": "Разработка музыкальной концепции под задачу и настроение проекта, композиция, аранжировка, программирование или запись партий. Редактирование, сведение и подготовка финальных треков и версий под нужные форматы.",
+      "editorial_note": null,
+      "proposed_destination": "/services/music-and-sound#svc-037",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-038",
+      "direction_id": "dir-08",
+      "group_id": "immersive-media",
+      "title": "Саунд-дизайн",
+      "legacy_title": "Саунд-дизайн",
+      "scope": "Разработка звуковой концепции, создание и обработка эффектов, атмосфер, интерфейсных сигналов и переходов. Синхронизация звука с анимацией или действиями пользователя, сведение и подготовка материалов для интеграции.",
+      "editorial_note": null,
+      "proposed_destination": "/services/music-and-sound#svc-038",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-039",
+      "direction_id": "dir-09",
+      "group_id": "ai-and-infrastructure",
+      "title": "Анализ задачи, процессов и данных",
+      "legacy_title": "Анализ задачи, процессов и данных",
+      "scope": "Интервью с заказчиком и экспертами, обследование процессов и ИТ-ландшафта, инвентаризация доступных данных и ограничений. Формулирование сценариев применения ИИ, критериев качества, рисков и требований к решению.",
+      "editorial_note": "Отдельный коммерческий этап AI-проекта: диагностика процессов и данных с конкретным результатом.",
+      "proposed_destination": "/services/ai-systems-and-development#svc-039",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-040",
+      "direction_id": "dir-09",
+      "group_id": "ai-and-infrastructure",
+      "title": "Архитектура AI-решения",
+      "legacy_title": "Архитектура AI-решения",
+      "scope": "Проектирование компонентов ИИ-системы, выбора моделей, потоков данных, API и интеграций; определение требований к инфраструктуре, безопасности и доступам. Разработка плана тестирования, наблюдаемости и масштабирования.",
+      "editorial_note": null,
+      "proposed_destination": "/services/ai-systems-and-development/ai-solution-architecture",
+      "proposed_surface": "detail_candidate",
+      "detail_page_candidate": true,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-041",
+      "direction_id": "dir-09",
+      "group_id": "ai-and-infrastructure",
+      "title": "Прототипирование",
+      "legacy_title": "Прототипирование",
+      "scope": "Создание проверяемого прототипа ИИ-функции или рабочего интерфейса на репрезентативных сценариях. Проверка технической реализуемости, качества результатов и удобства использования, фиксация ограничений и требований к пилоту.",
+      "editorial_note": "Прототипирование проверяет реализуемость решения; не путать с пилотом на данных svc-042.",
+      "proposed_destination": "/services/ai-systems-and-development#svc-041",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-042",
+      "direction_id": "dir-09",
+      "group_id": "ai-and-infrastructure",
+      "title": "Пилот на исторических данных",
+      "legacy_title": "Пилот на исторических данных",
+      "scope": "Подготовка и разделение исторических данных, согласование метрик и контрольных выборок, запуск пилотной модели. Анализ точности, устойчивости и ошибок, сравнение с базовым процессом, рекомендации по следующему этапу.",
+      "editorial_note": "Пилот и проверка на репрезентативных данных с согласованными критериями; не обещать доказанные KPI.",
+      "proposed_destination": "/services/ai-systems-and-development#svc-042",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-043",
+      "direction_id": "dir-09",
+      "group_id": "ai-and-infrastructure",
+      "title": "Разработка, интеграция и внедрение",
+      "legacy_title": "Разработка, интеграция и внедрение",
+      "scope": "Разработка моделей, сервисов и интерфейсов, интеграция ИИ с существующими системами и источниками данных. Настройка инфраструктуры и доступа, тестирование, развёртывание в облаке или закрытом контуре, передача документации.",
+      "editorial_note": "Разработку и эксплуатационное внедрение отделять от архитектуры, прототипа и пилота.",
+      "proposed_destination": "/services/ai-systems-and-development#svc-043",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-044",
+      "direction_id": "dir-09",
+      "group_id": "ai-and-infrastructure",
+      "title": "MLOps и сопровождение моделей",
+      "legacy_title": "MLOps и сопровождение моделей",
+      "scope": "Организация версионирования данных и моделей, автоматизация развёртывания и проверок, мониторинг качества, ошибок и дрейфа. Настройка журналирования, воспроизводимости, процессов обновления и регламентов сопровождения.",
+      "editorial_note": null,
+      "proposed_destination": "/services/ai-systems-and-development#svc-044",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-045",
+      "direction_id": "dir-09",
+      "group_id": "ai-and-infrastructure",
+      "title": "Автоматизация бизнес-процессов с AI",
+      "legacy_title": "AI-автоматизация бизнеса",
+      "scope": "Аудит повторяющихся операций, выбор сценариев автоматизации, разработка ИИ-ассистентов и агентов для документов, продаж, HR и внутренних процессов. Интеграция с корпоративными системами, контроль качества и настройка участия человека.",
+      "editorial_note": "Результат – автоматизация операций; от агентной сервисной модели svc-046 отличает предмет внедрения.",
+      "proposed_destination": "/services/ai-systems-and-development/ai-business-automation",
+      "proposed_surface": "detail_candidate",
+      "detail_page_candidate": true,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-046",
+      "direction_id": "dir-09",
+      "group_id": "ai-and-infrastructure",
+      "title": "Разработка и сопровождение AI-агентов",
+      "legacy_title": "AI Agents as a Service",
+      "scope": "Предоставление и настройка ИИ-агентов для согласованных бизнес-задач: обработки обращений, подготовки документов, поиска информации и выполнения операций. Интеграции, разграничение прав, мониторинг работы и регулярное сопровождение.",
+      "editorial_note": "Отдельный агентный продукт с поддержкой, не синоним любой AI-автоматизации svc-045.",
+      "proposed_destination": "/services/ai-systems-and-development#svc-046",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-047",
+      "direction_id": "dir-09",
+      "group_id": "ai-and-infrastructure",
+      "title": "Управление рисками и контроль применения AI",
+      "legacy_title": "AI Governance & Compliance",
+      "scope": "Инвентаризация используемых ИИ-систем и данных, оценка рисков и требований к их применению, разработка политик, ролей и процедур контроля. Аудит качества результатов, защищённости данных и механизмов человеческого надзора.",
+      "editorial_note": "Методология и организационные процедуры; правовое соответствие и сертификацию не гарантировать без проверки.",
+      "proposed_destination": "/services/ai-systems-and-development#svc-047",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-051",
+      "direction_id": "dir-10",
+      "group_id": "ai-and-infrastructure",
+      "title": "Цифровые двойники технологических процессов",
+      "legacy_title": "Цифровые двойники процессов",
+      "scope": "Сбор и анализ технологических данных, построение моделей производственных или биотехнологических процессов, интеграция сигналов датчиков. Прогнозирование состояния и отклонений, моделирование сценариев и проверка модели по фактическим данным.",
+      "editorial_note": "Обобщить отраслевой язык; не ограничивать цифровые двойники фармацевтикой.",
+      "proposed_destination": "/services/applied-ai#svc-051",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-052",
+      "direction_id": "dir-10",
+      "group_id": "ai-and-infrastructure",
+      "title": "RAG-системы и работа со знаниями",
+      "legacy_title": "RAG-системы и работа со знаниями",
+      "scope": "Подключение корпоративных документов и баз знаний, подготовка поискового индекса, настройка семантического поиска и генерации ответов с указанием источников. Разграничение доступа, оценка релевантности и контроль актуальности информации.",
+      "editorial_note": "RAG: управляемый поиск, доступ и ссылки на источники; отличать от исполняющих действия агентов svc-053.",
+      "proposed_destination": "/services/applied-ai#svc-052",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-053",
+      "direction_id": "dir-10",
+      "group_id": "ai-and-infrastructure",
+      "title": "Документные AI-агенты",
+      "legacy_title": "Документные AI-агенты",
+      "scope": "Автоматизация извлечения сведений, классификации и подготовки черновиков документов, отчётов и регуляторных материалов. Связь с проверяемыми источниками, шаблоны согласования, контроль версий и обязательная экспертная проверка результатов.",
+      "editorial_note": "Документный workflow и действия; отличать от поиска по знаниям svc-052 и агентной сервисной модели svc-046.",
+      "proposed_destination": "/services/applied-ai#svc-053",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-054",
+      "direction_id": "dir-10",
+      "group_id": "ai-and-infrastructure",
+      "title": "Компьютерное зрение",
+      "legacy_title": "Компьютерное зрение",
+      "scope": "Подготовка изображений и разметки, разработка алгоритмов обнаружения, классификации и локализации объектов или дефектов. Обучение и проверка моделей, интеграция с рабочими процессами и визуализация результатов анализа.",
+      "editorial_note": "Отдельная прикладная AI-задача: визуальные данные/модели, вне фармацевтического кейса.",
+      "proposed_destination": "/services/applied-ai#svc-054",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-055",
+      "direction_id": "dir-10",
+      "group_id": "ai-and-infrastructure",
+      "title": "Инженерное моделирование и проектирование",
+      "legacy_title": "Инженерное моделирование и проектирование",
+      "scope": "Анализ инженерных задач и исходных моделей, разработка вычислительных алгоритмов и инструментов генеративного проектирования. Моделирование сценариев, автоматизация расчётов, интеграция с действующими программами и проверка результатов специалистами.",
+      "editorial_note": "Инженерные алгоритмы/проектирование; не смешивать с научной 3D-визуализацией svc-031.",
+      "proposed_destination": "/services/applied-ai#svc-055",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-056",
+      "direction_id": "dir-11",
+      "group_id": "sales-and-cx",
+      "title": "Отдел продаж под ключ",
+      "legacy_title": "Отдел продаж под ключ",
+      "scope": "Аудит коммерческих процессов, проектирование структуры и ролей отдела, подбор и адаптация сотрудников. Настройка воронки, KPI, мотивации, скриптов, отчётности и регламентов; обучение команды и сопровождение запуска.",
+      "editorial_note": null,
+      "proposed_destination": "/services/sales#svc-056",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-057",
+      "direction_id": "dir-11",
+      "group_id": "sales-and-cx",
+      "title": "Внедрение и кастомизация CRM",
+      "legacy_title": "Внедрение и кастомизация CRM",
+      "scope": "Аудит воронки и требований, выбор и настройка CRM, создание карточек, полей, автоматизаций, ролей и отчётов. Интеграция телефонии, почты и других систем, миграция данных, тестирование и обучение сотрудников.",
+      "editorial_note": "Внедрение CRM как системы; RevOps svc-061 управляет сквозным коммерческим процессом.",
+      "proposed_destination": "/services/sales/crm-implementation",
+      "proposed_surface": "detail_candidate",
+      "detail_page_candidate": true,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-058",
+      "direction_id": "dir-11",
+      "group_id": "sales-and-cx",
+      "title": "Омниканальные коммуникации",
+      "legacy_title": "Омниканальные коммуникации",
+      "scope": "Подключение доступных каналов связи — телефонии, электронной почты, мессенджеров и социальных сетей — к единому интерфейсу или CRM. Настройка маршрутизации обращений, истории коммуникаций, уведомлений и аналитики работы операторов.",
+      "editorial_note": "Объединение каналов связи; отдельно от BPO svc-062, отвечающего за фактическую обработку обращений.",
+      "proposed_destination": "/services/sales#svc-058",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-059",
+      "direction_id": "dir-11",
+      "group_id": "sales-and-cx",
+      "title": "Скрипты продаж и регламенты",
+      "legacy_title": "Скрипты продаж и регламенты",
+      "scope": "Анализ клиентских сегментов и этапов воронки, разработка сценариев первого контакта, выявления потребностей, презентации и обработки возражений. Подготовка регламентов CRM, критериев квалификации и материалов для обучения команды.",
+      "editorial_note": null,
+      "proposed_destination": "/services/sales#svc-059",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-060",
+      "direction_id": "dir-11",
+      "group_id": "sales-and-cx",
+      "title": "AI-автоматизация продаж и обработки заявок",
+      "legacy_title": "AI-автоматизация лидогенерации и обработки заявок",
+      "scope": "Настройка ИИ-сценариев приёма и квалификации обращений, распределения лидов и заполнения CRM. Расшифровка и анализ коммуникаций, фиксация договорённостей, контроль качества и передача сложных случаев менеджерам.",
+      "editorial_note": "Торговый/коммерческий сценарий, самостоятельный от общей AI-автоматизации svc-045.",
+      "proposed_destination": "/services/sales#svc-060",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-061",
+      "direction_id": "dir-11",
+      "group_id": "sales-and-cx",
+      "title": "RevOps и коммерческие операции",
+      "legacy_title": "RevOps и коммерческие операции",
+      "scope": "Аудит процессов маркетинга, продаж и клиентского сервиса, унификация этапов воронки и правил работы с данными. Настройка сквозных метрик, автоматизаций, отчётности и управления конверсией на всём жизненном цикле клиента.",
+      "editorial_note": "RevOps – процессная операционная модель, не просто CRM или BI-дашборд.",
+      "proposed_destination": "/services/sales#svc-061",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-062",
+      "direction_id": "dir-12",
+      "group_id": "sales-and-cx",
+      "title": "Клиентский сервис на аутсорсе (CX/BPO)",
+      "legacy_title": "Клиентский сервис на аутсорсе (CX/BPO)",
+      "scope": "Организация обработки обращений по согласованным каналам, настройка базы знаний, сценариев поддержки, чат-ботов и голосовых помощников. Маршрутизация сложных запросов, контроль SLA, оценка качества и регулярная отчётность.",
+      "editorial_note": "Аутсорсинг фактического клиентского сервиса, а не технология коммуникаций svc-058. SLA только по договору.",
+      "proposed_destination": "/services/customer-service-and-bpo#svc-062",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-063",
+      "direction_id": "dir-13",
+      "group_id": "data-finance-operations",
+      "title": "Регистрация бизнеса",
+      "legacy_title": "Регистрация бизнеса",
+      "scope": "Консультация по организационно-правовой форме и юрисдикции, подготовка регистрационного пакета документов, сопровождение подачи заявлений и взаимодействия с регистрационными органами. Поддержка при открытии счетов и настройке базовых корпоративных процедур.",
+      "editorial_note": "Подтвердить географию, профессиональную ответственность, полномочия и юридическую модель перед публикацией.",
+      "proposed_destination": "/services/accounting-and-audit#svc-063",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-064",
+      "direction_id": "dir-13",
+      "group_id": "data-finance-operations",
+      "title": "Аутсорсинг бухгалтерии",
+      "legacy_title": "Аутсорсинг бухгалтерии",
+      "scope": "Ведение бухгалтерского и налогового учёта с учётом применимого режима, обработка первичных документов, сверки и расчёт обязательных платежей. Подготовка и сдача отчётности, взаимодействие с контролирующими органами и консультационная поддержка.",
+      "editorial_note": null,
+      "proposed_destination": "/services/accounting-and-audit/accounting-outsourcing",
+      "proposed_surface": "detail_candidate",
+      "detail_page_candidate": true,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-065",
+      "direction_id": "dir-13",
+      "group_id": "data-finance-operations",
+      "title": "Кадровый учёт и расчёт зарплаты",
+      "legacy_title": "Кадровый учёт и расчёт зарплаты",
+      "scope": "Оформление кадровых документов, учёт рабочего времени, отпусков и кадровых изменений; расчёт зарплаты, удержаний, налогов и взносов. Подготовка кадровой отчётности и сопровождение нестандартных форм занятости.",
+      "editorial_note": "Кадровые документы и расчёт заработной платы, не дублировать HR-подбор svc-070/071.",
+      "proposed_destination": "/services/accounting-and-audit#svc-065",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-066",
+      "direction_id": "dir-13",
+      "group_id": "data-finance-operations",
+      "title": "Финансовая диагностика, due diligence и восстановление учёта",
+      "legacy_title": "Финансовый аудит, due diligence и восстановление учёта",
+      "scope": "Проверка отчётности, финансовых процессов и подтверждающих документов, выявление рисков и несоответствий. Финансовая проверка компании перед сделкой, восстановление регистров и подготовка плана корректирующих действий.",
+      "editorial_note": "Не обещать официальный аудит/аудиторское заключение без подтверждённых прав и квалификации.",
+      "proposed_destination": "/services/accounting-and-audit#svc-066",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-067",
+      "direction_id": "dir-13",
+      "group_id": "data-finance-operations",
+      "title": "Налоговое планирование и сопровождение",
+      "legacy_title": "Законная оптимизация налогообложения",
+      "scope": "Анализ налоговой нагрузки, договорной модели и структуры бизнеса, оценка доступных законных режимов и льгот. Разработка вариантов налогового планирования, оценка рисков и сопровождение внедрения в рамках действующего законодательства.",
+      "editorial_note": "Только законные модели с подтверждением юрисдикций, квалификации и границ ответственности.",
+      "proposed_destination": "/services/accounting-and-audit#svc-067",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-068",
+      "direction_id": "dir-13",
+      "group_id": "data-finance-operations",
+      "title": "Международный учёт и консультационное сопровождение",
+      "legacy_title": "Международный учёт и консалтинг",
+      "scope": "Анализ требований выбранных юрисдикций, поддержка международного учёта и трансформации отчётности по применимым стандартам. Консультации по ВЭД, валютному контролю и трансграничным операциям с учётом регуляторных ограничений.",
+      "editorial_note": "Требует подтверждения конкретных юрисдикций и договорной модели оказания услуги.",
+      "proposed_destination": "/services/accounting-and-audit#svc-068",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-069",
+      "direction_id": "dir-13",
+      "group_id": "data-finance-operations",
+      "title": "Финансовый директор на аутсорсе (CFO as a Service)",
+      "legacy_title": "Финансовый директор на аутсорсе (CFO as a Service)",
+      "scope": "Постановка управленческого учёта, бюджетирование и финансовое моделирование, контроль денежных потоков и ключевых показателей. Подготовка управленческой отчётности, анализ отклонений и рекомендации по финансовым решениям.",
+      "editorial_note": "CFO – управленческая функция и стратегическое финансовое сопровождение, не автоматизация учёта svc-078.",
+      "proposed_destination": "/services/accounting-and-audit#svc-069",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-070",
+      "direction_id": "dir-14",
+      "group_id": "data-finance-operations",
+      "title": "Подбор персонала",
+      "legacy_title": "Подбор персонала",
+      "scope": "Согласование профиля вакансии и критериев оценки, поиск и первичный отбор кандидатов, интервью и представление финалистов. Координация этапов найма и сопровождение адаптации; при необходимости — автоматизация скрининга и коммуникаций.",
+      "editorial_note": "Разовые/проектные подборы, в отличие от долгосрочного RPO svc-071.",
+      "proposed_destination": "/services/hr-and-recruitment#svc-070",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-071",
+      "direction_id": "dir-14",
+      "group_id": "data-finance-operations",
+      "title": "HR Business Partner / RPO",
+      "legacy_title": "HR Business Partner / RPO",
+      "scope": "Планирование потребности в персонале и передача процессов подбора на внешнее сопровождение, разработка рекрутинговой воронки и метрик. HR-аналитика, поддержка адаптации, оценка эффективности и совершенствование кадровых процессов.",
+      "editorial_note": "RPO и HRBP – модель регулярного сопровождения, не только рекрутинг svc-070.",
+      "proposed_destination": "/services/hr-and-recruitment#svc-071",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-072",
+      "direction_id": "dir-14",
+      "group_id": "data-finance-operations",
+      "title": "Корпоративное обучение и внедрение ИИ",
+      "legacy_title": "Корпоративное обучение и внедрение ИИ",
+      "scope": "Оценка потребностей и цифровой зрелости команды, разработка программы обучения работе с ИИ и практических сценариев для подразделений. Проведение занятий, подготовка материалов, внедрение регламентов и оценка результатов.",
+      "editorial_note": null,
+      "proposed_destination": "/services/hr-and-recruitment#svc-072",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-073",
+      "direction_id": "dir-15",
+      "group_id": "data-finance-operations",
+      "title": "Сквозная аналитика",
+      "legacy_title": "Сквозная аналитика",
+      "scope": "Объединение данных рекламных площадок, сайта, CRM и продаж; настройка событий, атрибуции и единой системы показателей. Расчёт CAC, LTV, ROMI и конверсий, построение отчётов для управления маркетинговыми инвестициями.",
+      "editorial_note": "Сквозная маркетинговая атрибуция и экономики клиентов; не измерение событий сайта svc-076.",
+      "proposed_destination": "/services/business-analytics#svc-073",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-074",
+      "direction_id": "dir-15",
+      "group_id": "data-finance-operations",
+      "title": "BI и бизнес-дашборды",
+      "legacy_title": "BI и бизнес-дашборды",
+      "scope": "Сбор требований к показателям, подключение и подготовка источников данных, проектирование модели метрик. Разработка интерактивных дашбордов и отчётов для руководителей и команд, настройка обновления данных и прав доступа.",
+      "editorial_note": null,
+      "proposed_destination": "/services/business-analytics/bi-and-dashboards",
+      "proposed_surface": "detail_candidate",
+      "detail_page_candidate": true,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-075",
+      "direction_id": "dir-15",
+      "group_id": "data-finance-operations",
+      "title": "Корпоративные хранилища данных — DWH",
+      "legacy_title": "Корпоративные хранилища данных — DWH",
+      "scope": "Аудит источников данных и требований к отчётности, проектирование хранилища и модели данных. Настройка загрузки и преобразований ETL/ELT, проверок качества, документирования и разграничения доступа.",
+      "editorial_note": "Строительство/ведение хранилища данных; governance svc-079 – правила владения и качества.",
+      "proposed_destination": "/services/business-analytics#svc-075",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-076",
+      "direction_id": "dir-15",
+      "group_id": "data-finance-operations",
+      "title": "Веб-аналитика и серверное отслеживание",
+      "legacy_title": "Веб-аналитика и серверное отслеживание",
+      "scope": "Настройка счётчиков и целей, событий электронной коммерции, тегов и передачи конверсий. Проектирование серверного сбора событий при необходимости, проверка качества данных и соблюдение требований к согласию и обработке информации.",
+      "editorial_note": "События/серверный трекинг, не вся система сквозной аналитики svc-073.",
+      "proposed_destination": "/services/business-analytics#svc-076",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-077",
+      "direction_id": "dir-15",
+      "group_id": "data-finance-operations",
+      "title": "Предиктивная аналитика и Machine Learning",
+      "legacy_title": "Предиктивная аналитика и Machine Learning",
+      "scope": "Формулирование прогнозной задачи, подготовка и исследование данных, разработка и проверка моделей спроса, оттока, сегментации или ценообразования. Оценка точности и бизнес-эффекта, внедрение прогнозов в рабочие процессы.",
+      "editorial_note": "ML под управленческий прогноз спроса/оттока, не вся прикладная AI-инженерия.",
+      "proposed_destination": "/services/business-analytics#svc-077",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-078",
+      "direction_id": "dir-15",
+      "group_id": "data-finance-operations",
+      "title": "Автоматизация управленческого учёта и отчётности",
+      "legacy_title": "Автоматизация управленческого учёта",
+      "scope": "Разработка структуры финансовых статей и правил учёта, интеграция данных из банка, 1С и операционных систем. Автоматизация P&L, Cash Flow, баланса, бюджетов и отчётов по юнит-экономике.",
+      "editorial_note": "Техническая постановка потоков и отчётов; CFO svc-069 – управленческая функция.",
+      "proposed_destination": "/services/business-analytics#svc-078",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-079",
+      "direction_id": "dir-15",
+      "group_id": "data-finance-operations",
+      "title": "Управление корпоративными данными (Data Governance)",
+      "legacy_title": "Управление корпоративными данными (Data Governance)",
+      "scope": "Аудит источников, качества и движения данных, определение владельцев и правил доступа. Разработка стандартов, каталогов, проверок качества и процедур управления данными для аналитики и ИИ-проектов.",
+      "editorial_note": "Процедуры качества, владения и каталогизации данных; отличие от инфраструктуры DWH svc-075.",
+      "proposed_destination": "/services/business-analytics#svc-079",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-080",
+      "direction_id": "dir-16",
+      "group_id": "digital-products",
+      "title": "Управление маркетплейсами и e-commerce",
+      "legacy_title": "Управление маркетплейсами и e-commerce",
+      "scope": "Подготовка и запуск торговых площадок и интернет-магазина, оформление каталога и карточек товаров, настройка интеграций и операционных процессов. Управление ассортиментом, рекламой, аналитикой продаж и оптимизацией конверсии.",
+      "editorial_note": "Объединённый коммерческий продукт: управление e-commerce, не дублировать отдельное создание сайта svc-016.",
+      "proposed_destination": "/services/ecommerce-and-marketplaces#svc-080",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    },
+    {
+      "id": "svc-081",
+      "direction_id": "dir-17",
+      "group_id": "data-finance-operations",
+      "title": "Business Operations as a Service",
+      "legacy_title": "Business Operations as a Service",
+      "scope": "Аудит и организация операционных процессов компании, согласование состава передаваемых функций и зон ответственности. Координация финансов, HR, ИТ и клиентского сервиса, внедрение автоматизации, KPI и регулярной управленческой отчётности.",
+      "editorial_note": "Системный операционный аутсорсинг – зонтичный комплекс; его состав зависит от договора и не означает постоянное наличие всех подуслуг.",
+      "proposed_destination": "/services/b2b-business-operations#svc-081",
+      "proposed_surface": "direction_section",
+      "detail_page_candidate": false,
+      "publication_status": "copy_not_approved",
+      "locale_status": {
+        "ru": "needs_stage_02_copy",
+        "en": "not_translated"
+      }
+    }
+  ],
+  "legacy_id_map": [
+    {
+      "id": "svc-001",
+      "legacy_name": "Брендинг",
+      "legacy_direction_id": "dir-01",
+      "legacy_proposed_destination": "/services/branding/branding",
+      "role": "public",
+      "public_service_id": "svc-001",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-002",
+      "legacy_name": "Разработка логотипов",
+      "legacy_direction_id": "dir-01",
+      "legacy_proposed_destination": "/services/branding#svc-002",
+      "role": "public",
+      "public_service_id": "svc-002",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-003",
+      "legacy_name": "Айдентика и фирменный стиль",
+      "legacy_direction_id": "dir-01",
+      "legacy_proposed_destination": "/services/branding#svc-003",
+      "role": "public",
+      "public_service_id": "svc-003",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-004",
+      "legacy_name": "Маркетинг",
+      "legacy_direction_id": "dir-02",
+      "legacy_proposed_destination": "/services/marketing-and-promotion#svc-004",
+      "role": "public",
+      "public_service_id": "svc-004",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-005",
+      "legacy_name": "SEO",
+      "legacy_direction_id": "dir-02",
+      "legacy_proposed_destination": "/services/marketing-and-promotion/seo",
+      "role": "public",
+      "public_service_id": "svc-005",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-006",
+      "legacy_name": "GEO",
+      "legacy_direction_id": "dir-02",
+      "legacy_proposed_destination": "/services/marketing-and-promotion#svc-006",
+      "role": "public",
+      "public_service_id": "svc-006",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-007",
+      "legacy_name": "SEO и мультиязычное продвижение",
+      "legacy_direction_id": "dir-02",
+      "legacy_proposed_destination": "/services/marketing-and-promotion#svc-007",
+      "role": "public",
+      "public_service_id": "svc-007",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-008",
+      "legacy_name": "GEO — оптимизация для генеративного поиска",
+      "legacy_direction_id": "dir-02",
+      "legacy_proposed_destination": "/services/marketing-and-promotion#svc-008",
+      "role": "merged_alias",
+      "public_service_id": "svc-006",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-009",
+      "legacy_name": "Контекстная реклама",
+      "legacy_direction_id": "dir-02",
+      "legacy_proposed_destination": "/services/marketing-and-promotion#svc-009",
+      "role": "public",
+      "public_service_id": "svc-009",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-010",
+      "legacy_name": "Таргетированная реклама и SMM",
+      "legacy_direction_id": "dir-02",
+      "legacy_proposed_destination": "/services/marketing-and-promotion#svc-010",
+      "role": "public",
+      "public_service_id": "svc-010",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-011",
+      "legacy_name": "Управление репутацией — SERM/ORM",
+      "legacy_direction_id": "dir-02",
+      "legacy_proposed_destination": "/services/marketing-and-promotion#svc-011",
+      "role": "public",
+      "public_service_id": "svc-011",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-012",
+      "legacy_name": "Контент-маркетинг и PR",
+      "legacy_direction_id": "dir-02",
+      "legacy_proposed_destination": "/services/marketing-and-promotion#svc-012",
+      "role": "public",
+      "public_service_id": "svc-012",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-013",
+      "legacy_name": "Организация B2B-мероприятий",
+      "legacy_direction_id": "dir-02",
+      "legacy_proposed_destination": "/services/marketing-and-promotion#svc-013",
+      "role": "public",
+      "public_service_id": "svc-013",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-014",
+      "legacy_name": "Организация мероприятий (Event Management)",
+      "legacy_direction_id": "dir-03",
+      "legacy_proposed_destination": "/services/pr-events-and-brand-experience#svc-014",
+      "role": "public",
+      "public_service_id": "svc-014",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-015",
+      "legacy_name": "PR и коммуникационные кампании (PR & Communications)",
+      "legacy_direction_id": "dir-03",
+      "legacy_proposed_destination": "/services/pr-events-and-brand-experience#svc-015",
+      "role": "public",
+      "public_service_id": "svc-015",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-016",
+      "legacy_name": "Разработка сайтов и лендингов",
+      "legacy_direction_id": "dir-04",
+      "legacy_proposed_destination": "/services/websites-and-digital-products/websites-and-landing-pages",
+      "role": "public",
+      "public_service_id": "svc-016",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-017",
+      "legacy_name": "Разработка цифровых платформ",
+      "legacy_direction_id": "dir-04",
+      "legacy_proposed_destination": "/services/websites-and-digital-products/digital-platforms",
+      "role": "public",
+      "public_service_id": "svc-017",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-018",
+      "legacy_name": "UX/UI-дизайн",
+      "legacy_direction_id": "dir-04",
+      "legacy_proposed_destination": "/services/websites-and-digital-products#svc-018",
+      "role": "public",
+      "public_service_id": "svc-018",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-019",
+      "legacy_name": "Личные кабинеты",
+      "legacy_direction_id": "dir-04",
+      "legacy_proposed_destination": "/services/websites-and-digital-products#svc-019",
+      "role": "public",
+      "public_service_id": "svc-019",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-020",
+      "legacy_name": "Интерактивные инструменты",
+      "legacy_direction_id": "dir-04",
+      "legacy_proposed_destination": "/services/websites-and-digital-products#svc-020",
+      "role": "public",
+      "public_service_id": "svc-020",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-021",
+      "legacy_name": "Поддержка и развитие",
+      "legacy_direction_id": "dir-04",
+      "legacy_proposed_destination": "/services/websites-and-digital-products#svc-021",
+      "role": "public",
+      "public_service_id": "svc-021",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-022",
+      "legacy_name": "ИТ-аутсорсинг и Managed IT",
+      "legacy_direction_id": "dir-05",
+      "legacy_proposed_destination": "/services/managed-it-and-cybersecurity#svc-022",
+      "role": "public",
+      "public_service_id": "svc-022",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-023",
+      "legacy_name": "Кибербезопасность (Cybersecurity as a Service)",
+      "legacy_direction_id": "dir-05",
+      "legacy_proposed_destination": "/services/managed-it-and-cybersecurity#svc-023",
+      "role": "public",
+      "public_service_id": "svc-023",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-024",
+      "legacy_name": "Автоматизация корпоративных систем (ERP/BPM)",
+      "legacy_direction_id": "dir-05",
+      "legacy_proposed_destination": "/services/managed-it-and-cybersecurity#svc-024",
+      "role": "public",
+      "public_service_id": "svc-024",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-025",
+      "legacy_name": "Managed Cybersecurity & AI Security",
+      "legacy_direction_id": "dir-05",
+      "legacy_proposed_destination": "/services/managed-it-and-cybersecurity#svc-025",
+      "role": "public",
+      "public_service_id": "svc-025",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-026",
+      "legacy_name": "Интерактивные спецпроекты",
+      "legacy_direction_id": "dir-06",
+      "legacy_proposed_destination": "/services/special-projects-and-interactive/interactive-special-projects",
+      "role": "public",
+      "public_service_id": "svc-026",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-027",
+      "legacy_name": "Иммерсивные онлайн-опыты",
+      "legacy_direction_id": "dir-06",
+      "legacy_proposed_destination": "/services/special-projects-and-interactive/immersive-online-experiences",
+      "role": "public",
+      "public_service_id": "svc-027",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-028",
+      "legacy_name": "Интерактивные карты и 3D-туры",
+      "legacy_direction_id": "dir-06",
+      "legacy_proposed_destination": "/services/special-projects-and-interactive#svc-028",
+      "role": "public",
+      "public_service_id": "svc-028",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-029",
+      "legacy_name": "AR-механики",
+      "legacy_direction_id": "dir-06",
+      "legacy_proposed_destination": "/services/special-projects-and-interactive#svc-029",
+      "role": "public",
+      "public_service_id": "svc-029",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-030",
+      "legacy_name": "3D-графика и визуализация",
+      "legacy_direction_id": "dir-07",
+      "legacy_proposed_destination": "/services/3d-animation-and-video/3d-visualization",
+      "role": "public",
+      "public_service_id": "svc-030",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-031",
+      "legacy_name": "Научная и инженерная визуализация",
+      "legacy_direction_id": "dir-07",
+      "legacy_proposed_destination": "/services/3d-animation-and-video#svc-031",
+      "role": "public",
+      "public_service_id": "svc-031",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-032",
+      "legacy_name": "Motion-дизайн и анимация",
+      "legacy_direction_id": "dir-07",
+      "legacy_proposed_destination": "/services/3d-animation-and-video#svc-032",
+      "role": "public",
+      "public_service_id": "svc-032",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-033",
+      "legacy_name": "AI-анимация",
+      "legacy_direction_id": "dir-07",
+      "legacy_proposed_destination": "/services/3d-animation-and-video#svc-033",
+      "role": "public",
+      "public_service_id": "svc-033",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-034",
+      "legacy_name": "Real-time графика",
+      "legacy_direction_id": "dir-07",
+      "legacy_proposed_destination": "/services/3d-animation-and-video#svc-034",
+      "role": "public",
+      "public_service_id": "svc-034",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-035",
+      "legacy_name": "Синематики",
+      "legacy_direction_id": "dir-07",
+      "legacy_proposed_destination": "/services/3d-animation-and-video#svc-035",
+      "role": "public",
+      "public_service_id": "svc-035",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-036",
+      "legacy_name": "Virtual production",
+      "legacy_direction_id": "dir-07",
+      "legacy_proposed_destination": "/services/3d-animation-and-video#svc-036",
+      "role": "public",
+      "public_service_id": "svc-036",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-037",
+      "legacy_name": "Создание музыки",
+      "legacy_direction_id": "dir-08",
+      "legacy_proposed_destination": "/services/music-and-sound#svc-037",
+      "role": "public",
+      "public_service_id": "svc-037",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-038",
+      "legacy_name": "Саунд-дизайн",
+      "legacy_direction_id": "dir-08",
+      "legacy_proposed_destination": "/services/music-and-sound#svc-038",
+      "role": "public",
+      "public_service_id": "svc-038",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-039",
+      "legacy_name": "Анализ задачи, процессов и данных",
+      "legacy_direction_id": "dir-09",
+      "legacy_proposed_destination": "/services/ai-systems-and-development#svc-039",
+      "role": "public",
+      "public_service_id": "svc-039",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-040",
+      "legacy_name": "Архитектура AI-решения",
+      "legacy_direction_id": "dir-09",
+      "legacy_proposed_destination": "/services/ai-systems-and-development/ai-solution-architecture",
+      "role": "public",
+      "public_service_id": "svc-040",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-041",
+      "legacy_name": "Прототипирование",
+      "legacy_direction_id": "dir-09",
+      "legacy_proposed_destination": "/services/ai-systems-and-development#svc-041",
+      "role": "public",
+      "public_service_id": "svc-041",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-042",
+      "legacy_name": "Пилот на исторических данных",
+      "legacy_direction_id": "dir-09",
+      "legacy_proposed_destination": "/services/ai-systems-and-development#svc-042",
+      "role": "public",
+      "public_service_id": "svc-042",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-043",
+      "legacy_name": "Разработка, интеграция и внедрение",
+      "legacy_direction_id": "dir-09",
+      "legacy_proposed_destination": "/services/ai-systems-and-development#svc-043",
+      "role": "public",
+      "public_service_id": "svc-043",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-044",
+      "legacy_name": "MLOps и сопровождение моделей",
+      "legacy_direction_id": "dir-09",
+      "legacy_proposed_destination": "/services/ai-systems-and-development#svc-044",
+      "role": "public",
+      "public_service_id": "svc-044",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-045",
+      "legacy_name": "AI-автоматизация бизнеса",
+      "legacy_direction_id": "dir-09",
+      "legacy_proposed_destination": "/services/ai-systems-and-development/ai-business-automation",
+      "role": "public",
+      "public_service_id": "svc-045",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-046",
+      "legacy_name": "AI Agents as a Service",
+      "legacy_direction_id": "dir-09",
+      "legacy_proposed_destination": "/services/ai-systems-and-development#svc-046",
+      "role": "public",
+      "public_service_id": "svc-046",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-047",
+      "legacy_name": "AI Governance & Compliance",
+      "legacy_direction_id": "dir-09",
+      "legacy_proposed_destination": "/services/ai-systems-and-development#svc-047",
+      "role": "public",
+      "public_service_id": "svc-047",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-048",
+      "legacy_name": "Молекулярный R&D",
+      "legacy_direction_id": "dir-10",
+      "legacy_proposed_destination": "/services/applied-ai/molecular-r-and-d",
+      "role": "case_reference_only",
+      "public_service_id": null,
+      "case_refs": [
+        "W1-A1",
+        "W1-A2"
+      ],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-049",
+      "legacy_name": "Биопрепараты и антитела",
+      "legacy_direction_id": "dir-10",
+      "legacy_proposed_destination": "/services/applied-ai#svc-049",
+      "role": "case_reference_only",
+      "public_service_id": null,
+      "case_refs": [
+        "W1-A1",
+        "W1-A2"
+      ],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-050",
+      "legacy_name": "Дженерики и формуляции",
+      "legacy_direction_id": "dir-10",
+      "legacy_proposed_destination": "/services/applied-ai#svc-050",
+      "role": "case_reference_only",
+      "public_service_id": null,
+      "case_refs": [
+        "W1-A2"
+      ],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-051",
+      "legacy_name": "Цифровые двойники процессов",
+      "legacy_direction_id": "dir-10",
+      "legacy_proposed_destination": "/services/applied-ai#svc-051",
+      "role": "public",
+      "public_service_id": "svc-051",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-052",
+      "legacy_name": "RAG-системы и работа со знаниями",
+      "legacy_direction_id": "dir-10",
+      "legacy_proposed_destination": "/services/applied-ai#svc-052",
+      "role": "public",
+      "public_service_id": "svc-052",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-053",
+      "legacy_name": "Документные AI-агенты",
+      "legacy_direction_id": "dir-10",
+      "legacy_proposed_destination": "/services/applied-ai#svc-053",
+      "role": "public",
+      "public_service_id": "svc-053",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-054",
+      "legacy_name": "Компьютерное зрение",
+      "legacy_direction_id": "dir-10",
+      "legacy_proposed_destination": "/services/applied-ai#svc-054",
+      "role": "public",
+      "public_service_id": "svc-054",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-055",
+      "legacy_name": "Инженерное моделирование и проектирование",
+      "legacy_direction_id": "dir-10",
+      "legacy_proposed_destination": "/services/applied-ai#svc-055",
+      "role": "public",
+      "public_service_id": "svc-055",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-056",
+      "legacy_name": "Отдел продаж под ключ",
+      "legacy_direction_id": "dir-11",
+      "legacy_proposed_destination": "/services/sales#svc-056",
+      "role": "public",
+      "public_service_id": "svc-056",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-057",
+      "legacy_name": "Внедрение и кастомизация CRM",
+      "legacy_direction_id": "dir-11",
+      "legacy_proposed_destination": "/services/sales/crm-implementation",
+      "role": "public",
+      "public_service_id": "svc-057",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-058",
+      "legacy_name": "Омниканальные коммуникации",
+      "legacy_direction_id": "dir-11",
+      "legacy_proposed_destination": "/services/sales#svc-058",
+      "role": "public",
+      "public_service_id": "svc-058",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-059",
+      "legacy_name": "Скрипты продаж и регламенты",
+      "legacy_direction_id": "dir-11",
+      "legacy_proposed_destination": "/services/sales#svc-059",
+      "role": "public",
+      "public_service_id": "svc-059",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-060",
+      "legacy_name": "AI-автоматизация лидогенерации и обработки заявок",
+      "legacy_direction_id": "dir-11",
+      "legacy_proposed_destination": "/services/sales#svc-060",
+      "role": "public",
+      "public_service_id": "svc-060",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-061",
+      "legacy_name": "RevOps и коммерческие операции",
+      "legacy_direction_id": "dir-11",
+      "legacy_proposed_destination": "/services/sales#svc-061",
+      "role": "public",
+      "public_service_id": "svc-061",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-062",
+      "legacy_name": "Клиентский сервис на аутсорсе (CX/BPO)",
+      "legacy_direction_id": "dir-12",
+      "legacy_proposed_destination": "/services/customer-service-and-bpo#svc-062",
+      "role": "public",
+      "public_service_id": "svc-062",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-063",
+      "legacy_name": "Регистрация бизнеса",
+      "legacy_direction_id": "dir-13",
+      "legacy_proposed_destination": "/services/accounting-and-audit#svc-063",
+      "role": "public",
+      "public_service_id": "svc-063",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-064",
+      "legacy_name": "Аутсорсинг бухгалтерии",
+      "legacy_direction_id": "dir-13",
+      "legacy_proposed_destination": "/services/accounting-and-audit/accounting-outsourcing",
+      "role": "public",
+      "public_service_id": "svc-064",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-065",
+      "legacy_name": "Кадровый учёт и расчёт зарплаты",
+      "legacy_direction_id": "dir-13",
+      "legacy_proposed_destination": "/services/accounting-and-audit#svc-065",
+      "role": "public",
+      "public_service_id": "svc-065",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-066",
+      "legacy_name": "Финансовый аудит, due diligence и восстановление учёта",
+      "legacy_direction_id": "dir-13",
+      "legacy_proposed_destination": "/services/accounting-and-audit#svc-066",
+      "role": "public",
+      "public_service_id": "svc-066",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-067",
+      "legacy_name": "Законная оптимизация налогообложения",
+      "legacy_direction_id": "dir-13",
+      "legacy_proposed_destination": "/services/accounting-and-audit#svc-067",
+      "role": "public",
+      "public_service_id": "svc-067",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-068",
+      "legacy_name": "Международный учёт и консалтинг",
+      "legacy_direction_id": "dir-13",
+      "legacy_proposed_destination": "/services/accounting-and-audit#svc-068",
+      "role": "public",
+      "public_service_id": "svc-068",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-069",
+      "legacy_name": "Финансовый директор на аутсорсе (CFO as a Service)",
+      "legacy_direction_id": "dir-13",
+      "legacy_proposed_destination": "/services/accounting-and-audit#svc-069",
+      "role": "public",
+      "public_service_id": "svc-069",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-070",
+      "legacy_name": "Подбор персонала",
+      "legacy_direction_id": "dir-14",
+      "legacy_proposed_destination": "/services/hr-and-recruitment#svc-070",
+      "role": "public",
+      "public_service_id": "svc-070",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-071",
+      "legacy_name": "HR Business Partner / RPO",
+      "legacy_direction_id": "dir-14",
+      "legacy_proposed_destination": "/services/hr-and-recruitment#svc-071",
+      "role": "public",
+      "public_service_id": "svc-071",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-072",
+      "legacy_name": "Корпоративное обучение и внедрение ИИ",
+      "legacy_direction_id": "dir-14",
+      "legacy_proposed_destination": "/services/hr-and-recruitment#svc-072",
+      "role": "public",
+      "public_service_id": "svc-072",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-073",
+      "legacy_name": "Сквозная аналитика",
+      "legacy_direction_id": "dir-15",
+      "legacy_proposed_destination": "/services/business-analytics#svc-073",
+      "role": "public",
+      "public_service_id": "svc-073",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-074",
+      "legacy_name": "BI и бизнес-дашборды",
+      "legacy_direction_id": "dir-15",
+      "legacy_proposed_destination": "/services/business-analytics/bi-and-dashboards",
+      "role": "public",
+      "public_service_id": "svc-074",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-075",
+      "legacy_name": "Корпоративные хранилища данных — DWH",
+      "legacy_direction_id": "dir-15",
+      "legacy_proposed_destination": "/services/business-analytics#svc-075",
+      "role": "public",
+      "public_service_id": "svc-075",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-076",
+      "legacy_name": "Веб-аналитика и серверное отслеживание",
+      "legacy_direction_id": "dir-15",
+      "legacy_proposed_destination": "/services/business-analytics#svc-076",
+      "role": "public",
+      "public_service_id": "svc-076",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-077",
+      "legacy_name": "Предиктивная аналитика и Machine Learning",
+      "legacy_direction_id": "dir-15",
+      "legacy_proposed_destination": "/services/business-analytics#svc-077",
+      "role": "public",
+      "public_service_id": "svc-077",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-078",
+      "legacy_name": "Автоматизация управленческого учёта",
+      "legacy_direction_id": "dir-15",
+      "legacy_proposed_destination": "/services/business-analytics#svc-078",
+      "role": "public",
+      "public_service_id": "svc-078",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-079",
+      "legacy_name": "Управление корпоративными данными (Data Governance)",
+      "legacy_direction_id": "dir-15",
+      "legacy_proposed_destination": "/services/business-analytics#svc-079",
+      "role": "public",
+      "public_service_id": "svc-079",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-080",
+      "legacy_name": "Управление маркетплейсами и e-commerce",
+      "legacy_direction_id": "dir-16",
+      "legacy_proposed_destination": "/services/ecommerce-and-marketplaces#svc-080",
+      "role": "public",
+      "public_service_id": "svc-080",
+      "case_refs": [],
+      "redirect_implemented": false
+    },
+    {
+      "id": "svc-081",
+      "legacy_name": "Business Operations as a Service",
+      "legacy_direction_id": "dir-17",
+      "legacy_proposed_destination": "/services/b2b-business-operations#svc-081",
+      "role": "public",
+      "public_service_id": "svc-081",
+      "case_refs": [],
+      "redirect_implemented": false
+    }
+  ]
+}
