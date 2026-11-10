@@ -17,7 +17,7 @@ class Stage02FullPageContractTest(unittest.TestCase):
         guide = read("methods/stage-02-full-page-contract.md")
         self.assertIn("Read-only WEB-инвентаризация", guide)
         self.assertIn("Полная содержательная композиция", guide)
-        self.assertIn("Шесть service-card не равны всей /services", guide)
+        self.assertIn("Шесть обзорных карточек Engine", guide)
         self.assertIn("не менять публикационный текст в Creative и никакие файлы WEB", guide)
         self.assertIn("контракт целой страницы", read("methods/agent-expert-stage-protocol.md"))
 
@@ -28,12 +28,12 @@ class Stage02FullPageContractTest(unittest.TestCase):
         self.assertIn("воспроизведение, реальные траектории, тайминги и звук не проверены", guide)
         self.assertIn("дорабатывать", guide)
         self.assertIn("Z0 / Дальний план", guide)
-        self.assertIn("без прав", guide)
+        self.assertIn("На каждый внешний материал проверять права", guide)
         self.assertIn("WEB/reference", read("AGENTS.md"))
 
     def test_only_is_text_and_ux_reference(self):
         guide = read("methods/text-reference-only-digital.md")
-        self.assertIn("полной страницы и UX", guide)
+        self.assertIn("обязательный разбор целой страницы и UX", guide)
         self.assertIn("не копировать тексты", guide)
         self.assertIn("UX", read("PROJECT_SYSTEM_PROMPT.md"))
         self.assertNotIn("Референс относится к **текстам, не структуре сайта**", read("PROJECT_SYSTEM_PROMPT.md"))
