@@ -151,7 +151,7 @@ class Stage02FullPageContractTest(unittest.TestCase):
                 self.assertNotIn("блок на `/process`", text)
                 self.assertNotIn("ARCH-CLEANUP-2026-11-10", text)
         work = read("planning/stage-02/WORK_MAP.md")
-        self.assertIn("08_Site_Content_Plan` удалены", work)
+        self.assertIn("`08_Site_Content_Plan` и `09_Engine_Home_Copy` удалены", work)
         self.assertNotIn("08_Site_Content_Plan` сохранён", work)
         self.assertIn("87 публичных услуг", read(
             "skills/architektonica-search-visibility/references/site-structure-linking.md"))
