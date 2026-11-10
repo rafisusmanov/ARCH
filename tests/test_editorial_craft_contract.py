@@ -65,10 +65,10 @@ class EditorialCraftContractTests(unittest.TestCase):
         self.assertNotIn("\u2014", home)
         self.assertGreater(len(home), 4000)
         # Snapshot of the owner-approved copy, not a model quality metric.
-        # Updated after owner's 10.11.2026 explicit top-navigation / dropdown-menu refinement; main copy unchanged.
+        # Updated after owner's 10.11.2026 cancellation of /process; only the obsolete CTA was removed.
         raw = home.encode("utf-8")
         git_blob_sha = hashlib.sha1(f"blob {len(raw)}\0".encode() + raw).hexdigest()
-        self.assertEqual(git_blob_sha, "2df4a663ce94dcfd8c315cd15e897759a185c3f7")
+        self.assertEqual(git_blob_sha, "3e83a3a96f23a1241208965a5547c0f9ae23bf10")
         for rel in (
             "AGENTS.md",
             "PROJECT_SYSTEM_PROMPT.md",
