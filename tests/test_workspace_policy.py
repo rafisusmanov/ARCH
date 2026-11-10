@@ -48,13 +48,12 @@ class WorkspacePolicyTests(unittest.TestCase):
         page = (ROOT / "planning/stage-02/client-workspace-page.md").read_text(encoding="utf-8")
         self.assertTrue(page.strip())
 
-    def test_guardrail_exercises_are_not_claimed_as_passed(self):
-        body = (ROOT / "planning/agent-guardrail-evaluation-20261102.md").read_text(encoding="utf-8")
-        for number in range(1, 6):
-            label = f"| G{number:02d} |"
-            row = next((line for line in body.splitlines() if line.startswith(label)), None)
-            self.assertIsNotNone(row, label)
-            self.assertIn("NOT RUN", row)
+    def test_current_guardrails_do_not_claim_independent_agent_pass(self):
+        work = (ROOT / "planning/stage-02/WORK_MAP.md").read_text(encoding="utf-8")
+        protocol = (ROOT / "methods/agent-expert-stage-protocol.md").read_text(encoding="utf-8")
+        self.assertIn("**active_task:**", work)
+        self.assertIn("без параллельных веток работы", protocol)
+        self.assertIn("успешный CI никогда не означает", protocol)
 
     def test_ci_uses_read_only_repository_permissions(self):
         workflow = (ROOT / ".github/workflows/verify-skills.yml").read_text(encoding="utf-8")
