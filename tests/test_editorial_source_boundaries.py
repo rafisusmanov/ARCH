@@ -11,7 +11,6 @@ CONTRACT = ROOT / 'methods/editorial-source-boundaries.md'
 RETIRED = (
     '06_Architektonica_Reference_Texts.md',
     '07_Architektonica_Copy_Registry.md',
-    '08_Architektonica_Site_Content_Plan.md',
     '09_Engine_Home_Copy.md',
 )
 # Actual former directives. These guards intentionally cover known regressions,
