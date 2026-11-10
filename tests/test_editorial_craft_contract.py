@@ -65,10 +65,10 @@ class EditorialCraftContractTests(unittest.TestCase):
         self.assertNotIn("\u2014", home)
         self.assertGreater(len(home), 4000)
         # Snapshot of the owner-approved copy, not a model quality metric.
-        # Updated after owner approved the revised full homepage on 09.11.2026.
+        # Updated after owner's 10.11.2026 explicit top-navigation / dropdown-menu refinement; main copy unchanged.
         raw = home.encode("utf-8")
         git_blob_sha = hashlib.sha1(f"blob {len(raw)}\0".encode() + raw).hexdigest()
-        self.assertEqual(git_blob_sha, "9d462ccbf5f77203d5d011104869fe3770dd0019")
+        self.assertEqual(git_blob_sha, "2df4a663ce94dcfd8c315cd15e897759a185c3f7")
         for rel in (
             "AGENTS.md",
             "PROJECT_SYSTEM_PROMPT.md",
@@ -94,7 +94,7 @@ class EditorialCraftContractTests(unittest.TestCase):
         self.assertIn("одну лучшую цельную редакцию", agents)
         self.assertIn("Единственная каноническая последовательность", workflow)
         self.assertIn("Итоговая сверка голоса и Only", contract)
-        self.assertIn("Утверждена новая главная от 08.11.2026", voice)
+        self.assertIn("Утверждены главная и «О компании» от 09.11.2026", voice)
         self.assertNotIn("После сброса Stage 02 прежних действующих текстов нет", voice)
         self.assertNotIn("**Новая главная:**", read("QUICK_START.md"))
         for rel in (
