@@ -11,10 +11,10 @@
   "source": {
     "stage01_immutable_manifest": "planning/stage-01/catalogue-map.json",
     "historical_source": "references/project/services_catalogue.json",
-    "review": "planning/stage-02/service-taxonomy-review.md",
-    "proposals": "planning/stage-02/service-taxonomy-proposal.json",
     "notion_snapshot_date": "2026-10-30",
-    "extension_decision": "planning/stage-02/catalogue-extension-decision-2026-11-10.md"
+    "extension_decision": "planning/stage-02/catalogue-extension-decision-2026-11-10.md",
+    "current_decision": "planning/stage-02/catalogue-extension-decision-2026-11-10.md",
+    "legacy_role": "Historical Stage 01 data for ID compatibility only; never the current public offer"
   },
   "counts": {
     "groups": 6,
