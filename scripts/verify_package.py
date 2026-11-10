@@ -39,7 +39,6 @@ POSITIONING_DOCS = [
     'references/project/01_Architektonica_Brand_Core.md',
     'references/project/02_Architektonica_Fact_Bank.md',
     'references/project/05_Architektonica_Language.md',
-    'references/project/08_Architektonica_Site_Content_Plan.md',
 ]
 CRITICAL = [
     'methods/portfolio-case-workflow.md', 'samples/05_portfolio_from_one_message.md',
@@ -79,9 +78,6 @@ def check_references(root, path, errors):
     for ref, root_relative in local_references(path.read_text(encoding='utf-8')):
         # Preserve this audit's historical reference to the removed skill.
         # No other document or target is exempt from local-link validation.
-        if (path.relative_to(root).as_posix() == 'methods/source-audit-and-portfolio-rules.md'
-                and ref == '../skills/architektonica-copy-studio/SKILL.md'):
-            continue
         if re.match(r'^[\w+.-]+:', ref) or ref.startswith(('#', '/')):
             continue
         target = unquote(ref.split('#', 1)[0].split('?', 1)[0])
