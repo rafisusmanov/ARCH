@@ -216,6 +216,9 @@
       "explicit_only_not_autorun",
       "separate_picker",
       "owner_select"
+    ],
+    "explicit_requested_skills": [
+      "prototype"
     ]
   },
   {
@@ -234,6 +237,23 @@
       "public_skus",
       "no_orphan_routes",
       "ru_en_separation"
+    ]
+  },
+  {
+    "id": "stage-04-review-explicit",
+    "routing_task_id": "motion.review-explicit",
+    "task": "Пользователь явно вызывает review-animations для оценки motion-реализации. Проверить десять стандартов без изменения кода; не запускать без такого прямого поручения.",
+    "skills": [
+      "animation-performance"
+    ],
+    "explicit_requested_skills": [
+      "review-animations"
+    ],
+    "must_check": [
+      "explicit_user_invocation",
+      "no_unrequested_changes",
+      "actual_code_evidence",
+      "honest_motion_review"
     ]
   }
 ]
