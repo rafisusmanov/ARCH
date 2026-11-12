@@ -28,8 +28,10 @@
     "explicit_scope_groups": 2
   },
   "publication_gate": {
-    "status": "full_page_copy_not_approved",
-    "note": "Owner-approved category presence and inclusion; individual scope text is editorial working material, not separately confirmed technical delivery or published copy; future URLs, redirects and WEB remain unimplemented."
+    "status": "overview_copy_owner_approved_detail_copy_not_approved",
+    "date": "2026-11-12",
+    "source": "planning/stage-02/services-page.md",
+    "note": "Owner approved /services full overview copy and browse/search progressive-disclosure concept. The 87 service-detail texts are not individually approved; URLs, redirects, WEB implementation and production remain unimplemented."
   },
   "groups": [
     {
