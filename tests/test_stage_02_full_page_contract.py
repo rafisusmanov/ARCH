@@ -85,7 +85,7 @@ class Stage02FullPageContractTest(unittest.TestCase):
         self.assertTrue(all(not v["redirect_implemented"] for v in legacy.values()))
         self.assertTrue(all(s["publication_status"] == "copy_not_approved"
                             for s in public["services"]))
-        self.assertEqual("full_page_copy_not_approved",
+        self.assertEqual("overview_copy_owner_approved_detail_copy_not_approved",
                          public["publication_gate"]["status"])
         self.assertEqual(11, public["counts"]["new_service_ids"])
         self.assertEqual(1, public["counts"]["retired_by_owner"])
@@ -124,6 +124,25 @@ class Stage02FullPageContractTest(unittest.TestCase):
         ):
             self.assertIn("не допрашивать о доказательности повторно", read(path), path)
 
+    def test_services_overview_approved_but_service_details_not_approved(self):
+        page = read("planning/stage-02/services-page.md")
+        public = json.loads(read("planning/stage-02/public-service-catalogue.json"))
+        work = read("planning/stage-02/WORK_MAP.md")
+        self.assertIn("# Услуги для цифровых продуктов, брендов и бизнеса", page)
+        self.assertIn("**Обсудить проект**", page)
+        self.assertIn("owner_approved 12.11.2026", page)
+        self.assertIn("Спецификация UX (служебное приложение", page)
+        self.assertEqual(6, len(public["groups"]))
+        self.assertEqual(17, len(public["directions"]))
+        self.assertEqual(87, len(public["services"]))
+        self.assertEqual(
+            "overview_copy_owner_approved_detail_copy_not_approved",
+            public["publication_gate"]["status"])
+        self.assertTrue(all(s["publication_status"] == "copy_not_approved"
+                            for s in public["services"]))
+        self.assertIn("**`owner_approved` 12.11.2026", work)
+        self.assertEqual(1, work.count("**active_task:**"))
+
     def test_single_active_task_and_clean_sources(self):
         work = read("planning/stage-02/WORK_MAP.md")
         agents = read("AGENTS.md")
@@ -134,7 +153,7 @@ class Stage02FullPageContractTest(unittest.TestCase):
         self.assertIn("**active_task:** `ARCH-STAGE02-SERVICES`", work)
         self.assertNotIn("ARCH-CLEANUP-2026-11-10", work)
         self.assertIn("Единственная активная задача", work)
-        self.assertIn("full_page_copy_not_approved", json.loads(read(
+        self.assertIn("overview_copy_owner_approved_detail_copy_not_approved", json.loads(read(
             "planning/stage-02/public-service-catalogue.json"))["publication_gate"]["status"])
         self.assertIn("одна активная задача", agents.lower())
         self.assertIn("87 публичных услуг", ia)
