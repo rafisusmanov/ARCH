@@ -101,7 +101,7 @@ def verify_matrix(root=ROOT, matrix=None, records=None):
             errors.append(f"{prefix}: not a mapping")
             continue
         missing = FIELDS - set(task)
-        unknown = set(task) - FIELDS
+        unknown = set(task) - FIELDS - {"explicit_trigger_required"}
         if missing or unknown:
             errors.append(f"{prefix}: missing {sorted(missing)}, extra {sorted(unknown)}")
         ident = task.get("id")
@@ -121,6 +121,10 @@ def verify_matrix(root=ROOT, matrix=None, records=None):
                 errors.append(f"{prefix}: missing {field}")
         required = _unique_strings(task.get("required_skills"), prefix + ".required_skills", errors)
         explicit = _unique_strings(task.get("explicit_only_skills"), prefix + ".explicit_only_skills", errors, False)
+        if task.get("explicit_trigger_required", False) is not False and task.get("explicit_trigger_required") is not True:
+            errors.append(f"{prefix}: explicit_trigger_required must be boolean")
+        if task.get("explicit_trigger_required") is True and not explicit:
+            errors.append(f"{prefix}: explicit_trigger_required needs an explicit-only skill")
         if set(required) & restricted:
             errors.append(f"{prefix}: explicit-only skill cannot be required automatically")
         if any(s not in names for s in required + explicit):
@@ -177,6 +181,8 @@ def expected_for_task(task, conditions=(), user_requested_explicit=()):
         raise ValueError(f"unknown conditions: {sorted(unknown)}")
     permitted = set(task["explicit_only_skills"])
     unauthorized = set(user_requested_explicit) - permitted
+    if task.get("explicit_trigger_required", False) and not set(user_requested_explicit):
+        raise ValueError("explicit user invocation required; task cannot start automatically")
     if unauthorized:
         raise ValueError(f"explicit-only skills not permitted by this task: {sorted(unauthorized)}")
     return (
@@ -203,6 +209,7 @@ def make_plan(root, matrix, task_id, conditions=(), user_requested_explicit=()):
         "acceptance_checks": task["acceptance_checks"],
         "stop_conditions": task["stop_conditions"],
         "approval": "NOT APPROVED until owner explicitly accepts this deliverable",
+        "trace_authentication": "Tool-call records must be independently supplied; self-report does not prove reads.",
     }
 
 
