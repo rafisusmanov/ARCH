@@ -23,6 +23,10 @@
 
 Справка по механике: [MDN — stacking context](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Positioned_layout/Stacking_context), [MDN — perspective](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/perspective), [MDN — reduced motion](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/%40media/prefers-reduced-motion), [web.dev — animation performance](https://web.dev/articles/animations-guide). Сильная глубина — результат композиции, а не количества эффектов.
 
+## Каноническая маршрутизация конкретных задач
+
+[Единый реестр задач и навыков](task-skill-matrix.yaml) задаёт **исполнимые** требования для всех семи этапов. Ниже приводятся пояснения профессиональных ролей, **не вторая нормативная матрица**. При новой задаче применять preflight `python3 scripts/task_skill_router.py plan --task <task-id>`; обязательные навыки и источники из результата нужно реально прочитать. Пропуск выявляется сравнением маршрута и реального журнала открытия файлов по [контракту evidence](task-execution-evidence.md); простое упоминание навыков в ответе не принимается. Не изменять approved v2 ради старых `Copy Studio` и `17/81`; для текущего предложения действует `6/17/87`, `81` используется как историческая совместимость.
+
 ## Выбор релевантных навыков по задаче — не активация всего каталога
 
 Фактический каталог — YAML и файлы в [skills](../skills/). Из корня запускать `python3 scripts/skill_catalog.py --json`: он каждый раз обнаруживает все каталоги, назначение, путь, ресурсы и режим активации, включая новые навыки. Ниже — единственная карта применения текущего комплекта, не закрытый список допустимых имён. Новый навык выбирается по его метаданным и прочитанному содержимому; добавление строки сюда улучшает навигацию, но не является условием обнаружения.
