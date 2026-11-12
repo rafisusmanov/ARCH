@@ -16,13 +16,13 @@
   },
   {
     "id": "service",
-    "task": "Создай содержательную структуру страницы реальной услуги из каталога 17 направлений и 81 услуги, предложи связи с кейсами и статьями, не придумывая ссылок.",
+    "task": "Создай содержательную структуру отдельной реальной услуги из действующего публичного каталога 6 групп / 17 направлений / 87 услуг, предложи связи с кейсами и статьями, не придумывая ссылок.",
     "skills": [
       "architektonica-ui-ux-expert",
       "architektonica-search-visibility"
     ],
     "must_check": [
-      "catalogue-17-81",
+      "catalogue-6-17-87",
       "stable-id",
       "relations-publication-status",
       "source-facts"
@@ -72,6 +72,28 @@
       "keyboard",
       "mobile-fallback",
       "no-fabricated-fps"
+    ]
+  },
+  {
+    "id": "services-overview",
+    "task": "Подготовь полную страницу /services ARCHITEKTONICA с двумя сценариями поиска услуги, 6/17/87 и кратким выразительным авторским текстом; оцени её по критериям planning/stage-02/services-page-acceptance.md. Нельзя выдавать сплошной каталог за готовую страницу.",
+    "skills": [
+      "architektonica-reader-insight",
+      "architektonica-creative-director",
+      "architektonica-narrative-design",
+      "architektonica-ui-ux-expert",
+      "architektonica-search-visibility",
+      "architektonica-critical-editor"
+    ],
+    "must_check": [
+      "first-screen-direct",
+      "catalogue-6-17-87",
+      "two-reader-paths",
+      "no-flat-87-list",
+      "full-page-web-inventory",
+      "real-proof-or-honest-mechanism",
+      "editorial-score-and-revision",
+      "owner-publication-gate"
     ]
   }
 ]
