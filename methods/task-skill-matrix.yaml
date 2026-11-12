@@ -1,0 +1,724 @@
+# ARCHITEKTONICA: machine-readable task → skill routing (2026-11-12)
+# Owner-approved plan v2 is immutable; current owner decisions and AGENTS take precedence.
+schema_version: 1
+stage_ids:
+  - "01"
+  - "02"
+  - "03"
+  - "04"
+  - "05"
+  - "06"
+  - "07"
+stages:
+  "01":
+    label: "Информационная архитектура"
+  "02":
+    label: "Содержание"
+  "03":
+    label: "Дизайн и блоки"
+  "04":
+    label: "Пространственная глубина и motion"
+  "05":
+    label: "PHP и интеграции"
+  "06":
+    label: "Комплексная проверка"
+  "07":
+    label: "Запуск"
+policy:
+  unlisted_task: "BLOCK_AND_ROUTE_FOR_REVIEW"
+  source_missing: "BLOCK"
+  explicit_only: "USER_REQUEST_ONLY"
+  evidence_without_tool_trace: "NOT_VERIFIED"
+  owner_approval: "REQUIRED_AT_STAGE_GATE"
+  compatibility:
+    live_catalogue: "6/17/87"
+    legacy_ids: "81 (compatibility only)"
+    removed_copy_studio: "main author role, not a skill"
+    cancelled_process_route: "/process is not a live route"
+tasks:
+  - id: "ia.site-map"
+    stage: "01"
+    description: "Карта сайта, URL, пользовательские маршруты и RU/EN"
+    required_skills:
+      - "architektonica-creative-director"
+      - "architektonica-reader-insight"
+      - "architektonica-narrative-design"
+      - "architektonica-search-visibility"
+      - "architektonica-ui-ux-expert"
+    conditional_skills:
+      - when: "new_concept"
+        skill: "architektonica-idea-lab"
+    explicit_only_skills: []
+    required_sources:
+      - "AGENTS.md"
+      - "methods/agent-expert-stage-protocol.md"
+      - "planning/stage-01/IA_PROPOSAL.md"
+      - "planning/stage-02/public-service-catalogue.json"
+    deliverable: "Согласуемая IA с навигацией и связями"
+    acceptance_checks:
+      - "all_required_routes"
+      - "ru_en_status"
+      - "owner_approval"
+    stop_conditions:
+      - "missing_required_source"
+      - "unverified_evidence"
+      - "owner_gate_not_satisfied"
+  - id: "ia.service-taxonomy"
+    stage: "01"
+    description: "Классификация и связи услуг с кейсами и статьями"
+    required_skills:
+      - "architektonica-reader-insight"
+      - "architektonica-search-visibility"
+      - "architektonica-ui-ux-expert"
+    conditional_skills:
+      - when: "new_concept"
+        skill: "architektonica-creative-director"
+    explicit_only_skills: []
+    required_sources:
+      - "AGENTS.md"
+      - "methods/agent-expert-stage-protocol.md"
+      - "planning/stage-01/IA_PROPOSAL.md"
+      - "planning/stage-02/public-service-catalogue.json"
+    deliverable: "Матрица 6/17/87 с совместимостью 81 исторического ID"
+    acceptance_checks:
+      - "all_public_skus"
+      - "stable_legacy_ids"
+      - "no_orphan_routes"
+    stop_conditions:
+      - "missing_required_source"
+      - "unverified_evidence"
+      - "owner_gate_not_satisfied"
+  - id: "content.public-page"
+    stage: "02"
+    description: "Полная публичная страница: главная, About, контакты, статьи"
+    required_skills:
+      - "architektonica-creative-director"
+      - "architektonica-reader-insight"
+      - "architektonica-narrative-design"
+      - "architektonica-search-visibility"
+      - "architektonica-critical-editor"
+    conditional_skills:
+      - when: "new_concept"
+        skill: "architektonica-idea-lab"
+      - when: "perception_review"
+        skill: "architektonica-psycholinguistic-editor"
+      - when: "complex_navigation"
+        skill: "architektonica-ui-ux-expert"
+    explicit_only_skills: []
+    required_sources:
+      - "AGENTS.md"
+      - "methods/agent-expert-stage-protocol.md"
+      - "methods/site-voice-and-consistency.md"
+      - "methods/editorial-source-boundaries.md"
+      - "planning/stage-02/WORK_MAP.md"
+      - "methods/stage-02-full-page-contract.md"
+      - "methods/engine-template-adaptation.md"
+      - "planning/stage-02/home-page.md"
+      - "planning/stage-02/about-page.md"
+    deliverable: "Цельный авторский текст, UX-сценарий и карта блоков"
+    acceptance_checks:
+      - "full_page"
+      - "distinct_voice"
+      - "facts_checked"
+      - "critical_editor_pass"
+      - "owner_publication_gate"
+    stop_conditions:
+      - "missing_required_source"
+      - "unverified_evidence"
+      - "owner_gate_not_satisfied"
+  - id: "content.services-overview"
+    stage: "02"
+    description: "Полная страница /services с двумя путями поиска и иерархией 6/17/87"
+    required_skills:
+      - "architektonica-creative-director"
+      - "architektonica-reader-insight"
+      - "architektonica-narrative-design"
+      - "architektonica-search-visibility"
+      - "architektonica-ui-ux-expert"
+      - "architektonica-critical-editor"
+    conditional_skills:
+      - when: "new_concept"
+        skill: "architektonica-idea-lab"
+      - when: "perception_review"
+        skill: "architektonica-psycholinguistic-editor"
+    explicit_only_skills: []
+    required_sources:
+      - "AGENTS.md"
+      - "methods/agent-expert-stage-protocol.md"
+      - "methods/site-voice-and-consistency.md"
+      - "methods/editorial-source-boundaries.md"
+      - "planning/stage-02/WORK_MAP.md"
+      - "methods/stage-02-full-page-contract.md"
+      - "methods/engine-template-adaptation.md"
+      - "planning/stage-02/public-service-catalogue.json"
+      - "planning/stage-02/services-page-acceptance.md"
+    deliverable: "Одна редакция /services, карта переходов и самопроверка"
+    acceptance_checks:
+      - "six_groups_17_directions_87_services"
+      - "two_reader_paths"
+      - "progressive_disclosure"
+      - "no_flat_catalogue"
+      - "critical_editor_pass"
+      - "owner_publication_gate"
+    stop_conditions:
+      - "missing_required_source"
+      - "unverified_evidence"
+      - "owner_gate_not_satisfied"
+  - id: "content.service-detail"
+    stage: "02"
+    description: "Текст конкретной услуги и внутренняя перелинковка"
+    required_skills:
+      - "architektonica-reader-insight"
+      - "architektonica-search-visibility"
+      - "architektonica-critical-editor"
+    conditional_skills:
+      - when: "new_concept"
+        skill: "architektonica-creative-director"
+      - when: "interaction_design"
+        skill: "architektonica-ui-ux-expert"
+    explicit_only_skills: []
+    required_sources:
+      - "AGENTS.md"
+      - "methods/agent-expert-stage-protocol.md"
+      - "methods/site-voice-and-consistency.md"
+      - "methods/editorial-source-boundaries.md"
+      - "planning/stage-02/WORK_MAP.md"
+      - "planning/stage-02/public-service-catalogue.json"
+      - "planning/stage-01/IA_PROPOSAL.md"
+    deliverable: "Публикационный текст услуги с ID и проверенными связями"
+    acceptance_checks:
+      - "service_id_valid"
+      - "mechanism_concrete"
+      - "no_unverified_claims"
+      - "critical_editor_pass"
+    stop_conditions:
+      - "missing_required_source"
+      - "unverified_evidence"
+      - "owner_gate_not_satisfied"
+  - id: "content.case"
+    stage: "02"
+    description: "Портфолио: полный кейс подтверждённой работы"
+    required_skills:
+      - "architektonica-portfolio-case-writer"
+      - "architektonica-critical-editor"
+      - "architektonica-search-visibility"
+    conditional_skills:
+      - when: "new_concept"
+        skill: "architektonica-creative-director"
+      - when: "narrative_heavy"
+        skill: "architektonica-narrative-design"
+    explicit_only_skills: []
+    required_sources:
+      - "AGENTS.md"
+      - "methods/agent-expert-stage-protocol.md"
+      - "methods/site-voice-and-consistency.md"
+      - "methods/editorial-source-boundaries.md"
+      - "planning/stage-02/WORK_MAP.md"
+      - "references/project/02_Architektonica_Fact_Bank.md"
+      - "references/project/03_Architektonica_Case_Studies.md"
+      - "methods/portfolio-case-workflow.md"
+    deliverable: "Кейс с проверенными фактами, ролью, стадией и медиапланом"
+    acceptance_checks:
+      - "case_fact_stage"
+      - "specific_contribution"
+      - "no_fabricated_results"
+      - "critical_editor_pass"
+    stop_conditions:
+      - "missing_required_source"
+      - "unverified_evidence"
+      - "owner_gate_not_satisfied"
+  - id: "content.microcopy"
+    stage: "02"
+    description: "Короткие CTA, формы, состояния, ошибки"
+    required_skills:
+      - "architektonica-psycholinguistic-editor"
+      - "architektonica-critical-editor"
+    conditional_skills:
+      - when: "mobile_interaction"
+        skill: "mobile-native"
+    explicit_only_skills: []
+    required_sources:
+      - "AGENTS.md"
+      - "methods/agent-expert-stage-protocol.md"
+      - "methods/site-voice-and-consistency.md"
+      - "methods/editorial-source-boundaries.md"
+      - "planning/stage-02/WORK_MAP.md"
+      - "methods/research-evidence-map.md"
+    deliverable: "Готовые микротексты с правдивыми состояниями"
+    acceptance_checks:
+      - "clear_action"
+      - "no_false_form_success"
+      - "real_status"
+      - "critical_editor_pass"
+    stop_conditions:
+      - "missing_required_source"
+      - "unverified_evidence"
+      - "owner_gate_not_satisfied"
+  - id: "content.engine-export"
+    stage: "02"
+    description: "Разметка утверждённых текстов по реальным полям Excel Engine"
+    required_skills:
+      - "architektonica-engine-mapper"
+    conditional_skills:
+      - when: "interaction_design"
+        skill: "architektonica-ui-ux-expert"
+    explicit_only_skills: []
+    required_sources:
+      - "AGENTS.md"
+      - "methods/agent-expert-stage-protocol.md"
+      - "methods/site-voice-and-consistency.md"
+      - "methods/editorial-source-boundaries.md"
+      - "planning/stage-02/WORK_MAP.md"
+      - "methods/engine-field-guide.md"
+    deliverable: "Проверяемая копия таблицы полей без потери исходника"
+    acceptance_checks:
+      - "source_fields_verified"
+      - "approved_copy_unchanged"
+      - "no_identifier_loss"
+    stop_conditions:
+      - "missing_required_source"
+      - "unverified_evidence"
+      - "owner_gate_not_satisfied"
+  - id: "content.search-research"
+    stage: "02"
+    description: "Исследование поискового спроса, названий и связей услуг"
+    required_skills:
+      - "architektonica-search-visibility"
+      - "architektonica-reader-insight"
+    conditional_skills:
+      - when: "new_concept"
+        skill: "architektonica-creative-director"
+    explicit_only_skills: []
+    required_sources:
+      - "AGENTS.md"
+      - "methods/agent-expert-stage-protocol.md"
+      - "methods/site-voice-and-consistency.md"
+      - "methods/editorial-source-boundaries.md"
+      - "planning/stage-02/WORK_MAP.md"
+      - "planning/stage-02/public-service-catalogue.json"
+      - "skills/architektonica-search-visibility/references/keyword-serp-research.md"
+    deliverable: "Семантическая матрица с источниками и границами уверенности"
+    acceptance_checks:
+      - "no_invented_search_volumes"
+      - "canonical_names"
+      - "intent_and_source"
+    stop_conditions:
+      - "missing_required_source"
+      - "unverified_evidence"
+      - "owner_gate_not_satisfied"
+  - id: "design.page"
+    stage: "03"
+    description: "Проектирование страницы и композиции поверх утверждённых текстов"
+    required_skills:
+      - "architektonica-ui-ux-expert"
+      - "emil-design-eng"
+      - "mobile-native"
+    conditional_skills:
+      - when: "edge_cases"
+        skill: "break-ui"
+      - when: "motion_design"
+        skill: "animate"
+    explicit_only_skills: []
+    required_sources:
+      - "AGENTS.md"
+      - "methods/agent-expert-stage-protocol.md"
+      - "methods/stage-02-full-page-contract.md"
+      - "methods/engine-template-adaptation.md"
+      - "methods/ui-ux-pro-max-integration.md"
+      - "third_party/ui-ux-pro-max/SKILL.md"
+      - "methods/web-reference-style-and-depth.md"
+      - "skills/architektonica-ui-ux-expert/references/content-model.md"
+    deliverable: "Макет desktop/mobile/no-motion с картой решений Engine"
+    acceptance_checks:
+      - "content_first"
+      - "retain_refine_extend"
+      - "keyboard_touch_accessibility"
+      - "z_layers_without_motion"
+    stop_conditions:
+      - "missing_approved_content"
+      - "missing_required_source"
+      - "unverified_evidence"
+      - "owner_gate_not_satisfied"
+  - id: "design.component"
+    stage: "03"
+    description: "Состояния и поведение отдельного интерфейсного компонента"
+    required_skills:
+      - "architektonica-ui-ux-expert"
+      - "emil-design-eng"
+      - "mobile-native"
+    conditional_skills:
+      - when: "edge_cases"
+        skill: "break-ui"
+      - when: "motion_design"
+        skill: "animate"
+    explicit_only_skills: []
+    required_sources:
+      - "AGENTS.md"
+      - "methods/agent-expert-stage-protocol.md"
+      - "methods/ui-ux-pro-max-integration.md"
+      - "third_party/ui-ux-pro-max/SKILL.md"
+      - "methods/engine-template-adaptation.md"
+    deliverable: "Компонент со спецификацией состояний и responsive"
+    acceptance_checks:
+      - "interaction_states"
+      - "focus_keyboard_touch"
+      - "responsive_fallback"
+    stop_conditions:
+      - "missing_required_source"
+      - "unverified_evidence"
+      - "owner_gate_not_satisfied"
+  - id: "design.variants"
+    explicit_trigger_required: true
+    stage: "03"
+    description: "Несколько вариантов дизайна только по явному запросу"
+    required_skills:
+      - "architektonica-ui-ux-expert"
+      - "emil-design-eng"
+    conditional_skills:
+      - when: "edge_cases"
+        skill: "break-ui"
+    explicit_only_skills:
+      - "prototype"
+    required_sources:
+      - "AGENTS.md"
+      - "methods/agent-expert-stage-protocol.md"
+      - "methods/ui-ux-pro-max-integration.md"
+      - "third_party/ui-ux-pro-max/SKILL.md"
+    deliverable: "Сравнимые варианты с критериями выбора"
+    acceptance_checks:
+      - "variants_meaningfully_distinct"
+      - "no_premature_promotion"
+      - "owner_selection"
+    stop_conditions:
+      - "missing_required_source"
+      - "unverified_evidence"
+      - "owner_gate_not_satisfied"
+  - id: "motion.plan"
+    stage: "04"
+    description: "Найти оправданные возможности движения без реализации"
+    required_skills:
+      - "architektonica-ui-ux-expert"
+      - "mobile-native"
+    conditional_skills:
+      - when: "motion_opportunity_scan"
+        skill: "find-animation-opportunities"
+      - when: "performance_issue"
+        skill: "animation-performance"
+    explicit_only_skills: []
+    required_sources:
+      - "AGENTS.md"
+      - "methods/agent-expert-stage-protocol.md"
+      - "skills/animate/RECIPES.md"
+      - "methods/web-reference-style-and-depth.md"
+      - "methods/engine-template-adaptation.md"
+    deliverable: "План движения: предложенные и отклонённые эффекты"
+    acceptance_checks:
+      - "purpose_before_motion"
+      - "static_depth"
+      - "reduced_motion"
+    stop_conditions:
+      - "missing_required_source"
+      - "unverified_evidence"
+      - "owner_gate_not_satisfied"
+  - id: "motion.implement"
+    stage: "04"
+    description: "Реализация анимации в утверждённом интерфейсе"
+    required_skills:
+      - "animate"
+      - "animation-performance"
+      - "mobile-native"
+      - "architektonica-ui-ux-expert"
+    conditional_skills:
+      - when: "edge_cases"
+        skill: "break-ui"
+    explicit_only_skills:
+      - "review-animations"
+    required_sources:
+      - "AGENTS.md"
+      - "methods/agent-expert-stage-protocol.md"
+      - "skills/animate/RECIPES.md"
+      - "methods/web-reference-style-and-depth.md"
+      - "methods/engine-template-adaptation.md"
+    deliverable: "Рабочая сцена и результаты измерений desktop/mobile"
+    acceptance_checks:
+      - "motion_serves_reading"
+      - "reduced_motion_fallback"
+      - "performance_measured"
+      - "cleanup_and_interruptibility"
+    stop_conditions:
+      - "missing_required_source"
+      - "unverified_evidence"
+      - "owner_gate_not_satisfied"
+  - id: "motion.audit"
+    stage: "04"
+    description: "Аудит существующих анимаций и план улучшений"
+    required_skills:
+      - "improve-animations"
+      - "animation-performance"
+    conditional_skills:
+      - when: "mobile_interaction"
+        skill: "mobile-native"
+    explicit_only_skills:
+      - "review-animations"
+    required_sources:
+      - "AGENTS.md"
+      - "methods/agent-expert-stage-protocol.md"
+      - "skills/animate/RECIPES.md"
+      - "methods/web-reference-style-and-depth.md"
+      - "skills/improve-animations/AUDIT.md"
+      - "skills/improve-animations/PLAN-TEMPLATE.md"
+    deliverable: "Приоритизированный read-only отчёт и планы исправлений"
+    acceptance_checks:
+      - "measured_findings"
+      - "no_unrequested_code_changes"
+      - "prioritized_fixes"
+    stop_conditions:
+      - "missing_required_source"
+      - "unverified_evidence"
+      - "owner_gate_not_satisfied"
+  - id: "motion.review-explicit"
+    explicit_trigger_required: true
+    stage: "04"
+    description: "Специализированное review-animations только по прямому явному вызову"
+    required_skills:
+      - "animation-performance"
+    conditional_skills: []
+    explicit_only_skills:
+      - "review-animations"
+    required_sources:
+      - "AGENTS.md"
+      - "methods/agent-expert-stage-protocol.md"
+      - "skills/animate/RECIPES.md"
+      - "methods/web-reference-style-and-depth.md"
+      - "skills/review-animations/STANDARDS.md"
+    deliverable: "Отчёт по десяти стандартам motion, без самовольных правок"
+    acceptance_checks:
+      - "explicit_user_request"
+      - "findings_by_standard"
+      - "review_only"
+    stop_conditions:
+      - "missing_required_source"
+      - "unverified_evidence"
+      - "owner_gate_not_satisfied"
+  - id: "dev.php-page"
+    stage: "05"
+    description: "Разработка PHP-компонентов и страниц по утверждённому содержанию"
+    required_skills:
+      - "architektonica-ui-ux-expert"
+      - "emil-design-eng"
+      - "mobile-native"
+      - "architektonica-website-qa"
+    conditional_skills:
+      - when: "motion_code"
+        skill: "animate"
+      - when: "edge_cases"
+        skill: "break-ui"
+    explicit_only_skills: []
+    required_sources:
+      - "AGENTS.md"
+      - "methods/agent-expert-stage-protocol.md"
+      - "methods/engine-template-adaptation.md"
+      - "methods/stage-02-full-page-contract.md"
+    deliverable: "Рабочий PHP preview со ссылками на согласованные исходники"
+    acceptance_checks:
+      - "source_commit_approval"
+      - "php_lint_and_tests"
+      - "keyboard_touch"
+      - "no_demo_content"
+    stop_conditions:
+      - "missing_required_source"
+      - "unverified_evidence"
+      - "owner_gate_not_satisfied"
+  - id: "dev.forms-integration"
+    stage: "05"
+    description: "Реализация формы обращения, уведомлений и безопасной интеграции"
+    required_skills:
+      - "architektonica-website-qa"
+      - "break-ui"
+      - "mobile-native"
+    conditional_skills:
+      - when: "microcopy_change"
+        skill: "architektonica-psycholinguistic-editor"
+      - when: "seo_change"
+        skill: "architektonica-search-visibility"
+    explicit_only_skills: []
+    required_sources:
+      - "AGENTS.md"
+      - "methods/agent-expert-stage-protocol.md"
+      - "methods/site-analytics-contract.md"
+      - "methods/php-beget-release-checklist.md"
+      - "skills/architektonica-website-qa/references/QA_CHECKLIST.md"
+    deliverable: "Проверяемая форма с реальной доставкой и защитой данных"
+    acceptance_checks:
+      - "server_side_validation"
+      - "test_delivery_real"
+      - "privacy_no_lead_leak"
+      - "fallback_and_failure"
+    stop_conditions:
+      - "missing_required_source"
+      - "unverified_evidence"
+      - "owner_gate_not_satisfied"
+  - id: "dev.seo-content"
+    stage: "05"
+    description: "Подключение утверждённого каталога, метаданных, blog и permalink"
+    required_skills:
+      - "architektonica-search-visibility"
+      - "architektonica-website-qa"
+      - "architektonica-ui-ux-expert"
+    conditional_skills:
+      - when: "edge_cases"
+        skill: "break-ui"
+    explicit_only_skills: []
+    required_sources:
+      - "AGENTS.md"
+      - "methods/agent-expert-stage-protocol.md"
+      - "planning/stage-01/IA_PROPOSAL.md"
+      - "planning/stage-02/public-service-catalogue.json"
+      - "methods/site-analytics-contract.md"
+    deliverable: "Реальные RU-маршруты с метаданными и внутренними ссылками"
+    acceptance_checks:
+      - "all_public_service_ids"
+      - "link_integrity"
+      - "real_schema_only"
+      - "not_fake_en_pages"
+    stop_conditions:
+      - "missing_required_source"
+      - "unverified_evidence"
+      - "owner_gate_not_satisfied"
+  - id: "qa.site"
+    stage: "06"
+    description: "Комплексная проверка сайта: контент, навигация, формы, устройства"
+    required_skills:
+      - "architektonica-website-qa"
+      - "break-ui"
+      - "mobile-native"
+      - "animation-performance"
+    conditional_skills:
+      - when: "seo_change"
+        skill: "architektonica-search-visibility"
+      - when: "visual_review"
+        skill: "emil-design-eng"
+    explicit_only_skills: []
+    required_sources:
+      - "AGENTS.md"
+      - "methods/agent-expert-stage-protocol.md"
+      - "skills/architektonica-website-qa/references/QA_CHECKLIST.md"
+    deliverable: "Регистр дефектов и доказательства desktop/tablet/mobile"
+    acceptance_checks:
+      - "browser_matrix_actual"
+      - "wcag_keyboard"
+      - "performance_measurements"
+      - "forms_work"
+      - "critical_defects_closed"
+    stop_conditions:
+      - "missing_required_source"
+      - "unverified_evidence"
+      - "owner_gate_not_satisfied"
+  - id: "qa.accessibility"
+    stage: "06"
+    description: "Проверка доступности и негативных состояний"
+    required_skills:
+      - "architektonica-website-qa"
+      - "break-ui"
+      - "mobile-native"
+    conditional_skills:
+      - when: "motion_code"
+        skill: "animation-performance"
+    explicit_only_skills: []
+    required_sources:
+      - "AGENTS.md"
+      - "methods/agent-expert-stage-protocol.md"
+      - "skills/architektonica-website-qa/references/QA_CHECKLIST.md"
+      - "methods/engine-template-adaptation.md"
+    deliverable: "Проверка WCAG, focus, touch, no-motion с исправлениями"
+    acceptance_checks:
+      - "keyboard_navigation"
+      - "screen_reader_checks"
+      - "reduced_motion"
+      - "edge_case_data"
+    stop_conditions:
+      - "missing_required_source"
+      - "unverified_evidence"
+      - "owner_gate_not_satisfied"
+  - id: "qa.motion"
+    stage: "06"
+    description: "Регрессионное QA пространственных сцен и производительности"
+    required_skills:
+      - "architektonica-website-qa"
+      - "animation-performance"
+      - "mobile-native"
+    conditional_skills:
+      - when: "edge_cases"
+        skill: "break-ui"
+    explicit_only_skills:
+      - "review-animations"
+    required_sources:
+      - "AGENTS.md"
+      - "methods/agent-expert-stage-protocol.md"
+      - "skills/architektonica-website-qa/references/QA_CHECKLIST.md"
+      - "skills/animate/RECIPES.md"
+      - "methods/web-reference-style-and-depth.md"
+    deliverable: "Замеры, дефекты и регрессионные подтверждения по сценам"
+    acceptance_checks:
+      - "real_device_fps"
+      - "reduced_motion"
+      - "cleanup"
+      - "no_synthetic_qa_pass"
+    stop_conditions:
+      - "missing_required_source"
+      - "unverified_evidence"
+      - "owner_gate_not_satisfied"
+  - id: "release.beget"
+    stage: "07"
+    description: "Выпуск RU production на Beget"
+    required_skills:
+      - "architektonica-website-qa"
+      - "architektonica-search-visibility"
+    conditional_skills:
+      - when: "motion_code"
+        skill: "animation-performance"
+    explicit_only_skills: []
+    required_sources:
+      - "AGENTS.md"
+      - "methods/agent-expert-stage-protocol.md"
+      - "skills/architektonica-website-qa/references/QA_CHECKLIST.md"
+      - "methods/php-beget-release-checklist.md"
+      - "methods/site-analytics-contract.md"
+    deliverable: "Production checklist, smoke evidence и rollback/restore record"
+    acceptance_checks:
+      - "https_and_dns_real"
+      - "form_delivery_production"
+      - "backup_restore_test"
+      - "rollback_proven"
+      - "owner_go_live_gate"
+    stop_conditions:
+      - "missing_owner_go_live_approval"
+      - "production_smoke_not_run"
+      - "restore_not_verified"
+      - "missing_required_source"
+  - id: "release.search-analytics"
+    stage: "07"
+    description: "Проверка индексации, sitemap, robots, аналитики и событий"
+    required_skills:
+      - "architektonica-search-visibility"
+      - "architektonica-website-qa"
+    conditional_skills:
+      - when: "seo_change"
+        skill: "architektonica-critical-editor"
+    explicit_only_skills: []
+    required_sources:
+      - "AGENTS.md"
+      - "methods/agent-expert-stage-protocol.md"
+      - "methods/php-beget-release-checklist.md"
+      - "methods/site-analytics-contract.md"
+      - "planning/stage-01/IA_PROPOSAL.md"
+    deliverable: "Проверенные production URLs, sitemap/robots и события без PII"
+    acceptance_checks:
+      - "robots_sitemap_reality"
+      - "canonical_and_ru_locale"
+      - "analytics_events_observed"
+      - "no_personal_data"
+    stop_conditions:
+      - "missing_required_source"
+      - "unverified_evidence"
+      - "owner_gate_not_satisfied"
