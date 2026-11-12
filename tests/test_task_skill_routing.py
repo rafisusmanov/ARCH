@@ -65,6 +65,39 @@ class TaskSkillRoutingTests(unittest.TestCase):
         route["required_skills"].remove("architektonica-critical-editor")
         self.assertTrue(any("skills differ from required_skills" in e for e in self.check(matrix)))
 
+    def test_high_risk_required_roles_cannot_be_removed_together_with_fixture(self):
+        # Independent regression invariant: not another view of the fixture itself.
+        critical = {
+            "content.public-page": {"architektonica-critical-editor"},
+            "content.services-overview": {
+                "architektonica-critical-editor", "architektonica-ui-ux-expert"
+            },
+            "dev.forms-integration": {"architektonica-website-qa", "break-ui"},
+            "qa.site": {"architektonica-website-qa", "mobile-native"},
+            "release.beget": {"architektonica-website-qa", "architektonica-search-visibility"},
+        }
+        routes = {x["id"]: x for x in self.matrix["tasks"]}
+        for ident, required in critical.items():
+            with self.subTest(task=ident):
+                self.assertTrue(required <= set(routes[ident]["required_skills"]))
+
+    def test_explicit_only_behavioral_cases_require_user_request(self):
+        fixtures = json.loads(FIXTURES.read_text(encoding="utf-8"))
+        cases = {x["id"]: x for x in fixtures}
+        self.assertEqual(cases["motion-variants-explicit"]["explicit_requested_skills"], ["prototype"])
+        self.assertEqual(cases["stage-04-review-explicit"]["explicit_requested_skills"], ["review-animations"])
+        for case in fixtures:
+            explicit = case.get("explicit_requested_skills", [])
+            if explicit:
+                route = next(x for x in self.matrix["tasks"] if x["id"] == case["routing_task_id"])
+                self.assertTrue(set(explicit) <= set(route["explicit_only_skills"]))
+
+    def test_conditional_skills_have_a_real_trigger(self):
+        base = make_plan(ROOT, self.matrix, "content.public-page")
+        extra = make_plan(ROOT, self.matrix, "content.public-page", conditions=["new_concept"])
+        self.assertNotIn("skills/architektonica-idea-lab/SKILL.md", base["skill_paths_to_read"])
+        self.assertIn("skills/architektonica-idea-lab/SKILL.md", extra["skill_paths_to_read"])
+
     def test_unknown_source_and_unknown_skill_fail(self):
         for field, value, signal in (
             ("required_sources", "methods/THIS_DOES_NOT_EXIST.md", "missing/unsafe source"),
