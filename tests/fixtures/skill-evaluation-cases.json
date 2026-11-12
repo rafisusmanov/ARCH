@@ -5,42 +5,49 @@
     "skills": [
       "architektonica-creative-director",
       "architektonica-reader-insight",
-      "architektonica-narrative-design"
+      "architektonica-narrative-design",
+      "architektonica-search-visibility",
+      "architektonica-critical-editor"
     ],
     "must_check": [
       "company-not-studio",
       "three-pillars",
       "real-facts-only",
       "engine-adaptive"
-    ]
+    ],
+    "routing_task_id": "content.public-page"
   },
   {
     "id": "service",
     "task": "Создай содержательную структуру отдельной реальной услуги из действующего публичного каталога 6 групп / 17 направлений / 87 услуг, предложи связи с кейсами и статьями, не придумывая ссылок.",
     "skills": [
-      "architektonica-ui-ux-expert",
-      "architektonica-search-visibility"
+      "architektonica-reader-insight",
+      "architektonica-search-visibility",
+      "architektonica-critical-editor"
     ],
     "must_check": [
       "catalogue-6-17-87",
       "stable-id",
       "relations-publication-status",
       "source-facts"
-    ]
+    ],
+    "routing_task_id": "content.service-detail"
   },
   {
     "id": "case-uncertain",
     "task": "Оформи кейс по неполным исходным данным: известна архитектура и прототип, но не подтверждено внедрение или бизнес-результат.",
     "skills": [
       "architektonica-portfolio-case-writer",
-      "architektonica-critical-editor"
+      "architektonica-critical-editor",
+      "architektonica-search-visibility"
     ],
     "must_check": [
       "no-fabrication",
       "stage-correct",
       "ask-only-missing-facts",
       "portfolio-integrity"
-    ]
+    ],
+    "routing_task_id": "content.case"
   },
   {
     "id": "microcopy",
@@ -54,16 +61,17 @@
       "clear-error",
       "no-false-success",
       "brand-voice"
-    ]
+    ],
+    "routing_task_id": "content.microcopy"
   },
   {
     "id": "immersive-scene",
     "task": "Создай решение пространственно глубокого блока с GSAP/ScrollTrigger, Lenis и опциональным WebGL, сохрани смысл текста и сниженную анимацию.",
     "skills": [
-      "architektonica-ui-ux-expert",
-      "emil-design-eng",
+      "animate",
       "animation-performance",
-      "mobile-native"
+      "mobile-native",
+      "architektonica-ui-ux-expert"
     ],
     "must_check": [
       "depth-without-motion",
@@ -72,7 +80,8 @@
       "keyboard",
       "mobile-fallback",
       "no-fabricated-fps"
-    ]
+    ],
+    "routing_task_id": "motion.implement"
   },
   {
     "id": "services-overview",
@@ -94,6 +103,119 @@
       "real-proof-or-honest-mechanism",
       "editorial-score-and-revision",
       "owner-publication-gate"
+    ],
+    "routing_task_id": "content.services-overview"
+  },
+  {
+    "id": "stage-03-design",
+    "routing_task_id": "design.page",
+    "task": "Проектируй адаптивную страницу Engine из утверждённого текста, сохрани доступность, простые сценарии и статичный режим.",
+    "skills": [
+      "architektonica-ui-ux-expert",
+      "emil-design-eng",
+      "mobile-native"
+    ],
+    "must_check": [
+      "approved_copy",
+      "content_first",
+      "keyboard_and_mobile",
+      "no_unapproved_web_writes"
+    ]
+  },
+  {
+    "id": "stage-04-motion",
+    "routing_task_id": "motion.implement",
+    "task": "Сделай обоснованную анимацию на PHP/GSAP для desktop и mobile, включая reduced-motion и замеры производительности.",
+    "skills": [
+      "animate",
+      "animation-performance",
+      "mobile-native",
+      "architektonica-ui-ux-expert"
+    ],
+    "must_check": [
+      "scene_purpose",
+      "static_depth",
+      "real_perf_evidence",
+      "cleanup"
+    ]
+  },
+  {
+    "id": "stage-05-php",
+    "routing_task_id": "dev.php-page",
+    "task": "Реализуй согласованный компонент Engine в PHP, не изменяя тексты и маршруты без разрешения.",
+    "skills": [
+      "architektonica-ui-ux-expert",
+      "emil-design-eng",
+      "mobile-native",
+      "architektonica-website-qa"
+    ],
+    "must_check": [
+      "creative_owner_approval",
+      "php_lint",
+      "functional_preview",
+      "no_demo_content"
+    ]
+  },
+  {
+    "id": "stage-05-form",
+    "routing_task_id": "dev.forms-integration",
+    "task": "Проверь полную серверную интеграцию формы, валидацию и доставку уведомлений без утечки персональных данных.",
+    "skills": [
+      "architektonica-website-qa",
+      "break-ui",
+      "mobile-native"
+    ],
+    "must_check": [
+      "server_validation",
+      "real_delivery",
+      "no_false_success",
+      "security"
+    ]
+  },
+  {
+    "id": "stage-06-qa",
+    "routing_task_id": "qa.site",
+    "task": "Проведи контроль сайта на реальных браузерах и телефонах, не выдавая незапущенные проверки за PASS.",
+    "skills": [
+      "architektonica-website-qa",
+      "break-ui",
+      "mobile-native",
+      "animation-performance"
+    ],
+    "must_check": [
+      "evidence_matrix",
+      "wcag_22_aa",
+      "live_form",
+      "regressions"
+    ]
+  },
+  {
+    "id": "stage-07-beget",
+    "routing_task_id": "release.beget",
+    "task": "Выпусти согласованный RU-сайт на Beget с безопасным rollback, restore и production smoke.",
+    "skills": [
+      "architektonica-website-qa",
+      "architektonica-search-visibility"
+    ],
+    "must_check": [
+      "owner_gate",
+      "tls_dns",
+      "production_delivery",
+      "restore_evidence"
+    ]
+  },
+  {
+    "id": "motion-variants-explicit",
+    "routing_task_id": "design.variants",
+    "task": "Пользователь прямо вызывает prototype для сравнения нескольких UI-вариантов. Не активировать без явного запроса.",
+    "skills": [
+      "architektonica-ui-ux-expert",
+      "emil-design-eng"
+    ],
+    "must_check": [
+      "explicit_only_not_autorun",
+      "separate_picker",
+      "owner_select"
     ]
   }
 ]
