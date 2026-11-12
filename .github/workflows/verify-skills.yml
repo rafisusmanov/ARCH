@@ -27,5 +27,7 @@ jobs:
         run: python3 -m pip install -r requirements-dev.txt
       - name: Verify all skills, mirrors, references, data and approved roadmap
         run: python3 -B scripts/verify_package.py
+      - name: Validate task-to-skill routing and stage coverage
+        run: python3 -B scripts/task_skill_router.py validate
       - name: Run regression and UI/UX tool integration tests
         run: python3 -B -m unittest discover -s tests -v
