@@ -368,6 +368,7 @@ tasks:
       - "unverified_evidence"
       - "owner_gate_not_satisfied"
   - id: "design.variants"
+    explicit_trigger_required: true
     stage: "03"
     description: "Несколько вариантов дизайна только по явному запросу"
     required_skills:
@@ -476,6 +477,7 @@ tasks:
       - "unverified_evidence"
       - "owner_gate_not_satisfied"
   - id: "motion.review-explicit"
+    explicit_trigger_required: true
     stage: "04"
     description: "Специализированное review-animations только по прямому явному вызову"
     required_skills:
