@@ -101,6 +101,29 @@ class Stage02FullPageContractTest(unittest.TestCase):
             next(s["merged_legacy_ids"] for s in public["services"]
                  if s["id"] == "svc-006"))
 
+    def test_owner_approved_pages_2026_11_12_and_no_repeated_evidence_interrogation(self):
+        home = read("planning/stage-02/home-page.md")
+        about = read("planning/stage-02/about-page.md")
+        work = read("planning/stage-02/WORK_MAP.md")
+        self.assertIn("# Создаём цифровые продукты, бренды и решения для бизнеса", home)
+        self.assertIn("Посмотреть все 17 направлений и 87 услуг", home)
+        self.assertNotIn("Полный каталог включает 81 услугу", home)
+        self.assertIn("**Верхняя навигация**", home)
+        self.assertIn("# Команда и принципы работы ARCHITEKTONICA", about)
+        for name in ("Рафис Усманов", "Ильмир Гайбадуллин", "Зульфия Усманова", "Люция Жукова"):
+            self.assertIn(name, about)
+        self.assertEqual(work.count("**active_task:**"), 1)
+        self.assertIn("**`owner_approved` 12.11.2026**", work)
+        for path in (
+            "AGENTS.md",
+            "methods/editorial-source-boundaries.md",
+            "methods/editorial-quality.md",
+            "methods/site-voice-and-consistency.md",
+            "skills/architektonica-critical-editor/SKILL.md",
+            "skills/architektonica-creative-director/SKILL.md",
+        ):
+            self.assertIn("не допрашивать о доказательности повторно", read(path), path)
+
     def test_single_active_task_and_clean_sources(self):
         work = read("planning/stage-02/WORK_MAP.md")
         agents = read("AGENTS.md")
