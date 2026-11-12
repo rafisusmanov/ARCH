@@ -54,7 +54,7 @@ class TaskSkillRoutingTests(unittest.TestCase):
                 route = fixture.get("routing_task_id")
                 self.assertIn(route, tasks)
                 covered.add(tasks[route]["stage"])
-                self.assertTrue(set(tasks[route]["required_skills"]).issubset(fixture["skills"]))
+                self.assertEqual(set(tasks[route]["required_skills"]), set(fixture["skills"]))
                 self.assertFalse(set(fixture["skills"]) & {"prototype", "review-animations"})
                 self.assertTrue(fixture.get("must_check"))
         self.assertEqual(covered, STAGES)
@@ -63,20 +63,7 @@ class TaskSkillRoutingTests(unittest.TestCase):
         matrix = copy.deepcopy(self.matrix)
         route = next(t for t in matrix["tasks"] if t["id"] == "content.services-overview")
         route["required_skills"].remove("architektonica-critical-editor")
-        # Prevent coverage from succeeding merely because the role is used elsewhere:
-        # the task fixture's exact required subset catches this omission.
-        fixtures = json.loads(FIXTURES.read_text(encoding="utf-8"))
-        fixture = next(x for x in fixtures if x["id"] == "services-overview")
-        self.assertNotEqual(set(fixture["skills"]), set(route["required_skills"]))
-        self.assertNotIn("architektonica-critical-editor", route["required_skills"])
-        # A missing mandatory skill in a task must be detectable via an explicit minimum:
-        min_required = {
-            "content.services-overview": {"architektonica-critical-editor", "architektonica-ui-ux-expert"},
-            "dev.php-page": {"architektonica-website-qa"},
-            "qa.site": {"architektonica-website-qa"},
-            "release.beget": {"architektonica-website-qa"},
-        }
-        self.assertFalse(min_required["content.services-overview"].issubset(route["required_skills"]))
+        self.assertTrue(any("skills differ from required_skills" in e for e in self.check(matrix)))
 
     def test_unknown_source_and_unknown_skill_fail(self):
         for field, value, signal in (
