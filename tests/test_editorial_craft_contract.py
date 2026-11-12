@@ -90,7 +90,7 @@ class EditorialCraftContractTests(unittest.TestCase):
         about = read("planning/stage-02/about-page.md")
         self.assertIn("# Команда и принципы работы ARCHITEKTONICA", about)
         raw = about.encode("utf-8")
-        git_blob_sha = hashlib.sha1(f"blob {len(raw)}\\0".encode() + raw).hexdigest()
+        git_blob_sha = hashlib.sha1(f"blob {len(raw)}\0".encode() + raw).hexdigest()
         self.assertEqual(git_blob_sha, "7f19ee5d98b99b60e44a9e04a6c3024cf7e52cce")
 
     def test_editorial_rules_do_not_restore_preapproval_drafts_or_conflict(self):
