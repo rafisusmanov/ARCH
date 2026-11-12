@@ -60,15 +60,15 @@ class EditorialCraftContractTests(unittest.TestCase):
 
     def test_approved_homepage_remains_the_voice_reference(self):
         home = read("planning/stage-02/home-page.md")
-        self.assertIn("# Комплексные решения для развития компаний", home)
+        self.assertIn("# Создаём цифровые продукты, бренды и решения для бизнеса", home)
         self.assertTrue(home.startswith("ARCHITEKTONICA – Архитектура решений."))
         self.assertNotIn("\u2014", home)
         self.assertGreater(len(home), 4000)
         # Snapshot of the owner-approved copy, not a model quality metric.
-        # Updated after owner's 10.11.2026 cancellation of /process; only the obsolete CTA was removed.
+        # Reapproved verbatim on 12.11.2026; updated snapshot to the new owner's copy.
         raw = home.encode("utf-8")
         git_blob_sha = hashlib.sha1(f"blob {len(raw)}\0".encode() + raw).hexdigest()
-        self.assertEqual(git_blob_sha, "3e83a3a96f23a1241208965a5547c0f9ae23bf10")
+        self.assertEqual(git_blob_sha, "8b25c8fccd16b3fa2999d9ac85196778b9cd05fa")
         for rel in (
             "AGENTS.md",
             "PROJECT_SYSTEM_PROMPT.md",
@@ -86,6 +86,13 @@ class EditorialCraftContractTests(unittest.TestCase):
         work_map = read("planning/stage-02/WORK_MAP.md")
         self.assertIn("owner_approved", work_map)
 
+    def test_about_page_matches_owner_approved_2026_11_12(self):
+        about = read("planning/stage-02/about-page.md")
+        self.assertIn("# Команда и принципы работы ARCHITEKTONICA", about)
+        raw = about.encode("utf-8")
+        git_blob_sha = hashlib.sha1(f"blob {len(raw)}\\0".encode() + raw).hexdigest()
+        self.assertEqual(git_blob_sha, "7f19ee5d98b99b60e44a9e04a6c3024cf7e52cce")
+
     def test_editorial_rules_do_not_restore_preapproval_drafts_or_conflict(self):
         agents = read("AGENTS.md")
         workflow = read("methods/copy-workflow.md")
@@ -94,7 +101,7 @@ class EditorialCraftContractTests(unittest.TestCase):
         self.assertIn("одну лучшую цельную редакцию", agents)
         self.assertIn("Единственная каноническая последовательность", workflow)
         self.assertIn("Итоговая сверка голоса и Only", contract)
-        self.assertIn("Утверждены главная и «О компании» от 09.11.2026", voice)
+        self.assertIn("Утверждены главная и «О компании» от 12.11.2026", voice)
         self.assertNotIn("После сброса Stage 02 прежних действующих текстов нет", voice)
         self.assertNotIn("**Новая главная:**", read("QUICK_START.md"))
         for rel in (
