@@ -167,8 +167,46 @@ def verify_matrix(root=ROOT, matrix=None, records=None):
         errors.append(f"tasks do not cover stages {sorted(STAGES - used_stages)}")
     if covered != names:
         errors.append(f"skill coverage mismatch: missing={sorted(names-covered)}, unknown={sorted(covered-names)}")
+    if not errors and Path(root).resolve() == ROOT.resolve():
+        errors.extend(verify_fixture_bindings(root, matrix))
     return matrix, list(dict.fromkeys(errors))
 
+
+
+def verify_fixture_bindings(root, matrix):
+    """Behavioral evaluation prompts must match canonical required skills."""
+    path = Path(root) / "tests/fixtures/skill-evaluation-cases.json"
+    try:
+        fixtures = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:
+        return [f"evaluation fixtures unreadable: {exc}"]
+    errors = []
+    if not isinstance(fixtures, list):
+        return ["evaluation fixtures must be a list"]
+    tasks = {t["id"]: t for t in matrix["tasks"] if isinstance(t, dict) and "id" in t}
+    seen = set()
+    stages = set()
+    for case in fixtures:
+        if not isinstance(case, dict):
+            errors.append("fixture entry must be a mapping")
+            continue
+        ident = case.get("id")
+        route = case.get("routing_task_id")
+        if not isinstance(ident, str) or ident in seen:
+            errors.append(f"fixture has missing or duplicate id {ident!r}")
+        seen.add(ident)
+        if route not in tasks:
+            errors.append(f"fixture {ident}: unknown routing_task_id {route!r}")
+            continue
+        task = tasks[route]
+        stages.add(task["stage"])
+        if not isinstance(case.get("skills"), list) or set(case["skills"]) != set(task["required_skills"]):
+            errors.append(f"fixture {ident}: skills differ from required_skills for {route}")
+        if not isinstance(case.get("must_check"), list) or not case["must_check"]:
+            errors.append(f"fixture {ident}: must_check missing")
+    if stages != STAGES:
+        errors.append(f"behavioral fixtures lack stages {sorted(STAGES-stages)}")
+    return errors
 
 def task_by_id(matrix, task_id):
     return next((t for t in matrix["tasks"] if t["id"] == task_id), None)
