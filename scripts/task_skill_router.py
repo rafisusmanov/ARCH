@@ -202,6 +202,13 @@ def verify_fixture_bindings(root, matrix):
         stages.add(task["stage"])
         if not isinstance(case.get("skills"), list) or set(case["skills"]) != set(task["required_skills"]):
             errors.append(f"fixture {ident}: skills differ from required_skills for {route}")
+        explicit_selected = case.get("explicit_requested_skills", [])
+        if not isinstance(explicit_selected, list):
+            errors.append(f"fixture {ident}: explicit_requested_skills must be list")
+        elif set(explicit_selected) - set(task["explicit_only_skills"]):
+            errors.append(f"fixture {ident}: explicit skill not permitted by route")
+        elif task.get("explicit_trigger_required") and not explicit_selected:
+            errors.append(f"fixture {ident}: missing explicit invocation for explicit-only task")
         if not isinstance(case.get("must_check"), list) or not case["must_check"]:
             errors.append(f"fixture {ident}: must_check missing")
     if stages != STAGES:
