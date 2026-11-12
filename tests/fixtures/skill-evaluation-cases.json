@@ -217,5 +217,23 @@
       "separate_picker",
       "owner_select"
     ]
+  },
+  {
+    "id": "stage-01-ia",
+    "routing_task_id": "ia.site-map",
+    "task": "Проверь структуру сайта и RU/EN маршруты по утверждённой Stage 01, сохраняя 6/17/87 и существующие ID. Не переоткрывай уже принятое решение владельца.",
+    "skills": [
+      "architektonica-creative-director",
+      "architektonica-reader-insight",
+      "architektonica-narrative-design",
+      "architektonica-search-visibility",
+      "architektonica-ui-ux-expert"
+    ],
+    "must_check": [
+      "owner_approved_ia",
+      "public_skus",
+      "no_orphan_routes",
+      "ru_en_separation"
+    ]
   }
 ]
