@@ -4,6 +4,7 @@
 
 ## Единственная активная задача
 
+- **task-skill routing:** `content.services-overview` → [единый реестр навыков всех этапов](../../methods/task-skill-matrix.yaml) → [инструментальные доказательства](../../methods/task-execution-evidence.md). Эта ссылка уточняет способ исполнения единственной активной задачи, не открывает другие этапы.
 - **active_task:** `ARCH-STAGE02-SERVICES` – подготовить и представить владельцу одну полную редакцию `/services` по действующему каталогу 6/17/87, [критериям приёмки `/services`](services-page-acceptance.md) и контракту целой страницы; не начинать параллельные материалы.
 - **current_stage:** `Stage 02 – контент`; утверждённые страницы `/` и `/about` не переписывать, `services-page.md` по-прежнему не утверждена.
 - **current_source:** [публичный каталог 6/17/87](public-service-catalogue.json), [дизайн-бриф WEB/reference](../../methods/web-reference-style-and-depth.md), [контракт страницы](../../methods/stage-02-full-page-contract.md).
