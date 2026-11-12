@@ -48,7 +48,7 @@ tasks:
     conditional_skills:
       - when: "new_concept"
         skill: "architektonica-idea-lab"
-    explicit_only_skills:
+    explicit_only_skills: []
     required_sources:
       - "AGENTS.md"
       - "methods/agent-expert-stage-protocol.md"
@@ -73,7 +73,7 @@ tasks:
     conditional_skills:
       - when: "new_concept"
         skill: "architektonica-creative-director"
-    explicit_only_skills:
+    explicit_only_skills: []
     required_sources:
       - "AGENTS.md"
       - "methods/agent-expert-stage-protocol.md"
@@ -104,7 +104,7 @@ tasks:
         skill: "architektonica-psycholinguistic-editor"
       - when: "complex_navigation"
         skill: "architektonica-ui-ux-expert"
-    explicit_only_skills:
+    explicit_only_skills: []
     required_sources:
       - "AGENTS.md"
       - "methods/agent-expert-stage-protocol.md"
@@ -141,7 +141,7 @@ tasks:
         skill: "architektonica-idea-lab"
       - when: "perception_review"
         skill: "architektonica-psycholinguistic-editor"
-    explicit_only_skills:
+    explicit_only_skills: []
     required_sources:
       - "AGENTS.md"
       - "methods/agent-expert-stage-protocol.md"
@@ -176,7 +176,7 @@ tasks:
         skill: "architektonica-creative-director"
       - when: "interaction_design"
         skill: "architektonica-ui-ux-expert"
-    explicit_only_skills:
+    explicit_only_skills: []
     required_sources:
       - "AGENTS.md"
       - "methods/agent-expert-stage-protocol.md"
@@ -207,7 +207,7 @@ tasks:
         skill: "architektonica-creative-director"
       - when: "narrative_heavy"
         skill: "architektonica-narrative-design"
-    explicit_only_skills:
+    explicit_only_skills: []
     required_sources:
       - "AGENTS.md"
       - "methods/agent-expert-stage-protocol.md"
@@ -236,7 +236,7 @@ tasks:
     conditional_skills:
       - when: "mobile_interaction"
         skill: "mobile-native"
-    explicit_only_skills:
+    explicit_only_skills: []
     required_sources:
       - "AGENTS.md"
       - "methods/agent-expert-stage-protocol.md"
@@ -262,7 +262,7 @@ tasks:
     conditional_skills:
       - when: "interaction_design"
         skill: "architektonica-ui-ux-expert"
-    explicit_only_skills:
+    explicit_only_skills: []
     required_sources:
       - "AGENTS.md"
       - "methods/agent-expert-stage-protocol.md"
@@ -288,7 +288,7 @@ tasks:
     conditional_skills:
       - when: "new_concept"
         skill: "architektonica-creative-director"
-    explicit_only_skills:
+    explicit_only_skills: []
     required_sources:
       - "AGENTS.md"
       - "methods/agent-expert-stage-protocol.md"
@@ -318,10 +318,7 @@ tasks:
         skill: "break-ui"
       - when: "motion_design"
         skill: "animate"
-    explicit_only_skills:
-      - "missing_approved_content"
-      - "missing_required_source"
-      - "owner_gate_not_satisfied"
+    explicit_only_skills: []
     required_sources:
       - "AGENTS.md"
       - "methods/agent-expert-stage-protocol.md"
@@ -338,6 +335,7 @@ tasks:
       - "keyboard_touch_accessibility"
       - "z_layers_without_motion"
     stop_conditions:
+      - "missing_approved_content"
       - "missing_required_source"
       - "unverified_evidence"
       - "owner_gate_not_satisfied"
@@ -353,7 +351,7 @@ tasks:
         skill: "break-ui"
       - when: "motion_design"
         skill: "animate"
-    explicit_only_skills:
+    explicit_only_skills: []
     required_sources:
       - "AGENTS.md"
       - "methods/agent-expert-stage-protocol.md"
@@ -405,7 +403,7 @@ tasks:
         skill: "find-animation-opportunities"
       - when: "performance_issue"
         skill: "animation-performance"
-    explicit_only_skills:
+    explicit_only_skills: []
     required_sources:
       - "AGENTS.md"
       - "methods/agent-expert-stage-protocol.md"
@@ -482,8 +480,7 @@ tasks:
     description: "Специализированное review-animations только по прямому явному вызову"
     required_skills:
       - "animation-performance"
-    conditional_skills:
-      []
+    conditional_skills: []
     explicit_only_skills:
       - "review-animations"
     required_sources:
@@ -514,7 +511,7 @@ tasks:
         skill: "animate"
       - when: "edge_cases"
         skill: "break-ui"
-    explicit_only_skills:
+    explicit_only_skills: []
     required_sources:
       - "AGENTS.md"
       - "methods/agent-expert-stage-protocol.md"
@@ -542,7 +539,7 @@ tasks:
         skill: "architektonica-psycholinguistic-editor"
       - when: "seo_change"
         skill: "architektonica-search-visibility"
-    explicit_only_skills:
+    explicit_only_skills: []
     required_sources:
       - "AGENTS.md"
       - "methods/agent-expert-stage-protocol.md"
@@ -569,7 +566,7 @@ tasks:
     conditional_skills:
       - when: "edge_cases"
         skill: "break-ui"
-    explicit_only_skills:
+    explicit_only_skills: []
     required_sources:
       - "AGENTS.md"
       - "methods/agent-expert-stage-protocol.md"
@@ -599,7 +596,7 @@ tasks:
         skill: "architektonica-search-visibility"
       - when: "visual_review"
         skill: "emil-design-eng"
-    explicit_only_skills:
+    explicit_only_skills: []
     required_sources:
       - "AGENTS.md"
       - "methods/agent-expert-stage-protocol.md"
@@ -625,7 +622,7 @@ tasks:
     conditional_skills:
       - when: "motion_code"
         skill: "animation-performance"
-    explicit_only_skills:
+    explicit_only_skills: []
     required_sources:
       - "AGENTS.md"
       - "methods/agent-expert-stage-protocol.md"
@@ -678,7 +675,7 @@ tasks:
     conditional_skills:
       - when: "motion_code"
         skill: "animation-performance"
-    explicit_only_skills:
+    explicit_only_skills: []
     required_sources:
       - "AGENTS.md"
       - "methods/agent-expert-stage-protocol.md"
@@ -706,7 +703,7 @@ tasks:
     conditional_skills:
       - when: "seo_change"
         skill: "architektonica-critical-editor"
-    explicit_only_skills:
+    explicit_only_skills: []
     required_sources:
       - "AGENTS.md"
       - "methods/agent-expert-stage-protocol.md"
