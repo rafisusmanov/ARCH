@@ -24,5 +24,25 @@ class ExpertStageProtocolTests(unittest.TestCase):
                               (ROOT / path).read_text(encoding="utf-8"))
 
 
+    def test_canonical_task_matrix_referenced_by_operational_entrypoints(self):
+        targets = (
+            "AGENTS.md",
+            "PROJECT_SYSTEM_PROMPT.md",
+            "methods/agent-expert-stage-protocol.md",
+            "methods/engine-template-adaptation.md",
+            "methods/skill-effectiveness-evaluation.md",
+            "planning/stage-02/WORK_MAP.md",
+            "README.md",
+        )
+        self.assertTrue((ROOT / "methods/task-skill-matrix.yaml").is_file())
+        self.assertTrue((ROOT / "scripts/task_skill_router.py").is_file())
+        for name in targets:
+            with self.subTest(file=name):
+                content = (ROOT / name).read_text(encoding="utf-8")
+                self.assertIn("task-skill-matrix.yaml", content)
+                self.assertTrue("task_skill_router.py" in content or "task-execution-evidence.md" in content)
+
+
+
 if __name__ == "__main__":
     unittest.main()
