@@ -150,7 +150,7 @@ class Stage02FullPageContractTest(unittest.TestCase):
         urls = read("planning/stage-01/JOURNEYS_AND_URLS.md")
         seo = read("planning/stage-01/SEO_NAMING_POLICY.md")
         self.assertEqual(work.count("**active_task:**"), 1)
-        self.assertIn("**active_task:** `ARCH-STAGE02-SERVICES`", work)
+        self.assertIn("**active_task:** `ARCH-STAGE02-CONTACT`", work)
         self.assertNotIn("ARCH-CLEANUP-2026-11-10", work)
         self.assertIn("Единственная активная задача", work)
         self.assertIn("overview_copy_owner_approved_detail_copy_not_approved", json.loads(read(
@@ -199,6 +199,21 @@ class Stage02FullPageContractTest(unittest.TestCase):
             "skills/architektonica-search-visibility/references/site-structure-linking.md"))
         self.assertIn("svc-008`: одна публичная услуга", read(
             "skills/architektonica-search-visibility/references/site-structure-linking.md"))
+
+    def test_contact_concept_and_client_access_gate(self):
+        contact = read("planning/stage-02/contact-page.md")
+        decision = read("references/project/OWNER_DECISION_2026-11-18_CONTACT_CLIENT_OS.md")
+        work = read("planning/stage-02/WORK_MAP.md")
+        self.assertIn("concept_owner_approved", contact)
+        self.assertIn("# Расскажите, что нужно сделать", contact)
+        self.assertIn("17 базовых сценариев", contact)
+        self.assertIn("87 услуг", contact)
+        self.assertIn("PR #24 слит", work)
+        self.assertIn("Доступ к личному кабинету исключительно после подписания договора и поступления предусмотренной договором оплаты", decision)
+        self.assertIn("Оба условия обязательны", decision)
+        self.assertIn("нет клиентского аккаунта, приглашения, регистрации или доступа к кабинету", decision)
+        self.assertIn("не запрашивать повторное подтверждение", decision)
+        self.assertIn("Начать проект", read("planning/stage-01/IA_PROPOSAL.md"))
 
     def test_deleted_copy_studio_stays_deleted_and_baseline_intact(self):
         self.assertFalse((ROOT / "skills/copy-studio").exists())
