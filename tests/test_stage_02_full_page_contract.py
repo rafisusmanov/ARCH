@@ -213,7 +213,7 @@ class Stage02FullPageContractTest(unittest.TestCase):
         self.assertIn("Оба условия обязательны", decision)
         self.assertIn("нет клиентского аккаунта, приглашения, регистрации или доступа к кабинету", decision)
         self.assertIn("не запрашивать повторное подтверждение", decision)
-        self.assertIn("Начать проект", read("planning/stage-01/IA_PROPOSAL.md"))
+        self.assertIn("Обсудить проект", read("planning/stage-01/IA_PROPOSAL.md"))
 
     def test_deleted_copy_studio_stays_deleted_and_baseline_intact(self):
         self.assertFalse((ROOT / "skills/copy-studio").exists())
