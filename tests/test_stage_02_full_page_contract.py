@@ -3,6 +3,7 @@
 These checks verify documented contracts, not the literary quality or motion of a page.
 """
 from pathlib import Path
+import hashlib
 import json
 import unittest
 
@@ -154,7 +155,7 @@ class Stage02FullPageContractTest(unittest.TestCase):
         urls = read("planning/stage-01/JOURNEYS_AND_URLS.md")
         seo = read("planning/stage-01/SEO_NAMING_POLICY.md")
         self.assertEqual(work.count("**active_task:**"), 1)
-        self.assertIn("**active_task:** `ARCH-STAGE02-CONTACT`", work)
+        self.assertIn("**active_task:** `ARCH-STAGE02-CLIENT-OS`", work)
         self.assertNotIn("ARCH-CLEANUP-2026-11-10", work)
         self.assertIn("Единственная активная задача", work)
         self.assertIn("overview_copy_owner_approved_detail_copy_not_approved", json.loads(read(
@@ -176,6 +177,18 @@ class Stage02FullPageContractTest(unittest.TestCase):
             "planning/stage-02/service-taxonomy-review.md",
         ):
             self.assertFalse((ROOT / rel).exists(), rel)
+
+    def test_client_os_owner_approved_revision_04_is_preserved(self):
+        page = read("planning/stage-02/client-workspace-page.md")
+        work = read("planning/stage-02/WORK_MAP.md")
+        decision = read("references/project/OWNER_DECISION_2026-11-18_CONTACT_CLIENT_OS.md")
+        copy = page.split("## Утверждённый публикационный текст\n\n", 1)[1].split("\n\n---\n", 1)[0]
+        self.assertEqual(hashlib.sha256(copy.encode("utf-8")).hexdigest(),
+                         "f6cc80f021213d0e08cad1f4f06fc144aa14d3a305786ced9cccacdeb1de14bb")
+        self.assertEqual(copy.count("## Безопасность и конфиденциальность"), 1)
+        self.assertTrue(copy.endswith("**Обсудить проект** · **Посмотреть услуги**"))
+        self.assertIn("**`owner_approved` 19.11.2026**", work)
+        self.assertIn("активируется только клиентский доступ, а не сама Client OS", decision)
 
     def test_current_guidance_uses_public_canon_and_cancelled_route(self):
         current_docs = (
