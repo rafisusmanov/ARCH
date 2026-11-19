@@ -2,28 +2,28 @@
   "schema_version": "2.0",
   "model": "ARCHITEKTONICA approved public service taxonomy",
   "approval": {
-    "date": "2026-11-10",
+    "date": "2026-11-19",
     "status": "owner_approved_taxonomy",
-    "scope": "6 groups, 17 directions, 87 public services including 11 new explicit categories, 81 historical IDs retained; svc-007 retired from public offer; cybersecurity and cross-industry AI made explicit as scopes; no publication copy or WEB authorization.",
+    "scope": "6 groups, 17 directions, 84 public services including 11 new explicit categories, 81 historical IDs retained; svc-007 and svc-063/067/068 retired from public offer; cybersecurity and cross-industry AI remain explicit scopes; no publication copy or WEB authorization.",
     "web_write_authorized": false,
-    "revision": "2026-11-10-explicit-categories"
+    "revision": "2026-11-19-contact-briefs"
   },
   "source": {
     "stage01_immutable_manifest": "planning/stage-01/catalogue-map.json",
     "historical_source": "references/project/services_catalogue.json",
     "notion_snapshot_date": "2026-10-30",
     "extension_decision": "planning/stage-02/catalogue-extension-decision-2026-11-10.md",
-    "current_decision": "planning/stage-02/catalogue-extension-decision-2026-11-10.md",
+    "current_decision": "planning/stage-02/contact-page.md",
     "legacy_role": "Historical Stage 01 data for ID compatibility only; never the current public offer"
   },
   "counts": {
     "groups": 6,
     "directions": 17,
-    "public_services": 87,
+    "public_services": 84,
     "legacy_service_ids": 81,
     "merged_aliases": 1,
     "case_references": 3,
-    "retired_by_owner": 1,
+    "retired_by_owner": 4,
     "new_service_ids": 11,
     "explicit_scope_groups": 2
   },
@@ -31,7 +31,7 @@
     "status": "overview_copy_owner_approved_detail_copy_not_approved",
     "date": "2026-11-12",
     "source": "planning/stage-02/services-page.md",
-    "note": "Owner approved /services full overview copy and browse/search progressive-disclosure concept. The 87 service-detail texts are not individually approved; URLs, redirects, WEB implementation and production remain unimplemented."
+    "note": "Owner approved /services full overview copy and browse/search progressive-disclosure concept. The 84 service-detail texts are not individually approved; URLs, redirects, WEB implementation and production remain unimplemented."
   },
   "groups": [
     {
@@ -221,7 +221,7 @@
       "legacy_name": "Бухгалтерия и аудит",
       "slug": "accounting-and-audit",
       "group_id": "data-finance-operations",
-      "count": 7,
+      "count": 4,
       "proposed_url": "/services/accounting-and-audit",
       "publication_status": "content_not_approved"
     },
@@ -1446,23 +1446,6 @@
       }
     },
     {
-      "id": "svc-063",
-      "direction_id": "dir-13",
-      "group_id": "data-finance-operations",
-      "title": "Регистрация бизнеса",
-      "legacy_title": "Регистрация бизнеса",
-      "scope": "Консультация по организационно-правовой форме и юрисдикции, подготовка регистрационного пакета документов, сопровождение подачи заявлений и взаимодействия с регистрационными органами. Поддержка при открытии счетов и настройке базовых корпоративных процедур.",
-      "editorial_note": "Подтвердить географию, профессиональную ответственность, полномочия и юридическую модель перед публикацией.",
-      "proposed_destination": "/services/accounting-and-audit#svc-063",
-      "proposed_surface": "direction_section",
-      "detail_page_candidate": false,
-      "publication_status": "copy_not_approved",
-      "locale_status": {
-        "ru": "needs_stage_02_copy",
-        "en": "not_translated"
-      }
-    },
-    {
       "id": "svc-064",
       "direction_id": "dir-13",
       "group_id": "data-finance-operations",
@@ -1505,40 +1488,6 @@
       "scope": "Проверка отчётности, финансовых процессов и подтверждающих документов, выявление рисков и несоответствий. Финансовая проверка компании перед сделкой, восстановление регистров и подготовка плана корректирующих действий.",
       "editorial_note": "Не обещать официальный аудит/аудиторское заключение без подтверждённых прав и квалификации.",
       "proposed_destination": "/services/accounting-and-audit#svc-066",
-      "proposed_surface": "direction_section",
-      "detail_page_candidate": false,
-      "publication_status": "copy_not_approved",
-      "locale_status": {
-        "ru": "needs_stage_02_copy",
-        "en": "not_translated"
-      }
-    },
-    {
-      "id": "svc-067",
-      "direction_id": "dir-13",
-      "group_id": "data-finance-operations",
-      "title": "Налоговое планирование и сопровождение",
-      "legacy_title": "Законная оптимизация налогообложения",
-      "scope": "Анализ налоговой нагрузки, договорной модели и структуры бизнеса, оценка доступных законных режимов и льгот. Разработка вариантов налогового планирования, оценка рисков и сопровождение внедрения в рамках действующего законодательства.",
-      "editorial_note": "Только законные модели с подтверждением юрисдикций, квалификации и границ ответственности.",
-      "proposed_destination": "/services/accounting-and-audit#svc-067",
-      "proposed_surface": "direction_section",
-      "detail_page_candidate": false,
-      "publication_status": "copy_not_approved",
-      "locale_status": {
-        "ru": "needs_stage_02_copy",
-        "en": "not_translated"
-      }
-    },
-    {
-      "id": "svc-068",
-      "direction_id": "dir-13",
-      "group_id": "data-finance-operations",
-      "title": "Международный учёт и консультационное сопровождение",
-      "legacy_title": "Международный учёт и консалтинг",
-      "scope": "Анализ требований выбранных юрисдикций, поддержка международного учёта и трансформации отчётности по применимым стандартам. Консультации по ВЭД, валютному контролю и трансграничным операциям с учётом регуляторных ограничений.",
-      "editorial_note": "Требует подтверждения конкретных юрисдикций и договорной модели оказания услуги.",
-      "proposed_destination": "/services/accounting-and-audit#svc-068",
       "proposed_surface": "direction_section",
       "detail_page_candidate": false,
       "publication_status": "copy_not_approved",
@@ -2425,10 +2374,11 @@
       "legacy_name": "Регистрация бизнеса",
       "legacy_direction_id": "dir-13",
       "legacy_proposed_destination": "/services/accounting-and-audit#svc-063",
-      "role": "public",
-      "public_service_id": "svc-063",
+      "role": "retired_by_owner",
+      "public_service_id": null,
       "case_refs": [],
-      "redirect_implemented": false
+      "redirect_implemented": false,
+      "migration_note": "Исключено из публичного предложения решением владельца 19.11.2026; исторический ID сохранён, WEB не изменён."
     },
     {
       "id": "svc-064",
@@ -2465,20 +2415,22 @@
       "legacy_name": "Законная оптимизация налогообложения",
       "legacy_direction_id": "dir-13",
       "legacy_proposed_destination": "/services/accounting-and-audit#svc-067",
-      "role": "public",
-      "public_service_id": "svc-067",
+      "role": "retired_by_owner",
+      "public_service_id": null,
       "case_refs": [],
-      "redirect_implemented": false
+      "redirect_implemented": false,
+      "migration_note": "Исключено из публичного предложения решением владельца 19.11.2026; исторический ID сохранён, WEB не изменён."
     },
     {
       "id": "svc-068",
       "legacy_name": "Международный учёт и консалтинг",
       "legacy_direction_id": "dir-13",
       "legacy_proposed_destination": "/services/accounting-and-audit#svc-068",
-      "role": "public",
-      "public_service_id": "svc-068",
+      "role": "retired_by_owner",
+      "public_service_id": null,
       "case_refs": [],
-      "redirect_implemented": false
+      "redirect_implemented": false,
+      "migration_note": "Исключено из публичного предложения решением владельца 19.11.2026; исторический ID сохранён, WEB не изменён."
     },
     {
       "id": "svc-069",
