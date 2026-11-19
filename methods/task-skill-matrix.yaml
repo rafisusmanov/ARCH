@@ -31,7 +31,7 @@ policy:
   evidence_without_tool_trace: "NOT_VERIFIED"
   owner_approval: "REQUIRED_AT_STAGE_GATE"
   compatibility:
-    live_catalogue: "6/17/87"
+    live_catalogue: "6/17/84"
     legacy_ids: "81 (compatibility only)"
     removed_copy_studio: "main author role, not a skill"
     cancelled_process_route: "/process is not a live route"
@@ -79,7 +79,7 @@ tasks:
       - "methods/agent-expert-stage-protocol.md"
       - "planning/stage-01/IA_PROPOSAL.md"
       - "planning/stage-02/public-service-catalogue.json"
-    deliverable: "Матрица 6/17/87 с совместимостью 81 исторического ID"
+    deliverable: "Матрица 6/17/84 с совместимостью 81 исторического ID"
     acceptance_checks:
       - "all_public_skus"
       - "stable_legacy_ids"
@@ -128,7 +128,7 @@ tasks:
       - "owner_gate_not_satisfied"
   - id: "content.services-overview"
     stage: "02"
-    description: "Полная страница /services с двумя путями поиска и иерархией 6/17/87"
+    description: "Полная страница /services с двумя путями поиска и иерархией 6/17/84"
     required_skills:
       - "architektonica-creative-director"
       - "architektonica-reader-insight"
@@ -154,7 +154,7 @@ tasks:
       - "planning/stage-02/services-page-acceptance.md"
     deliverable: "Одна редакция /services, карта переходов и самопроверка"
     acceptance_checks:
-      - "six_groups_17_directions_87_services"
+      - "six_groups_17_directions_84_services"
       - "two_reader_paths"
       - "progressive_disclosure"
       - "no_flat_catalogue"

@@ -89,7 +89,7 @@ def verify_matrix(root=ROOT, matrix=None, records=None):
     )):
         errors.append("policy: mandatory fail-closed behavior missing")
     compat = policy.get("compatibility", {}) if isinstance(policy, dict) else {}
-    if not isinstance(compat, dict) or compat.get("live_catalogue") != "6/17/87" or not str(compat.get("legacy_ids", "")).startswith("81"):
+    if not isinstance(compat, dict) or compat.get("live_catalogue") != "6/17/84" or not str(compat.get("legacy_ids", "")).startswith("81"):
         errors.append("policy: current public catalogue/legacy compatibility missing")
     tasks = matrix.get("tasks")
     if not isinstance(tasks, list) or not tasks:

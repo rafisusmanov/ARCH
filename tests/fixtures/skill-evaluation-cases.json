@@ -19,14 +19,14 @@
   },
   {
     "id": "service",
-    "task": "Создай содержательную структуру отдельной реальной услуги из действующего публичного каталога 6 групп / 17 направлений / 87 услуг, предложи связи с кейсами и статьями, не придумывая ссылок.",
+    "task": "Создай содержательную структуру отдельной реальной услуги из действующего публичного каталога 6 групп / 17 направлений / 84 услуг, предложи связи с кейсами и статьями, не придумывая ссылок.",
     "skills": [
       "architektonica-reader-insight",
       "architektonica-search-visibility",
       "architektonica-critical-editor"
     ],
     "must_check": [
-      "catalogue-6-17-87",
+      "catalogue-6-17-84",
       "stable-id",
       "relations-publication-status",
       "source-facts"
@@ -85,7 +85,7 @@
   },
   {
     "id": "services-overview",
-    "task": "Подготовь полную страницу /services ARCHITEKTONICA с двумя сценариями поиска услуги, 6/17/87 и кратким выразительным авторским текстом; оцени её по критериям planning/stage-02/services-page-acceptance.md. Нельзя выдавать сплошной каталог за готовую страницу.",
+    "task": "Подготовь полную страницу /services ARCHITEKTONICA с двумя сценариями поиска услуги, 6/17/84 и кратким выразительным авторским текстом; оцени её по критериям planning/stage-02/services-page-acceptance.md. Нельзя выдавать сплошной каталог за готовую страницу.",
     "skills": [
       "architektonica-reader-insight",
       "architektonica-creative-director",
@@ -96,9 +96,9 @@
     ],
     "must_check": [
       "first-screen-direct",
-      "catalogue-6-17-87",
+      "catalogue-6-17-84",
       "two-reader-paths",
-      "no-flat-87-list",
+      "no-flat-84-list",
       "full-page-web-inventory",
       "real-proof-or-honest-mechanism",
       "editorial-score-and-revision",
@@ -224,7 +224,7 @@
   {
     "id": "stage-01-ia",
     "routing_task_id": "ia.site-map",
-    "task": "Проверь структуру сайта и RU/EN маршруты по утверждённой Stage 01, сохраняя 6/17/87 и существующие ID. Не переоткрывай уже принятое решение владельца.",
+    "task": "Проверь структуру сайта и RU/EN маршруты по утверждённой Stage 01, сохраняя 6/17/84 и существующие ID. Не переоткрывай уже принятое решение владельца.",
     "skills": [
       "architektonica-creative-director",
       "architektonica-reader-insight",

@@ -48,7 +48,7 @@ class Stage02FullPageContractTest(unittest.TestCase):
         self.assertNotIn("review", public["source"])
         self.assertNotIn("proposals", public["source"])
         self.assertEqual(
-            "planning/stage-02/catalogue-extension-decision-2026-11-10.md",
+            "planning/stage-02/contact-page.md",
             public["source"]["current_decision"],
         )
         self.assertIn("взаимодействий", read("methods/text-reference-only-digital.md"))
@@ -59,24 +59,28 @@ class Stage02FullPageContractTest(unittest.TestCase):
         manifest = json.loads(read("planning/stage-01/catalogue-map.json"))
         self.assertEqual("owner_approved_taxonomy", public["approval"]["status"])
         self.assertFalse(public["approval"]["web_write_authorized"])
-        self.assertEqual((6, 17, 87, 81),
+        self.assertEqual((6, 17, 84, 81),
             (len(public["groups"]), len(public["directions"]),
              len(public["services"]), len(public["legacy_id_map"])))
         ids = {s["id"] for s in public["services"]}
         legacy = {s["id"]: s for s in public["legacy_id_map"]}
-        self.assertEqual(len(ids), 87)
+        self.assertEqual(len(ids), 84)
         self.assertEqual(set(legacy), {s["id"] for s in manifest["services"]})
         self.assertEqual(ids, (set(legacy) -
-            {"svc-007", "svc-008", "svc-048", "svc-049", "svc-050"}) |
+            {"svc-007", "svc-008", "svc-048", "svc-049", "svc-050", "svc-063", "svc-067", "svc-068"}) |
             {f"svc-{i:03d}" for i in range(82, 93)})
         self.assertEqual({d["id"] for d in public["directions"]},
                          {d["id"] for d in manifest["directions"]})
-        self.assertEqual(87, sum(d["count"] for d in public["directions"]))
+        self.assertEqual(84, sum(d["count"] for d in public["directions"]))
+        self.assertEqual(4, next(d["count"] for d in public["directions"] if d["id"] == "dir-13"))
         self.assertEqual(
             "Прикладные AI-системы и инженерные решения",
             next(d["name"] for d in public["directions"] if d["id"] == "dir-10"))
         self.assertEqual("retired_by_owner", legacy["svc-007"]["role"])
         self.assertIsNone(legacy["svc-007"]["public_service_id"])
+        for retired in ("svc-063", "svc-067", "svc-068"):
+            self.assertEqual("retired_by_owner", legacy[retired]["role"])
+            self.assertIsNone(legacy[retired]["public_service_id"])
         self.assertEqual("svc-006", legacy["svc-008"]["public_service_id"])
         self.assertEqual("merged_alias", legacy["svc-008"]["role"])
         for old in ("svc-048", "svc-049", "svc-050"):
@@ -88,7 +92,7 @@ class Stage02FullPageContractTest(unittest.TestCase):
         self.assertEqual("overview_copy_owner_approved_detail_copy_not_approved",
                          public["publication_gate"]["status"])
         self.assertEqual(11, public["counts"]["new_service_ids"])
-        self.assertEqual(1, public["counts"]["retired_by_owner"])
+        self.assertEqual(4, public["counts"]["retired_by_owner"])
         self.assertEqual(2, public["counts"]["explicit_scope_groups"])
         self.assertEqual({r["direction_id"] for r in public["direction_capabilities"]},
                          {"dir-05", "dir-10"})
@@ -134,7 +138,7 @@ class Stage02FullPageContractTest(unittest.TestCase):
         self.assertIn("Спецификация UX (служебное приложение", page)
         self.assertEqual(6, len(public["groups"]))
         self.assertEqual(17, len(public["directions"]))
-        self.assertEqual(87, len(public["services"]))
+        self.assertEqual(84, len(public["services"]))
         self.assertEqual(
             "overview_copy_owner_approved_detail_copy_not_approved",
             public["publication_gate"]["status"])
@@ -156,9 +160,9 @@ class Stage02FullPageContractTest(unittest.TestCase):
         self.assertIn("overview_copy_owner_approved_detail_copy_not_approved", json.loads(read(
             "planning/stage-02/public-service-catalogue.json"))["publication_gate"]["status"])
         self.assertIn("одна активная задача", agents.lower())
-        self.assertIn("87 публичных услуг", ia)
-        self.assertIn("87 публичных услуг", urls)
-        self.assertIn("87 публичных услуг", seo)
+        self.assertIn("84 публичных услуг", ia)
+        self.assertIn("84 публичных услуг", urls)
+        self.assertIn("84 публичных услуг", seo)
         self.assertIn("public-service-catalogue.json", ia)
         self.assertIn("public-service-catalogue.json", urls)
         self.assertNotIn("SEO и мультиязычное продвижение", seo)
@@ -195,7 +199,7 @@ class Stage02FullPageContractTest(unittest.TestCase):
         work = read("planning/stage-02/WORK_MAP.md")
         self.assertIn("`08_Site_Content_Plan` и `09_Engine_Home_Copy` удалены", work)
         self.assertNotIn("08_Site_Content_Plan` сохранён", work)
-        self.assertIn("87 публичных услуг", read(
+        self.assertIn("84 публичных услуг", read(
             "skills/architektonica-search-visibility/references/site-structure-linking.md"))
         self.assertIn("svc-008`: одна публичная услуга", read(
             "skills/architektonica-search-visibility/references/site-structure-linking.md"))
@@ -204,15 +208,20 @@ class Stage02FullPageContractTest(unittest.TestCase):
         contact = read("planning/stage-02/contact-page.md")
         decision = read("references/project/OWNER_DECISION_2026-11-18_CONTACT_CLIENT_OS.md")
         work = read("planning/stage-02/WORK_MAP.md")
-        self.assertIn("concept_owner_approved", contact)
-        self.assertIn("# Расскажите, что нужно сделать", contact)
-        self.assertIn("17 базовых сценариев", contact)
-        self.assertIn("87 услуг", contact)
+        self.assertIn("brief_prototype_owner_approved", contact)
+        self.assertIn("# Обсудить проект", contact)
+        self.assertIn("# Какая задача вас интересует?", contact)
+        self.assertIn("https://only.digital/contacts", contact)
+        self.assertIn("https://eolabs.ru/en/contact/", contact)
+        self.assertIn("Скачиваемый бриф не нужен", contact)
+        self.assertIn("Telegram, MAX и корпоративный email", contact)
+        self.assertIn("84 индивидуальных мини-брифа", contact)
+        self.assertIn("Вопрос о предполагаемом/ориентировочном бюджете проекта исключён полностью", contact)
         self.assertIn("PR #24 слит", work)
         self.assertIn("Доступ к личному кабинету исключительно после подписания договора и поступления предусмотренной договором оплаты", decision)
         self.assertIn("Оба условия обязательны", decision)
         self.assertIn("нет клиентского аккаунта, приглашения, регистрации или доступа к кабинету", decision)
-        self.assertIn("не запрашивать повторное подтверждение", decision)
+        self.assertIn("не запрашивать повторное подтверждение", decision.lower())
         self.assertIn("Обсудить проект", read("planning/stage-01/IA_PROPOSAL.md"))
 
     def test_deleted_copy_studio_stays_deleted_and_baseline_intact(self):
