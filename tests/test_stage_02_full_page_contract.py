@@ -155,7 +155,7 @@ class Stage02FullPageContractTest(unittest.TestCase):
         urls = read("planning/stage-01/JOURNEYS_AND_URLS.md")
         seo = read("planning/stage-01/SEO_NAMING_POLICY.md")
         self.assertEqual(work.count("**active_task:**"), 1)
-        self.assertIn("**active_task:** `ARCH-STAGE02-DIGITAL-PRODUCTS`", work)
+        self.assertIn("**active_task:** `ARCH-STAGE02-BRAND-AND-COMMUNICATIONS`", work)
         self.assertNotIn("ARCH-CLEANUP-2026-11-10", work)
         self.assertIn("Единственная активная задача", work)
         self.assertIn("overview_copy_owner_approved_detail_copy_not_approved", json.loads(read(
@@ -177,6 +177,23 @@ class Stage02FullPageContractTest(unittest.TestCase):
             "planning/stage-02/service-taxonomy-review.md",
         ):
             self.assertFalse((ROOT / rel).exists(), rel)
+
+    def test_brand_and_communications_approved_page_covers_catalogue(self):
+        page = read("planning/stage-02/brand-and-communications-page.md")
+        public = json.loads(read("planning/stage-02/public-service-catalogue.json"))
+        services = [s for s in public["services"]
+                    if s["group_id"] == "brand-and-communications"]
+        self.assertEqual(15, len(services))
+        self.assertIn("`owner_approved` 20.11.2026", page)
+        for service in services:
+            title = service["display_title"]
+            self.assertIn(f"{title}\n\n{service['plain_summary']}\n\n", page)
+            self.assertIn(f"| {service['direction_id']} | {service['id']} | {title} |", page)
+        self.assertEqual(9, page.count("**Показатели оценки:**"))
+        for section in ("Анатомия бренда", "Бренд в разных средах",
+                        "Где аудитория встречается с брендом",
+                        "Как развивается информационный повод", "Арктическая Венеция"):
+            self.assertIn(section, page)
 
     def test_client_os_owner_approved_revision_04_is_preserved(self):
         page = read("planning/stage-02/client-workspace-page.md")
