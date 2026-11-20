@@ -155,7 +155,7 @@ class Stage02FullPageContractTest(unittest.TestCase):
         urls = read("planning/stage-01/JOURNEYS_AND_URLS.md")
         seo = read("planning/stage-01/SEO_NAMING_POLICY.md")
         self.assertEqual(work.count("**active_task:**"), 1)
-        self.assertIn("**active_task:** `ARCH-STAGE02-DATA-FINANCE-OPERATIONS`", work)
+        self.assertIn("**active_task:** `ARCH-STAGE02-PROJECTS-OVERVIEW`", work)
         self.assertNotIn("ARCH-CLEANUP-2026-11-10", work)
         self.assertIn("Единственная активная задача", work)
         self.assertIn("overview_copy_owner_approved_detail_copy_not_approved", json.loads(read(
@@ -177,6 +177,34 @@ class Stage02FullPageContractTest(unittest.TestCase):
             "planning/stage-02/service-taxonomy-review.md",
         ):
             self.assertFalse((ROOT / rel).exists(), rel)
+
+    def test_projects_overview_approved_cases_separate(self):
+        page = read("planning/stage-02/projects-page.md")
+        public, appendix = page.split("## Композиция и реализация страницы", 1)
+        work = read("planning/stage-02/WORK_MAP.md")
+        self.assertIn("`owner_approved` 20.11.2026", public)
+        self.assertIn("кейсы `not_started`", work)
+        self.assertIn("Индивидуальные кейсы `/projects/<case-slug>` не утверждены", public)
+        rows = [line.split("|")[1:-1] for line in public.splitlines()
+                if line.startswith("| ")][1:]
+        self.assertEqual(21, len(rows))
+        self.assertEqual(21, len({row[0].strip() for row in rows}))
+        self.assertEqual(16, sum(row[3].strip() == "Реализованный проект" for row in rows))
+        self.assertEqual(3, sum(row[3].strip() == "Архитектура решения" for row in rows))
+        self.assertEqual(1, sum(row[3].strip() == "Работающая система" for row in rows))
+        self.assertEqual(1, sum(row[3].strip() == "Прототип" for row in rows))
+        self.assertEqual("", next(row[1].strip() for row in rows if row[0].strip() == "p9.moscow"))
+        self.assertEqual("Работающая система", next(row[3].strip() for row in rows if row[0].strip() == "Synapto"))
+        for i in range(1, 17):
+            self.assertIn(f"| W4.{i:02d} |", appendix)
+        for source in ("W1-A1", "W1-A2", "W1-P", "W2", "S7 (Fact Bank)"):
+            self.assertIn(f"| {source} |", appendix)
+        for demo in ("NovaDesk", "Veon", "Kansas Digital", "Sofixon", "Meetlife", "Hard Rock"):
+            self.assertNotIn(demo, public)
+        self.assertIn("Нет работ с выбранным сочетанием фильтров.", public)
+        self.assertIn("Технологии · Дизайн · Бизнес", public)
+        self.assertIn("не экран системы Synapto", public)
+        self.assertIn("Не размещать неработающие ссылки", appendix)
 
     def test_brand_and_communications_approved_page_covers_catalogue(self):
         page = read("planning/stage-02/brand-and-communications-page.md")
