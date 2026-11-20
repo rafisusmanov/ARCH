@@ -85,7 +85,7 @@
 
 - Работы, стадии, названия, цифры, условия конфиденциальности: `references/project/02_Architektonica_Fact_Bank.md`.
 - Устройство кейсов: `references/project/03_Architektonica_Case_Studies.md`.
-- **Актуальное публичное предложение:** `planning/stage-02/public-service-catalogue.json` (6 групп, 17 направлений, 84 услуг). `references/project/04_Architektonica_Services.md` и `references/project/Услуги_дополнительный_перечень.md` – исходные исторические описания 81 позиции, не действующее публичное меню. При противоречии не угадывать статус выполненной работы.
+- **Актуальное публичное предложение:** `planning/stage-02/public-service-catalogue.json` (6 направлений / 17 внутренних категорий / 84 услуги). [Решение владельца 20.11.2026](planning/stage-02/services-direction-flow.md): обзорная + шесть страниц, ровно семь страниц раздела; никакой отдельной страницы категории или услуги. Исторические источники `references/project/04_Architektonica_Services.md`, `references/project/Услуги_дополнительный_перечень.md` и Stage 01 карта сохранены.
 - Смысл и голос: Brand Core, Creative Platform, Language, Reference Texts.
 - Психолингвистика: `references/research/Architektonica_реестры_исследования.xlsx` и карта `methods/research-evidence-map.md`.
 - Исторические поля для миграции: `references/template/Тексты шаблона Architektonica (Engine).xlsx`; итоговый sitemap уже утверждён владельцем 01.11.2026 и закреплён в `planning/stage-01/IA_PROPOSAL.md`; повторно создавать его на Stage 02 не нужно.

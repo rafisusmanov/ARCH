@@ -192,7 +192,7 @@ tasks:
       - "planning/stage-02/public-service-catalogue.json"
       - "planning/stage-02/services-page-acceptance.md"
       - "planning/stage-02/services-page.md"
-    deliverable: "Одна обоснованная следующая задача; при выборе услуг – ясная модель раскрытия и проверка кандидатов, не массовая генерация"
+    deliverable: "Одна обоснованная следующая задача; при выборе услуг – одна из шести страниц основных направлений, все её услуги и категории внутри"
     acceptance_checks:
       - "single_next_task"
       - "progressive_disclosure"
@@ -205,7 +205,7 @@ tasks:
       - "owner_gate_not_satisfied"
   - id: "content.service-detail"
     stage: "02"
-    description: "Содержание конкретной услуги в контексте направления; отдельная страница только при обосновании и утверждении"
+    description: "Краткое раскрытие конкретной услуги внутри одной из шести страниц основных направлений; отдельная страница исключена"
     required_skills:
       - "architektonica-reader-insight"
       - "architektonica-search-visibility"
