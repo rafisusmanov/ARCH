@@ -53,11 +53,17 @@ tag(['039','040','041','042','043','044','045','046','047','052','053','054','06
 const canon = JSON.parse(readUtf8(new URL('public-service-catalogue.json',base)));
 assert.deepEqual(groups.map(g=>g.services.length),[12,4,19,18,16,15]);
 assert.deepEqual(data.map(s=>'svc-'+s.id).sort(),canon.services.map(s=>s.id).sort());
+const publicServices=new Map(canon.services.map(s=>[s.id,s]));
+for(const s of data){
+  const entry=publicServices.get('svc-'+s.id);
+  assert.ok(entry.display_title,`Missing public title: ${entry.id}`);
+  assert.equal(s.name,entry.display_title,`Brief label must match catalogue: ${entry.id}`);
+  assert.ok(Array.isArray(entry.search_aliases),`Missing search aliases: ${entry.id}`);
+  s.aliases=entry.search_aliases;
+}
 assert.equal(new Set(data.map(s=>s.id)).size,84);
 assert.ok(data.every(s=>s.questions.length>=4&&s.questions.length<=6));
 assert.ok(!data.some(s=>s.questions.some(q=>/бюджет/i.test(q.label))));
-assert.equal(svc('043').name,'Разработка и внедрение AI-системы');
-assert.equal(svc('074').name,'Бизнес-отчёты и панели показателей');
 assert.equal(groups[4].title,'Видео, 3D и интерактивные проекты');
 assert.equal(groups[4].desc,'Видео, анимация, визуализация, виртуальные пространства и звук');
 const template = readUtf8(new URL('architektonica-brief-template.html',import.meta.url));

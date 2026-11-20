@@ -69,6 +69,12 @@ class ContactBriefsTest(unittest.TestCase):
                     self.assertNotIn("бюджет", label.lower())
                     available.append([o.lstrip("!") for o in opts])
 
+    def test_public_labels_match_catalogue(self):
+        _, rows = read_briefs()
+        catalogue = json.loads((STAGE / "public-service-catalogue.json").read_text(encoding="utf-8"))
+        self.assertEqual({s["id"]: s["display_title"] for s in catalogue["services"]},
+                         {service: row[0] for service, row in rows.items()})
+
     def test_marketing_regression_and_exclusive_ranges(self):
         _, rows = read_briefs()
         marketing = rows["svc-004"][2][0]
@@ -93,6 +99,9 @@ class ContactBriefsTest(unittest.TestCase):
         self.assertEqual([12, 4, 19, 18, 16, 15], [len(g["services"]) for g in groups])
         self.assertEqual("Видео, анимация, визуализация, виртуальные пространства и звук", groups[4]["desc"])
         services = {"svc-" + s["id"]: s for g in groups for s in g["services"]}
+        catalogue = json.loads((STAGE / "public-service-catalogue.json").read_text(encoding="utf-8"))
+        self.assertEqual({s["id"]: (s["display_title"], s["search_aliases"]) for s in catalogue["services"]},
+                         {service: (s["name"], s["aliases"]) for service, s in services.items()})
         self.assertEqual(set(rows), set(services))
         self.assertEqual(344, sum(len(s["questions"]) for s in services.values()))
         for service, (name, desc, questions) in rows.items():
