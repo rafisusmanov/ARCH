@@ -62,6 +62,7 @@ for(const s of data){
   s.aliases=entry.search_aliases;
 }
 assert.equal(new Set(data.map(s=>s.id)).size,84);
+assert.equal(data.reduce((n,s)=>n+s.questions.length,0),344);
 assert.ok(data.every(s=>s.questions.length>=4&&s.questions.length<=6));
 assert.ok(!data.some(s=>s.questions.some(q=>/бюджет/i.test(q.label))));
 assert.equal(groups[4].title,'Видео, 3D и интерактивные проекты');
