@@ -21,7 +21,8 @@ STAGES = {f"{i:02d}" for i in range(1, 8)}
 TASK_RE = re.compile(r"^[a-z][a-z0-9-]*\.[a-z][a-z0-9-]*$")
 CONDITION_RE = re.compile(r"^[a-z][a-z0-9_]*$")
 SITE_PRINCIPLE = "Сайт должен быть понятен без чтения. Интересен при просмотре. И содержателен при углублении."
-PRIORITY_CHECKS = ("understand_without_reading", "interesting_when_viewing", "depth_on_demand")
+PRIORITY_CHECKS = ("understand_without_reading", "interesting_when_viewing", "depth_on_demand",
+                   "client_language_clarity")
 SERVICE_ROUTES = {"content.services-overview", "content.service-detail", "ia.service-taxonomy"}
 SERVICE_ARCHITECTURE = {"overview_url": "/services", "direction_pages": 6,
                         "category_pages": 0, "standalone_service_pages": 0,
@@ -207,6 +208,12 @@ def validate_service_architecture(catalogue):
     errors = []
     if any(catalogue.get("architecture", {}).get(k) != v for k, v in SERVICE_ARCHITECTURE.items()):
         errors.append("services: exactly seven pages (overview + six directions) required")
+    presentation = catalogue.get("presentation_contract", {})
+    expected_fields = {"canonical_title_field": "title", "canonical_scope_field": "scope",
+                       "public_title_field": "display_title", "public_summary_field": "plain_summary",
+                       "search_aliases_field": "search_aliases"}
+    if not isinstance(presentation, dict) or any(presentation.get(k) != v for k, v in expected_fields.items()):
+        errors.append("services: mandatory professional/public language separation missing")
     groups = {g["id"]: g["proposed_url"] for g in catalogue["groups"]}
     categories = {c["id"]: c for c in catalogue["directions"]}
     services = catalogue["services"]
@@ -218,6 +225,13 @@ def validate_service_architecture(catalogue):
         if c["proposed_url"] != f"{groups.get(c['group_id'])}#{c['id']}":
             errors.append(f"{c['id']}: category must be an anchor, not a page")
     for s in services:
+        public_fields = {"display_title", "plain_summary", "search_aliases"}
+        if public_fields.intersection(s) or "presentation_status" in s:
+            if (not public_fields.issubset(s) or s.get("presentation_status") != "owner_approved"
+                    or not all(isinstance(s.get(k), str) and s[k].strip() for k in ("display_title", "plain_summary"))
+                    or not isinstance(s.get("search_aliases"), list)
+                    or any(not isinstance(alias, str) or not alias.strip() for alias in s["search_aliases"])):
+                errors.append(f"{s['id']}: separate public wording requires complete fields and owner approval")
         if (s["proposed_destination"] != f"{groups.get(s['group_id'])}#{s['id']}"
                 or s["proposed_surface"] != "group_section" or s["detail_page_candidate"]
                 or categories.get(s["direction_id"], {}).get("group_id") != s["group_id"]):
@@ -324,13 +338,16 @@ def check_proposal(root, matrix, proposal):
         errors.append("decision is required")
     checks = proposal.get("principle_checks")
     if not isinstance(checks, dict) or set(checks) != set(PRIORITY_CHECKS):
-        errors.append("all three site-principle checks are required")
+        errors.append("all four site-principle checks are required (including client_language_clarity)")
     else:
         for key in PRIORITY_CHECKS:
             check = checks[key]
             if (not isinstance(check, dict) or check.get("verdict") != "PASS"
                     or not isinstance(check.get("reason"), str) or not check["reason"].strip()):
                 errors.append(f"{key}: explicit PASS and concrete reason required; revise proposal")
+            if key == "client_language_clarity" and (not isinstance(check, dict)
+                    or not isinstance(check.get("example"), str) or not check["example"].strip()):
+                errors.append("client_language_clarity: concrete public wording example or no-public-change explanation required")
     scope = proposal.get("scope")
     if scope not in ("services", "other"):
         errors.append("scope must be services or other")

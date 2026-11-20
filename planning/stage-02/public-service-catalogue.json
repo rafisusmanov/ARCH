@@ -34,6 +34,15 @@
     "source": "planning/stage-02/services-page.md",
     "note": "Owner approved /services overview copy; six direction pages confirmed 2026-11-20; all 17 categories and 84 service sections are on these six pages. No standalone category/service pages. Direction copy and WEB implementation remain unapproved."
   },
+  "presentation_contract": {
+    "status": "public_copy_requires_owner_approval",
+    "canonical_title_field": "title",
+    "canonical_scope_field": "scope",
+    "public_title_field": "display_title",
+    "public_summary_field": "plain_summary",
+    "search_aliases_field": "search_aliases",
+    "rule": "Keep service IDs, canonical titles, scopes, groups, categories and destinations unchanged; public wording and search aliases require explicit owner approval. Do not silently use narrow professional terms as the first visible label. Missing presentation copy is not publication-ready."
+  },
   "groups": [
     {
       "id": "brand-and-communications",

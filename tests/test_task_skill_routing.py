@@ -178,7 +178,7 @@ class TaskSkillRoutingTests(unittest.TestCase):
                              user_requested_explicit=task["explicit_only_skills"] if task.get("explicit_trigger_required") else [])
             self.assertEqual(plan["source_paths_to_read"][:2], ["AGENTS.md", "PROJECT_SYSTEM_PROMPT.md"])
             self.assertEqual(plan["priority_gate"]["principle"], SITE_PRINCIPLE)
-            self.assertEqual(plan["acceptance_checks"][:3], list(PRIORITY_CHECKS))
+            self.assertEqual(plan["acceptance_checks"][:len(PRIORITY_CHECKS)], list(PRIORITY_CHECKS))
             self.assertIn("site_principle_failed", plan["stop_conditions"])
 
     def test_disclosure_policy_cannot_be_removed(self):
@@ -200,7 +200,9 @@ class TaskSkillRoutingTests(unittest.TestCase):
             "principle_checks": {
                 "understand_without_reading": {"verdict": "PASS", "reason": "Визуальные группы и названия направлений"},
                 "interesting_when_viewing": {"verdict": "PASS", "reason": "Различимые карточки направлений и удобный выбор"},
-                "depth_on_demand": {"verdict": "PASS", "reason": "Услуга раскрывается в выбранном направлении"}
+                "depth_on_demand": {"verdict": "PASS", "reason": "Услуга раскрывается в выбранном направлении"},
+                "client_language_clarity": {"verdict": "PASS", "reason": "Первый уровень объясняет предмет без специальных знаний",
+                                            "example": "Синтетический пример понятной формулировки"}
             },
             "service_plan": {
                 "coverage": "all",
@@ -218,7 +220,7 @@ class TaskSkillRoutingTests(unittest.TestCase):
         observed = {"task_id": "content.next-task", "scope": "services",
                     "decision": "Детальные страницы услуг: разработать контент всех 17 направлений и 84 услуг"}
         errors = check_proposal(ROOT, self.matrix, observed)
-        self.assertTrue(any("all three site-principle checks" in e for e in errors))
+        self.assertTrue(any("all four site-principle checks" in e for e in errors))
         self.assertTrue(any("requires service_plan" in e for e in errors))
         corrected = self.service_proposal()
         self.assertEqual(len(corrected["service_plan"]["service_ids"]), 84)
@@ -252,6 +254,24 @@ class TaskSkillRoutingTests(unittest.TestCase):
         record["principle_checks"]["depth_on_demand"]["verdict"] = "FAIL"
         self.assertTrue(any("depth_on_demand" in e for e in check_proposal(ROOT, self.matrix, record)))
 
+    def test_client_language_gate_cannot_be_omitted_or_self_certified_without_example(self):
+        for defect in ("missing", "fail", "empty_example"):
+            with self.subTest(defect=defect):
+                record = self.service_proposal()
+                checks = record["principle_checks"]
+                if defect == "missing":
+                    del checks["client_language_clarity"]
+                elif defect == "fail":
+                    checks["client_language_clarity"]["verdict"] = "FAIL"
+                else:
+                    checks["client_language_clarity"]["example"] = " "
+                self.assertTrue(any("client_language_clarity" in e for e in check_proposal(ROOT, self.matrix, record)))
+        record = self.service_proposal()
+        record["scope"] = "other"
+        del record["service_plan"]
+        del record["principle_checks"]["client_language_clarity"]
+        self.assertTrue(any("client_language_clarity" in e for e in check_proposal(ROOT, self.matrix, record)))
+
     def test_service_route_cannot_bypass_scope_gate(self):
         record = self.service_proposal()
         record["task_id"] = "content.service-detail"
@@ -259,6 +279,15 @@ class TaskSkillRoutingTests(unittest.TestCase):
         record["scope"] = "other"
         del record["service_plan"]
         self.assertTrue(any("requires service scope" in e for e in check_proposal(ROOT, self.matrix, record)))
+
+    def test_service_public_wording_contract_is_required_and_drafts_cannot_be_accepted(self):
+        catalogue = json.loads((ROOT / "planning/stage-02/public-service-catalogue.json").read_text(encoding="utf-8"))
+        self.assertEqual(validate_service_architecture(catalogue), [])
+        del catalogue["presentation_contract"]
+        self.assertTrue(any("professional/public language separation" in e for e in validate_service_architecture(catalogue)))
+        catalogue = json.loads((ROOT / "planning/stage-02/public-service-catalogue.json").read_text(encoding="utf-8"))
+        catalogue["services"][0]["display_title"] = "Synthetic unapproved text"
+        self.assertTrue(any("public wording requires complete fields and owner approval" in e for e in validate_service_architecture(catalogue)))
 
     def test_seven_page_architecture_cannot_regress_to_17_pages(self):
         catalogue = json.loads((ROOT / "planning/stage-02/public-service-catalogue.json").read_text(encoding="utf-8"))
