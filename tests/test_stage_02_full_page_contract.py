@@ -155,7 +155,7 @@ class Stage02FullPageContractTest(unittest.TestCase):
         urls = read("planning/stage-01/JOURNEYS_AND_URLS.md")
         seo = read("planning/stage-01/SEO_NAMING_POLICY.md")
         self.assertEqual(work.count("**active_task:**"), 1)
-        self.assertIn("**active_task:** `ARCH-STAGE02-AI-AND-INFRASTRUCTURE`", work)
+        self.assertIn("**active_task:** `ARCH-STAGE02-SALES-AND-CX`", work)
         self.assertNotIn("ARCH-CLEANUP-2026-11-10", work)
         self.assertIn("Единственная активная задача", work)
         self.assertIn("overview_copy_owner_approved_detail_copy_not_approved", json.loads(read(
@@ -223,6 +223,21 @@ class Stage02FullPageContractTest(unittest.TestCase):
         for section in ("Контур цифровой инфраструктуры", "От гипотезы к работающему решению",
                         "Как проверяется искусственный интеллект до внедрения", "5–6 месяцев",
                         "Работающая система", "Архитектура решения"):
+            self.assertIn(section, page)
+
+    def test_sales_and_cx_approved_page_covers_catalogue(self):
+        page = read("planning/stage-02/sales-and-cx-page.md")
+        public = json.loads(read("planning/stage-02/public-service-catalogue.json"))
+        services = [s for s in public["services"] if s["group_id"] == "sales-and-cx"]
+        self.assertEqual(7, len(services))
+        self.assertIn("`owner_approved` 20.11.2026", page)
+        for service in services:
+            title = service["display_title"]
+            self.assertIn(f"{title}\n\n{service['plain_summary']}\n\n", page)
+            self.assertIn(f"| {service['direction_id']} | {service['id']} | {title} |", page)
+        for section in ("Управляем всем путём клиента", "ДЕМОНСТРАЦИЯ КЛИЕНТСКОГО СЦЕНАРИЯ",
+                        "Воронка продаж", "Коммерческая система в цифрах", "ПРИМЕР ОБРАБОТКИ ОБРАЩЕНИЯ",
+                        "Зульфия Усманова", "19+"):
             self.assertIn(section, page)
 
     def test_client_os_owner_approved_revision_04_is_preserved(self):
