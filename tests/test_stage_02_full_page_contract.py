@@ -155,7 +155,7 @@ class Stage02FullPageContractTest(unittest.TestCase):
         urls = read("planning/stage-01/JOURNEYS_AND_URLS.md")
         seo = read("planning/stage-01/SEO_NAMING_POLICY.md")
         self.assertEqual(work.count("**active_task:**"), 1)
-        self.assertIn("**active_task:** `ARCH-STAGE02-PROJECTS-OVERVIEW`", work)
+        self.assertIn("**active_task:** `ARCH-STAGE02-CASE-ARCTIC-VENICE`", work)
         self.assertNotIn("ARCH-CLEANUP-2026-11-10", work)
         self.assertIn("Единственная активная задача", work)
         self.assertIn("overview_copy_owner_approved_detail_copy_not_approved", json.loads(read(
@@ -183,8 +183,9 @@ class Stage02FullPageContractTest(unittest.TestCase):
         public, appendix = page.split("## Композиция и реализация страницы", 1)
         work = read("planning/stage-02/WORK_MAP.md")
         self.assertIn("`owner_approved` 20.11.2026", public)
-        self.assertIn("кейсы и реализация `not_started`", work)
-        self.assertIn("Индивидуальные кейсы `/projects/<case-slug>` не утверждены", public)
+        self.assertIn("остальные кейсы и реализация `not_started`", work)
+        self.assertIn("остальные кейсы `/projects/<case-slug>` не утверждены", public)
+        self.assertIn("cases/arctic-venice.md", public)
         rows = [line.split("|")[1:-1] for line in public.splitlines()
                 if line.startswith("| ")][1:]
         self.assertEqual(21, len(rows))
@@ -223,6 +224,23 @@ class Stage02FullPageContractTest(unittest.TestCase):
         self.assertIn("Stage 05 – реализация", appendix)
         self.assertIn("Не менять WEB или Laravel", appendix)
         self.assertIn("Функциональное требование утверждено, реализация `not_started`", work)
+
+    def test_arctic_venice_approved_case_and_author_credit(self):
+        page = read("planning/stage-02/cases/arctic-venice.md")
+        public, appendix = page.split("## Композиция и реализация страницы", 1)
+        facts = read("references/project/02_Architektonica_Fact_Bank.md")
+        self.assertIn("`owner_approved` 20.11.2026", public)
+        self.assertIn("**Код:** W4.11", public)
+        self.assertIn("Это мы есть . Это наша команда. Так что утверждаю", facts)
+        self.assertIn("SETTERS и REBOOT", facts)
+        for section in ("Первый экран", "О проекте", "Платформа как город", "Три мира одного города", "От наблюдения к исследованию", "Визуальная идентичность", "За пределами виртуального путешествия", "Что получилось", "Завершение страницы"):
+            self.assertIn(section, public)
+        for element in ("Концепция", "Сюжет", "Фирменный стиль спецпроекта", "Интерактивный сайт", "Добавить в подборку", "Технологии · Дизайн · Бизнес"):
+            self.assertIn(element, public)
+        self.assertIn("**PDF:**", appendix)
+        self.assertIn("демонстрация принципа, не оригинальный экран", appendix)
+        self.assertIn("**Статус реализации:** `not_started`", appendix)
+        self.assertNotIn("\u2014", public)
 
     def test_brand_and_communications_approved_page_covers_catalogue(self):
         page = read("planning/stage-02/brand-and-communications-page.md")
