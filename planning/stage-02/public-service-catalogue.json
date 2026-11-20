@@ -31,7 +31,7 @@
     "status": "overview_copy_owner_approved_detail_copy_not_approved",
     "date": "2026-11-12",
     "source": "planning/stage-02/services-page.md",
-    "note": "Owner approved /services full overview copy and browse/search progressive-disclosure concept. The 84 service-detail texts are not individually approved; URLs, redirects, WEB implementation and production remain unimplemented."
+    "note": "Owner approved /services full overview copy and browse/search progressive-disclosure concept. Direction-level service content and individually justified detail-page candidates are not yet approved; catalogue coverage does not mandate 84 detail pages. URLs, redirects, WEB implementation and production remain unimplemented."
   },
   "groups": [
     {
