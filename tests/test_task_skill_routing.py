@@ -16,6 +16,7 @@ from skill_catalog import discover
 from task_skill_router import (
     STAGES, PRIORITY_CHECKS, SITE_PRINCIPLE, audit_read_trace, check_proposal, expected_for_task, load_matrix,
     make_plan, verify_matrix,
+    validate_service_architecture,
 )
 
 FIXTURES = ROOT / "tests/fixtures/skill-evaluation-cases.json"
@@ -204,6 +205,7 @@ class TaskSkillRoutingTests(unittest.TestCase):
             "service_plan": {
                 "coverage": "all",
                 "service_ids": [s["id"] for s in catalogue["services"]],
+                "group_page_ids": [g["id"] for g in catalogue["groups"]],
                 "disclosure": "progressive_on_demand",
                 "default_expanded_ids": [],
                 "detail_page_candidates": []
@@ -227,7 +229,7 @@ class TaskSkillRoutingTests(unittest.TestCase):
             for sid in all_pages["service_plan"]["service_ids"]
         ]
         errors = check_proposal(ROOT, self.matrix, all_pages)
-        self.assertEqual(sum("no automatic pages" in e for e in errors), 72)
+        self.assertTrue(any("standalone service pages forbidden" in e for e in errors))
 
     def test_preflight_rejects_flat_catalogue_ineligible_pages_and_omissions(self):
         for field, value, signal in (
@@ -235,9 +237,8 @@ class TaskSkillRoutingTests(unittest.TestCase):
             ("service_ids", ["svc-001"], "exactly the current public catalogue"),
             ("service_ids", ["svc-007"], "unknown/excluded"),
             ("disclosure", "all_visible", "progressive on-demand"),
-            ("detail_page_candidates", [{"id": "svc-002", "reason": "Long page", "status": "proposed_not_approved"}], "eligible candidate"),
-            ("detail_page_candidates", [{"id": "svc-001", "reason": "Specific need", "status": "approved"}], "not an owner-approved page"),
-            ("detail_page_candidates", [{"id": "svc-001", "reason": "", "status": "proposed_not_approved"}], "justification required"),
+            ("group_page_ids", [f"dir-{i:02d}" for i in range(1,18)], "no category pages"),
+            ("detail_page_candidates", [{"id": "svc-001", "reason": "Specific need", "status": "approved"}], "standalone service pages forbidden"),
         ):
             with self.subTest(field=field, signal=signal):
                 record = self.service_proposal()
@@ -247,7 +248,7 @@ class TaskSkillRoutingTests(unittest.TestCase):
         record["service_plan"]["detail_page_candidates"] = [
             {"id": "svc-001", "reason": "Distinct reader question requiring an explanation", "status": "proposed_not_approved"}
         ]
-        self.assertEqual(check_proposal(ROOT, self.matrix, record), [])
+        self.assertTrue(any("standalone service pages forbidden" in e for e in check_proposal(ROOT, self.matrix, record)))
         record["principle_checks"]["depth_on_demand"]["verdict"] = "FAIL"
         self.assertTrue(any("depth_on_demand" in e for e in check_proposal(ROOT, self.matrix, record)))
 
@@ -258,6 +259,28 @@ class TaskSkillRoutingTests(unittest.TestCase):
         record["scope"] = "other"
         del record["service_plan"]
         self.assertTrue(any("requires service scope" in e for e in check_proposal(ROOT, self.matrix, record)))
+
+    def test_seven_page_architecture_cannot_regress_to_17_pages(self):
+        catalogue = json.loads((ROOT / "planning/stage-02/public-service-catalogue.json").read_text(encoding="utf-8"))
+        self.assertEqual(validate_service_architecture(catalogue), [])
+        catalogue["directions"][0]["proposed_url"] = "/services/branding"
+        self.assertTrue(any("category must be an anchor" in e for e in validate_service_architecture(catalogue)))
+        catalogue["architecture"]["direction_pages"] = 17
+        self.assertTrue(any("exactly seven pages" in e for e in validate_service_architecture(catalogue)))
+
+    def test_digital_products_page_requires_all_13_services(self):
+        catalogue = json.loads((ROOT / "planning/stage-02/public-service-catalogue.json").read_text(encoding="utf-8"))
+        record = self.service_proposal()
+        record["task_id"] = "content.public-page"
+        plan = record["service_plan"]
+        plan["coverage"] = "selected"
+        plan["group_page_ids"] = ["digital-products"]
+        plan["service_ids"] = [s["id"] for s in catalogue["services"] if s["direction_id"] == "dir-04"]
+        self.assertEqual(len(plan["service_ids"]), 11)
+        self.assertTrue(any("all services of one main direction" in e for e in check_proposal(ROOT, self.matrix, record)))
+        plan["service_ids"] = [s["id"] for s in catalogue["services"] if s["group_id"] == "digital-products"]
+        self.assertEqual(len(plan["service_ids"]), 13)
+        self.assertEqual(check_proposal(ROOT, self.matrix, record), [])
 
 
 if __name__ == "__main__":

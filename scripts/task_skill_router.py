@@ -23,6 +23,9 @@ CONDITION_RE = re.compile(r"^[a-z][a-z0-9_]*$")
 SITE_PRINCIPLE = "Сайт должен быть понятен без чтения. Интересен при просмотре. И содержателен при углублении."
 PRIORITY_CHECKS = ("understand_without_reading", "interesting_when_viewing", "depth_on_demand")
 SERVICE_ROUTES = {"content.services-overview", "content.service-detail", "ia.service-taxonomy"}
+SERVICE_ARCHITECTURE = {"overview_url": "/services", "direction_pages": 6,
+                        "category_pages": 0, "standalone_service_pages": 0,
+                        "total_service_pages": 7}
 FIELDS = {
     "id", "stage", "description", "required_skills", "conditional_skills",
     "explicit_only_skills", "required_sources", "deliverable",
@@ -63,6 +66,11 @@ def _unique_strings(values, name, errors, required=True):
 def verify_matrix(root=ROOT, matrix=None, records=None):
     root = Path(root)
     errors = []
+    try:
+        catalogue = json.loads((root / "planning/stage-02/public-service-catalogue.json").read_text(encoding="utf-8"))
+        errors.extend(validate_service_architecture(catalogue))
+    except (OSError, ValueError, KeyError, TypeError) as exc:
+        errors.append(f"service architecture unavailable: {exc}")
     if matrix is None:
         try:
             matrix = load_matrix(root)
@@ -194,6 +202,28 @@ def verify_matrix(root=ROOT, matrix=None, records=None):
         errors.extend(verify_fixture_bindings(root, matrix))
     return matrix, list(dict.fromkeys(errors))
 
+def validate_service_architecture(catalogue):
+    """Owner decision 2026-11-20: 1 overview + 6 pages, no category/service pages."""
+    errors = []
+    if any(catalogue.get("architecture", {}).get(k) != v for k, v in SERVICE_ARCHITECTURE.items()):
+        errors.append("services: exactly seven pages (overview + six directions) required")
+    groups = {g["id"]: g["proposed_url"] for g in catalogue["groups"]}
+    categories = {c["id"]: c for c in catalogue["directions"]}
+    services = catalogue["services"]
+    if (len(groups), len(categories), len(services)) != (6, 17, 84):
+        errors.append("services: taxonomy must remain 6/17/84")
+    if len(set(groups.values())) != 6 or any(url != f"/services/{gid}" for gid, url in groups.items()):
+        errors.append("services: six distinct main direction URLs required")
+    for c in categories.values():
+        if c["proposed_url"] != f"{groups.get(c['group_id'])}#{c['id']}":
+            errors.append(f"{c['id']}: category must be an anchor, not a page")
+    for s in services:
+        if (s["proposed_destination"] != f"{groups.get(s['group_id'])}#{s['id']}"
+                or s["proposed_surface"] != "group_section" or s["detail_page_candidate"]
+                or categories.get(s["direction_id"], {}).get("group_id") != s["group_id"]):
+            errors.append(f"{s['id']}: service must be a section in its main direction")
+    return errors
+
 
 
 def verify_fixture_bindings(root, matrix):
@@ -314,10 +344,14 @@ def check_proposal(root, matrix, proposal):
     if not isinstance(plan, dict):
         return errors + ["service scope requires service_plan"]
     catalogue = json.loads((Path(root) / "planning/stage-02/public-service-catalogue.json").read_text(encoding="utf-8"))
+    errors.extend(validate_service_architecture(catalogue))
     public = {s["id"] for s in catalogue["services"]}
-    candidates = {s["id"] for s in catalogue["services"] if s["detail_page_candidate"]}
     ids = _unique_strings(plan.get("service_ids"), "service_ids", errors)
     selected = set(ids)
+    group_ids = _unique_strings(plan.get("group_page_ids"), "group_page_ids", errors)
+    expected_groups = {s["group_id"] for s in catalogue["services"] if s["id"] in selected}
+    if set(group_ids) != expected_groups:
+        errors.append("group_page_ids must match selected services; no category pages")
     if selected - public:
         errors.append("unknown/excluded public service ID")
     if plan.get("coverage") not in ("all", "selected"):
@@ -328,6 +362,10 @@ def check_proposal(root, matrix, proposal):
         errors.append("overview requires full coverage")
     if task == "content.service-detail" and (plan.get("coverage") != "selected" or len(selected) != 1):
         errors.append("service-detail requires exactly one selected service")
+    if task == "content.public-page" and scope == "services":
+        required_services = {s["id"] for s in catalogue["services"] if s["group_id"] in expected_groups}
+        if len(expected_groups) != 1 or selected != required_services:
+            errors.append("one direction page must contain all services of one main direction")
     if plan.get("disclosure") != "progressive_on_demand":
         errors.append("services must use progressive on-demand disclosure")
     expanded = _unique_strings(plan.get("default_expanded_ids"), "default_expanded_ids", errors, False)
@@ -338,19 +376,8 @@ def check_proposal(root, matrix, proposal):
     pages = plan.get("detail_page_candidates")
     if not isinstance(pages, list):
         return errors + ["detail_page_candidates must be an explicit list (may be empty)"]
-    seen = set()
-    for page in pages:
-        if not isinstance(page, dict) or not isinstance(page.get("id"), str):
-            errors.append("invalid detail-page candidate")
-            continue
-        sid = page["id"]
-        if sid in seen or sid not in selected or sid not in candidates:
-            errors.append(f"{sid}: separate detail requires an existing eligible candidate; no automatic pages")
-        seen.add(sid)
-        if not isinstance(page.get("reason"), str) or not page["reason"].strip():
-            errors.append(f"{sid}: independent reader need and content justification required")
-        if page.get("status") != "proposed_not_approved":
-            errors.append(f"{sid}: candidate is not an owner-approved page")
+    if pages:
+        errors.append("standalone service pages forbidden by owner decision 2026-11-20")
     return errors
 
 
