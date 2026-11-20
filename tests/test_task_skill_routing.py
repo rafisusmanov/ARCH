@@ -287,7 +287,24 @@ class TaskSkillRoutingTests(unittest.TestCase):
         self.assertTrue(any("professional/public language separation" in e for e in validate_service_architecture(catalogue)))
         catalogue = json.loads((ROOT / "planning/stage-02/public-service-catalogue.json").read_text(encoding="utf-8"))
         catalogue["services"][0]["display_title"] = "Synthetic unapproved text"
+        catalogue["services"][0]["presentation_status"] = "draft"
         self.assertTrue(any("public wording requires complete fields and owner approval" in e for e in validate_service_architecture(catalogue)))
+
+    def test_approved_public_wording_cannot_disappear(self):
+        catalogue = json.loads((ROOT / "planning/stage-02/public-service-catalogue.json").read_text(encoding="utf-8"))
+        self.assertEqual(catalogue["presentation_contract"]["status"], "owner_approved")
+        self.assertEqual(len({s["display_title"] for s in catalogue["services"]}), 84)
+        self.assertEqual(validate_service_architecture(catalogue), [])
+        for service in catalogue["services"]:
+            self.assertIn(service["title"], service["search_aliases"])
+            self.assertEqual(service["publication_status"], "copy_not_approved")
+        del catalogue["groups"][0]["display_title"]
+        del catalogue["directions"][0]["plain_summary"]
+        for key in ("display_title", "plain_summary", "search_aliases", "presentation_status"):
+            del catalogue["services"][0][key]
+        errors = validate_service_architecture(catalogue)
+        for entity in (catalogue["groups"][0], catalogue["directions"][0], catalogue["services"][0]):
+            self.assertTrue(any(entity["id"] in error and "owner approval" in error for error in errors))
 
     def test_seven_page_architecture_cannot_regress_to_17_pages(self):
         catalogue = json.loads((ROOT / "planning/stage-02/public-service-catalogue.json").read_text(encoding="utf-8"))
