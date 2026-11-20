@@ -155,7 +155,7 @@ class Stage02FullPageContractTest(unittest.TestCase):
         urls = read("planning/stage-01/JOURNEYS_AND_URLS.md")
         seo = read("planning/stage-01/SEO_NAMING_POLICY.md")
         self.assertEqual(work.count("**active_task:**"), 1)
-        self.assertIn("**active_task:** `ARCH-STAGE02-CLIENT-OS`", work)
+        self.assertIn("**active_task:** `ARCH-STAGE02-DIR-04`", work)
         self.assertNotIn("ARCH-CLEANUP-2026-11-10", work)
         self.assertIn("Единственная активная задача", work)
         self.assertIn("overview_copy_owner_approved_detail_copy_not_approved", json.loads(read(
@@ -189,6 +189,19 @@ class Stage02FullPageContractTest(unittest.TestCase):
         self.assertTrue(copy.endswith("**Обсудить проект** · **Посмотреть услуги**"))
         self.assertIn("**`owner_approved` 19.11.2026**", work)
         self.assertIn("активируется только клиентский доступ, а не сама Client OS", decision)
+
+    def test_approved_direction_disclosure_keeps_group_and_direction_distinct(self):
+        flow = read("planning/stage-02/services-direction-flow.md")
+        work = read("planning/stage-02/WORK_MAP.md")
+        public = json.loads(read("planning/stage-02/public-service-catalogue.json"))
+        direction = next(d for d in public["directions"] if d["id"] == "dir-04")
+        self.assertEqual(direction["count"], 11)
+        self.assertEqual(sum(s["direction_id"] == "dir-04" for s in public["services"]), 11)
+        self.assertEqual(sum(s["group_id"] == direction["group_id"] for s in public["services"]), 13)
+        self.assertIn(direction["proposed_url"], flow)
+        self.assertIn("structure_approved", flow)
+        self.assertIn("Дословный текст страницы направления утверждается отдельно", flow)
+        self.assertIn("services-direction-flow.md", work)
 
     def test_current_guidance_uses_public_canon_and_cancelled_route(self):
         current_docs = (
