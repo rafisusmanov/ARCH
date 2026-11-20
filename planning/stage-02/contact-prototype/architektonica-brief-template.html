@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ARCHITEKTONICA — Обсудить проект · Прототип v9</title>
+<title>ARCHITEKTONICA — Обсудить проект · Прототип v9.1</title>
 <!-- GENERATED ARTIFACT: edit the readable UTF-8 master sources and rebuild; do not modify the escaped transport HTML directly. -->
 <meta name="description" content="Обсудите проект с ARCHITEKTONICA: выберите услуги, ответьте на вопросы мини-брифов и укажите удобный способ связи.">
 <meta name="robots" content="noindex, nofollow">
@@ -74,15 +74,15 @@ function searchServices(q){
   const minimum=Math.ceil(query.length/2);
   function related(t,w){return synonyms.some(g=>g.some(x=>wordMatch(x,t))&&g.some(x=>wordMatch(x,w)))}
   const ranked=all.map(s=>{
-    const title=tokens(s.name),description=tokens(s.desc),tags=tokens(s.tags||'');let hits=0,score=0;
+    const title=tokens(s.name),description=tokens(s.desc),tags=tokens([s.tags||'',...(s.aliases||[])].join(' '));let hits=0,score=0;
     for(const t of query){let weight=title.includes(t)?8:title.some(w=>wordMatch(t,w))?6:description.includes(t)?5:description.some(w=>wordMatch(t,w))?4:tags.some(w=>wordMatch(t,w))?3:[...title,...description,...tags].some(w=>related(t,w))?2:0;if(weight){hits++;score+=weight}}
-    return {s,hits,score,exact:norm(s.name)===norm(q)?1:0};
+    return {s,hits,score,exact:norm(s.name)===norm(q)?2:(s.aliases||[]).some(a=>norm(a)===norm(q))?1:0};
   }).sort((a,b)=>b.exact-a.exact||b.hits-a.hits||b.score-a.score);
   const strict=ranked.filter(r=>r.hits>=minimum);
   return (strict.length?strict:ranked.filter(r=>r.hits>=Math.max(1,Math.floor(query.length/3)))).map(r=>r.s);
 }
 function serviceCount(n){const mod100=n%100,mod10=n%10;return n+' '+(mod100>=11&&mod100<=14?'услуг':mod10===1?'услуга':mod10>=2&&mod10<=4?'услуги':'услуг')}
-function frame(body){let labels=['Выбор услуг','Мини-брифы','О проекте и контакты','Проверка'];app.innerHTML=`<header><span class="logo">ARCHITEKTONICA.</span><span class="tiny">ПРОТОТИП V9 / КОНТАКТЫ</span></header><main>${st.sent?'':`<nav class="steps" aria-label="Этапы заполнения">${labels.map((n,i)=>`<div class="step ${i===st.step?'active':i<st.step?'done':''}" ${i===st.step?'aria-current="step"':''}>${i+1}. ${n}</div>`).join('')}</nav>`}${body}</main><footer><span>Написать напрямую</span><span class="direct"><button data-direct="Telegram">Telegram ↗</button><button data-direct="MAX">MAX ↗</button><button data-direct="Email">Email ↗</button></span><span>Каталог — ${serviceCount(all.length)} · демонстрация без отправки данных</span></footer>${st.direct?`<div id="direct-status" class="soft" role="status">${esc(st.direct)} — официальный контакт будет подключён при реализации. Сейчас сообщения не отправляются. <button data-act="dismiss" class="linkbtn">Закрыть</button></div>`:''}`}
+function frame(body){let labels=['Выбор услуг','Мини-брифы','О проекте и контакты','Проверка'];app.innerHTML=`<header><span class="logo">ARCHITEKTONICA.</span><span class="tiny">ПРОТОТИП V9.1 / КОНТАКТЫ</span></header><main>${st.sent?'':`<nav class="steps" aria-label="Этапы заполнения">${labels.map((n,i)=>`<div class="step ${i===st.step?'active':i<st.step?'done':''}" ${i===st.step?'aria-current="step"':''}>${i+1}. ${n}</div>`).join('')}</nav>`}${body}</main><footer><span>Написать напрямую</span><span class="direct"><button data-direct="Telegram">Telegram ↗</button><button data-direct="MAX">MAX ↗</button><button data-direct="Email">Email ↗</button></span><span>Каталог — ${serviceCount(all.length)} · демонстрация без отправки данных</span></footer>${st.direct?`<div id="direct-status" class="soft" role="status">${esc(st.direct)} — официальный контакт будет подключён при реализации. Сейчас сообщения не отправляются. <button data-act="dismiss" class="linkbtn">Закрыть</button></div>`:''}`}
 function service(s){let on=st.ids.includes(s.id);return `<button class="service ${on?'selected':''}" data-id="${s.id}" aria-pressed="${on}"><span class="sign">${on?'✓':''}</span><span><b>${esc(s.name)}</b><span class="desc">${esc(s.desc)}</span></span></button>`}
 function results(){let list=st.search.trim()?searchServices(st.search):st.group>=0?groups[st.group].services:[];if(!st.search.trim()&&st.group<0)return '';return `<div class="tiny">${serviceCount(list.length)}</div>${list.length?`<div class="grid">${list.map(service).join('')}</div>`:'<div class="notice">Ничего не найдено. Попробуйте другое слово или опишите свою задачу.</div>'}`}
 function selectPage(){frame(`<div class="eyebrow">Ваш проект</div><h1>Обсудить проект</h1><p class="sub">Расскажите, что хотите сделать. Мы изучим задачу и подготовимся к разговору.</p><div class="direct"><b>Удобнее написать?</b><button data-direct="Telegram">Telegram ↗</button><button data-direct="MAX">MAX ↗</button><button data-direct="Email">Электронная почта ↗</button></div>
