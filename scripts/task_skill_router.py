@@ -214,6 +214,15 @@ def validate_service_architecture(catalogue):
                        "search_aliases_field": "search_aliases"}
     if not isinstance(presentation, dict) or any(presentation.get(k) != v for k, v in expected_fields.items()):
         errors.append("services: mandatory professional/public language separation missing")
+    approved_presentation = isinstance(presentation, dict) and presentation.get("status") == "owner_approved"
+    if approved_presentation:
+        for entity, required in [
+            *((g, ("display_title",)) for g in catalogue["groups"]),
+            *((d, ("display_title", "plain_summary")) for d in catalogue["directions"]),
+        ]:
+            if (entity.get("presentation_status") != "owner_approved"
+                    or not all(isinstance(entity.get(k), str) and entity[k].strip() for k in required)):
+                errors.append(f"{entity['id']}: public wording requires complete fields and owner approval")
     groups = {g["id"]: g["proposed_url"] for g in catalogue["groups"]}
     categories = {c["id"]: c for c in catalogue["directions"]}
     services = catalogue["services"]
@@ -226,10 +235,12 @@ def validate_service_architecture(catalogue):
             errors.append(f"{c['id']}: category must be an anchor, not a page")
     for s in services:
         public_fields = {"display_title", "plain_summary", "search_aliases"}
-        if public_fields.intersection(s) or "presentation_status" in s:
+        if approved_presentation or public_fields.intersection(s) or "presentation_status" in s:
             if (not public_fields.issubset(s) or s.get("presentation_status") != "owner_approved"
                     or not all(isinstance(s.get(k), str) and s[k].strip() for k in ("display_title", "plain_summary"))
                     or not isinstance(s.get("search_aliases"), list)
+                    or not s["search_aliases"]
+                    or s.get("title") not in s["search_aliases"]
                     or any(not isinstance(alias, str) or not alias.strip() for alias in s["search_aliases"])):
                 errors.append(f"{s['id']}: separate public wording requires complete fields and owner approval")
         if (s["proposed_destination"] != f"{groups.get(s['group_id'])}#{s['id']}"

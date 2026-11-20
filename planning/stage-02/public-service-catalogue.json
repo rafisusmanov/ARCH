@@ -35,13 +35,16 @@
     "note": "Owner approved /services overview copy; six direction pages confirmed 2026-11-20; all 17 categories and 84 service sections are on these six pages. No standalone category/service pages. Direction copy and WEB implementation remain unapproved."
   },
   "presentation_contract": {
-    "status": "public_copy_requires_owner_approval",
+    "status": "owner_approved",
     "canonical_title_field": "title",
     "canonical_scope_field": "scope",
     "public_title_field": "display_title",
     "public_summary_field": "plain_summary",
     "search_aliases_field": "search_aliases",
-    "rule": "Keep service IDs, canonical titles, scopes, groups, categories and destinations unchanged; public wording and search aliases require explicit owner approval. Do not silently use narrow professional terms as the first visible label. Missing presentation copy is not publication-ready."
+    "rule": "Keep service IDs, canonical titles, scopes, groups, categories and destinations unchanged; public wording and search aliases require explicit owner approval. Do not silently use narrow professional terms as the first visible label. Missing presentation copy is not publication-ready.",
+    "approval_date": "2026-11-20",
+    "approval_source": "Владелец в чате: «Да, всё внедряй единым пакетом.»",
+    "approved_scope": "RU: 6 public group titles, 17 public category titles and summaries, 84 public service titles and summaries; search aliases derived only from canonical/legacy names and approved Contact v9 briefs. Full direction-page copy and WEB implementation are not approved."
   },
   "groups": [
     {
@@ -53,7 +56,9 @@
         "dir-02",
         "dir-03"
       ],
-      "proposed_url": "/services/brand-and-communications"
+      "proposed_url": "/services/brand-and-communications",
+      "display_title": "Бренд и коммуникации",
+      "presentation_status": "owner_approved"
     },
     {
       "id": "digital-products",
@@ -63,7 +68,9 @@
         "dir-04",
         "dir-16"
       ],
-      "proposed_url": "/services/digital-products"
+      "proposed_url": "/services/digital-products",
+      "display_title": "Сайты и цифровые продукты",
+      "presentation_status": "owner_approved"
     },
     {
       "id": "immersive-media",
@@ -74,7 +81,9 @@
         "dir-07",
         "dir-08"
       ],
-      "proposed_url": "/services/immersive-media"
+      "proposed_url": "/services/immersive-media",
+      "display_title": "Иммерсивные проекты и медиа",
+      "presentation_status": "owner_approved"
     },
     {
       "id": "ai-and-infrastructure",
@@ -85,7 +94,9 @@
         "dir-09",
         "dir-10"
       ],
-      "proposed_url": "/services/ai-and-infrastructure"
+      "proposed_url": "/services/ai-and-infrastructure",
+      "display_title": "Искусственный интеллект, инженерия и инфраструктура",
+      "presentation_status": "owner_approved"
     },
     {
       "id": "sales-and-cx",
@@ -95,7 +106,9 @@
         "dir-11",
         "dir-12"
       ],
-      "proposed_url": "/services/sales-and-cx"
+      "proposed_url": "/services/sales-and-cx",
+      "display_title": "Продажи и клиентский опыт",
+      "presentation_status": "owner_approved"
     },
     {
       "id": "data-finance-operations",
@@ -107,7 +120,9 @@
         "dir-15",
         "dir-17"
       ],
-      "proposed_url": "/services/data-finance-operations"
+      "proposed_url": "/services/data-finance-operations",
+      "display_title": "Данные, финансы и операции",
+      "presentation_status": "owner_approved"
     }
   ],
   "directions": [
@@ -119,7 +134,10 @@
       "group_id": "brand-and-communications",
       "count": 4,
       "proposed_url": "/services/brand-and-communications#dir-01",
-      "publication_status": "content_not_approved"
+      "publication_status": "content_not_approved",
+      "display_title": "Брендинг",
+      "plain_summary": "Название, позиционирование, логотип и фирменный стиль бренда.",
+      "presentation_status": "owner_approved"
     },
     {
       "id": "dir-02",
@@ -129,7 +147,10 @@
       "group_id": "brand-and-communications",
       "count": 9,
       "proposed_url": "/services/brand-and-communications#dir-02",
-      "publication_status": "content_not_approved"
+      "publication_status": "content_not_approved",
+      "display_title": "Маркетинг и продвижение",
+      "plain_summary": "Маркетинговая стратегия, поисковое продвижение, реклама, контент и репутация.",
+      "presentation_status": "owner_approved"
     },
     {
       "id": "dir-03",
@@ -139,7 +160,10 @@
       "group_id": "brand-and-communications",
       "count": 2,
       "proposed_url": "/services/brand-and-communications#dir-03",
-      "publication_status": "content_not_approved"
+      "publication_status": "content_not_approved",
+      "display_title": "Связи с общественностью и мероприятия",
+      "plain_summary": "Работа со СМИ, деловые и брендовые мероприятия.",
+      "presentation_status": "owner_approved"
     },
     {
       "id": "dir-04",
@@ -149,7 +173,10 @@
       "group_id": "digital-products",
       "count": 11,
       "proposed_url": "/services/digital-products#dir-04",
-      "publication_status": "content_not_approved"
+      "publication_status": "content_not_approved",
+      "display_title": "Сайты и цифровые продукты",
+      "plain_summary": "Сайты, приложения, дизайн интерфейсов, онлайн-сервисы и корпоративные программы.",
+      "presentation_status": "owner_approved"
     },
     {
       "id": "dir-05",
@@ -159,7 +186,10 @@
       "group_id": "ai-and-infrastructure",
       "count": 4,
       "proposed_url": "/services/ai-and-infrastructure#dir-05",
-      "publication_status": "content_not_approved"
+      "publication_status": "content_not_approved",
+      "display_title": "Обслуживание и защита цифровых систем",
+      "plain_summary": "Компьютерная инфраструктура, автоматизация процессов и кибербезопасность.",
+      "presentation_status": "owner_approved"
     },
     {
       "id": "dir-06",
@@ -169,7 +199,10 @@
       "group_id": "immersive-media",
       "count": 6,
       "proposed_url": "/services/immersive-media#dir-06",
-      "publication_status": "content_not_approved"
+      "publication_status": "content_not_approved",
+      "display_title": "Спецпроекты и интерактив",
+      "plain_summary": "Виртуальные пространства, интерактивные карты, дополненная реальность и цифровые выставки.",
+      "presentation_status": "owner_approved"
     },
     {
       "id": "dir-07",
@@ -179,7 +212,10 @@
       "group_id": "immersive-media",
       "count": 8,
       "proposed_url": "/services/immersive-media#dir-07",
-      "publication_status": "content_not_approved"
+      "publication_status": "content_not_approved",
+      "display_title": "3D, анимация и видео",
+      "plain_summary": "Трёхмерная графика, инженерная визуализация, анимация и видеопроизводство.",
+      "presentation_status": "owner_approved"
     },
     {
       "id": "dir-08",
@@ -189,7 +225,10 @@
       "group_id": "immersive-media",
       "count": 2,
       "proposed_url": "/services/immersive-media#dir-08",
-      "publication_status": "content_not_approved"
+      "publication_status": "content_not_approved",
+      "display_title": "Музыка и звук",
+      "plain_summary": "Создание музыки и звуковое оформление проектов.",
+      "presentation_status": "owner_approved"
     },
     {
       "id": "dir-09",
@@ -199,7 +238,10 @@
       "group_id": "ai-and-infrastructure",
       "count": 9,
       "proposed_url": "/services/ai-and-infrastructure#dir-09",
-      "publication_status": "content_not_approved"
+      "publication_status": "content_not_approved",
+      "display_title": "Проектирование и разработка систем искусственного интеллекта",
+      "plain_summary": "От анализа задачи и проверки идеи до разработки, внедрения и сопровождения.",
+      "presentation_status": "owner_approved"
     },
     {
       "id": "dir-10",
@@ -209,7 +251,10 @@
       "group_id": "ai-and-infrastructure",
       "count": 5,
       "proposed_url": "/services/ai-and-infrastructure#dir-10",
-      "publication_status": "content_not_approved"
+      "publication_status": "content_not_approved",
+      "display_title": "Прикладные интеллектуальные и инженерные решения",
+      "plain_summary": "Поиск по документам, распознавание изображений, цифровые модели и инженерные расчёты.",
+      "presentation_status": "owner_approved"
     },
     {
       "id": "dir-11",
@@ -219,7 +264,10 @@
       "group_id": "sales-and-cx",
       "count": 6,
       "proposed_url": "/services/sales-and-cx#dir-11",
-      "publication_status": "content_not_approved"
+      "publication_status": "content_not_approved",
+      "display_title": "Продажи",
+      "plain_summary": "Организация отделов продаж, автоматизация и управление взаимодействием с клиентами.",
+      "presentation_status": "owner_approved"
     },
     {
       "id": "dir-12",
@@ -229,7 +277,10 @@
       "group_id": "sales-and-cx",
       "count": 1,
       "proposed_url": "/services/sales-and-cx#dir-12",
-      "publication_status": "content_not_approved"
+      "publication_status": "content_not_approved",
+      "display_title": "Клиентское обслуживание",
+      "plain_summary": "Организация обработки обращений и поддержки клиентов.",
+      "presentation_status": "owner_approved"
     },
     {
       "id": "dir-13",
@@ -239,7 +290,10 @@
       "group_id": "data-finance-operations",
       "count": 4,
       "proposed_url": "/services/data-finance-operations#dir-13",
-      "publication_status": "content_not_approved"
+      "publication_status": "content_not_approved",
+      "display_title": "Бухгалтерия и аудит",
+      "plain_summary": "Бухгалтерское обслуживание, кадровый учёт, финансовая проверка и отчётность.",
+      "presentation_status": "owner_approved"
     },
     {
       "id": "dir-14",
@@ -249,7 +303,10 @@
       "group_id": "data-finance-operations",
       "count": 3,
       "proposed_url": "/services/data-finance-operations#dir-14",
-      "publication_status": "content_not_approved"
+      "publication_status": "content_not_approved",
+      "display_title": "Подбор персонала и кадровое сопровождение",
+      "plain_summary": "Поиск сотрудников, организация кадровых процессов и обучение команды.",
+      "presentation_status": "owner_approved"
     },
     {
       "id": "dir-15",
@@ -259,7 +316,10 @@
       "group_id": "data-finance-operations",
       "count": 7,
       "proposed_url": "/services/data-finance-operations#dir-15",
-      "publication_status": "content_not_approved"
+      "publication_status": "content_not_approved",
+      "display_title": "Бизнес-аналитика",
+      "plain_summary": "Анализ данных, прогнозирование, отчётность и автоматизация управленческого учёта.",
+      "presentation_status": "owner_approved"
     },
     {
       "id": "dir-16",
@@ -269,7 +329,10 @@
       "group_id": "digital-products",
       "count": 2,
       "proposed_url": "/services/digital-products#dir-16",
-      "publication_status": "content_not_approved"
+      "publication_status": "content_not_approved",
+      "display_title": "Электронная коммерция",
+      "plain_summary": "Интернет-магазины, торговые платформы и управление онлайн-продажами.",
+      "presentation_status": "owner_approved"
     },
     {
       "id": "dir-17",
@@ -279,7 +342,10 @@
       "group_id": "data-finance-operations",
       "count": 1,
       "proposed_url": "/services/data-finance-operations#dir-17",
-      "publication_status": "content_not_approved"
+      "publication_status": "content_not_approved",
+      "display_title": "Комплексное обслуживание бизнес-процессов",
+      "plain_summary": "Организация и сопровождение нескольких функций компании.",
+      "presentation_status": "owner_approved"
     }
   ],
   "services": [
@@ -298,7 +364,15 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Разработка бренда",
+      "plain_summary": "Определяем позиционирование бренда, его характер и принципы коммуникации.",
+      "search_aliases": [
+        "Брендинг",
+        "Создание или обновление бренда",
+        "позиционирование и стратегия бренда"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-002",
@@ -315,7 +389,16 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Разработка логотипов",
+      "plain_summary": "Создаём визуальный знак компании или продукта.",
+      "search_aliases": [
+        "Разработка логотипов",
+        "Разработка логотипа",
+        "Логотип",
+        "знак или обновление символа бренда"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-003",
@@ -332,7 +415,17 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Фирменный стиль",
+      "plain_summary": "Разрабатываем систему цветов, шрифтов, графики и оформления материалов.",
+      "search_aliases": [
+        "Айдентика и фирменный стиль",
+        "Фирменный стиль",
+        "Айдентика",
+        "цвета",
+        "шрифты и оформление"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-082",
@@ -351,7 +444,16 @@
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
       },
-      "approval": "owner_requested_catalogue_expansion_2026-11-10"
+      "approval": "owner_requested_catalogue_expansion_2026-11-10",
+      "display_title": "Название и концепция бренда",
+      "plain_summary": "Создаём название, формулируем ценности и ключевые сообщения бренда.",
+      "search_aliases": [
+        "Нейминг и бренд-платформа",
+        "Название и концепция бренда",
+        "Нейминг",
+        "имя компании или продукта"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-004",
@@ -368,7 +470,17 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Маркетинговая стратегия",
+      "plain_summary": "Определяем аудиторию, каналы продвижения и план маркетинговых действий.",
+      "search_aliases": [
+        "Маркетинговая стратегия",
+        "Маркетинг",
+        "План продвижения",
+        "выход на рынок",
+        "рост бизнеса"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-005",
@@ -385,7 +497,18 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Продвижение сайта в поиске",
+      "plain_summary": "Улучшаем структуру, содержание и видимость сайта в поисковых системах.",
+      "search_aliases": [
+        "SEO",
+        "Продвижение сайта в поиске (SEO)",
+        "Поисковые системы",
+        "Google",
+        "Яндекс",
+        "трафик"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-006",
@@ -405,7 +528,19 @@
       },
       "merged_legacy_ids": [
         "svc-008"
-      ]
+      ],
+      "display_title": "Продвижение в поиске с искусственным интеллектом",
+      "plain_summary": "Работаем над представленностью компании в ответах интеллектуальных поисковых сервисов.",
+      "search_aliases": [
+        "GEO – оптимизация для AI-поиска",
+        "GEO",
+        "Продвижение в поиске с ИИ (GEO)",
+        "AI-поиск",
+        "нейросети",
+        "ответы ChatGPT",
+        "упоминания бренда"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-009",
@@ -422,7 +557,16 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Контекстная реклама",
+      "plain_summary": "Настраиваем рекламные кампании для привлечения заинтересованной аудитории.",
+      "search_aliases": [
+        "Контекстная реклама",
+        "Google Ads",
+        "Яндекс Директ",
+        "поисковая реклама"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-010",
@@ -439,7 +583,18 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Реклама и продвижение в социальных сетях",
+      "plain_summary": "Разрабатываем контент и рекламные кампании для социальных площадок.",
+      "search_aliases": [
+        "Таргетированная реклама и продвижение в соцсетях",
+        "Таргетированная реклама и SMM",
+        "Реклама и продвижение в соцсетях",
+        "Социальные сети",
+        "таргет",
+        "SMM"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-011",
@@ -456,7 +611,17 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Управление репутацией",
+      "plain_summary": "Работаем с отзывами, публикациями и упоминаниями компании.",
+      "search_aliases": [
+        "Управление репутацией — SERM/ORM",
+        "Управление репутацией",
+        "Отзывы",
+        "рейтинги",
+        "упоминания в интернете"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-012",
@@ -473,7 +638,18 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Контент-маркетинг и подготовка публикаций",
+      "plain_summary": "Создаём статьи, экспертные материалы и коммуникационные кампании.",
+      "search_aliases": [
+        "Контент-маркетинг и редакционные коммуникации",
+        "Контент-маркетинг и PR",
+        "Создание контента",
+        "Статьи",
+        "тексты",
+        "публикации и материалы"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-013",
@@ -490,7 +666,19 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Организация деловых мероприятий",
+      "plain_summary": "Разрабатываем программу и организуем конференции, форумы и деловые встречи.",
+      "search_aliases": [
+        "Деловые мероприятия B2B",
+        "Организация B2B-мероприятий",
+        "Деловые мероприятия",
+        "Конференции",
+        "форумы",
+        "выставки",
+        "встречи"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-083",
@@ -509,7 +697,16 @@
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
       },
-      "approval": "owner_requested_catalogue_expansion_2026-11-10"
+      "approval": "owner_requested_catalogue_expansion_2026-11-10",
+      "display_title": "Рассылки и коммуникации с клиентами",
+      "plain_summary": "Настраиваем персонализированные рассылки и автоматические сценарии общения.",
+      "search_aliases": [
+        "Email-маркетинг и CRM-маркетинг",
+        "Рассылки клиентам",
+        "Email-маркетинг",
+        "сценарии и CRM-маркетинг"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-014",
@@ -526,7 +723,18 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Организация брендовых мероприятий",
+      "plain_summary": "Создаём и проводим презентации, открытия и специальные события для брендов.",
+      "search_aliases": [
+        "Брендовые мероприятия и event production",
+        "Организация мероприятий (Event Management)",
+        "Брендовые мероприятия",
+        "Презентации",
+        "промоакции",
+        "события"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-015",
@@ -543,7 +751,18 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Связи с общественностью и работа со СМИ",
+      "plain_summary": "Разрабатываем коммуникационные стратегии и организуем присутствие бренда в медиапространстве.",
+      "search_aliases": [
+        "PR-стратегия и медиакоммуникации",
+        "PR и коммуникационные кампании (PR & Communications)",
+        "Работа со СМИ и PR",
+        "Публичность",
+        "коммуникации",
+        "публикации в медиа"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-016",
@@ -560,7 +779,19 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Разработка сайтов",
+      "plain_summary": "Создаём корпоративные, продуктовые и презентационные сайты.",
+      "search_aliases": [
+        "Разработка сайтов и лендингов",
+        "Разработка сайта",
+        "Лендинг",
+        "корпоративный сайт",
+        "каталог",
+        "портал",
+        "редизайн"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-017",
@@ -578,7 +809,17 @@
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
       },
-      "scope_boundary": "Многопользовательские и многосторонние B2B/B2C-платформы, агрегаторы и комплексные цифровые экосистемы; конкретные примеры: партнёрский портал, площадка с ролями организаций и пользователей, сервис координации участников. Отдельно от веб-приложений и SaaS svc-086, заказного корпоративного ПО svc-087."
+      "scope_boundary": "Многопользовательские и многосторонние B2B/B2C-платформы, агрегаторы и комплексные цифровые экосистемы; конкретные примеры: партнёрский портал, площадка с ролями организаций и пользователей, сервис координации участников. Отдельно от веб-приложений и SaaS svc-086, заказного корпоративного ПО svc-087.",
+      "display_title": "Разработка цифровых платформ",
+      "plain_summary": "Проектируем многофункциональные цифровые среды для бизнеса и пользователей.",
+      "search_aliases": [
+        "Разработка цифровых платформ",
+        "Разработка цифровой платформы",
+        "Портал",
+        "площадка",
+        "экосистема для пользователей"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-018",
@@ -595,7 +836,15 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Дизайн сайтов и приложений",
+      "plain_summary": "Создаём выразительные интерфейсы, которыми удобно пользоваться.",
+      "search_aliases": [
+        "UX/UI-дизайн",
+        "Дизайн сайта или приложения (UX/UI)",
+        "Внешний вид и удобство интерфейса"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-019",
@@ -612,7 +861,16 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Разработка личных кабинетов",
+      "plain_summary": "Создаём персональные рабочие пространства для клиентов, партнёров и сотрудников.",
+      "search_aliases": [
+        "Личные кабинеты",
+        "Разработка личного кабинета",
+        "Кабинет клиента",
+        "партнёра или сотрудника"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-020",
@@ -629,7 +887,17 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Интерактивные инструменты",
+      "plain_summary": "Разрабатываем калькуляторы, конфигураторы и другие инструменты взаимодействия.",
+      "search_aliases": [
+        "Интерактивные инструменты",
+        "Калькулятор",
+        "конфигуратор",
+        "конструктор",
+        "тест"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-021",
@@ -646,7 +914,17 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Поддержка и развитие цифровых продуктов",
+      "plain_summary": "Исправляем ошибки, совершенствуем функции, производительность и удобство использования.",
+      "search_aliases": [
+        "Поддержка и развитие",
+        "Поддержка сайта или программы",
+        "Исправление ошибок",
+        "обновление",
+        "сопровождение"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-084",
@@ -665,7 +943,15 @@
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
       },
-      "approval": "owner_requested_catalogue_expansion_2026-11-10"
+      "approval": "owner_requested_catalogue_expansion_2026-11-10",
+      "display_title": "Разработка мобильных приложений",
+      "plain_summary": "Создаём приложения для мобильных устройств.",
+      "search_aliases": [
+        "Разработка мобильных приложений",
+        "Разработка мобильного приложения",
+        "Приложения для iPhone и Android"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-085",
@@ -684,7 +970,18 @@
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
       },
-      "approval": "owner_requested_catalogue_expansion_2026-11-10"
+      "approval": "owner_requested_catalogue_expansion_2026-11-10",
+      "display_title": "Разработка программ для компьютеров",
+      "plain_summary": "Разрабатываем программы для персональных компьютеров и рабочих станций.",
+      "search_aliases": [
+        "Разработка десктопных приложений и ПО",
+        "Разработка программ для компьютера",
+        "Десктопное ПО",
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-086",
@@ -703,7 +1000,16 @@
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
       },
-      "approval": "owner_requested_catalogue_expansion_2026-11-10"
+      "approval": "owner_requested_catalogue_expansion_2026-11-10",
+      "display_title": "Разработка онлайн-сервисов",
+      "plain_summary": "Создаём приложения и программные продукты, работающие через интернет.",
+      "search_aliases": [
+        "Разработка веб-приложений и SaaS",
+        "Разработка онлайн-сервиса (SaaS)",
+        "Облачное приложение",
+        "программа по подписке"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-087",
@@ -722,7 +1028,15 @@
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
       },
-      "approval": "owner_requested_catalogue_expansion_2026-11-10"
+      "approval": "owner_requested_catalogue_expansion_2026-11-10",
+      "display_title": "Разработка программ на заказ для бизнеса",
+      "plain_summary": "Создаём программное обеспечение под конкретные процессы компании.",
+      "search_aliases": [
+        "Разработка заказного корпоративного ПО",
+        "Программа для работы компании",
+        "Внутреннее корпоративное ПО на заказ"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-088",
@@ -741,7 +1055,17 @@
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
       },
-      "approval": "owner_requested_catalogue_expansion_2026-11-10"
+      "approval": "owner_requested_catalogue_expansion_2026-11-10",
+      "display_title": "Интеграция программ и сервисов",
+      "plain_summary": "Объединяем приложения, данные и корпоративные системы.",
+      "search_aliases": [
+        "API и системные интеграции",
+        "Связать программы между собой",
+        "Интеграция",
+        "API",
+        "автоматический обмен данными"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-022",
@@ -758,7 +1082,18 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Обслуживание компьютерной инфраструктуры",
+      "plain_summary": "Поддерживаем серверы, сети, рабочие места и корпоративные системы.",
+      "search_aliases": [
+        "ИТ-аутсорсинг и Managed IT",
+        "ИТ-обслуживание компании",
+        "Техподдержка",
+        "компьютеры",
+        "серверы",
+        "инфраструктура"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-023",
@@ -783,7 +1118,18 @@
         "Защита серверов, корпоративных сетей, облачной инфраструктуры и конечных устройств",
         "Защита данных, управление доступом, конфиденциальность и оценка соответствия требованиям"
       ],
-      "capabilities_note": "Описаны направления работ, но наличие конкретного режима SOC/SLA/24×7, сертификаций, юридических гарантий и компетенций команды должно быть подтверждено до публикации."
+      "capabilities_note": "Описаны направления работ, но наличие конкретного режима SOC/SLA/24×7, сертификаций, юридических гарантий и компетенций команды должно быть подтверждено до публикации.",
+      "display_title": "Проверка и усиление защиты систем",
+      "plain_summary": "Выявляем уязвимости и разрабатываем меры защиты.",
+      "search_aliases": [
+        "Аудит защищённости и усиление защиты систем",
+        "Кибербезопасность (Cybersecurity as a Service)",
+        "Проверка безопасности систем",
+        "Аудит защиты сайта",
+        "приложения",
+        "сети"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-024",
@@ -800,7 +1146,15 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Автоматизация корпоративных процессов",
+      "plain_summary": "Настраиваем цифровые инструменты для управления работой компании.",
+      "search_aliases": [
+        "Автоматизация корпоративных систем (ERP/BPM)",
+        "Автоматизация работы компании",
+        "Автоматизация процессов без необходимости выбирать технологии"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-025",
@@ -824,7 +1178,18 @@
         "Резервное копирование, восстановление и устойчивость систем",
         "Безопасность AI-агентов, LLM-приложений, API и корпоративных AI-сервисов"
       ],
-      "capabilities_note": "Регулярная поддержка, реагирование и часы предоставления могут рекламироваться только после подтверждения операционной модели и договора."
+      "capabilities_note": "Регулярная поддержка, реагирование и часы предоставления могут рекламироваться только после подтверждения операционной модели и договора.",
+      "display_title": "Постоянное сопровождение кибербезопасности",
+      "plain_summary": "Контролируем угрозы, защищённость систем и данных.",
+      "search_aliases": [
+        "Управляемая кибербезопасность и защита AI-систем",
+        "Managed Cybersecurity & AI Security",
+        "Постоянная защита цифровых систем",
+        "Контроль угроз",
+        "реагирование",
+        "защита ИИ"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-026",
@@ -841,7 +1206,16 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Интерактивные спецпроекты",
+      "plain_summary": "Создаём цифровые истории, которыми посетитель может управлять самостоятельно.",
+      "search_aliases": [
+        "Интерактивные спецпроекты",
+        "Интерактивный спецпроект",
+        "Интерактивная история",
+        "выставочный проект"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-027",
@@ -858,7 +1232,16 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Виртуальные пространства",
+      "plain_summary": "Проектируем цифровые среды, доступные для самостоятельного исследования.",
+      "search_aliases": [
+        "Иммерсивные онлайн-опыты",
+        "Виртуальное онлайн-пространство",
+        "Цифровая среда",
+        "виртуальное мероприятие"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-028",
@@ -875,7 +1258,17 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Интерактивные карты и 3D-туры",
+      "plain_summary": "Создаём инструменты изучения объектов, зданий и территорий.",
+      "search_aliases": [
+        "Интерактивные карты и 3D-туры",
+        "Интерактивная карта или 3D-тур",
+        "Виртуальный тур",
+        "панорамы",
+        "маршруты"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-029",
@@ -892,7 +1285,15 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Дополненная реальность",
+      "plain_summary": "Добавляем цифровые объекты и информацию в окружающий мир.",
+      "search_aliases": [
+        "AR-механики",
+        "Дополненная реальность (AR)",
+        "Виртуальные элементы в реальном мире"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-090",
@@ -911,7 +1312,15 @@
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
       },
-      "approval": "owner_requested_catalogue_expansion_2026-11-10"
+      "approval": "owner_requested_catalogue_expansion_2026-11-10",
+      "display_title": "Виртуальная реальность",
+      "plain_summary": "Разрабатываем интерактивные приложения для погружения в цифровые пространства.",
+      "search_aliases": [
+        "Разработка VR-приложений",
+        "Виртуальная реальность (VR)",
+        "Проекты для VR-очков и тренажёры"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-091",
@@ -930,7 +1339,17 @@
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
       },
-      "approval": "owner_requested_catalogue_expansion_2026-11-10"
+      "approval": "owner_requested_catalogue_expansion_2026-11-10",
+      "display_title": "Цифровые инсталляции и виртуальные выставки",
+      "plain_summary": "Создаём интерактивные экспозиции для брендов, музеев и мероприятий.",
+      "search_aliases": [
+        "Цифровые инсталляции и виртуальные выставки",
+        "Цифровая выставка или инсталляция",
+        "Экспозиции",
+        "экраны",
+        "интерактивные объекты"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-030",
@@ -947,7 +1366,16 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "3D-графика и визуализация",
+      "plain_summary": "Создаём трёхмерные изображения объектов, продуктов и пространств.",
+      "search_aliases": [
+        "3D-графика и визуализация",
+        "3D-визуализация",
+        "Изображения продукта",
+        "интерьера и архитектуры"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-031",
@@ -964,7 +1392,14 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Научная и инженерная визуализация",
+      "plain_summary": "Наглядно показываем сложные объекты, технологии и процессы.",
+      "search_aliases": [
+        "Научная и инженерная визуализация",
+        "Объяснение устройства или процесса"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-032",
@@ -981,7 +1416,16 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Анимация и движущаяся графика",
+      "plain_summary": "Создаём анимационные ролики, заставки и графические элементы.",
+      "search_aliases": [
+        "Motion-дизайн и анимация",
+        "Анимация и движущаяся графика",
+        "Motion-дизайн",
+        "ролики и заставки"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-033",
@@ -998,7 +1442,17 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Анимация с искусственным интеллектом",
+      "plain_summary": "Используем генеративные технологии при создании и обработке анимации.",
+      "search_aliases": [
+        "Анимация с применением AI",
+        "AI-анимация",
+        "Анимация с применением ИИ",
+        "Создание сцен",
+        "персонажей и видео с AI"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-034",
@@ -1015,7 +1469,15 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Графика в реальном времени",
+      "plain_summary": "Разрабатываем цифровые сцены, изменяющиеся непосредственно во время работы.",
+      "search_aliases": [
+        "Real-time графика",
+        "Графика в реальном времени",
+        "Динамические изображения для эфиров и экранов"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-035",
@@ -1032,7 +1494,17 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Кинематографичные цифровые сцены",
+      "plain_summary": "Создаём постановочные цифровые сцены и видеоролики.",
+      "search_aliases": [
+        "Синематики",
+        "Кинематографичные сцены",
+        "Синематик",
+        "игровая сцена",
+        "рекламный видеоряд"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-036",
@@ -1049,7 +1521,15 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Съёмка с виртуальными декорациями",
+      "plain_summary": "Объединяем съёмку и цифровые пространства в одном производственном процессе.",
+      "search_aliases": [
+        "Virtual production",
+        "Виртуальная съёмка",
+        "цифровые декорации"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-092",
@@ -1068,7 +1548,18 @@
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
       },
-      "approval": "owner_requested_catalogue_expansion_2026-11-10"
+      "approval": "owner_requested_catalogue_expansion_2026-11-10",
+      "display_title": "Видеопроизводство и монтаж",
+      "plain_summary": "Создаём видеоматериалы от сценария до финальной обработки.",
+      "search_aliases": [
+        "Видеопроизводство, монтаж и постпродакшен",
+        "Видеопроизводство и монтаж",
+        "Ролики",
+        "съёмка",
+        "монтаж",
+        "постпродакшен"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-037",
@@ -1085,7 +1576,17 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Создание музыки",
+      "plain_summary": "Пишем оригинальную музыку для проектов и медиапродуктов.",
+      "search_aliases": [
+        "Создание музыки",
+        "Создание оригинальной музыки",
+        "Композиция",
+        "саундтрек",
+        "музыкальное оформление"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-038",
@@ -1102,7 +1603,16 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Звуковое оформление",
+      "plain_summary": "Создаём звуковые эффекты, атмосферу и интерактивные звуковые элементы.",
+      "search_aliases": [
+        "Саунд-дизайн",
+        "Звуковое оформление",
+        "эффекты",
+        "озвучивание"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-039",
@@ -1119,7 +1629,16 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Анализ возможностей применения искусственного интеллекта",
+      "plain_summary": "Определяем задачи, в которых интеллектуальные технологии могут быть полезны.",
+      "search_aliases": [
+        "Анализ задачи, процессов и данных",
+        "Определение возможностей ИИ для бизнеса",
+        "Анализ процессов",
+        "поиск подходящих задач для ИИ"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-040",
@@ -1136,7 +1655,16 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Проектирование систем искусственного интеллекта",
+      "plain_summary": "Разрабатываем структуру будущей системы, определяем её компоненты и требования.",
+      "search_aliases": [
+        "Архитектура AI-решения",
+        "Проектирование AI-системы",
+        "Архитектура",
+        "концепция и план внедрения"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-041",
@@ -1153,7 +1681,17 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Создание пробной версии решения",
+      "plain_summary": "Проверяем техническую реализуемость идеи до полноценной разработки.",
+      "search_aliases": [
+        "Прототипирование",
+        "Создание пробной версии AI-решения",
+        "Прототип",
+        "проверка идеи",
+        "демонстрация"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-042",
@@ -1170,7 +1708,17 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Проверка решения на имеющихся данных",
+      "plain_summary": "Оцениваем качество работы системы на реальных данных клиента.",
+      "search_aliases": [
+        "Пилот на исторических данных",
+        "Проверка AI на имеющихся данных",
+        "Пилот",
+        "эксперимент",
+        "оценка качества"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-043",
@@ -1187,7 +1735,15 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Разработка и внедрение систем искусственного интеллекта",
+      "plain_summary": "Создаём интеллектуальные системы и подключаем их к рабочим процессам.",
+      "search_aliases": [
+        "Разработка, интеграция и внедрение",
+        "Разработка и внедрение AI-системы",
+        "Готовое решение с ИИ для реальной работы"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-044",
@@ -1204,7 +1760,17 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Поддержка систем искусственного интеллекта",
+      "plain_summary": "Контролируем качество моделей, обновляем их и сопровождаем эксплуатацию.",
+      "search_aliases": [
+        "MLOps и сопровождение моделей",
+        "Поддержка работающей AI-системы",
+        "Обновление моделей",
+        "контроль",
+        "сопровождение"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-045",
@@ -1221,7 +1787,17 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Автоматизация бизнес-процессов с искусственным интеллектом",
+      "plain_summary": "Автоматизируем повторяющиеся операции и обработку информации.",
+      "search_aliases": [
+        "Автоматизация бизнес-процессов с AI",
+        "AI-автоматизация бизнеса",
+        "Автоматизация работы сотрудников с ИИ",
+        "Обработка информации",
+        "повторяющиеся задачи"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-046",
@@ -1238,7 +1814,18 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Разработка интеллектуальных помощников",
+      "plain_summary": "Создаём системы, способные выполнять согласованные задачи сотрудников.",
+      "search_aliases": [
+        "Разработка и сопровождение AI-агентов",
+        "AI Agents as a Service",
+        "Разработка AI-помощника",
+        "Чат-бот",
+        "агент",
+        "цифровой консультант"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-047",
@@ -1255,7 +1842,17 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Контроль качества и рисков искусственного интеллекта",
+      "plain_summary": "Проверяем надёжность результатов, безопасность данных и правила применения.",
+      "search_aliases": [
+        "Управление рисками и контроль применения AI",
+        "AI Governance & Compliance",
+        "Контроль качества и рисков ИИ",
+        "Безопасное применение ИИ",
+        "проверка ответов"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-051",
@@ -1272,7 +1869,18 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Цифровые модели технологических процессов",
+      "plain_summary": "Моделируем реальные процессы для анализа их состояния и возможных изменений.",
+      "search_aliases": [
+        "Цифровые двойники технологических процессов",
+        "Цифровые двойники процессов",
+        "Цифровые модели объектов и процессов",
+        "Цифровые двойники",
+        "оборудование",
+        "моделирование"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-052",
@@ -1289,7 +1897,17 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Поиск по документам и знаниям компании",
+      "plain_summary": "Создаём системы, которые находят информацию и формируют ответы со ссылками на источники.",
+      "search_aliases": [
+        "RAG-системы и работа со знаниями",
+        "AI-поиск по знаниям компании",
+        "Помощник по инструкциям",
+        "документам",
+        "базе знаний"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-053",
@@ -1306,7 +1924,17 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Интеллектуальная обработка документов",
+      "plain_summary": "Автоматизируем извлечение, анализ и подготовку документов.",
+      "search_aliases": [
+        "Документные AI-агенты",
+        "Обработка документов с ИИ",
+        "Распознавание",
+        "проверка",
+        "извлечение данных"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-054",
@@ -1323,7 +1951,16 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Распознавание изображений и видео",
+      "plain_summary": "Разрабатываем системы обнаружения объектов, событий и дефектов.",
+      "search_aliases": [
+        "Компьютерное зрение",
+        "Распознавание изображений и видео",
+        "камеры",
+        "дефекты"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-055",
@@ -1340,7 +1977,17 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Инженерное моделирование и проектирование",
+      "plain_summary": "Создаём вычислительные инструменты для инженерных расчётов и проектирования.",
+      "search_aliases": [
+        "Инженерное моделирование и проектирование",
+        "Инженерное моделирование",
+        "Расчёты",
+        "проверка",
+        "проектирование"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-056",
@@ -1357,7 +2004,17 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Создание отдела продаж",
+      "plain_summary": "Организуем команду, инструменты и процессы продаж.",
+      "search_aliases": [
+        "Отдел продаж под ключ",
+        "Создание отдела продаж",
+        "Построение команды",
+        "процессы",
+        "управление продажами"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-057",
@@ -1374,7 +2031,17 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Внедрение систем управления клиентами",
+      "plain_summary": "Настраиваем учёт клиентов, сделок и истории взаимодействий.",
+      "search_aliases": [
+        "Внедрение и кастомизация CRM",
+        "Настройка системы работы с клиентами (CRM)",
+        "Учёт клиентов",
+        "сделки",
+        "история общения"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-058",
@@ -1391,7 +2058,18 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Объединение каналов связи",
+      "plain_summary": "Связываем телефонию, почту, мессенджеры и другие каналы общения.",
+      "search_aliases": [
+        "Омниканальные коммуникации",
+        "Объединение каналов связи",
+        "Мессенджеры",
+        "почта",
+        "телефония",
+        "переписка"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-059",
@@ -1408,7 +2086,17 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Сценарии и стандарты продаж",
+      "plain_summary": "Разрабатываем инструкции и сценарии взаимодействия с клиентами.",
+      "search_aliases": [
+        "Скрипты продаж и регламенты",
+        "Сценарии и инструкции для продаж",
+        "Скрипты",
+        "регламенты",
+        "стандарты общения"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-060",
@@ -1425,7 +2113,16 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Автоматизация продаж и обработки заявок",
+      "plain_summary": "Используем искусственный интеллект для обработки обращений и поддержки менеджеров.",
+      "search_aliases": [
+        "AI-автоматизация продаж и обработки заявок",
+        "AI-автоматизация лидогенерации и обработки заявок",
+        "Автоматизация заявок и продаж с ИИ",
+        "ИИ для обработки запросов и продаж"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-061",
@@ -1442,7 +2139,16 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Организация работы маркетинга, продаж и клиентского сервиса",
+      "plain_summary": "Согласуем процессы, данные и показатели коммерческих подразделений.",
+      "search_aliases": [
+        "RevOps и коммерческие операции",
+        "Совместная работа маркетинга и продаж",
+        "RevOps",
+        "согласование процессов и показателей"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-062",
@@ -1459,7 +2165,16 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Обслуживание клиентов внешней командой",
+      "plain_summary": "Организуем обработку обращений и клиентскую поддержку.",
+      "search_aliases": [
+        "Клиентский сервис на аутсорсе (CX/BPO)",
+        "Обслуживание клиентов внешней командой",
+        "Контакт-центр",
+        "поддержка и обработка обращений"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-064",
@@ -1476,7 +2191,15 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Бухгалтерское обслуживание",
+      "plain_summary": "Ведём бухгалтерский и налоговый учёт компании.",
+      "search_aliases": [
+        "Аутсорсинг бухгалтерии",
+        "Бухгалтерское обслуживание",
+        "Ведение бухгалтерии внешней командой"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-065",
@@ -1493,7 +2216,16 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Кадровый учёт и расчёт зарплаты",
+      "plain_summary": "Работаем с кадровыми документами, начислениями и отчётностью.",
+      "search_aliases": [
+        "Кадровый учёт и расчёт зарплаты",
+        "Документы",
+        "начисления",
+        "выплаты"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-066",
@@ -1510,7 +2242,17 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Финансовая проверка и восстановление учёта",
+      "plain_summary": "Анализируем финансовые показатели, документы и возможные риски.",
+      "search_aliases": [
+        "Финансовая диагностика, due diligence и восстановление учёта",
+        "Финансовый аудит, due diligence и восстановление учёта",
+        "Проверка финансов и восстановление учёта",
+        "Финансовая диагностика",
+        "проверка перед сделкой"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-069",
@@ -1527,7 +2269,16 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Внешний финансовый директор",
+      "plain_summary": "Организуем финансовое планирование, управленческий учёт и контроль денежных потоков.",
+      "search_aliases": [
+        "Финансовый директор на аутсорсе (CFO as a Service)",
+        "Финансовое управление компанией",
+        "Внешний финансовый директор",
+        "денежные потоки"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-070",
@@ -1544,7 +2295,16 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Подбор персонала",
+      "plain_summary": "Ищем и оцениваем кандидатов на позиции в компании.",
+      "search_aliases": [
+        "Подбор персонала",
+        "Подбор сотрудников",
+        "Поиск персонала",
+        "закрытие вакансий"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-071",
@@ -1561,7 +2321,18 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Кадровое сопровождение и управление подбором",
+      "plain_summary": "Организуем процессы найма, адаптации и работы с персоналом.",
+      "search_aliases": [
+        "HR Business Partner / RPO",
+        "Организация работы с персоналом",
+        "HR",
+        "адаптация",
+        "оценка",
+        "развитие команды"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-072",
@@ -1578,7 +2349,15 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Обучение сотрудников и внедрение искусственного интеллекта",
+      "plain_summary": "Помогаем команде освоить интеллектуальные инструменты и применять их в работе.",
+      "search_aliases": [
+        "Корпоративное обучение и внедрение ИИ",
+        "Обучение сотрудников и внедрение ИИ",
+        "Корпоративное обучение и новые инструменты"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-073",
@@ -1595,7 +2374,15 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Аналитика рекламы и продаж",
+      "plain_summary": "Показываем связь между рекламными затратами, обращениями и продажами.",
+      "search_aliases": [
+        "Сквозная аналитика",
+        "Аналитика рекламы и продаж",
+        "связь рекламы с доходами"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-074",
@@ -1612,7 +2399,17 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Бизнес-отчёты и панели показателей",
+      "plain_summary": "Создаём интерактивные инструменты для анализа показателей компании.",
+      "search_aliases": [
+        "BI и бизнес-дашборды",
+        "Бизнес-отчёты и панели показателей",
+        "Дашборды",
+        "BI",
+        "визуализация бизнес-данных"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-075",
@@ -1629,7 +2426,16 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Корпоративные хранилища данных",
+      "plain_summary": "Объединяем информацию из разных систем в едином пространстве.",
+      "search_aliases": [
+        "Корпоративные хранилища данных — DWH",
+        "Единое хранилище данных",
+        "Объединение файлов",
+        "баз и программ"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-076",
@@ -1646,7 +2452,15 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Аналитика сайта и действий посетителей",
+      "plain_summary": "Настраиваем сбор и анализ данных о поведении пользователей.",
+      "search_aliases": [
+        "Веб-аналитика и серверное отслеживание",
+        "Настройка аналитики сайта",
+        "Отслеживание действий пользователей и заявок"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-077",
@@ -1663,7 +2477,17 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Прогнозирование на основе данных",
+      "plain_summary": "Разрабатываем модели прогнозирования спроса, продаж и других показателей.",
+      "search_aliases": [
+        "Предиктивная аналитика и Machine Learning",
+        "Прогнозирование по данным",
+        "Прогноз спроса",
+        "продаж",
+        "расходов и рисков"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-078",
@@ -1680,7 +2504,16 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Автоматизация управленческого учёта и отчётности",
+      "plain_summary": "Настраиваем автоматический сбор и подготовку управленческих данных.",
+      "search_aliases": [
+        "Автоматизация управленческого учёта и отчётности",
+        "Автоматизация управленческого учёта",
+        "Автоматизация отчётности",
+        "Управленческий учёт и автоматические отчёты"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-079",
@@ -1697,7 +2530,17 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Управление корпоративными данными",
+      "plain_summary": "Определяем правила хранения, качества, использования и доступа к информации.",
+      "search_aliases": [
+        "Управление корпоративными данными (Data Governance)",
+        "Управление корпоративными данными",
+        "Качество",
+        "доступ",
+        "порядок и правила"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-080",
@@ -1715,7 +2558,18 @@
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
       },
-      "scope_boundary": "Коммерческое управление ассортиментом, продажами и маркетплейсами; не путать с технической разработкой торговой платформы svc-089."
+      "scope_boundary": "Коммерческое управление ассортиментом, продажами и маркетплейсами; не путать с технической разработкой торговой платформы svc-089.",
+      "display_title": "Управление интернет-магазинами и маркетплейсами",
+      "plain_summary": "Организуем и развиваем процессы электронной торговли.",
+      "search_aliases": [
+        "Управление маркетплейсами и e-commerce",
+        "Управление маркетплейсами",
+        "Торговые площадки",
+        "карточки",
+        "реклама",
+        "аналитика"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-089",
@@ -1734,7 +2588,17 @@
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
       },
-      "approval": "owner_requested_catalogue_expansion_2026-11-10"
+      "approval": "owner_requested_catalogue_expansion_2026-11-10",
+      "display_title": "Разработка интернет-магазинов и торговых платформ",
+      "plain_summary": "Создаём цифровые площадки для продажи товаров и оформления заказов.",
+      "search_aliases": [
+        "Разработка интернет-магазинов и торговых платформ",
+        "Разработка интернет-магазина",
+        "Онлайн-продажи",
+        "товары",
+        "заказы и оплата"
+      ],
+      "presentation_status": "owner_approved"
     },
     {
       "id": "svc-081",
@@ -1751,7 +2615,15 @@
       "locale_status": {
         "ru": "needs_stage_02_copy",
         "en": "not_translated"
-      }
+      },
+      "display_title": "Комплексное обслуживание бизнес-процессов",
+      "plain_summary": "Организуем работу нескольких подразделений компании в рамках единой модели управления.",
+      "search_aliases": [
+        "Business Operations as a Service",
+        "Комплексное обслуживание бизнес-процессов",
+        "Передача нескольких функций внешней команде"
+      ],
+      "presentation_status": "owner_approved"
     }
   ],
   "legacy_id_map": [
