@@ -30,6 +30,14 @@ policy:
   explicit_only: "USER_REQUEST_ONLY"
   evidence_without_tool_trace: "NOT_VERIFIED"
   owner_approval: "REQUIRED_AT_STAGE_GATE"
+  priority_gate:
+    source: "AGENTS.md"
+    principle: "Сайт должен быть понятен без чтения. Интересен при просмотре. И содержателен при углублении."
+    required_checks:
+      - "understand_without_reading"
+      - "interesting_when_viewing"
+      - "depth_on_demand"
+    failure: "BLOCK_PROPOSAL_AND_REVISE"
   compatibility:
     live_catalogue: "6/17/84"
     legacy_ids: "81 (compatibility only)"
@@ -152,13 +160,44 @@ tasks:
       - "methods/engine-template-adaptation.md"
       - "planning/stage-02/public-service-catalogue.json"
       - "planning/stage-02/services-page-acceptance.md"
+      - "planning/stage-01/IA_PROPOSAL.md"
     deliverable: "Одна редакция /services, карта переходов и самопроверка"
     acceptance_checks:
       - "six_groups_17_directions_84_services"
       - "two_reader_paths"
       - "progressive_disclosure"
       - "no_flat_catalogue"
+      - "no_automatic_detail_pages"
       - "critical_editor_pass"
+      - "owner_publication_gate"
+    stop_conditions:
+      - "missing_required_source"
+      - "unverified_evidence"
+      - "owner_gate_not_satisfied"
+  - id: "content.next-task"
+    stage: "02"
+    description: "Выбор единственной следующей редакционной задачи, включая короткое 'Дальше'; сначала главный принцип, затем актуальная IA и приоритеты владельца"
+    required_skills:
+      - "architektonica-reader-insight"
+      - "architektonica-creative-director"
+      - "architektonica-ui-ux-expert"
+      - "architektonica-critical-editor"
+    conditional_skills: []
+    explicit_only_skills: []
+    required_sources:
+      - "AGENTS.md"
+      - "methods/agent-expert-stage-protocol.md"
+      - "planning/stage-02/WORK_MAP.md"
+      - "planning/stage-01/IA_PROPOSAL.md"
+      - "planning/stage-02/public-service-catalogue.json"
+      - "planning/stage-02/services-page-acceptance.md"
+      - "planning/stage-02/services-page.md"
+    deliverable: "Одна обоснованная следующая задача; при выборе услуг – ясная модель раскрытия и проверка кандидатов, не массовая генерация"
+    acceptance_checks:
+      - "single_next_task"
+      - "progressive_disclosure"
+      - "no_flat_catalogue"
+      - "no_automatic_detail_pages"
       - "owner_publication_gate"
     stop_conditions:
       - "missing_required_source"
@@ -166,16 +205,15 @@ tasks:
       - "owner_gate_not_satisfied"
   - id: "content.service-detail"
     stage: "02"
-    description: "Текст конкретной услуги и внутренняя перелинковка"
+    description: "Содержание конкретной услуги в контексте направления; отдельная страница только при обосновании и утверждении"
     required_skills:
       - "architektonica-reader-insight"
       - "architektonica-search-visibility"
       - "architektonica-critical-editor"
+      - "architektonica-ui-ux-expert"
     conditional_skills:
       - when: "new_concept"
         skill: "architektonica-creative-director"
-      - when: "interaction_design"
-        skill: "architektonica-ui-ux-expert"
     explicit_only_skills: []
     required_sources:
       - "AGENTS.md"
@@ -185,9 +223,14 @@ tasks:
       - "planning/stage-02/WORK_MAP.md"
       - "planning/stage-02/public-service-catalogue.json"
       - "planning/stage-01/IA_PROPOSAL.md"
-    deliverable: "Публикационный текст услуги с ID и проверенными связями"
+      - "planning/stage-02/services-page-acceptance.md"
+      - "planning/stage-02/services-page.md"
+    deliverable: "Публикационный текст услуги с ID, обоснованным форматом размещения и проверенными связями"
     acceptance_checks:
       - "service_id_valid"
+      - "progressive_disclosure"
+      - "no_flat_catalogue"
+      - "no_automatic_detail_pages"
       - "mechanism_concrete"
       - "no_unverified_claims"
       - "critical_editor_pass"

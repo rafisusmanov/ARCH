@@ -23,15 +23,55 @@
     "skills": [
       "architektonica-reader-insight",
       "architektonica-search-visibility",
-      "architektonica-critical-editor"
+      "architektonica-critical-editor",
+      "architektonica-ui-ux-expert"
     ],
     "must_check": [
       "catalogue-6-17-84",
       "stable-id",
       "relations-publication-status",
-      "source-facts"
+      "source-facts",
+      "three-part-site-principle",
+      "progressive-disclosure",
+      "no-automatic-detail-page"
     ],
     "routing_task_id": "content.service-detail"
+  },
+  {
+    "id": "stage02-next-task",
+    "task": "Страница Client OS уже утверждена, следующая задача пока не назначена. Дальше.",
+    "skills": [
+      "architektonica-reader-insight",
+      "architektonica-creative-director",
+      "architektonica-ui-ux-expert",
+      "architektonica-critical-editor"
+    ],
+    "must_check": [
+      "three-part-site-principle-before-proposal",
+      "current-owner-decisions-and-ia",
+      "single-next-task",
+      "no-automatic-84-detail-pages",
+      "progressive-disclosure"
+    ],
+    "routing_task_id": "content.next-task"
+  },
+  {
+    "id": "stage02-84-services",
+    "task": "Разработай контент для 84 услуг. Сначала предложи формат работы, не меняй утверждённую архитектуру.",
+    "skills": [
+      "architektonica-reader-insight",
+      "architektonica-creative-director",
+      "architektonica-ui-ux-expert",
+      "architektonica-critical-editor"
+    ],
+    "must_check": [
+      "three-part-site-principle-before-proposal",
+      "all-public-ids-retained",
+      "direction-first",
+      "no-flat-catalogue",
+      "detail-candidates-not-approved"
+    ],
+    "routing_task_id": "content.next-task"
   },
   {
     "id": "case-uncertain",

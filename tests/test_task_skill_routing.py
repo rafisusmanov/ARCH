@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 from skill_catalog import discover
 from task_skill_router import (
-    STAGES, audit_read_trace, expected_for_task, load_matrix,
+    STAGES, PRIORITY_CHECKS, SITE_PRINCIPLE, audit_read_trace, check_proposal, expected_for_task, load_matrix,
     make_plan, verify_matrix,
 )
 
@@ -63,7 +63,7 @@ class TaskSkillRoutingTests(unittest.TestCase):
         matrix = copy.deepcopy(self.matrix)
         route = next(t for t in matrix["tasks"] if t["id"] == "content.services-overview")
         route["required_skills"].remove("architektonica-critical-editor")
-        self.assertTrue(any("skills differ from required_skills" in e for e in self.check(matrix)))
+        self.assertTrue(any("mandatory service disclosure gate" in e for e in self.check(matrix)))
 
     def test_high_risk_required_roles_cannot_be_removed_together_with_fixture(self):
         # Independent regression invariant: not another view of the fixture itself.
@@ -72,6 +72,8 @@ class TaskSkillRoutingTests(unittest.TestCase):
             "content.services-overview": {
                 "architektonica-critical-editor", "architektonica-ui-ux-expert"
             },
+            "content.next-task": {"architektonica-ui-ux-expert", "architektonica-critical-editor"},
+            "content.service-detail": {"architektonica-ui-ux-expert", "architektonica-critical-editor"},
             "dev.forms-integration": {"architektonica-website-qa", "break-ui"},
             "qa.site": {"architektonica-website-qa", "mobile-native"},
             "release.beget": {"architektonica-website-qa", "architektonica-search-visibility"},
@@ -168,6 +170,94 @@ class TaskSkillRoutingTests(unittest.TestCase):
         matrix = copy.deepcopy(self.matrix)
         del matrix["tasks"][0]["deliverable"]
         self.assertTrue(any("missing" in e for e in self.check(matrix)))
+
+    def test_all_plans_begin_with_priority_gate(self):
+        for task in self.matrix["tasks"]:
+            plan = make_plan(ROOT, self.matrix, task["id"],
+                             user_requested_explicit=task["explicit_only_skills"] if task.get("explicit_trigger_required") else [])
+            self.assertEqual(plan["source_paths_to_read"][:2], ["AGENTS.md", "PROJECT_SYSTEM_PROMPT.md"])
+            self.assertEqual(plan["priority_gate"]["principle"], SITE_PRINCIPLE)
+            self.assertEqual(plan["acceptance_checks"][:3], list(PRIORITY_CHECKS))
+            self.assertIn("site_principle_failed", plan["stop_conditions"])
+
+    def test_disclosure_policy_cannot_be_removed(self):
+        for ident in ("content.next-task", "content.service-detail", "content.services-overview"):
+            matrix = copy.deepcopy(self.matrix)
+            route = next(t for t in matrix["tasks"] if t["id"] == ident)
+            route["acceptance_checks"].remove("no_automatic_detail_pages")
+            self.assertTrue(any("mandatory service disclosure gate" in e for e in self.check(matrix)))
+        matrix = copy.deepcopy(self.matrix)
+        del matrix["policy"]["priority_gate"]
+        self.assertTrue(any("mandatory site-principle gate" in e for e in self.check(matrix)))
+
+    def service_proposal(self):
+        catalogue = json.loads((ROOT / "planning/stage-02/public-service-catalogue.json").read_text(encoding="utf-8"))
+        return {
+            "task_id": "content.next-task",
+            "decision": "Выбрать модель краткого содержания направлений и глубины по запросу",
+            "scope": "services",
+            "principle_checks": {
+                "understand_without_reading": {"verdict": "PASS", "reason": "Визуальные группы и названия направлений"},
+                "interesting_when_viewing": {"verdict": "PASS", "reason": "Различимые карточки направлений и удобный выбор"},
+                "depth_on_demand": {"verdict": "PASS", "reason": "Услуга раскрывается в выбранном направлении"}
+            },
+            "service_plan": {
+                "coverage": "all",
+                "service_ids": [s["id"] for s in catalogue["services"]],
+                "disclosure": "progressive_on_demand",
+                "default_expanded_ids": [],
+                "detail_page_candidates": []
+            }
+        }
+
+    def test_observed_next_task_failure_and_corrected_control(self):
+        # The observed response omitted any justification of the disclosure model.
+        # This record describes that omission, not a claim of authenticated tool logs.
+        observed = {"task_id": "content.next-task", "scope": "services",
+                    "decision": "Детальные страницы услуг: разработать контент всех 17 направлений и 84 услуг"}
+        errors = check_proposal(ROOT, self.matrix, observed)
+        self.assertTrue(any("all three site-principle checks" in e for e in errors))
+        self.assertTrue(any("requires service_plan" in e for e in errors))
+        corrected = self.service_proposal()
+        self.assertEqual(len(corrected["service_plan"]["service_ids"]), 84)
+        self.assertEqual(check_proposal(ROOT, self.matrix, corrected), [])
+        all_pages = copy.deepcopy(corrected)
+        all_pages["service_plan"]["detail_page_candidates"] = [
+            {"id": sid, "reason": "Every catalogue entry receives a page", "status": "proposed_not_approved"}
+            for sid in all_pages["service_plan"]["service_ids"]
+        ]
+        errors = check_proposal(ROOT, self.matrix, all_pages)
+        self.assertEqual(sum("no automatic pages" in e for e in errors), 72)
+
+    def test_preflight_rejects_flat_catalogue_ineligible_pages_and_omissions(self):
+        for field, value, signal in (
+            ("default_expanded_ids", self.service_proposal()["service_plan"]["service_ids"], "flat full-detail"),
+            ("service_ids", ["svc-001"], "exactly the current public catalogue"),
+            ("service_ids", ["svc-007"], "unknown/excluded"),
+            ("disclosure", "all_visible", "progressive on-demand"),
+            ("detail_page_candidates", [{"id": "svc-002", "reason": "Long page", "status": "proposed_not_approved"}], "eligible candidate"),
+            ("detail_page_candidates", [{"id": "svc-001", "reason": "Specific need", "status": "approved"}], "not an owner-approved page"),
+            ("detail_page_candidates", [{"id": "svc-001", "reason": "", "status": "proposed_not_approved"}], "justification required"),
+        ):
+            with self.subTest(field=field, signal=signal):
+                record = self.service_proposal()
+                record["service_plan"][field] = value
+                self.assertTrue(any(signal in e for e in check_proposal(ROOT, self.matrix, record)))
+        record = self.service_proposal()
+        record["service_plan"]["detail_page_candidates"] = [
+            {"id": "svc-001", "reason": "Distinct reader question requiring an explanation", "status": "proposed_not_approved"}
+        ]
+        self.assertEqual(check_proposal(ROOT, self.matrix, record), [])
+        record["principle_checks"]["depth_on_demand"]["verdict"] = "FAIL"
+        self.assertTrue(any("depth_on_demand" in e for e in check_proposal(ROOT, self.matrix, record)))
+
+    def test_service_route_cannot_bypass_scope_gate(self):
+        record = self.service_proposal()
+        record["task_id"] = "content.service-detail"
+        self.assertTrue(any("exactly one" in e for e in check_proposal(ROOT, self.matrix, record)))
+        record["scope"] = "other"
+        del record["service_plan"]
+        self.assertTrue(any("requires service scope" in e for e in check_proposal(ROOT, self.matrix, record)))
 
 
 if __name__ == "__main__":

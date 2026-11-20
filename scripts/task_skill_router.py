@@ -20,6 +20,9 @@ MATRIX = "methods/task-skill-matrix.yaml"
 STAGES = {f"{i:02d}" for i in range(1, 8)}
 TASK_RE = re.compile(r"^[a-z][a-z0-9-]*\.[a-z][a-z0-9-]*$")
 CONDITION_RE = re.compile(r"^[a-z][a-z0-9_]*$")
+SITE_PRINCIPLE = "Сайт должен быть понятен без чтения. Интересен при просмотре. И содержателен при углублении."
+PRIORITY_CHECKS = ("understand_without_reading", "interesting_when_viewing", "depth_on_demand")
+SERVICE_ROUTES = {"content.services-overview", "content.service-detail", "ia.service-taxonomy"}
 FIELDS = {
     "id", "stage", "description", "required_skills", "conditional_skills",
     "explicit_only_skills", "required_sources", "deliverable",
@@ -91,6 +94,14 @@ def verify_matrix(root=ROOT, matrix=None, records=None):
     compat = policy.get("compatibility", {}) if isinstance(policy, dict) else {}
     if not isinstance(compat, dict) or compat.get("live_catalogue") != "6/17/84" or not str(compat.get("legacy_ids", "")).startswith("81"):
         errors.append("policy: current public catalogue/legacy compatibility missing")
+    priority = policy.get("priority_gate", {}) if isinstance(policy, dict) else {}
+    if priority != {"source": "AGENTS.md", "principle": SITE_PRINCIPLE,
+                    "required_checks": list(PRIORITY_CHECKS), "failure": "BLOCK_PROPOSAL_AND_REVISE"}:
+        errors.append("policy: mandatory site-principle gate missing or changed")
+    for source in ("AGENTS.md", "PROJECT_SYSTEM_PROMPT.md"):
+        target = root / source
+        if not target.is_file() or SITE_PRINCIPLE not in "\n".join(target.read_text(encoding="utf-8").splitlines()[:12]):
+            errors.append(f"priority principle must appear at the start of {source}")
     tasks = matrix.get("tasks")
     if not isinstance(tasks, list) or not tasks:
         return matrix, errors + ["tasks: nonempty list required"]
@@ -167,6 +178,18 @@ def verify_matrix(root=ROOT, matrix=None, records=None):
         errors.append(f"tasks do not cover stages {sorted(STAGES - used_stages)}")
     if covered != names:
         errors.append(f"skill coverage mismatch: missing={sorted(names-covered)}, unknown={sorted(covered-names)}")
+    for ident in ("content.next-task", "content.services-overview", "content.service-detail"):
+        route = next((t for t in tasks if isinstance(t, dict) and t.get("id") == ident), {})
+        required = {"architektonica-ui-ux-expert", "architektonica-critical-editor"}
+        criteria = {"progressive_disclosure", "no_flat_catalogue", "no_automatic_detail_pages"}
+        sources = {"planning/stage-01/IA_PROPOSAL.md", "planning/stage-02/public-service-catalogue.json",
+                   "planning/stage-02/services-page-acceptance.md", "planning/stage-02/WORK_MAP.md"}
+        for field, expected in (("required_skills", required), ("acceptance_checks", criteria),
+                                ("required_sources", sources)):
+            if (not isinstance(route.get(field), list)
+                    or any(not isinstance(item, str) for item in route[field])
+                    or not expected.issubset(route[field])):
+                errors.append(f"{ident}: mandatory service disclosure gate missing {field}")
     if not errors and Path(root).resolve() == ROOT.resolve():
         errors.extend(verify_fixture_bindings(root, matrix))
     return matrix, list(dict.fromkeys(errors))
@@ -248,14 +271,87 @@ def make_plan(root, matrix, task_id, conditions=(), user_requested_explicit=()):
         "stage": task["stage"],
         "conditions": list(conditions),
         "explicit_user_request": list(user_requested_explicit),
+        "priority_gate": matrix["policy"]["priority_gate"],
+        "source_paths_to_read": list(dict.fromkeys(["AGENTS.md", "PROJECT_SYSTEM_PROMPT.md"] + task["required_sources"])),
         "skill_paths_to_read": skill_paths,
-        "source_paths_to_read": task["required_sources"],
         "deliverable": task["deliverable"],
-        "acceptance_checks": task["acceptance_checks"],
-        "stop_conditions": task["stop_conditions"],
+        "acceptance_checks": list(dict.fromkeys(list(PRIORITY_CHECKS) + task["acceptance_checks"])),
+        "stop_conditions": ["site_principle_failed"] + task["stop_conditions"],
         "approval": "NOT APPROVED until owner explicitly accepts this deliverable",
         "trace_authentication": "Tool-call records must be independently supplied; self-report does not prove reads.",
     }
+
+
+def check_proposal(root, matrix, proposal):
+    """Fail closed on missing/contradictory decision metadata; NOT a semantic model evaluator."""
+    if not isinstance(proposal, dict):
+        return ["proposal must be an object"]
+    task = proposal.get("task_id")
+    if not task_by_id(matrix, task):
+        return ["unlisted proposal task"]
+    errors = []
+    if not isinstance(proposal.get("decision"), str) or not proposal["decision"].strip():
+        errors.append("decision is required")
+    checks = proposal.get("principle_checks")
+    if not isinstance(checks, dict) or set(checks) != set(PRIORITY_CHECKS):
+        errors.append("all three site-principle checks are required")
+    else:
+        for key in PRIORITY_CHECKS:
+            check = checks[key]
+            if (not isinstance(check, dict) or check.get("verdict") != "PASS"
+                    or not isinstance(check.get("reason"), str) or not check["reason"].strip()):
+                errors.append(f"{key}: explicit PASS and concrete reason required; revise proposal")
+    scope = proposal.get("scope")
+    if scope not in ("services", "other"):
+        errors.append("scope must be services or other")
+    if task in SERVICE_ROUTES and scope != "services":
+        errors.append("service route requires service scope")
+    if scope != "services":
+        if "service_plan" in proposal:
+            errors.append("service plan must use services scope")
+        return errors
+    plan = proposal.get("service_plan")
+    if not isinstance(plan, dict):
+        return errors + ["service scope requires service_plan"]
+    catalogue = json.loads((Path(root) / "planning/stage-02/public-service-catalogue.json").read_text(encoding="utf-8"))
+    public = {s["id"] for s in catalogue["services"]}
+    candidates = {s["id"] for s in catalogue["services"] if s["detail_page_candidate"]}
+    ids = _unique_strings(plan.get("service_ids"), "service_ids", errors)
+    selected = set(ids)
+    if selected - public:
+        errors.append("unknown/excluded public service ID")
+    if plan.get("coverage") not in ("all", "selected"):
+        errors.append("service coverage must be all or selected")
+    elif plan["coverage"] == "all" and selected != public:
+        errors.append("all coverage must include exactly the current public catalogue")
+    if task == "content.services-overview" and plan.get("coverage") != "all":
+        errors.append("overview requires full coverage")
+    if task == "content.service-detail" and (plan.get("coverage") != "selected" or len(selected) != 1):
+        errors.append("service-detail requires exactly one selected service")
+    if plan.get("disclosure") != "progressive_on_demand":
+        errors.append("services must use progressive on-demand disclosure")
+    expanded = _unique_strings(plan.get("default_expanded_ids"), "default_expanded_ids", errors, False)
+    if set(expanded) - selected:
+        errors.append("expanded services outside selected scope")
+    if len(selected) > 1 and set(expanded) == selected:
+        errors.append("flat full-detail catalogue is forbidden")
+    pages = plan.get("detail_page_candidates")
+    if not isinstance(pages, list):
+        return errors + ["detail_page_candidates must be an explicit list (may be empty)"]
+    seen = set()
+    for page in pages:
+        if not isinstance(page, dict) or not isinstance(page.get("id"), str):
+            errors.append("invalid detail-page candidate")
+            continue
+        sid = page["id"]
+        if sid in seen or sid not in selected or sid not in candidates:
+            errors.append(f"{sid}: separate detail requires an existing eligible candidate; no automatic pages")
+        seen.add(sid)
+        if not isinstance(page.get("reason"), str) or not page["reason"].strip():
+            errors.append(f"{sid}: independent reader need and content justification required")
+        if page.get("status") != "proposed_not_approved":
+            errors.append(f"{sid}: candidate is not an owner-approved page")
+    return errors
 
 
 def audit_read_trace(root, matrix, trace):
@@ -311,11 +407,12 @@ def audit_read_trace(root, matrix, trace):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=("validate", "plan", "audit"))
+    parser.add_argument("command", choices=("validate", "plan", "audit", "preflight"))
     parser.add_argument("--task", help="Exact registered task id")
     parser.add_argument("--condition", action="append", default=[], help="Active condition; repeatable")
     parser.add_argument("--explicit", action="append", default=[], help="User explicitly invoked skill; repeatable")
     parser.add_argument("--trace", type=Path, help="JSON tool-read trace for audit")
+    parser.add_argument("--proposal", type=Path, help="JSON decision record for preflight")
     args = parser.parse_args(argv)
     matrix, errors = verify_matrix()
     if errors:
@@ -326,6 +423,14 @@ def main(argv=None):
                           "stages": 7, "catalogue": "dynamic"}, ensure_ascii=False))
         return 0
     try:
+        if args.command == "preflight":
+            if args.proposal is None:
+                raise ValueError("preflight requires --proposal")
+            proposal = json.loads(args.proposal.read_text(encoding="utf-8"))
+            err = check_proposal(ROOT, matrix, proposal)
+            print(json.dumps({"status": "FAIL" if err else "PROPOSAL_STRUCTURE_PASS",
+                              "errors": err, "note": "Structure only; reasons and actual UX require critical review, not self-certified PASS."}, ensure_ascii=False, indent=2))
+            return bool(err)
         if args.command == "plan":
             result = make_plan(ROOT, matrix, args.task, args.condition, args.explicit)
             print(json.dumps(result, ensure_ascii=False, indent=2))
