@@ -155,7 +155,7 @@ class Stage02FullPageContractTest(unittest.TestCase):
         urls = read("planning/stage-01/JOURNEYS_AND_URLS.md")
         seo = read("planning/stage-01/SEO_NAMING_POLICY.md")
         self.assertEqual(work.count("**active_task:**"), 1)
-        self.assertIn("**active_task:** `ARCH-STAGE02-SALES-AND-CX`", work)
+        self.assertIn("**active_task:** `ARCH-STAGE02-DATA-FINANCE-OPERATIONS`", work)
         self.assertNotIn("ARCH-CLEANUP-2026-11-10", work)
         self.assertIn("Единственная активная задача", work)
         self.assertIn("overview_copy_owner_approved_detail_copy_not_approved", json.loads(read(
@@ -239,6 +239,37 @@ class Stage02FullPageContractTest(unittest.TestCase):
                         "Воронка продаж", "Коммерческая система в цифрах", "ПРИМЕР ОБРАБОТКИ ОБРАЩЕНИЯ",
                         "Зульфия Усманова", "19+"):
             self.assertIn(section, page)
+
+    def test_data_finance_operations_approved_page_covers_catalogue(self):
+        page = read("planning/stage-02/data-finance-operations-page.md")
+        public = json.loads(read("planning/stage-02/public-service-catalogue.json"))
+        services = [s for s in public["services"] if s["group_id"] == "data-finance-operations"]
+        self.assertEqual(15, len(services))
+        self.assertIn("`owner_approved` 20.11.2026", page)
+        for service in services:
+            title = service["display_title"]
+            self.assertIn(f"{title}\n\n{service['plain_summary']}\n\n", page)
+            self.assertIn(f"| {service['direction_id']} | {service['id']} | {title} |", page)
+        for section in ("Четыре вопроса руководителя", "Три отчёта, три разных взгляда на компанию",
+                        "Упрощённый пример на условных данных", "АРХИТЕКТУРА БИЗНЕС-АНАЛИТИКИ",
+                        "История и возможные сценарии", "Люция Жукова", "25 лет"):
+            self.assertIn(section, page)
+
+    def test_all_six_approved_pages_cover_all_84_services_once(self):
+        public = json.loads(read("planning/stage-02/public-service-catalogue.json"))
+        observed = []
+        for group in public["groups"]:
+            page = read(f"planning/stage-02/{group['id']}-page.md")
+            self.assertIn("`owner_approved` 20.11.2026", page)
+            for service in public["services"]:
+                if service["group_id"] != group["id"]:
+                    continue
+                row = f"| {service['direction_id']} | {service['id']} | {service['display_title']} |"
+                self.assertEqual(page.count(row), 1, service["id"])
+                observed.append(service["id"])
+        self.assertEqual(84, len(observed))
+        self.assertEqual(84, len(set(observed)))
+        self.assertEqual({s["id"] for s in public["services"]}, set(observed))
 
     def test_client_os_owner_approved_revision_04_is_preserved(self):
         page = read("planning/stage-02/client-workspace-page.md")
