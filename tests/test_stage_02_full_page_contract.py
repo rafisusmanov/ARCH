@@ -155,7 +155,7 @@ class Stage02FullPageContractTest(unittest.TestCase):
         urls = read("planning/stage-01/JOURNEYS_AND_URLS.md")
         seo = read("planning/stage-01/SEO_NAMING_POLICY.md")
         self.assertEqual(work.count("**active_task:**"), 1)
-        self.assertIn("**active_task:** `ARCH-STAGE02-IMMERSIVE-MEDIA`", work)
+        self.assertIn("**active_task:** `ARCH-STAGE02-CASE-ARCTIC-VENICE`", work)
         self.assertNotIn("ARCH-CLEANUP-2026-11-10", work)
         self.assertIn("Единственная активная задача", work)
         self.assertIn("overview_copy_owner_approved_detail_copy_not_approved", json.loads(read(
@@ -177,6 +177,70 @@ class Stage02FullPageContractTest(unittest.TestCase):
             "planning/stage-02/service-taxonomy-review.md",
         ):
             self.assertFalse((ROOT / rel).exists(), rel)
+
+    def test_projects_overview_approved_cases_separate(self):
+        page = read("planning/stage-02/projects-page.md")
+        public, appendix = page.split("## Композиция и реализация страницы", 1)
+        work = read("planning/stage-02/WORK_MAP.md")
+        self.assertIn("`owner_approved` 20.11.2026", public)
+        self.assertIn("остальные кейсы и реализация `not_started`", work)
+        self.assertIn("остальные кейсы `/projects/<case-slug>` не утверждены", public)
+        self.assertIn("cases/arctic-venice.md", public)
+        rows = [line.split("|")[1:-1] for line in public.splitlines()
+                if line.startswith("| ")][1:]
+        self.assertEqual(21, len(rows))
+        self.assertEqual(21, len({row[0].strip() for row in rows}))
+        self.assertEqual(16, sum(row[3].strip() == "Реализованный проект" for row in rows))
+        self.assertEqual(3, sum(row[3].strip() == "Архитектура решения" for row in rows))
+        self.assertEqual(1, sum(row[3].strip() == "Работающая система" for row in rows))
+        self.assertEqual(1, sum(row[3].strip() == "Прототип" for row in rows))
+        self.assertEqual("", next(row[1].strip() for row in rows if row[0].strip() == "p9.moscow"))
+        self.assertEqual("Работающая система", next(row[3].strip() for row in rows if row[0].strip() == "Synapto"))
+        for i in range(1, 17):
+            self.assertIn(f"| W4.{i:02d} |", appendix)
+        for source in ("W1-A1", "W1-A2", "W1-P", "W2", "S7 (Fact Bank)"):
+            self.assertIn(f"| {source} |", appendix)
+        for demo in ("NovaDesk", "Veon", "Kansas Digital", "Sofixon", "Meetlife", "Hard Rock"):
+            self.assertNotIn(demo, public)
+        self.assertIn("Нет работ с выбранным сочетанием фильтров.", public)
+        self.assertIn("Технологии · Дизайн · Бизнес", public)
+        self.assertIn("не экран системы Synapto", public)
+        self.assertIn("Не размещать неработающие ссылки", appendix)
+
+    def test_project_gallery_and_personal_pdf_requirement(self):
+        page = read("planning/stage-02/projects-page.md")
+        public, appendix = page.split("## Композиция и реализация страницы", 1)
+        work = read("planning/stage-02/WORK_MAP.md")
+        self.assertIn("ARCHITEKTONICA / PORTFOLIO", public)
+        self.assertIn("**Отрасль**", public)
+        self.assertIn("**Моя подборка**", public)
+        self.assertNotIn("## Избранные проекты", public)
+        self.assertNotIn("## Проекты в деталях", public)
+        self.assertIn("каждый проект показывается ровно один раз", appendix)
+        self.assertIn("посетитель выбирает нужные кейсы и формирует персональную презентацию в PDF", appendix)
+        self.assertIn("ровно выбранные доступные для публикации кейсы без дублей", appendix)
+        self.assertIn("пустая подборка не формирует пустой документ", appendix)
+        self.assertIn("**Статус реализации:** `not_started`", appendix)
+        self.assertIn("Stage 05 – реализация", appendix)
+        self.assertIn("Не менять WEB или Laravel", appendix)
+        self.assertIn("Функциональное требование утверждено, реализация `not_started`", work)
+
+    def test_arctic_venice_approved_case_and_author_credit(self):
+        page = read("planning/stage-02/cases/arctic-venice.md")
+        public, appendix = page.split("## Композиция и реализация страницы", 1)
+        facts = read("references/project/02_Architektonica_Fact_Bank.md")
+        self.assertIn("`owner_approved` 20.11.2026", public)
+        self.assertIn("**Код:** W4.11", public)
+        self.assertIn("Это мы есть . Это наша команда. Так что утверждаю", facts)
+        self.assertIn("SETTERS и REBOOT", facts)
+        for section in ("Первый экран", "О проекте", "Платформа как город", "Три мира одного города", "От наблюдения к исследованию", "Визуальная идентичность", "За пределами виртуального путешествия", "Что получилось", "Завершение страницы"):
+            self.assertIn(section, public)
+        for element in ("Концепция", "Сюжет", "Фирменный стиль спецпроекта", "Интерактивный сайт", "Добавить в подборку", "Технологии · Дизайн · Бизнес"):
+            self.assertIn(element, public)
+        self.assertIn("**PDF:**", appendix)
+        self.assertIn("демонстрация принципа, не оригинальный экран", appendix)
+        self.assertIn("**Статус реализации:** `not_started`", appendix)
+        self.assertNotIn("\u2014", public)
 
     def test_brand_and_communications_approved_page_covers_catalogue(self):
         page = read("planning/stage-02/brand-and-communications-page.md")
@@ -209,6 +273,67 @@ class Stage02FullPageContractTest(unittest.TestCase):
                         "Из чего складывается цифровой кадр", "A Life Extraordinary",
                         "У пространства есть свой звук"):
             self.assertIn(section, page)
+
+    def test_ai_and_infrastructure_approved_page_covers_catalogue(self):
+        page = read("planning/stage-02/ai-and-infrastructure-page.md")
+        public = json.loads(read("planning/stage-02/public-service-catalogue.json"))
+        services = [s for s in public["services"] if s["group_id"] == "ai-and-infrastructure"]
+        self.assertEqual(18, len(services))
+        self.assertIn("`owner_approved` 20.11.2026", page)
+        for service in services:
+            title = service["display_title"]
+            self.assertIn(f"{title}\n\n{service['plain_summary']}\n\n", page)
+            self.assertIn(f"| {service['direction_id']} | {service['id']} | {title} |", page)
+        for section in ("Контур цифровой инфраструктуры", "От гипотезы к работающему решению",
+                        "Как проверяется искусственный интеллект до внедрения", "5–6 месяцев",
+                        "Работающая система", "Архитектура решения"):
+            self.assertIn(section, page)
+
+    def test_sales_and_cx_approved_page_covers_catalogue(self):
+        page = read("planning/stage-02/sales-and-cx-page.md")
+        public = json.loads(read("planning/stage-02/public-service-catalogue.json"))
+        services = [s for s in public["services"] if s["group_id"] == "sales-and-cx"]
+        self.assertEqual(7, len(services))
+        self.assertIn("`owner_approved` 20.11.2026", page)
+        for service in services:
+            title = service["display_title"]
+            self.assertIn(f"{title}\n\n{service['plain_summary']}\n\n", page)
+            self.assertIn(f"| {service['direction_id']} | {service['id']} | {title} |", page)
+        for section in ("Управляем всем путём клиента", "ДЕМОНСТРАЦИЯ КЛИЕНТСКОГО СЦЕНАРИЯ",
+                        "Воронка продаж", "Коммерческая система в цифрах", "ПРИМЕР ОБРАБОТКИ ОБРАЩЕНИЯ",
+                        "Зульфия Усманова", "19+"):
+            self.assertIn(section, page)
+
+    def test_data_finance_operations_approved_page_covers_catalogue(self):
+        page = read("planning/stage-02/data-finance-operations-page.md")
+        public = json.loads(read("planning/stage-02/public-service-catalogue.json"))
+        services = [s for s in public["services"] if s["group_id"] == "data-finance-operations"]
+        self.assertEqual(15, len(services))
+        self.assertIn("`owner_approved` 20.11.2026", page)
+        for service in services:
+            title = service["display_title"]
+            self.assertIn(f"{title}\n\n{service['plain_summary']}\n\n", page)
+            self.assertIn(f"| {service['direction_id']} | {service['id']} | {title} |", page)
+        for section in ("Четыре вопроса руководителя", "Три отчёта, три разных взгляда на компанию",
+                        "Упрощённый пример на условных данных", "АРХИТЕКТУРА БИЗНЕС-АНАЛИТИКИ",
+                        "История и возможные сценарии", "Люция Жукова", "25 лет"):
+            self.assertIn(section, page)
+
+    def test_all_six_approved_pages_cover_all_84_services_once(self):
+        public = json.loads(read("planning/stage-02/public-service-catalogue.json"))
+        observed = []
+        for group in public["groups"]:
+            page = read(f"planning/stage-02/{group['id']}-page.md")
+            self.assertIn("`owner_approved` 20.11.2026", page)
+            for service in public["services"]:
+                if service["group_id"] != group["id"]:
+                    continue
+                row = f"| {service['direction_id']} | {service['id']} | {service['display_title']} |"
+                self.assertEqual(page.count(row), 1, service["id"])
+                observed.append(service["id"])
+        self.assertEqual(84, len(observed))
+        self.assertEqual(84, len(set(observed)))
+        self.assertEqual({s["id"] for s in public["services"]}, set(observed))
 
     def test_client_os_owner_approved_revision_04_is_preserved(self):
         page = read("planning/stage-02/client-workspace-page.md")
