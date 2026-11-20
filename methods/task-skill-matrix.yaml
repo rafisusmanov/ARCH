@@ -37,6 +37,7 @@ policy:
       - "understand_without_reading"
       - "interesting_when_viewing"
       - "depth_on_demand"
+      - "client_language_clarity"
     failure: "BLOCK_PROPOSAL_AND_REVISE"
   compatibility:
     live_catalogue: "6/17/84"
