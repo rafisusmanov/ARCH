@@ -183,7 +183,7 @@ class Stage02FullPageContractTest(unittest.TestCase):
         public, appendix = page.split("## Композиция и реализация страницы", 1)
         work = read("planning/stage-02/WORK_MAP.md")
         self.assertIn("`owner_approved` 20.11.2026", public)
-        self.assertIn("кейсы `not_started`", work)
+        self.assertIn("кейсы и реализация `not_started`", work)
         self.assertIn("Индивидуальные кейсы `/projects/<case-slug>` не утверждены", public)
         rows = [line.split("|")[1:-1] for line in public.splitlines()
                 if line.startswith("| ")][1:]
@@ -205,6 +205,24 @@ class Stage02FullPageContractTest(unittest.TestCase):
         self.assertIn("Технологии · Дизайн · Бизнес", public)
         self.assertIn("не экран системы Synapto", public)
         self.assertIn("Не размещать неработающие ссылки", appendix)
+
+    def test_project_gallery_and_personal_pdf_requirement(self):
+        page = read("planning/stage-02/projects-page.md")
+        public, appendix = page.split("## Композиция и реализация страницы", 1)
+        work = read("planning/stage-02/WORK_MAP.md")
+        self.assertIn("ARCHITEKTONICA / PORTFOLIO", public)
+        self.assertIn("**Отрасль**", public)
+        self.assertIn("**Моя подборка**", public)
+        self.assertNotIn("## Избранные проекты", public)
+        self.assertNotIn("## Проекты в деталях", public)
+        self.assertIn("каждый проект показывается ровно один раз", appendix)
+        self.assertIn("посетитель выбирает нужные кейсы и формирует персональную презентацию в PDF", appendix)
+        self.assertIn("ровно выбранные доступные для публикации кейсы без дублей", appendix)
+        self.assertIn("пустая подборка не формирует пустой документ", appendix)
+        self.assertIn("**Статус реализации:** `not_started`", appendix)
+        self.assertIn("Stage 05 – реализация", appendix)
+        self.assertIn("Не менять WEB или Laravel", appendix)
+        self.assertIn("Функциональное требование утверждено, реализация `not_started`", work)
 
     def test_brand_and_communications_approved_page_covers_catalogue(self):
         page = read("planning/stage-02/brand-and-communications-page.md")
